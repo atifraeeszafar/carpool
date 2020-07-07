@@ -32,6 +32,20 @@ return [
            'car_models_added_succesfully'=>'Car Make Added Successfully',
            'car_models_updated_succesfully'=>'Car Make Updated Successfully',
            'car_models_deleted_succesfully'=>'Car Make Deleted Successfully',
+           'types_added_succesfully' => 'Types added succesfully',   
+           'types_updated_succesfully' => 'Types updated succesfully',
+           'types_deleted_succesfully' => 'Types deleted succesfully',  
+           
 
+           'faq_added_succesfully' => 'Faq added succesfully',   
+           'faq_updated_succesfully' => 'Faq updated succesfully',
+           'faq_deleted_succesfully' => 'Faq deleted succesfully',  
+           'faq_status_changed_succesfully' => 'Faq status changed succesfully',   
+           
+           
+           'cancellation_added_succesfully' => 'Cancellation added succesfully',   
+           'cancellation_updated_succesfully' => 'Cancellation updated succesfully',
+           'cancellation_deleted_succesfully' => 'Cancellation deleted succesfully',  
+           'cancellation_status_changed_succesfully' => 'Cancellation status changed succesfully',  
 
 ];

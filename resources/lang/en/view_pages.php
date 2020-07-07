@@ -199,6 +199,30 @@ return [
     'enter_car_make'=>'Enter Car make',
     'car_model'=>'Car Model',
     'add_car_models'=>'Add Car Model',
-    'enter_car_model'=>'Enter Car Model'
+    'enter_car_model'=>'Enter Car Model',
+    'add_faq' => 'Add Faq',
+    'question' => 'Question',
+    'answer' => 'Answer',
+    'enter_question' => 'Enter question',
 
+    'this_textarea_has_a_limit_of_225_chars' => 'This textarea has a limit of 225 chars.' ,
+    'add_cancellation' => 'Add Cancellation',
+    'cancellation_reason' => 'Cancellation Reason',
+    'paying_status' => 'Paying status',
+    'type'=>'Type',
+    'arrive_status' => 'Arrive status',
+
+    'enter_reason' => 'Enter Reason',
+    'reason' => 'Reason',
+    'arrive_status' => 'Arrive status',
+    'before_arrive' => 'Before arrive',
+    'after_arrive' => 'After arrived',
+
+    'user' => 'User',
+    'driver' => 'Driver',
+
+    'free' => 'Free',
+    'compensate' => 'Compensate',
+
+    'add_complaints' => 'Add Complaints',
 ];

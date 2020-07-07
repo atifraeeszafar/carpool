@@ -204,6 +204,8 @@ class AdminController extends BaseController
         $message = trans('succes_messages.admin_updated_succesfully');
         return redirect('admins')->with('success', $message);
     }
+
+    
     public function toggleStatus(User $user)
     {
         $status = $user->isActive() ? false: true;

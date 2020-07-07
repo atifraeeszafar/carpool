@@ -57,5 +57,16 @@ return [
     // Car makes
     'carmakes'=>'Car Makes',
     'carmodels'=>'Car Models',
+    'types' => 'Types',
+    'add_types' => 'Add Types',
+
+    'faq' => 'FAQ',
+    'add_faq' => 'Add FAQ',
+
+
+    'cancellation' => 'Cancellation',
+    'add_cancellation' => 'Add Cancellation',
+
+    'complaints' => 'complaints',
 
 ];

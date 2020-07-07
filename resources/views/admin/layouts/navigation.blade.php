@@ -56,10 +56,49 @@
 @if(auth()->user()->can('view-system-settings'))
 <li class="{{ 'translations' == $sub_menu ? 'mm-active' : '' }}"><a href="{{url('/translations')}}">@lang('pages_names.translations')</a></li>
 @endif
+
 </ul>
 </li>
 @endif
+
+<li class="{{'types' == $main_menu ? 'mm-active' : '' }}">
+  <a href="{{url('/types')}}" class="waves-effect">
+      <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+      <span>Types</span>
+  </a>
+</li>
+
+<li class="{{'sos' == $main_menu ? 'mm-active' : '' }}">
+  <a href="{{url('/sos')}}" class="waves-effect">
+      <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+      <span>SOS</span>
+  </a>
+</li>
+
+<li class="{{'faq' == $main_menu ? 'mm-active' : '' }}">
+  <a href="{{url('/faq')}}" class="waves-effect">
+      <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+      <span>FAQ</span>
+  </a>
+</li>
+
+<li class="{{'cancellation' == $main_menu ? 'mm-active' : '' }}">
+  <a href="{{url('/cancellation')}}" class="waves-effect">
+      <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+      <span>Cancellation</span>
+  </a>
+</li>
+
+<li class="{{'complaints' == $main_menu ? 'mm-active' : '' }}">
+  <a href="{{url('/complaints')}}" class="waves-effect">
+      <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+      <span>Complaints</span>
+  </a>
+</li>
+
+
 </ul>
+
 
 </div>
 <!-- Sidebar -->

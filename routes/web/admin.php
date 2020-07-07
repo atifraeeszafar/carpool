@@ -34,6 +34,8 @@ Route::namespace('Admin')->group(function () {
 });
 
 
+
+
 Route::middleware('auth:web')->group(function () {
     Route::namespace('Admin')->group(function () {
         Route::get('dashboard', 'AdminViewController@dashboard')->middleware('permission:access-dashboard');
@@ -50,6 +52,68 @@ Route::middleware('auth:web')->group(function () {
             Route::get('profile/{user}', 'AdminController@viewProfile');
             Route::post('profile/update/{user}', 'AdminController@updateProfile');
         });
+
+        Route::group(['middleware' => 'permission:admin'], function () {
+            Route::get('types', 'TypesController@index');
+            Route::get('types/fetch', 'TypesController@fetch');
+            Route::get('types/create', 'TypesController@create');
+            Route::post('types/store', 'TypesController@store');
+            Route::get('types/edit/{id}', 'TypesController@getById');
+            Route::post('types/update/{role}', 'TypesController@update');
+            Route::get('types/delete/{id}', 'TypesController@delete');
+
+        });
+
+        Route::group(['middleware' => 'permission:admin'], function () {
+            Route::get('sos', 'SosController@index');
+            Route::get('sos/fetch', 'SosController@fetch');
+            Route::get('sos/create', 'SosController@create');
+            Route::post('sos/store', 'SosController@store');
+            Route::get('sos/edit/{id}', 'SosController@getById');
+            Route::post('sos/update/{role}', 'SosController@update');
+            Route::get('sos/delete/{id}', 'SosController@delete');
+
+        });
+
+        Route::group(['middleware' => 'permission:admin'], function () {
+            Route::get('faq', 'FaqController@index');
+            Route::get('faq/fetch', 'FaqController@fetch');
+            Route::get('faq/create', 'FaqController@create');
+            Route::post('faq/store', 'FaqController@store');
+            Route::get('faq/edit/{id}', 'FaqController@getById');
+            Route::post('faq/update/{role}', 'FaqController@update');
+            Route::get('faq/delete/{id}', 'FaqController@delete');
+            Route::get('faq/edit/{id}', 'FaqController@getById');
+            Route::get('faq/status/{id}', 'FaqController@status');
+
+        });
+
+        Route::group(['middleware' => 'permission:admin'], function () {
+            Route::get('cancellation', 'CancellationController@index');
+            Route::get('cancellation/fetch', 'CancellationController@fetch');
+            Route::get('cancellation/create', 'CancellationController@create');
+            Route::post('cancellation/store', 'CancellationController@store');
+            Route::get('cancellation/edit/{id}', 'CancellationController@getById');
+            Route::post('cancellation/update/{role}', 'CancellationController@update');
+            Route::get('cancellation/delete/{id}', 'CancellationController@delete');
+            Route::get('cancellation/edit/{id}', 'CancellationController@getById');
+            Route::get('cancellation/status/{id}', 'CancellationController@status');
+
+        });
+
+        Route::group(['middleware' => 'permission:admin'], function () {
+            Route::get('complaints', 'ComplaintsController@index');
+            Route::get('complaints/fetch', 'ComplaintsController@fetch');
+            Route::get('complaints/create', 'ComplaintsController@create');
+            Route::post('complaints/store', 'ComplaintsController@store');
+            Route::get('complaints/edit/{id}', 'ComplaintsController@getById');
+            Route::post('complaints/update/{role}', 'ComplaintsController@update');
+            Route::get('complaints/delete/{id}', 'ComplaintsController@delete');
+            Route::get('complaints/edit/{id}', 'ComplaintsController@getById');
+            Route::get('complaints/status/{id}', 'ComplaintsController@status');
+
+        });
+
     });
 
     Route::namespace('Master')->group(function () {
