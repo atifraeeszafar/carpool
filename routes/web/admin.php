@@ -104,13 +104,39 @@ Route::middleware('auth:web')->group(function () {
         Route::group(['middleware' => 'permission:admin'], function () {
             Route::get('complaints', 'ComplaintsController@index');
             Route::get('complaints/fetch', 'ComplaintsController@fetch');
-            Route::get('complaints/create', 'ComplaintsController@create');
-            Route::post('complaints/store', 'ComplaintsController@store');
-            Route::get('complaints/edit/{id}', 'ComplaintsController@getById');
-            Route::post('complaints/update/{role}', 'ComplaintsController@update');
             Route::get('complaints/delete/{id}', 'ComplaintsController@delete');
-            Route::get('complaints/edit/{id}', 'ComplaintsController@getById');
             Route::get('complaints/status/{id}', 'ComplaintsController@status');
+
+        });
+
+        Route::group(['middleware' => 'permission:admin'], function () {
+            Route::get('notification', 'NotificationController@index');
+            Route::get('notification/fetch', 'NotificationController@fetch');
+            Route::get('notification/delete/{id}', 'NotificationController@delete');
+            Route::get('notification/create', 'NotificationController@create');
+            Route::post('notification/store', 'NotificationController@store');
+
+        });
+
+        Route::group(['middleware' => 'permission:admin'], function () {
+            Route::get('promocode', 'NotificationController@index');
+            Route::get('promocode/fetch', 'NotificationController@fetch');
+            Route::get('promocode/delete/{id}', 'NotificationController@delete');
+            Route::get('promocode/create', 'NotificationController@create');
+            Route::post('promocode/store', 'NotificationController@store');
+
+        });
+
+        Route::group(['middleware' => 'permission:admin'], function () {
+            Route::get('promocode', 'PromoCodeController@index');
+            Route::get('promocode/fetch', 'PromoCodeController@fetch');
+            Route::get('promocode/create', 'PromoCodeController@create');
+            Route::post('promocode/store', 'PromoCodeController@store');
+            Route::get('promocode/edit/{id}', 'PromoCodeController@getById');
+            Route::post('promocode/update/{role}', 'PromoCodeController@update');
+            Route::get('promocode/delete/{id}', 'PromoCodeController@delete');
+            Route::get('promocode/edit/{id}', 'PromoCodeController@getById');
+            Route::get('promocode/status/{id}', 'PromoCodeController@status');
 
         });
 

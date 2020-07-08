@@ -46,6 +46,17 @@ return [
            'cancellation_added_succesfully' => 'Cancellation added succesfully',   
            'cancellation_updated_succesfully' => 'Cancellation updated succesfully',
            'cancellation_deleted_succesfully' => 'Cancellation deleted succesfully',  
-           'cancellation_status_changed_succesfully' => 'Cancellation status changed succesfully',  
+           'cancellation_status_changed_succesfully' => 'Cancellation status changed succesfully',
+           
+           'complaints_status_changed_succesfully' => 'Complaints status changed succesfully',
+           'complaints_deleted_succesfully' => 'Complaints deleted succesfully',
+
+           'notification_sended_succesfully' => 'Notification sended succesfully',
+           'notification_deleted_succesfully' => 'Notification deleted succesfully',
+
+           'promocode_status_changed_succesfully' => 'Promocode status changed succesfully',
+           'promocode_deleted_succesfully' => 'Promocode deleted succesfully',
+           'promocode_updated_succesfully' => 'Promocode updated succesfully',
+           'promocode_added_succesfully' => 'Promocode added succesfully',
 
 ];

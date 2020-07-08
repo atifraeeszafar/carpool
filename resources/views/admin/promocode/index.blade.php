@@ -11,7 +11,7 @@
 <div class="container-fluid">
 <div class="row align-items-center">
 <div class="col-md-8">
-<h4 class="page-title mb-1">Complaints</h4>
+<h4 class="page-title mb-1">Promocode</h4>
 <ol class="breadcrumb m-0">
 <li class="breadcrumb-item active">List</li>
 </ol>
@@ -28,8 +28,8 @@
 <div class="col-12">
 <div class="card">
 <div class="card-body">
-<h4 class="header-title">{{trans('pages_names.complaints')}}</h4>
-<p class="card-title-desc">Complaints of the system to be listed.</p>
+<h4 class="header-title">{{trans('pages_names.promocode')}}</h4>
+<p class="card-title-desc">Promocode of the system to be listed.</p>
     <div class="box-header with-border">
         <div class="row text-right">
 
@@ -45,10 +45,16 @@
                 </button>
             </div>
 
+            <div class="col-9 text-right">
+                <a href="{{url('promocode/create')}}" class="btn btn-primary btn-sm">
+                    <i class="mdi mdi-plus-circle mr-2"></i>@lang('view_pages.add_promocode')</a>
+               <!--  <a class="btn btn-danger">
+                    Export</a> -->
+            </div>
         </div>
         </div>
 <div id="js-admin-partial-target">
-    <include-fragment src="complaints/fetch">
+    <include-fragment src="promocode/fetch">
         <span style="text-align: center;font-weight: bold;"> Loading...</span>
     </include-fragment>
 </div>
@@ -86,7 +92,7 @@ $('#search').on('click', function(e){
     e.preventDefault();
         var search_keyword = $('#search_keyword').val();
         console.log(search_keyword);
-        fetch('complaints/fetch?search='+search_keyword)
+        fetch('promocode/fetch?search='+search_keyword)
         .then(response => response.text())
         .then(html=>{
             document.querySelector('#js-admin-partial-target').innerHTML = html

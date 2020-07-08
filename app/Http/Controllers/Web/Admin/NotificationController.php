@@ -26,7 +26,7 @@ use Illuminate\Http\Request;
  *
  * vechicle types Apis
  */
-class ComplaintsController extends BaseController
+class NotificationController extends BaseController
 {
     /**
      * The Driver model instance.
@@ -68,12 +68,12 @@ class ComplaintsController extends BaseController
     */
     public function index()
     {
-        $page = trans('pages_names.complaints');
+        $page = trans('pages_names.notification');
 
-        $main_menu = 'complaints';
+        $main_menu = 'notification';
         $sub_menu = null;
 
-        return view('admin.complaints.index', compact('page', 'main_menu', 'sub_menu'));
+        return view('admin.notification.index', compact('page', 'main_menu', 'sub_menu'));
     }
 
 
@@ -92,7 +92,7 @@ class ComplaintsController extends BaseController
 
         $results = array();
 
-        return view('admin.complaints._complaints', compact('results'));
+        return view('admin.notification._notification', compact('results'));
     }
 
 
@@ -100,18 +100,34 @@ class ComplaintsController extends BaseController
     {
         // $user->delete();
 
-        $message = trans('succes_messages.complaints_deleted_succesfully');
-        return redirect('complaints')->with('success', $message);
+        $message = trans('succes_messages.notification_deleted_succesfully');
+        return redirect('notification')->with('success', $message);
     }
 
     public function status(Request $user)
     {
         // $user->delete();
 
-        $message = trans('succes_messages.complaints_status_changed_succesfully');
+        $message = trans('succes_messages.notification_status_changed_succesfully');
 
-        return redirect('complaints')->with('success', $message);
+        return redirect('notification')->with('success', $message);
     }
 
-    
+    public function create()
+    {
+        $page = trans('pages_names.send_notification');
+
+        $main_menu = 'notification';
+        $sub_menu = null;
+
+        return view('admin.notification.create', compact('page','main_menu', 'sub_menu'));
+    }
+
+    public function store(Request $request)
+    {
+        
+
+        $message = trans('succes_messages.notification_sended_succesfully');
+        return redirect('notification')->with('success', $message);
+    }
 }

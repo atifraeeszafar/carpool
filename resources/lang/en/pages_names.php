@@ -68,5 +68,11 @@ return [
     'add_cancellation' => 'Add Cancellation',
 
     'complaints' => 'complaints',
+    'notification' => 'Notification',
+    'send_notification' => 'Send Notification',
+
+    'promocode' => 'Promocode',
+    'add_promocode' => 'Add Promocode',
+
 
 ];

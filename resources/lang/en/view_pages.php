@@ -225,4 +225,60 @@ return [
     'compensate' => 'Compensate',
 
     'add_complaints' => 'Add Complaints',
+
+    'request_id' => 'Request id',
+
+    'complaint' => 'Complaint',
+
+    'user_name' => 'User name',
+    'solved' => 'Solved',
+
+    'title' => 'Title',
+    'message' => 'Message',
+    'send_on' => 'Send on',
+    'send_notification' => 'Send Notification',
+    'select_users' => 'Select Users',
+    'select_all' => 'Select All',
+
+    'enter_title' => 'Enter title',
+    'title' => 'Title',
+    'enter_sub_title' => 'Enter sub title',
+    'sub_title' => 'Sub Title',
+
+    'file' => 'File',
+    'redirect_url' => 'Redirect url',
+    'enter_redirect_url' => 'Enter Redirect url',
+
+    'has_redirect_url' => 'Has redirect url',
+    'yes' => 'Yes',
+    'no' => 'No',
+
+    'promocode' => 'Promocode',
+    'add_promocode' => 'Add Promocode',
+    'promo_type' => 'Promo Type',
+    'amount_percentage' => 'Amount / Percentage',
+
+    'general' => 'General',
+    'offer_upto' => 'Offer upto',
+    'enter_coupon_code' => 'Enter coupon code',
+    'coupon_code' => 'Coupon code',
+
+    'fixed' => 'Fixed',
+    'percentage' => 'Percentage',
+    'amount_type' => 'Amount type',
+    'enter_amount' => 'Enter amount',
+    'amount' => 'Amount',
+
+    'minimum_order_amount' => 'Minimum order amount',
+    'enter_minimum_order_amount' => 'Enter minimum order amount',
+    'maximum_discount_amount' => 'Maximum discount amount',
+    'enter_maximum_discount_amount' => 'Enter Maximum discount amount',
+
+    'start_date' => 'Start date',
+    'end_date' => 'End date',
+    'enter_limit_of_user' => 'Enter limit of user',
+    'limit_of_user' => 'Limit of user',
+
+
+    
 ];

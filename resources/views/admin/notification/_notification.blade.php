@@ -4,26 +4,25 @@
 <thead>
 <tr>
 <th>@lang('view_pages.s_no')</th>
-<th>@lang('view_pages.request_id')</th>
-<th>@lang('view_pages.complaint')</th>
-<th>@lang('view_pages.user_name')</th>
-<th>@lang('view_pages.status')</th>
+<th>@lang('view_pages.title')</th>
+<th>@lang('view_pages.message')</th>
+<th>@lang('view_pages.send_on')</th>
 <th>@lang('view_pages.action')</th>
 </tr>
 </thead>
 <tbody>
 <tr>
     <td> 1</td>
-    <td> Req_1</td>
-    <td> Driver not respond</td>
-    <td> Milla Jovovich </td>
-    <td> <button class="btn btn-success btn-sm">Solved</button> </td>
+    <td> 50 % off</td>
+    <td> Use Flat50 to get 50 % off</td>
+    <td> 2020-07-02 09:57 am</td>
+
     <td> 
         <div class="dropdown">
             <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item sweet-delete" href="{{url('complaints/delete',2)}}">@lang('view_pages.delete')</a>
+                <a class="dropdown-item sweet-delete" href="{{url('notification/delete',2)}}">@lang('view_pages.delete')</a>
             </div>
         </div>
     </td>
@@ -31,17 +30,16 @@
 
 <tr>
     <td> 2</td>
-    <td> Req_12</td>
-    <td> User not respond</td>
-    <td> Jonny Depp </td>
-    <td> <button class="btn btn-danger btn-sm">Unsolved</button> </td>
+    <td> 100 % off</td>
+    <td> Use Flat100 to get 100 % off</td>
+    <td> 2020-06-03 09:57 am</td>
+
     <td> 
         <div class="dropdown">
             <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item sweet-delete" href="{{url('complaints/status',1)}}">@lang('view_pages.solved')</a>
-                <a class="dropdown-item sweet-delete" href="{{url('complaints/delete',2)}}">@lang('view_pages.delete')</a>
+                <a class="dropdown-item sweet-delete" href="{{url('notification/delete',2)}}">@lang('view_pages.delete')</a>
             </div>
         </div>
     </td>

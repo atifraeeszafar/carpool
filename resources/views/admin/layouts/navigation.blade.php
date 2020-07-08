@@ -96,6 +96,21 @@
   </a>
 </li>
 
+<li class="{{'notification' == $main_menu ? 'mm-active' : '' }}">
+  <a href="{{url('/notification')}}" class="waves-effect">
+      <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+      <span>Notification</span>
+  </a>
+</li>
+
+<li class="{{'promocode' == $main_menu ? 'mm-active' : '' }}">
+  <a href="{{url('/promocode')}}" class="waves-effect">
+      <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+      <span>Promocode</span>
+  </a>
+</li>
+
+
 
 </ul>
 

@@ -7,6 +7,20 @@
 
         <script src="https://unicons.iconscout.com/release/v2.0.1/script/monochrome/bundle.js"></script>
 
+<!--  -->
+
+        <!-- Selectize -->
+        <script src="{{asset('assets/libs/selectize/js/standalone/selectize.min.js')}}"></script>
+
+        <script src="{{asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+
+        
+
+        
+        <!-- datepicker -->
+        <script src="{{asset('assets/libs/air-datepicker/js/datepicker.min.js')}}"></script>
+        <script src="{{asset('assets/libs/air-datepicker/js/i18n/datepicker.en.js')}}"></script>
+
 <script>
 
 $('.logout').click(function(e){
