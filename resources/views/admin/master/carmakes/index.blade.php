@@ -30,28 +30,34 @@
 <div class="card-body">
 <h4 class="header-title">{{trans('pages_names.carmakes')}}</h4>
 <p class="card-title-desc">Carmakes for driver's car can be configured using this menu.</p>
-  <div class="box-header with-border">
+    <div class="box-header with-border">
+
         <div class="row text-right">
-            <form method="get" action="{{url('carmakes')}}">
-            <div class="col-sm-md-5">
-            <div class="form-group">
-            <input type="text" id="search_keyword" name="search" class="form-control" placeholder="Enter keyword">
-            </div>
+
+            <div class="col-2">
+                <div class="form-group">
+                    <input type="text" id="search_keyword" name="search" class="form-control" placeholder="Enter keyword">
+                </div>
             </div>
 
-            <div class="col-sm-md-5">
-                <button class="btn btn-success btn-outline btn-sm-md-5" id="search" type="submit">
-                    @lang('view_pages.search')
-                </button>
-            </div>
-        </form>
+            <div class="col-1">
+                <div class="form-group">
 
-          <div class="col-9 text-right">
+                    <button class="btn btn-success " id="search" type="submit">
+                        @lang('view_pages.search')
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-9 text-right">
                 <a href="{{url('carmakes/create')}}" class="btn btn-primary btn-sm">
                     <i class="mdi mdi-plus-circle mr-2"></i>@lang('view_pages.add_car_makes')</a>
             </div>
+
         </div>
-        </div>
+
+        
+    </div>
 <div class="table-rep-plugin">
 <div class="table-responsive mb-0" data-pattern="priority-columns">
 <table id="tech-companies-1" class="table table-striped">

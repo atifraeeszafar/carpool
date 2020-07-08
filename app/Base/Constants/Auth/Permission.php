@@ -42,4 +42,67 @@ class Permission
     const ADD_CAR_MODELS = 'add-car-models';
     const EDIT_CAR_MODELS = 'edit-car-models';
     const DELETE_CAR_MODELS = 'delete-car-models';
+
+    const TYPE_VIEW = 'types_view';
+    const TYPE_CREATE = 'types_create';
+    const TYPE_MODIFY = 'types_modify';
+    const TYPE_DELETE = 'types_delete';
+
+    const SOS_VIEW = 'sos_view';
+    const SOS_CREATE = 'sos_create';
+    const SOS_MODIFY = 'sos_modify';
+    const SOS_DELETE = 'sos_delete';
+
+
+    const FAQ_VIEW = 'faq_view';
+    const FAQ_CREATE = 'faq_create';
+    const FAQ_MODIFY = 'faq_modify';
+    const FAQ_DELETE = 'faq_delete';
+    const FAQ_STATUS = 'faq_status';
+
+    const CANCELLATION_VIEW = 'cancellation_view';
+    const CANCELLATION_CREATE = 'cancellation_create';
+    const CANCELLATION_MODIFY = 'cancellation_modify';
+    const CANCELLATION_DELETE = 'cancellation_delete';
+    const CANCELLATION_STATUS = 'cancellation_status';
+
+    const COMPLAINTS_VIEW = 'complaints_view';
+    const COMPLAINTS_DELETE = 'complaints_delete';
+    const COMPLAINTS_STATUS = 'complaints_status';
+
+    const NOTIFICATION_VIEW = 'notification_view';
+    const NOTIFICATION_DELETE = 'notification_delete';
+    const NOTIFICATION_CREATE = 'notification_create';
+
+    const PROMOCODE_VIEW = 'promocode_view';
+    const PROMOCODE_CREATE = 'promocode_create';
+    const PROMOCODE_MODIFY = 'promocode_modify';
+    const PROMOCODE_STATUS = 'promocode_status';
+    const PROMOCODE_DELETE = 'promocode_delete';
+
+    const ADMIN_VIEW = 'admin_view';
+    const ADMIN_CREATE = 'admin_create';
+    const ADMIN_MODIFY = 'admin_modify';
+    const ADMIN_STATUS = 'admin_status';
+    const ADMIN_DELETE = 'admin_delete';
+    const ADMIN_PROFILE = 'admin_profile';
+
+    const ROLES_VIEW = 'roles_view';
+    const ROLES_CREATE = 'roles_create';
+    const ROLES_MODIFY = 'roles_modify';
+    const ROLES_ASSIGN_PERMISSION = 'roles_assign_permission';
+
+    const CARMAKES_VIEW = 'carmakes_view';
+    const CARMAKES_CREATE = 'carmakes_create';
+    const CARMAKES_MODIFY = 'carmakes_modify';
+    const CARMAKES_DELETE = 'carmakes_delete';
+    
+    const CARMODELS_VIEW = 'carmodels_view';
+    const CARMODELS_CREATE = 'carmodels_create';
+    const CARMODELS_MODIFY = 'carmodels_modify';
+    const CARMODELS_DELETE = 'carmodels_delete';
+
+    const SETTINGS_VIEW = 'settings_view';
+
+    
 }
