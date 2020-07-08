@@ -31,6 +31,7 @@ Route::namespace('Admin')->group(function () {
     Route::get('login/facebook', 'AdminViewController@redirectToProvider');
 
     Route::get('login/facebook/callback', 'AdminViewController@handleProviderCallback');
+    Route::get('request', 'AdminViewController@request');
 });
 
 

@@ -34,6 +34,19 @@ class AdminViewController extends BaseController
 
         return view('admin.index', compact('page', 'main_menu', 'sub_menu'));
     }
+    public function request()
+    {
+
+        // $this->validateAdmin();
+
+        $page = trans('pages_names.dashboard');
+
+        $main_menu = 'dashboard';
+
+        $sub_menu = null;
+
+        return view('admin.admin.request', compact('page', 'main_menu', 'sub_menu'));
+    }
 
     public function viewRequest()
     {
