@@ -73,9 +73,9 @@
 
     <div class="col-sm-4">
         <div class="form-group">
-            <label for="waiting_charge">@lang('view_pages.waiting_charge')</label>
-            <input class="form-control" type="text" id="waiting_charge" name="waiting_charge" value="{{old('waiting_charge')}}" required="" placeholder="@lang('view_pages.enter_waiting_charge')">
-            <span class="text-danger">{{ $errors->first('waiting_charge') }}</span>
+        <label for="time_price">@lang('view_pages.time_price')</label>
+            <input class="form-control" type="text" id="time_price" name="time_price" value="{{old('time_price')}}" required="" placeholder="@lang('view_pages.enter_time_price')">
+            <span class="text-danger">{{ $errors->first('time_price') }}</span>
         </div>
     </div>
 
