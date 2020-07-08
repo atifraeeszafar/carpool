@@ -4,51 +4,37 @@
 <thead>
 <tr>
 <th>@lang('view_pages.s_no')</th>
-<th>@lang('view_pages.cancellation_reason')</th>
-<th>@lang('view_pages.paying_status')</th>
-<th>@lang('view_pages.status')</th>
-<th>@lang('view_pages.arrive_status')</th> 
-<th>@lang('view_pages.action')</th>
+<th>USER NAME</th>
+<th>DRIVER NAME</th>
+<th>REQUEST ID</th>
+<th>STATUS</th> 
+<!-- <th>@lang('view_pages.action')</th> -->
 </tr>
 </thead>
 <tbody>
 <tr>
     <td> 1</td>
-    <td> Driver not respond</td>
-    <td> <button class="btn btn-success btn-sm">Free</button> </td>
-    <td> <button class="btn btn-success btn-sm">Active</button> </td>
-    <td> <button class="btn btn-success btn-sm">Before Arrive</button> </td>
-    <td> 
-        <div class="dropdown">
-            <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="{{url('cancellation/edit',2)}}">@lang('view_pages.edit')</a>
-                <a class="dropdown-item sweet-delete" href="{{url('cancellation/status',1)}}">@lang('view_pages.inactive')</a>
-                <a class="dropdown-item sweet-delete" href="{{url('cancellation/delete',2)}}">@lang('view_pages.delete')</a>
-            </div>
-        </div>
-    </td>
+    <td> Sundar V</td>
+    <td> Surya</td>
+    <td>REQ_ID_01</td>
+    <td><span class="badge badge-success font-size-10">Completed</span></td>
 </tr>
-
 <tr>
     <td> 2</td>
-    <td> User not respond</td>
-    <td> <button class="btn btn-danger btn-sm">Compensate</button> </td>
-    <td> <button class="btn btn-danger btn-sm">In Active</button> </td>
-    <td> <button class="btn btn-danger btn-sm">After Arrive</button> </td>
-    <td> 
-        <div class="dropdown">
-            <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="{{url('cancellation/edit',2)}}">@lang('view_pages.edit')</a>
-                <a class="dropdown-item sweet-delete" href="{{url('cancellation/status',1)}}">@lang('view_pages.inactive')</a>
-                <a class="dropdown-item sweet-delete" href="{{url('cancellation/delete',2)}}">@lang('view_pages.delete')</a>
-            </div>
-        </div>
-    </td>
+    <td> Sai kumar D</td>
+    <td> Sundar V</td>
+    <td>REQ_ID_02</td>
+    <td><span class="badge badge-success font-size-10">Completed</span></td>
 </tr>
+<tr>
+    <td> 1</td>
+    <td> Kamal</td>
+    <td> Surya</td>
+    <td>REQ_ID_03</td>
+    <td><span class="badge badge-danger font-size-10">Canceled</span></td>
+</tr>
+
+
 
 </tbody>
 </table>
