@@ -279,6 +279,14 @@ return [
     'enter_limit_of_user' => 'Enter limit of user',
     'limit_of_user' => 'Limit of user',
 
+    'enter_base_price' => 'Enter base price',
+    'base_price' => 'Base price',
+
+    'enter_distance_price' => 'Enter distance price',
+    'distance_price' => 'Distance price',
+
+    'enter_waiting_charge' => 'Enter waiting charge',
+    'waiting_charge' => 'Waiting charge',
 
     
 ];

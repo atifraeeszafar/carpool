@@ -47,14 +47,38 @@
 
 
 <div class="row">
-     <div class="col-sm-12">
-            <div class="form-group">
+    <div class="col-sm-12">
+        <div class="form-group">
             <label for="name">@lang('view_pages.name')</label>
             <input class="form-control" type="text" id="name" name="name" value="{{old('name','suv')}}" required="" placeholder="@lang('view_pages.enter_name')">
             <span class="text-danger">{{ $errors->first('name') }}</span>
-
         </div>
     </div>
+
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="base_price">@lang('view_pages.base_price')</label>
+            <input class="form-control" type="text" id="base_price" name="base_price" value="{{old('base_price')}}" required="" placeholder="@lang('view_pages.enter_base_price')">
+            <span class="text-danger">{{ $errors->first('base_price') }}</span>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="distance_price">@lang('view_pages.distance_price')</label>
+            <input class="form-control" type="text" id="distance_price" name="distance_price" value="{{old('distance_price')}}" required="" placeholder="@lang('view_pages.enter_distance_price')">
+            <span class="text-danger">{{ $errors->first('distance_price') }}</span>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="waiting_charge">@lang('view_pages.waiting_charge')</label>
+            <input class="form-control" type="text" id="waiting_charge" name="waiting_charge" value="{{old('waiting_charge')}}" required="" placeholder="@lang('view_pages.enter_waiting_charge')">
+            <span class="text-danger">{{ $errors->first('waiting_charge') }}</span>
+        </div>
+    </div>
+
 </div>
 
 
