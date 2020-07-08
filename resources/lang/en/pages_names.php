@@ -74,5 +74,7 @@ return [
     'promocode' => 'Promocode',
     'add_promocode' => 'Add Promocode',
 
+    'request' => 'Request',
+
 
 ];

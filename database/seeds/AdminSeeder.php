@@ -28,7 +28,7 @@ class AdminSeeder extends Seeder
             'mobile' => $mobile,
             'mobile_confirmed' => true,
         ]);
-        $user->attachRole(Role::ADMIN);
+        $user->attachRole(Role::SUPER_ADMIN);
            
         }
 		
