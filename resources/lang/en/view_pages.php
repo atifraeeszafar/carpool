@@ -288,5 +288,8 @@ return [
     'enter_waiting_charge' => 'Enter waiting charge',
     'waiting_charge' => 'Waiting charge',
 
+    'enter_time_price' => 'Enter time price',
+    'time_price' => 'Time price',
+
     
 ];
