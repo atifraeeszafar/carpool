@@ -40,7 +40,7 @@
             </div>
 
             <div class="col-1">
-                <button class="btn btn-success btn-outline btn-sm mt-5" id="search" type="submit">
+                <button class="btn btn-success " id="search" type="submit">
                     @lang('view_pages.search')
                 </button>
             </div>

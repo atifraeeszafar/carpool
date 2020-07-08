@@ -3,7 +3,9 @@
 
 <head>
 <meta charset="utf-8" />
-<title>Login | Xoric - Responsive Bootstrap 4 Admin Dashboard</title>
+<title>
+Car-Pool
+</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
 <meta content="Themesdesign" name="author" />
@@ -29,8 +31,7 @@
 <div class="row">
 <div class="col-lg-12">
 <div class="text-center mb-5">
-<a href="index.html" class="logo"><img src="assets/images/logo-light.png" height="24" alt="logo"></a>
-<h5 class="font-size-16 text-white-50 mb-4">Responsive Bootstrap 4 Admin Dashboard</h5>
+<h1 class="text-white-50 mb-4" style="color: white !important;"> Car-Pool</h1>
 </div>
 </div>
 </div>
@@ -41,7 +42,7 @@
 <div class="card">
 <div class="card-body p-4">
 <div class="p-2">
-<h5 class="mb-5 text-center">Sign in to continue to Xoric.</h5>
+<h5 class="mb-5 text-center">Sign in to continue to Car-pool</h5>
 <form class="login_form"  id="form" enctype="multipart/form-data">
 <div class="row">
 <div class="col-md-12">
@@ -67,7 +68,7 @@
         </div>
         <div class="col-md-6">
             <div class="text-md-right mt-3 mt-md-0">
-                <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password?</a>
+                <!-- <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password?</a> -->
             </div>
         </div>
     </div>
@@ -75,7 +76,7 @@
         <button class="btn btn-success btn-block waves-effect waves-light submit_button" type="submit">Log In</button>
     </div>
     <div class="mt-4 text-center">
-        <a href="auth-register.html" class="text-muted"><i class="mdi mdi-account-circle mr-1"></i> Create an account</a>
+        <!-- <a href="auth-register.html" class="text-muted"><i class="mdi mdi-account-circle mr-1"></i> Create an account</a> -->
     </div>
 </div>
 </div>

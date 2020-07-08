@@ -11,7 +11,7 @@
 <div class="container-fluid">
 <div class="row align-items-center">
 <div class="col-md-8">
-<h4 class="page-title mb-1">Notification</h4>
+<h4 class="page-title mb-1">Request</h4>
 <ol class="breadcrumb m-0">
 <li class="breadcrumb-item active">List</li>
 </ol>
@@ -28,36 +28,12 @@
 <div class="col-12">
 <div class="card">
 <div class="card-body">
-<h4 class="header-title">{{trans('pages_names.notification')}}</h4>
-<p class="card-title-desc">Notification of the system to be listed.</p>
+<h4 class="header-title">{{trans('pages_names.request')}}</h4>
+<p class="card-title-desc">request of the system to be listed.</p>
     <div class="box-header with-border">
-        <div class="row text-right">
+  
+    </div>
 
-            <div class="col-2">
-            <div class="form-group">
-            <input type="text" id="search_keyword" name="search" class="form-control" placeholder="Enter keyword">
-            </div>
-            </div>
-
-            <div class="col-1">
-                <button class="btn btn-success " id="search" type="submit">
-                    @lang('view_pages.search')
-                </button>
-            </div>
-
-            <div class="col-9 text-right">
-                <a href="{{url('notification/create')}}" class="btn btn-primary btn-sm">
-                    <i class="mdi mdi-plus-circle mr-2"></i>@lang('view_pages.send_notification')</a>
-               <!--  <a class="btn btn-danger">
-                    Export</a> -->
-            </div>
-        </div>
-        </div>
-<div id="js-admin-partial-target">
-    <include-fragment src="notification/fetch">
-        <span style="text-align: center;font-weight: bold;"> Loading...</span>
-    </include-fragment>
-</div>
 
 </div>
 </div>
@@ -92,7 +68,7 @@ $('#search').on('click', function(e){
     e.preventDefault();
         var search_keyword = $('#search_keyword').val();
         console.log(search_keyword);
-        fetch('cancellation/fetch?search='+search_keyword)
+        fetch('request/fetch?search='+search_keyword)
         .then(response => response.text())
         .then(html=>{
             document.querySelector('#js-admin-partial-target').innerHTML = html

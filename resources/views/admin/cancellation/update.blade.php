@@ -59,7 +59,7 @@
 
     <div class="row">
 
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <div class="form-group">
                 <label for="name">@lang('view_pages.paying_status')</label>
                
@@ -73,23 +73,7 @@
             </div>
         </div>
 
-
-
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label for="name">@lang('view_pages.type')</label>
-               
-                    <select name="type" id="type" class="form-control">
-                        <option value="" selected disabled >@lang('view_pages.select')</option>
-                        <option value="1" >@lang('view_pages.user')</option>
-                        <option value="2">@lang('view_pages.driver')</option>
-                    </select>
-
-                <span class="text-danger">{{ $errors->first('type') }}</span>
-            </div>
-        </div>
-
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <div class="form-group">
                 <label for="name">@lang('view_pages.arrive_status')</label>
                

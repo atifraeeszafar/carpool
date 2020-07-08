@@ -34,15 +34,18 @@
         <div class="row text-right">
 
             <div class="col-2">
-            <div class="form-group">
-            <input type="text" id="search_keyword" name="search" class="form-control" placeholder="Enter keyword">
-            </div>
+                <div class="form-group">
+                    <input type="text" id="search_keyword" name="search" class="form-control" placeholder="Enter keyword">
+                </div>
             </div>
 
             <div class="col-1">
-                <button class="btn btn-success btn-outline btn-sm mt-5" id="search" type="submit">
-                    @lang('view_pages.search')
-                </button>
+                <div class="form-group">
+
+                    <button class="btn btn-success " id="search" type="submit">
+                        @lang('view_pages.search')
+                    </button>
+                </div>
             </div>
 
             <div class="col-9 text-right">

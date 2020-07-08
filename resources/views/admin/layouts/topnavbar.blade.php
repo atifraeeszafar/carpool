@@ -3,21 +3,27 @@
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
-                            <a href="index.html" class="logo logo-dark">
+                            <a href="#" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="{{asset('assets/images/logo-sm-dark.png')}}" alt="" height="22">
+                                <h1 style="padding-top: 10.2px;color: #3051d3;padding-right: 50.2px;" > Car-Pool </h1>
+                                    <!-- <img src="{{asset('assets/images/logo-sm-dark.png')}}" alt="" height="22"> -->
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{asset('assets/images/logo-dark.png')}}" alt="" height="20">
+                                    
+                                    <h1 style="padding-top: 10.2px;color: #3051d3;padding-right: 50.2px;" > Car-Pool </h1>
+                                    <!-- <img src="{{asset('assets/images/logo-dark.png')}}" alt="" height="20"> -->
                                 </span>
                             </a>
 
-                            <a href="index.html" class="logo logo-light">
+                            <a href="#" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="{{asset('assets/images/logo-sm-light.png')}}" alt="" height="22">
+                                <h1 style="padding-top: 10.2px;color: #3051d3;padding-right: 50.2px;" > Car-Pool </h1>
+
+                                    <!-- <img src="{{asset('assets/images/logo-sm-light.png')}}" alt="" height="22"> -->
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{asset('assets/images/logo-light.png')}}" alt="" height="20">
+                                <h1 style="padding-top: 10.2px;color: #3051d3;padding-right: 50.2px;" > Car-Pool </h1>
+                                    <!-- <img src="{{asset('assets/images/logo-light.png')}}" alt="" height="20"> -->
                                 </span>
                             </a>
                         </div>
@@ -89,7 +95,9 @@
 
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               
                                 <img class="rounded-circle header-profile-user" src="{{ auth()->user()->profile_picture ?: asset('assets/images/users/avatar-1.jpg') }}" alt="Header Avatar">
+
                                 <span class="d-none d-sm-inline-block ml-1">{{ auth()->user()->name}}</span>
                                 <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                             </button>
