@@ -76,5 +76,10 @@ return [
 
     'request' => 'Request',
 
+    'users' => 'Users',
+    'add_user' => 'Add user',
+
+    'users' => 'Users',
+
 
 ];

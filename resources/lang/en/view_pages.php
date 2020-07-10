@@ -291,5 +291,15 @@ return [
     'enter_time_price' => 'Enter time price',
     'time_price' => 'Time price',
 
+    'add_users' => 'Add User',
+    'date_of_birth' => 'Date of birth',
+    'enter_first_name' => 'Enter first name',
+    'enter_last_name' => 'Enter last name',
+
+    'email_address' => 'Email address',
+    'enter_email_address' => 'Enter email address',
+    'transgender' => 'Transgender',
+
+
     
 ];

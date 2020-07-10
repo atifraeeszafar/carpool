@@ -104,5 +104,12 @@ class Permission
 
     const SETTINGS_VIEW = 'settings_view';
 
+
+    const USER_VIEW = 'user_view';
+    const USER_CREATE = 'user_create';
+    const USER_MODIFY = 'user_modify';
+    const USER_STATUS = 'user_status';
+    const USER_DELETE = 'user_delete';
+
     
 }
