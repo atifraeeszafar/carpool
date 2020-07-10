@@ -151,6 +151,22 @@ Route::middleware('auth:web')->group(function () {
 
         });
 
+
+        Route::prefix('user')->group(function(){
+
+            Route::get('/', 'UsersController@index')->middleware('permission:user_view');
+            Route::get('/fetch', 'UsersController@fetch')->middleware('permission:user_view');
+            
+            Route::get('/create', 'UsersController@create')->middleware('permission:user_create');
+            Route::post('/store', 'UsersController@store')->middleware('permission:user_create');
+            
+            Route::get('/edit/{id}', 'UsersController@getById')->middleware('permission:user_modify');
+            Route::post('/update/{role}', 'UsersController@update')->middleware('permission:user_modify');
+            
+            Route::get('/delete/{id}', 'UsersController@delete')->middleware('permission:user_delete');
+            Route::get('/status/{id}', 'UsersController@status')->middleware('permission:user_status');
+        });
+
     });
 
     Route::namespace('Master')->group(function () {
