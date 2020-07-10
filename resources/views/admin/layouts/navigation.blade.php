@@ -23,7 +23,7 @@
             </a>
           </li>
     @endif
-    
+
     @if(auth()->user()->can('view-car-makes'))
 
       <li class="{{'carmakes' == $main_menu ? 'mm-active' : '' }}">
