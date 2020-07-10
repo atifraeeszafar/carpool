@@ -79,7 +79,7 @@
                                             </div>
                                             <div class="col-6">
                                                 <div>
-                                                    <p class="mb-2">Driver </p>
+                                                    <p class="mb-2">User </p>
                                                     <h5>$ 924.38</h5>
                                                 </div>
                                             </div>
@@ -166,7 +166,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h5 class="font-size-14 mb-1">Driver Earnings</h5>
+                                                <h5 class="font-size-14 mb-1">User Earnings</h5>
                                                 <p class="text-muted mb-0" style="font-size: 11px;">TOTAL</p>
                                             </td>
                                             <td>
@@ -216,7 +216,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="text-sm-right mt-4 mt-sm-0">
-                                        <p class="text-muted mb-2">Total Driver Earnings</p>
+                                        <p class="text-muted mb-2">Total User Earnings</p>
                                         <h5> $ 248.35</h5>
 
                                     </div>
@@ -447,7 +447,7 @@
                                         <h5 class="mb-0">6385</h5>
                                     </div>
                                 </div>
-                                <!-- <p class="mb-2">Total Drivers</p>
+                                <!-- <p class="mb-2">Total Users</p>
                                 <h4>6385</h4> -->
                                 <p class="mt-4 mb-0">Cars Break-ups</p>
                             </div>
@@ -458,7 +458,7 @@
                                         <tr>
                                             <td class="pt-0 pb-0" style="width:50%;"> 
                                                 <h5 class="font-size-14 mb-1">ACTIVE </h5>
-                                                <p class="text-muted mb-0" style="font-size: 11px;">DRIVERS</p>
+                                                <p class="text-muted mb-0" style="font-size: 11px;">USERS</p>
                                             </td>
 
                                             <td class="pt-0 pb-0" style="width:30%;">
@@ -473,7 +473,7 @@
                                         <tr>
                                             <td class="pt-0 pb-0" style="width:50%;">
                                                 <h5 class="font-size-14 mb-1">PENDING FOR APPROVAL</h5>
-                                                <p class="text-muted mb-0" style="font-size: 11px;">DRIVERS</p>
+                                                <p class="text-muted mb-0" style="font-size: 11px;">USERS</p>
                                             </td>
 
                                             <td class="pt-0 pb-0" style="width:30%;">
@@ -488,7 +488,7 @@
                                         <tr>
                                             <td class="pt-0 pb-0" style="width:50%;">
                                                 <h5 class="font-size-14 mb-1">BLOCKED</h5>
-                                                <p class="text-muted mb-0" style="font-size: 11px;">DRIVERS</p>
+                                                <p class="text-muted mb-0" style="font-size: 11px;">USERS</p>
                                             </td>
 
                                             <td class="pt-0 pb-0" style="width:30%;">
