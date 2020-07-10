@@ -300,6 +300,8 @@ return [
     'enter_email_address' => 'Enter email address',
     'transgender' => 'Transgender',
 
+    'details' => 'Details',
+
 
     
 ];
