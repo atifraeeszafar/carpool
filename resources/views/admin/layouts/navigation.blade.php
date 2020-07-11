@@ -56,6 +56,29 @@
 
 @endif
 
+      <li class="{{'user' == $main_menu ? 'mm-active' : '' }}">
+        <a href="{{url('/user')}}" class="waves-effect">
+            <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-24px mdi-account-multiple-plus"></i></div>
+            <span>@lang('pages_names.users')</span>
+        </a>
+      </li>
+
+      <li class="{{'request' == $main_menu ? 'mm-active' : '' }}">
+        <a href="{{url('/request')}}" class="waves-effect">
+            <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-24px mdi-car-sports"></i></div>
+            <span>@lang('pages_names.request')</span>
+        </a>
+      </li>
+
+
+
+      <li class="{{'carmakes' == $main_menu ? 'mm-active' : '' }}">
+        <a href="{{url('/carmakes')}}" class="waves-effect">
+            <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-24px mdi-car-sports"></i></div>
+            <span>@lang('pages_names.carmakes')</span>
+        </a>
+      </li>
+
 @if(auth()->user()->can('sos_view'))
 
 <li class="{{'sos' == $main_menu ? 'mm-active' : '' }}">

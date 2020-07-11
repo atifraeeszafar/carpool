@@ -27,7 +27,7 @@
 <div class="card">
 <div class="card-body">
 <h4 class="header-title">Edit Users</h4>
-<p class="card-title-desc">Super can modify Users</p>
+<p class="card-title-desc">Super can edit Users</p>
 
     @if($errors)
     @foreach ($errors->all() as $error)
@@ -42,8 +42,9 @@
 <div class="col-sm-12">
 
 <form  method="post" class="form-horizontal" action="{{url('user/update/1')}}" enctype="multipart/form-data">
-
 {{csrf_field()}}
+
+
 
     <div class="row">
         <div class="col-sm-6">
@@ -96,10 +97,147 @@
             </div>
         </div>
 
+        <div class="col-sm-4"><br>
+            <label for="profile_picture">Driver License Frontside </label><br>
+            <img id="blah" src="#" alt=""><br>
+            <input type="file" id="profile_picture" onchange="readURL(this)" name="profile_picture" style="display:none">
+            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
+            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+            <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+        </div>
+
+        <div class="col-sm-4"><br>
+            <label for="profile_picture">Judical Records</label><br>
+            <img id="blah" src="#" alt=""><br>
+            <input type="file" id="profile_picture" onchange="readURL(this)" name="profile_picture" style="display:none">
+            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
+            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+            <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+        </div>
+
+        <div class="col-sm-4"><br>
+            <label for="profile_picture">Driver Photo</label><br>
+            <img id="blah" src="#" alt=""><br>
+            <input type="file" id="profile_picture" onchange="readURL(this)" name="profile_picture" style="display:none">
+            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
+            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+            <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+        </div>
+
+        <div class="col-sm-4"><br>
+            <label for="profile_picture">Medical Checkup certificate</label><br>
+            <img id="blah" src="#" alt=""><br>
+            <input type="file" id="profile_picture" onchange="readURL(this)" name="profile_picture" style="display:none">
+            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
+            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+            <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+        </div>
+
+        <div class="col-sm-4"><br>
+            <label for="profile_picture">National Id Frontside</label><br>
+            <img id="blah" src="#" alt=""><br>
+            <input type="file" id="profile_picture" onchange="readURL(this)" name="profile_picture" style="display:none">
+            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
+            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+            <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+        </div>
+
+        <div class="col-sm-4"><br>
+            <label for="profile_picture">National Id Backside</label><br>
+            <img id="blah" src="#" alt=""><br>
+            <input type="file" id="profile_picture" onchange="readURL(this)" name="profile_picture" style="display:none">
+            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
+            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+            <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+        </div>
+
+        <div class="col-sm-4"><br>
+            <label for="profile_picture">Proof of Payment</label><br>
+            <img id="blah" src="#" alt=""><br>
+            <input type="file" id="profile_picture" onchange="readURL(this)" name="profile_picture" style="display:none">
+            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
+            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+            <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+        </div>
+
+        <div class="col-sm-4"><br>
+            <label for="profile_picture">LTRC License</label><br>
+            <img id="blah" src="#" alt=""><br>
+            <input type="file" id="profile_picture" onchange="readURL(this)" name="profile_picture" style="display:none">
+            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
+            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+            <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+        </div>
+
+        <div class="col-sm-4"><br>
+            <label for="profile_picture">Car Registration Frontside</label><br>
+            <img id="blah" src="#" alt=""><br>
+            <input type="file" id="profile_picture" onchange="readURL(this)" name="profile_picture" style="display:none">
+            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
+            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+            <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+        </div>
+
+        <div class="col-sm-4"><br>
+            <label for="profile_picture">Car Registration backside</label><br>
+            <img id="blah" src="#" alt=""><br>
+            <input type="file" id="profile_picture" onchange="readURL(this)" name="profile_picture" style="display:none">
+            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
+            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+            <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+        </div>
+
+        <div class="col-sm-4"><br>
+            <label for="profile_picture">Vehicle Sticker</label><br>
+            <img id="blah" src="#" alt=""><br>
+            <input type="file" id="profile_picture" onchange="readURL(this)" name="profile_picture" style="display:none">
+            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
+            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+            <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+        </div>
+
+        <div class="col-sm-4"><br>
+            <label for="profile_picture">Car Photos 1</label><br>
+            <img id="blah" src="#" alt=""><br>
+            <input type="file" id="profile_picture" onchange="readURL(this)" name="profile_picture" style="display:none">
+            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
+            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+            <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+        </div>
+    
+        <br>
+        <div class="col-sm-4"><br>
+            <label for="profile_picture">Car Photos 2</label><br>
+            <img id="blah" src="#" alt=""><br>
+            <input type="file" id="profile_picture" onchange="readURL(this)" name="profile_picture" style="display:none">
+            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
+            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+            <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+        </div>
+
+        
+        <div class="col-sm-4"><br>
+            <label for="profile_picture">Car Photos 3</label><br>
+            <img id="blah" src="#" alt=""><br>
+            <input type="file" id="profile_picture" onchange="readURL(this)" name="profile_picture" style="display:none">
+            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
+            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+            <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+        </div>
+
+        
+        <div class="col-sm-4"><br>
+            <label for="profile_picture">Car Photos 4</label><br>
+            <img id="blah" src="#" alt=""><br>
+            <input type="file" id="profile_picture" onchange="readURL(this)" name="profile_picture" style="display:none">
+            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
+            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+            <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+        </div>
     </div>
 
 
-
+    <br><br>
     <div class="row">
         <div class="form-group">
             <div class="col-sm-12">

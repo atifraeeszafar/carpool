@@ -189,7 +189,7 @@
         <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
         <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
         <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
-</div>
+    </div>
 </div>
 
 <div class="form-group">
