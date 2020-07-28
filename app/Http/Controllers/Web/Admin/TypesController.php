@@ -21,6 +21,7 @@ use App\Models\Access\Role;
 use App\Models\Admin\ServiceLocation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Http\Requests\Admin\VehicleTypes\CreateType;
 
 /**
  * @resource Driver
@@ -114,8 +115,14 @@ class TypesController extends BaseController
         return view('admin.types.create', compact('page','main_menu', 'sub_menu'));
     }
 
-    public function store(Request $request)
+    public function store(CreateType $request)
     {
+
+        echo "<pre>";
+        print_r( $request->all() );
+
+        die();
+
         // $created_params = $request->only(['service_location_id', 'first_name', 'last_name','mobile','email','address','state','city','country']);
         // $created_params['pincode'] = $request->postal_code;
         // $created_params['created_by'] = auth()->user()->id;
