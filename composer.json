@@ -10,6 +10,7 @@
     "require":
     {
         "php": "^7.2",
+        "alimranahmed/laraocr": "^1.0",
         "barryvdh/laravel-debugbar": "^3.2",
         "barryvdh/laravel-dompdf": "^0.8.6",
         "barryvdh/laravel-ide-helper": "^2.6",

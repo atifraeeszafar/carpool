@@ -10,6 +10,7 @@
 |
  */
 use App\Base\Constants\Auth\Role;
+use thiagoalessio\TesseractOCR\TesseractOCR;
 
 /*
  * These routes are used for web authentication.
@@ -21,6 +22,10 @@ use App\Base\Constants\Auth\Role;
 /**
  * Temporary dummy route for testing SPA.
  */
+
+
+Route::get('test_image', 'Admin\AdminViewController@testImg');
+
 
 
 Route::namespace('Admin')->group(function () {
@@ -88,7 +93,9 @@ Route::middleware('auth:web')->group(function () {
             Route::get('/edit/{id}', 'SosController@getById')->middleware('permission:sos_modify');
             Route::post('/update/{role}', 'SosController@update')->middleware('permission:sos_modify');
             Route::get('/delete/{id}', 'SosController@delete')->middleware('permission:sos_delete');
-		});
+            Route::get('/status/{id}', 'SosController@status')->middleware('permission:sos_status');
+
+        });
 
         Route::prefix('faq')->group(function(){
 

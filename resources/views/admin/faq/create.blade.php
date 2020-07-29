@@ -11,7 +11,7 @@
 <h4 class="page-title mb-1">FAQ</h4>
 <ol class="breadcrumb m-0">
 <li class="breadcrumb-item"><a href="{{url('faq')}}">FAQ</a></li>
-<li class="breadcrumb-item active">Add faq</li>
+<li class="breadcrumb-item active">Add faq </li>
 </ol>
 </div>
 

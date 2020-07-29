@@ -2,12 +2,28 @@
 
 namespace App\Http\Controllers\Web\Admin;
 
-use App\Http\Controllers\Web\BaseController;
 use Socialite;
 use App\SocialAccountService;
+use App\Http\Controllers\Web\BaseController;
+use thiagoalessio\TesseractOCR\TesseractOCR;
 
 class AdminViewController extends BaseController
 {
+
+    public function testImg(){
+
+
+        $image ='https://user-images.githubusercontent.com/7629427/33532834-fa434742-d894-11e7-8cce-65afb26a8af0.png';
+        
+        $imageTempName = tempnam(sys_get_temp_dir(), 'image-from-remote-url');
+        file_put_contents($imageTempName, file_get_contents($image));
+
+       
+        $ocr = new TesseractOCR($imageTempName);
+        $ocr->psm(4);
+        echo $ocr->run(), PHP_EOL;
+
+   }
 
     /**
      * Redirect to admin login

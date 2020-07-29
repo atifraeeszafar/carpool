@@ -12,40 +12,38 @@
 </tr>
 </thead>
 <tbody>
+
+@foreach($results as $result)
+
 <tr>
     <td> 1</td>
-    <td> Police</td>
-    <td>  100  </td>
+    <td> {{ $result->name }}</td>
+    <td> {{ $result->number }}</td>
+    @if($result->is_active)
     <td>  <button class="btn btn-success btn-sm">Active</button> </td>
+    @else
+    <td>  <button class="btn btn-danger btn-sm">In Active</button> </td>
+    @endif
+    
     <td> 
         <div class="dropdown">
             <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="{{url('sos/edit',2)}}">@lang('view_pages.edit')</a>
-                <a class="dropdown-item sweet-delete" href="{{url('sos/delete',2)}}">@lang('view_pages.delete')</a>
+                <a class="dropdown-item" href="{{url('sos/edit',$result->id)}}">@lang('view_pages.edit')</a>
+               
+               @if($result->is_active)
+                <a class="dropdown-item" href="{{url('sos/status',$result->id)}}">@lang('view_pages.inactive')</a>
+               @else
+               <a class="dropdown-item" href="{{url('sos/status',$result->id)}}">@lang('view_pages.active')</a>
+               @endif
+        
+                <a class="dropdown-item sweet-delete" href="{{url('sos/delete',$result->id)}}">@lang('view_pages.delete')</a>
             </div>
         </div>
     </td>
 </tr>
-
-<tr>
-    <td> 2</td>
-    <td> Ambulance</td>
-    <td> 108  </td>
-    <td> <button class="btn btn-danger btn-sm">InActive</button> </td>
-    <td> 
-        <div class="dropdown">
-            <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="{{url('sos/edit',1)}}">@lang('view_pages.edit')</a>
-                <a class="dropdown-item sweet-delete" href="{{url('sos/delete',1)}}">@lang('view_pages.delete')</a>
-            </div>
-        </div>
-    </td>
-</tr>
-
+@endforeach
 </tbody>
 </table>
 <div class="text-right">

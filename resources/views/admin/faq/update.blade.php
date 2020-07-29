@@ -41,7 +41,7 @@
 
 <div class="col-sm-12">
 
-<form  method="post" class="form-horizontal" action="{{url('faq/store')}}" enctype="multipart/form-data">
+<form  method="post" class="form-horizontal" action="{{url('faq/update',$result->id)}}" enctype="multipart/form-data">
 {{csrf_field()}}
 
 
@@ -49,8 +49,10 @@
 <div class="row">
      <div class="col-sm-12">
             <div class="form-group">
+               
+                
                 <label for="name">@lang('view_pages.question')</label>
-                <input class="form-control" type="text" id="question" name="question" value="{{old('question')}}" required="" placeholder="@lang('view_pages.enter_question')">
+                <input class="form-control" type="text" id="question" name="question" value="{{old('question',$result->question)}}" required="" placeholder="@lang('view_pages.enter_question')">
                 <span class="text-danger">{{ $errors->first('question') }}</span>
         </div>
     </div>
@@ -58,7 +60,7 @@
     <div class="col-sm-12">
             <div class="form-group">
                 <label for="name">@lang('view_pages.answer')</label>
-                <textarea id="textarea" id="answer" name="answer"  class="form-control" maxlength="225" rows="3" placeholder="@lang('view_pages.this_textarea_has_a_limit_of_225_chars') ">{{old('answer')}}</textarea>
+                <textarea id="textarea" id="answer" name="answer"  class="form-control" maxlength="225" rows="3" placeholder="@lang('view_pages.this_textarea_has_a_limit_of_225_chars') ">{{old('answer',$result->answer)}}</textarea>
                 <span class="text-danger">{{ $errors->first('answer') }}</span>
 
         </div>

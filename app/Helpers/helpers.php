@@ -283,6 +283,18 @@ if (!function_exists('find_zone')) {
     }
 }
 
+if(!function_exists('get_pagination')){
+
+    function get_pagination(){
+
+             $per_page = 5;
+
+             return $per_page;
+
+        }
+    
+    }
+
 if (!function_exists('get_distance_matrix')) {
     function get_distance_matrix($pick_lat, $pick_lng, $drop_lat, $drop_lng, $traffic = fals)
     {

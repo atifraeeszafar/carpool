@@ -59,7 +59,7 @@
 
     <div class="row">
 
-        <div class="col-sm-6">
+        <div class="col-sm-12">
             <div class="form-group">
                 <label for="name">@lang('view_pages.paying_status')</label>
                
@@ -73,7 +73,7 @@
             </div>
         </div>
 
-        <div class="col-sm-6">
+      <!--   <div class="col-sm-6">
             <div class="form-group">
                 <label for="name">@lang('view_pages.arrive_status')</label>
                
@@ -85,7 +85,7 @@
 
                 <span class="text-danger">{{ $errors->first('arrive_status') }}</span>
             </div>
-        </div>
+        </div> -->
 
     </div>
 

@@ -41,7 +41,7 @@
 
 <div class="col-sm-12">
 
-<form  method="post" class="form-horizontal" action="{{url('sos/store')}}" enctype="multipart/form-data">
+<form  method="post" class="form-horizontal" action="{{url('sos/update',$result->id)}}" enctype="multipart/form-data">
 {{csrf_field()}}
 
 
@@ -50,7 +50,7 @@
      <div class="col-sm-12">
             <div class="form-group">
             <label for="name">@lang('view_pages.name')</label>
-            <input class="form-control" type="text" id="name" name="name" value="{{old('name','police')}}" required="" placeholder="@lang('view_pages.enter_name')">
+            <input class="form-control" type="text" id="name" name="name" value="{{old('name',$result->name)}}" required="" placeholder="@lang('view_pages.enter_name')">
             <span class="text-danger">{{ $errors->first('name') }}</span>
 
         </div>
@@ -59,7 +59,7 @@
     <div class="col-sm-12">
             <div class="form-group">
             <label for="name">@lang('view_pages.number')</label>
-            <input class="form-control" type="text" id="number" name="number" value="{{old('number','100')}}" required="" placeholder="@lang('view_pages.enter_number')">
+            <input class="form-control" type="text" id="number" name="number" value="{{old('number',$result->number)}}" required="" placeholder="@lang('view_pages.enter_number')">
             <span class="text-danger">{{ $errors->first('number') }}</span>
 
         </div>
