@@ -21,6 +21,7 @@ use App\Models\Access\Role;
 use App\Models\Admin\ServiceLocation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use thiagoalessio\TesseractOCR\TesseractOCR;
 
 /**
  * @resource Driver
@@ -68,7 +69,19 @@ class AdminController extends BaseController
     * @return \Illuminate\Http\JsonResponse
     */
     public function index()
-    {
+    {   
+
+        $file_path = asset("assets/images/aadhaar-card_1535118724.webp");
+
+
+        $file_path = "/opt/lampp/htdocs/car-pool/public/assets/images/aadhaar-card_1535118724.webp";
+
+        $ocr_tamil = (new TesseractOCR($file_path))
+        // ->lang('tam')
+        ->run();
+
+        die($ocr_tamil);
+
         $page = trans('pages_names.admins');
 
         $main_menu = 'admin';
