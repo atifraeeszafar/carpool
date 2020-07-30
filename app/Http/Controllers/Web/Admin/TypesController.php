@@ -112,19 +112,19 @@ class TypesController extends BaseController
                 ->saveTypesPicture();
         }
 
-        $imageUploader = new ImageUploader;
+        // $imageUploader = new ImageUploader;
 
-        $config = $imageUploader->config('types.upload.images');
-        $filePath = file_path(data_get($config, 'path'), $filename);
+        // $config = $imageUploader->config('types.upload.images');
+        // $filePath = file_path(data_get($config, 'path'), $filename);
 
         echo "<pre>";
         print_r($filename);
 
-        echo "<pre>";
-        print_r($config);
+        // echo "<pre>";
+        // print_r($config);
 
-        echo "<pre>";
-        print_r($filePath);
+        // echo "<pre>";
+        // print_r($filePath);
 
         die();
 
