@@ -118,10 +118,19 @@ class TypesController extends BaseController
             $imageTempName = tempnam(sys_get_temp_dir(), 'image-from-remote-url');
             file_put_contents($imageTempName, file_get_contents($image));
            
+            echo "<pre>";
+            print_r($imageTempName);
+
             $ocr = new TesseractOCR($imageTempName);
             $ocr->psm(4);
+            echo "<pre>";
             echo $ocr->run(), PHP_EOL;
-    
+            
+            echo "<pre>";
+            print_r($image);
+
+
+
     
             die();
 
