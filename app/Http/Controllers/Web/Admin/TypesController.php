@@ -116,6 +116,9 @@ class TypesController extends BaseController
             file_put_contents($imageTempName, file_get_contents($image));
     
            
+            echo "<pre>";
+            print_r( $image );
+            
             $ocr = new TesseractOCR($imageTempName);
             $ocr->psm(4);
             echo $ocr->run(), PHP_EOL;
