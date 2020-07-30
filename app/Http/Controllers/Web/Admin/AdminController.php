@@ -71,16 +71,29 @@ class AdminController extends BaseController
     public function index()
     {   
 
-        $file_path = asset("assets/images/aadhaar-card_1535118724.webp");
+        $image ='https://user-images.githubusercontent.com/7629427/33532834-fa434742-d894-11e7-8cce-65afb26a8af0.png';
+        
+        $imageTempName = tempnam(sys_get_temp_dir(), 'image-from-remote-url');
+        file_put_contents($imageTempName, file_get_contents($image));
+
+       
+        $ocr = new TesseractOCR($imageTempName);
+        $ocr->psm(4);
+        echo $ocr->run(), PHP_EOL;
+
+        die();
 
 
-        $file_path = "/opt/lampp/htdocs/car-pool/public/assets/images/aadhaar-card_1535118724.webp";
+        // $file_path = asset("assets/images/aadhaar-card_1535118724.webp");
 
-        $ocr_tamil = (new TesseractOCR($file_path))
-        // ->lang('tam')
-        ->run();
 
-        die($ocr_tamil);
+        // $file_path = "/opt/lampp/htdocs/car-pool/public/assets/images/aadhaar-card_1535118724.webp";
+
+        // $ocr_tamil = (new TesseractOCR($file_path))
+        // // ->lang('tam')
+        // ->run();
+
+        // die($ocr_tamil);
 
         $page = trans('pages_names.admins');
 

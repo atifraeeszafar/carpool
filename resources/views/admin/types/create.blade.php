@@ -29,11 +29,11 @@
 <h4 class="header-title">Add Types</h4>
 <p class="card-title-desc">Super can create Types</p>
 
-    @if($errors)
-    @foreach ($errors->all() as $error)
-       <div>{{ $error }}</div>
-   @endforeach
- @endif
+    <!-- @if($errors)
+        @foreach ($errors->all() as $error)
+        <div>{{ $error }}</div>
+        @endforeach
+    @endif -->
 <div class="row">
 <div class="col-sm-12">
     <div class="box">
@@ -90,14 +90,15 @@
 
 <div class="form-group">
     <div class="col-6">
-        <label for="profile_picture">@lang('view_pages.icon')</label><br>
+        <label for="profile_picture">@lang('view_pages.profile')</label><br>
         <img id="blah" src="#" alt=""><br>
-        <input type="file" id="icon" onchange="readURL(this)" name="icon" style="display:none">
+        <input type="file" id="profile_picture" onchange="readURL(this)" name="icon" style="display:none">
         <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
         <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
         <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+    </div>
 </div>
-</div>
+
 
 <div class="form-group">
     <div class="col-sm-12">

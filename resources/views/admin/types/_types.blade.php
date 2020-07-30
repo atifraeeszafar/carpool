@@ -12,6 +12,40 @@
 </tr>
 </thead>
 <tbody>
+@if(count($results)<1)
+<tr><td colspan="11"><span id="no_data">{{trans('view_pages.no_data_found')}}</span></td></tr>
+@else
+@php  $i= $results->firstItem(); @endphp
+@foreach($results as $key => $result)
+<tr>
+<td>{{ $i++ }} </td>
+    <td> {{ $result->name }} </td>
+     
+    <td>  <img src="{{ Storage::disk(env('FILESYSTEM_DRIVER'))->url(file_path(config('base.types.upload.images.path'),  $result->icon))}}" alt="{{ $result->name }}" width="50" height="60">   </td>
+
+    @if($result->active)
+        <td><button class="btn btn-success btn-sm">Active</button></td>
+    @else
+        <td><button class="btn btn-danger btn-sm">InActive</button></td>
+    @endif
+    
+    <td>
+
+    <div class="dropdown">
+    <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
+    </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="{{url('admins/edit',$result->id)}}">@lang('view_pages.edit')</a>
+            <a class="dropdown-item sweet-delete" href="{{url('admins/delete',$result->id)}}">@lang('view_pages.delete')</a>
+        </div>
+    </div>
+
+    </td>
+</tr>
+@endforeach
+@endif
+
+@foreach( $results as $result)
 <tr>
     <td> 1</td>
     <td> Suv</td>
@@ -28,6 +62,9 @@
         </div>
     </td>
 </tr>
+@endforeach
+
+
 
 <tr>
     <td> 2</td>

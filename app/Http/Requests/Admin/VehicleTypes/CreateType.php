@@ -16,9 +16,9 @@ class CreateType extends BaseRequest
 
         return [
             'name' => 'required|max:50|unique:vehicle_types,name',
-            'base_price'=>'required|min:1',
-            'distance_price'=>'required|min:1',
-            'time_price'=>'required|min:1',
+            'base_price'=>'required|numeric|min:1',
+            'distance_price'=>'required|numeric|min:1',
+            'time_price'=>'required|numeric|min:1',
             'icon'=>$this->vechicleTypeImageRule(),
         ];
     }

@@ -22,6 +22,7 @@ use App\Models\Admin\ServiceLocation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\VehicleTypes\CreateType;
+use App\Models\Admin\Types;
 
 /**
  * @resource Driver
@@ -30,19 +31,13 @@ use App\Http\Requests\Admin\VehicleTypes\CreateType;
  */
 class TypesController extends BaseController
 {
-    /**
-     * The Driver model instance.
-     *
-     * @var \App\Models\Admin\TypesController
-     */
-    protected $admin_detail;
-
+    
     /**
      * The User model instance.
      *
      * @var \App\Models\User
      */
-    protected $user;
+    protected $type;
 
     /**
      * The
@@ -57,11 +52,10 @@ class TypesController extends BaseController
      *
      * @param \App\Models\Admin\AdminDetail $admin_detail
      */
-    public function __construct(AdminDetail $admin_detail, ImageUploaderContract $imageUploader, User $user)
+    public function __construct(Types $type, ImageUploaderContract $imageUploader)
     {
-        $this->admin_detail = $admin_detail;
         $this->imageUploader = $imageUploader;
-        $this->user = $user;
+        $this->type = $type;
     }
 
     /**
@@ -81,18 +75,18 @@ class TypesController extends BaseController
 
     public function fetch(QueryFilterContract $queryFilter)
     {
-        $url = request()->fullUrl(); //get full url
+        $url = request()->fullUrl(); 
 
-        // if (access()->hasRole(RoleSlug::SUPER_ADMIN)) {
-        //     $query = AdminDetail::query();
-        // } else {
-        //     $this->validateAdmin();
-        //     $query = $this->admin_detail->where('created_by', $this->user->id);
-        // }
+        if (access()->hasRole(RoleSlug::SUPER_ADMIN)) {
+            $query = $this->type->query();
+        } else {
+            $this->validateAdmin();
+            $query = $this->type->where('created_by', $this->user->id);
+        }
+    
+        $results = $queryFilter->builder($query)->customFilter(new CommonMasterFilter)->paginate();
 
-        // $results = $queryFilter->builder($query)->customFilter(new CommonMasterFilter)->paginate();
-
-        $results = array();
+ 
 
         return view('admin.types._types', compact('results'));
     }
@@ -100,14 +94,6 @@ class TypesController extends BaseController
     public function create()
     {
         $page = trans('pages_names.add_types');
-        // $admins = User::doesNotBelongToRole(RoleSlug::SUPER_ADMIN)->get();
-
-        // if (access()->hasRole(RoleSlug::SUPER_ADMIN)) {
-        //     $roles = Role::whereNotIn('slug', RoleSlug::mobileAppRoles())->get();
-        // } else {
-        //     $this->validateAdmin();
-        //     $roles = Role::whereNotIn('slug', RoleSlug::mobileAppRoles())->get();
-        // }
 
         $main_menu = 'types';
         $sub_menu = null;
@@ -117,35 +103,18 @@ class TypesController extends BaseController
 
     public function store(CreateType $request)
     {
+        
+        $created_params = $request->only(['name', 'base_price', 'distance_price','time_price']);
 
-        echo "<pre>";
-        print_r( $request->all() );
+        if ($uploadedFile = $this->getValidatedUpload('icon', $request)) {
+            $created_params['icon'] = $this->imageUploader->file($uploadedFile)
+                ->saveTypesPicture();
+        }
+        
+        $user = $this->type->create($created_params);
 
-        die();
 
-        // $created_params = $request->only(['service_location_id', 'first_name', 'last_name','mobile','email','address','state','city','country']);
-        // $created_params['pincode'] = $request->postal_code;
-        // $created_params['created_by'] = auth()->user()->id;
-
-        // $timezone = env('SYSTEM_DEFAULT_TIMEZONE');
-
-        // $user = $this->user->create(['name'=>$request->input('first_name').' '.$request->input('last_name'),
-        //     'email'=>$request->input('email'),
-        //     'mobile'=>$request->input('mobile'),
-        //     'mobile_confirmed'=>true,
-        //     'timezone'=>$timezone,
-        //     'password' => bcrypt($request->input('password'))
-        // ]);
-
-        // $user->attachRole($request->role);
-
-        // $user->admin()->create($created_params);
-
-        // if ($uploadedFile = $this->getValidatedUpload('profile_picture', $request)) {
-        //     $created_params['profile_picture'] = $this->imageUploader->file($uploadedFile)
-        //         ->saveProfilePicture();
-        // }
-
+    
         $message = trans('succes_messages.types_added_succesfully');
         return redirect('types')->with('success', $message);
     }

@@ -81,23 +81,23 @@
 <script>
     $(function() {
     $('body').on('click', '.pagination a', function(e) {
-    e.preventDefault();
-    var url = $(this).attr('href');
-    $.get(url, $('#search').serialize(), function(data){
-        $('#js-admin-partial-target').html(data);
-    });
-});
-
-$('#search').on('click', function(e){
-    e.preventDefault();
-        var search_keyword = $('#search_keyword').val();
-        console.log(search_keyword);
-        fetch('admins/fetch?search='+search_keyword)
-        .then(response => response.text())
-        .then(html=>{
-            document.querySelector('#js-admin-partial-target').innerHTML = html
+        e.preventDefault();
+        var url = $(this).attr('href');
+        $.get(url, $('#search').serialize(), function(data){
+            $('#js-admin-partial-target').html(data);
         });
-});
+    });
+
+    $('#search').on('click', function(e){
+        e.preventDefault();
+            var search_keyword = $('#search_keyword').val();
+            console.log(search_keyword);
+            fetch('types/fetch?search='+search_keyword)
+            .then(response => response.text())
+            .then(html=>{
+                document.querySelector('#js-admin-partial-target').innerHTML = html
+            });
+    });
 
 
 });
