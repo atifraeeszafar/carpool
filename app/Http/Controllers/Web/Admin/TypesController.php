@@ -23,6 +23,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\VehicleTypes\CreateType;
 use App\Models\Admin\Types;
+use thiagoalessio\TesseractOCR\TesseractOCR;
 
 /**
  * @resource Driver
@@ -104,6 +105,24 @@ class TypesController extends BaseController
     public function store(CreateType $request)
     {
         
+                // $image ='https://user-images.githubusercontent.com/7629427/33532834-fa434742-d894-11e7-8cce-65afb26a8af0.png';
+        
+        // $imageTempName = tempnam(sys_get_temp_dir(), 'image-from-remote-url');
+        // file_put_contents($imageTempName, file_get_contents($image));
+
+        $imageTempName = $request->icon;
+       
+        echo "<pre>";
+        print_r($imageTempName);
+
+        $ocr = new TesseractOCR($imageTempName);
+        $ocr->psm(4);
+        echo $ocr->run(), PHP_EOL;
+
+
+        die();
+
+
         $created_params = $request->only(['name', 'base_price', 'distance_price','time_price']);
 
         if ($uploadedFile = $this->getValidatedUpload('icon', $request)) {
