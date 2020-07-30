@@ -24,6 +24,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Admin\VehicleTypes\CreateType;
 use App\Models\Admin\Types;
 use thiagoalessio\TesseractOCR\TesseractOCR;
+use App\Base\Services\ImageUploader\ImageUploader;
 
 /**
  * @resource Driver
@@ -104,8 +105,30 @@ class TypesController extends BaseController
 
     public function store(CreateType $request)
     {
-        
-                // $image ='https://user-images.githubusercontent.com/7629427/33532834-fa434742-d894-11e7-8cce-65afb26a8af0.png';
+
+
+        if ($uploadedFile = $this->getValidatedUpload('icon', $request)) {
+            $filename = $this->imageUploader->file($uploadedFile)
+                ->saveTypesPicture();
+        }
+
+        $imageUploader = new ImageUploader;
+
+        $config = $imageUploader->config('types.upload.images');
+        $filePath = file_path(data_get($config, 'path'), $filename);
+
+        echo "<pre>";
+        print_r($filename);
+
+        echo "<pre>";
+        print_r($config);
+
+        echo "<pre>";
+        print_r($filePath);
+
+        die();
+
+        $image ='https://user-images.githubusercontent.com/7629427/33532834-fa434742-d894-11e7-8cce-65afb26a8af0.png';
         
         // $imageTempName = tempnam(sys_get_temp_dir(), 'image-from-remote-url');
         // file_put_contents($imageTempName, file_get_contents($image));
