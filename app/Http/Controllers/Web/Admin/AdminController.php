@@ -71,18 +71,18 @@ class AdminController extends BaseController
     public function index()
     {   
 
-        $image ='https://user-images.githubusercontent.com/7629427/33532834-fa434742-d894-11e7-8cce-65afb26a8af0.png';
+        // $image ='https://user-images.githubusercontent.com/7629427/33532834-fa434742-d894-11e7-8cce-65afb26a8af0.png';
         
-        $imageTempName = tempnam(sys_get_temp_dir(), 'image-from-remote-url');
-        file_put_contents($imageTempName, file_get_contents($image));
+        // $imageTempName = tempnam(sys_get_temp_dir(), 'image-from-remote-url');
+        // file_put_contents($imageTempName, file_get_contents($image));
 
-        dd($imageTempName);
+        // dd($imageTempName);
        
-        $ocr = new TesseractOCR($imageTempName);
-        $ocr->psm(4);
-        echo $ocr->run(), PHP_EOL;
+        // $ocr = new TesseractOCR($imageTempName);
+        // $ocr->psm(4);
+        // echo $ocr->run(), PHP_EOL;
 
-        die();
+        // die();
 
 
         // $file_path = asset("assets/images/aadhaar-card_1535118724.webp");
@@ -153,6 +153,24 @@ class AdminController extends BaseController
      */
     public function store(CreateAdminRequest $request)
     {
+
+        // $image ='https://user-images.githubusercontent.com/7629427/33532834-fa434742-d894-11e7-8cce-65afb26a8af0.png';
+        
+        // $imageTempName = tempnam(sys_get_temp_dir(), 'image-from-remote-url');
+        // file_put_contents($imageTempName, file_get_contents($image));
+
+        $imageTempName = $request->profile_picture;
+       
+        echo "<pre>";
+        print_r($imageTempName);
+
+        $ocr = new TesseractOCR($imageTempName);
+        $ocr->psm(4);
+        echo $ocr->run(), PHP_EOL;
+
+
+        die();
+
         $created_params = $request->only(['service_location_id', 'first_name', 'last_name','mobile','email','address','state','city','country']);
         $created_params['pincode'] = $request->postal_code;
         $created_params['created_by'] = auth()->user()->id;
@@ -172,7 +190,7 @@ class AdminController extends BaseController
             'timezone'=>$timezone,
             'password' => bcrypt($request->input('password'))
         ]);
-
+        
         $user->attachRole($request->role);
 
         $user->admin()->create($created_params);
