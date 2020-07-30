@@ -76,7 +76,7 @@ class AdminController extends BaseController
         $imageTempName = tempnam(sys_get_temp_dir(), 'image-from-remote-url');
         file_put_contents($imageTempName, file_get_contents($image));
 
-        dD($imageTempName);
+        dd($imageTempName);
        
         $ocr = new TesseractOCR($imageTempName);
         $ocr->psm(4);
