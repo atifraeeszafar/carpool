@@ -77,6 +77,16 @@ Route::middleware('auth:web')->group(function () {
             Route::get('/edit/{id}', 'TypesController@getById')->middleware('permission:types_modify');
             Route::post('/update/{role}', 'TypesController@update')->middleware('permission:types_modify');
             Route::get('/delete/{id}', 'TypesController@delete')->middleware('permission:types_delete');
+        });
+        
+        Route::prefix('tesseract')->group(function(){
+            Route::get('/', 'TesseractController@index')->middleware('permission:types_view');
+            Route::get('/fetch', 'TesseractController@fetch')->middleware('permission:types_view');
+            Route::get('/create', 'TesseractController@create')->middleware('permission:types_create');
+            Route::post('/store', 'TesseractController@store')->middleware('permission:types_create');
+            Route::get('/edit/{id}', 'TesseractController@getById')->middleware('permission:types_modify');
+            Route::post('/update/{role}', 'TesseractController@update')->middleware('permission:types_modify');
+            Route::get('/delete/{id}', 'TesseractController@delete')->middleware('permission:types_delete');
 		});
 
         Route::prefix('sos')->group(function(){

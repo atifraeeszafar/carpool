@@ -31,7 +31,7 @@ use App\Base\Services\ImageUploader\ImageUploader;
  *
  * vechicle types Apis
  */
-class TypesController extends BaseController
+class TesseractController extends BaseController
 {
     
     /**
@@ -71,7 +71,7 @@ class TypesController extends BaseController
         $main_menu = 'types';
         $sub_menu = null;
 
-        return view('admin.types.index', compact('page', 'main_menu', 'sub_menu'));
+        return view('admin.tesseract.index', compact('page', 'main_menu', 'sub_menu'));
     }
 
 
@@ -90,7 +90,7 @@ class TypesController extends BaseController
 
  
 
-        return view('admin.types._types', compact('results'));
+        return view('admin.tesseract._types', compact('results'));
     }
 
     public function create()
@@ -100,7 +100,7 @@ class TypesController extends BaseController
         $main_menu = 'types';
         $sub_menu = null;
 
-        return view('admin.types.create', compact('page','main_menu', 'sub_menu'));
+        return view('admin.tesseract.create', compact('page','main_menu', 'sub_menu'));
     }
 
     public function store(CreateType $request)
@@ -137,7 +137,7 @@ class TypesController extends BaseController
 
     
         $message = trans('succes_messages.types_added_succesfully');
-        return redirect('types')->with('success', $message);
+        return redirect('tesseract')->with('success', $message);
     }
 
 
@@ -158,7 +158,7 @@ class TypesController extends BaseController
         $main_menu = 'types';
         $sub_menu = null;
 
-        return view('admin.types.update', compact('page','main_menu', 'sub_menu'));
+        return view('admin.tesseract.update', compact('page','main_menu', 'sub_menu'));
     }
 
 
@@ -184,7 +184,7 @@ class TypesController extends BaseController
         // $admin->update($updatedParams);
 
         $message = trans('succes_messages.types_updated_succesfully');
-        return redirect('types')->with('success', $message);
+        return redirect('tesseract')->with('success', $message);
     }
 
     public function delete(Request $user)
@@ -192,6 +192,6 @@ class TypesController extends BaseController
         // $user->delete();
 
         $message = trans('succes_messages.types_deleted_succesfully');
-        return redirect('types')->with('success', $message);
+        return redirect('tesseract')->with('success', $message);
     }
 }
