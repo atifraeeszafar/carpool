@@ -20,10 +20,13 @@ class CarColorSeeder extends Seeder
      */
     public function run()
     {
+        
         DB::transaction(function () {
             $car_colors_db = CarColor::all();
             foreach ($this->car_colors as $key => $car_color) {
-                $car_color_found = $car_colors_db->first(function ($item) {
+             
+               
+                $car_color_found = $car_colors_db->first(function ($item) use ($car_color){
                     return $item->color_name === $car_color;
                 });
 

@@ -68,6 +68,8 @@ class SosController extends BaseController
      */
     public function __construct(AdminDetail $admin_detail, ImageUploaderContract $imageUploader, User $user,Sos $sos)
     {
+
+        
         $this->admin_detail = $admin_detail;
         $this->imageUploader = $imageUploader;
         $this->user = $user;
@@ -93,21 +95,21 @@ class SosController extends BaseController
 
     public function fetch(QueryFilterContract $queryFilter)
     {
-       /*  $url = request()->fullUrl(); //get full url
+        $url = request()->fullUrl(); //get full url
 
-        // if (access()->hasRole(RoleSlug::SUPER_ADMIN)) {
-        //     $query = AdminDetail::query();
-        // } else {
-        //     $this->validateAdmin();
-        //     $query = $this->admin_detail->where('created_by', $this->user->id);
-        // }
+        if (access()->hasRole(RoleSlug::SUPER_ADMIN)) {
+             $query = $this->model::query();
+         } else {
+           $this->validateAdmin();
+             $query = $this->admin_detail->where('created_by', $this->user->id);
+        }
 
-        // $results = $queryFilter->builder($query)->customFilter(new CommonMasterFilter)->paginate();
+       $results = $queryFilter->builder($query)->customFilter(new CommonMasterFilter)->paginate();
 
-        $results = array(); */
+        $results = array(); 
 
 
-$url = request()->fullUrl(); 
+/* $url = request()->fullUrl(); 
 
 $results = array();
 
@@ -115,7 +117,7 @@ $get_data = $this->model->get();
 
 if($get_data && sizeof($get_data) > 0){
     $results =  $get_data;
-}
+} */
 
 
         return view('admin.sos._sos', compact('results'));
