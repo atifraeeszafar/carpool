@@ -53,7 +53,7 @@
         <div class="col-sm-12">
             <div class="form-group">
                 <label for="name">@lang('view_pages.select_users')</label>
-                <select class="form-control selectize" multiple>
+                <select class="form-control selectize" id="multi" multiple>
 
                     <option value="" selected disabled >@lang('view_pages.select')</option>
                     <option value="1" > Milla Jovovich </option>
@@ -164,6 +164,8 @@
 @include('admin.layouts.common_scripts')
 <script src="https://unicons.iconscout.com/release/v2.0.1/script/monochrome/bundle.js"></script>
 <script src="{{asset('assets/js/app.js')}}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
 
 <script>
 
@@ -182,6 +184,11 @@ function redirectStatus()
     }
 
 }
+
+
+$(document).ready(function() {
+  $('#multi').multiselect();
+});
 
 </script>
 
