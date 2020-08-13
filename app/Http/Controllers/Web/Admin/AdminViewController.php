@@ -53,7 +53,6 @@ class AdminViewController extends BaseController
         return view('admin.index', compact('page', 'main_menu', 'sub_menu'));
     }
 
-
     public function viewRequest()
     {
 
@@ -67,6 +66,8 @@ class AdminViewController extends BaseController
 
         return view('admin.request.index', compact('page', 'main_menu', 'sub_menu'));
     }
+
+  
 
     public function getAllRequest()
     {

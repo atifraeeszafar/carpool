@@ -106,6 +106,24 @@ class ImageUploader implements ImageUploaderContract
         return $filename;
     }
 
+    public function saveTypesPicture()
+    {
+        $this->validateFile();
+
+        $config = $this->config('types.upload.images');
+
+        $this->setDefaultResize(data_get($config, 'image.store_resolution'));
+
+        $image = $this->encodeImage();
+
+        $filename = $this->hashGenerator->extension($this->format)->make();
+
+        $filePath = file_path(data_get($config, 'path'), $filename);
+
+        Storage::put($filePath, $image);
+
+        return $filename;
+    }
     /**
      * Save the user profile picture.
      *
