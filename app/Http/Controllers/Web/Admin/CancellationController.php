@@ -2,25 +2,26 @@
 
 namespace App\Http\Controllers\Web\Admin;
 
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Country;
+use App\Models\Access\Role;
+use Illuminate\Http\Request;
+use App\Models\Admin\Company;
+use App\Models\Admin\AdminDetail;
+use App\Models\Admin\ServiceLocation;
 use App\Http\Controllers\ApiController;
+use App\Models\Master\CancellationReason;
 use App\Http\Controllers\Web\BaseController;
+use App\Base\Constants\Auth\Role as RoleSlug;
+use App\Base\Filters\Master\CommonMasterFilter;
+use App\Base\Libraries\QueryFilter\QueryFilterContract;
 use App\Http\Requests\Admin\Driver\CreateDriverRequest;
 use App\Http\Requests\Admin\Driver\UpdateDriverRequest;
 use App\Base\Services\ImageUploader\ImageUploaderContract;
-use App\Models\Admin\AdminDetail;
-use App\Base\Constants\Auth\Role as RoleSlug;
-use App\Models\User;
-use App\Base\Libraries\QueryFilter\QueryFilterContract;
-use App\Base\Filters\Master\CommonMasterFilter;
 use App\Http\Requests\Admin\AdminDetail\CreateAdminRequest;
 use App\Http\Requests\Admin\AdminDetail\UpdateAdminRequest;
 use App\Http\Requests\Admin\AdminDetail\UpdateProfileRequest;
-use App\Models\Admin\Company;
-use App\Models\Country;
-use App\Models\Access\Role;
-use App\Models\Admin\ServiceLocation;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 /**
  * @resource Driver
  *
@@ -55,11 +56,12 @@ class CancellationController extends BaseController
      *
      * @param \App\Models\Admin\AdminDetail $admin_detail
      */
-    public function __construct(AdminDetail $admin_detail, ImageUploaderContract $imageUploader, User $user)
+    public function __construct(AdminDetail $admin_detail, ImageUploaderContract $imageUploader, User $user,CancellationReason $cancel_reason)
     {
         $this->admin_detail = $admin_detail;
         $this->imageUploader = $imageUploader;
         $this->user = $user;
+        $this->model =$cancel_reason;
     }
 
     /**
@@ -81,16 +83,18 @@ class CancellationController extends BaseController
     {
         $url = request()->fullUrl(); //get full url
 
-        // if (access()->hasRole(RoleSlug::SUPER_ADMIN)) {
-        //     $query = AdminDetail::query();
-        // } else {
-        //     $this->validateAdmin();
-        //     $query = $this->admin_detail->where('created_by', $this->user->id);
-        // }
+        if (access()->hasRole(RoleSlug::SUPER_ADMIN)) {
+             $query = $this->model::query();
+         } else {
+           $this->validateAdmin();
+             $query = $this->admin_detail->where('created_by', $this->user->id);
+        }
 
-        // $results = $queryFilter->builder($query)->customFilter(new CommonMasterFilter)->paginate();
 
-        $results = array();
+
+       $results = $queryFilter->builder($query)->customFilter(new CommonMasterFilter)->paginate();
+
+       
 
         return view('admin.cancellation._cancellation', compact('results'));
     }
@@ -115,6 +119,8 @@ class CancellationController extends BaseController
 
     public function store(Request $request)
     {
+
+
         // $created_params = $request->only(['service_location_id', 'first_name', 'last_name','mobile','email','address','state','city','country']);
         // $created_params['pincode'] = $request->postal_code;
         // $created_params['created_by'] = auth()->user()->id;
@@ -138,12 +144,19 @@ class CancellationController extends BaseController
         //         ->saveProfilePicture();
         // }
 
+        $insert_data= $request->only($this->model->getFillable());
+        $insert_data['created_by']=auth()->user()->id;
+
+
+            
+        $this->model->create($insert_data);
+
         $message = trans('succes_messages.cancellation_added_succesfully');
         return redirect('cancellation')->with('success', $message);
     }
 
 
-    public function getById(Request $admin)
+    public function getById(Request $request)
     {
         $page = trans('pages_names.edit_cancellation');
 
@@ -160,11 +173,20 @@ class CancellationController extends BaseController
         $main_menu = 'cancellation';
         $sub_menu = null;
 
-        return view('admin.cancellation.update', compact('page','main_menu', 'sub_menu'));
+
+        $result=$this->model->find($request->id);
+
+        if(empty($result)){
+
+            $message = "Invalid Input";
+            return redirect('cancellation')->with('success', $message);
+        }
+
+        return view('admin.cancellation.update', compact('page','main_menu', 'sub_menu','result'));
     }
 
 
-    public function update(Request $admin, Request $request)
+    public function update(Request $request,$id)
     {
         // $updatedParams = $request->only(['service_location_id', 'first_name', 'last_name','mobile','email','address','state','city','country']);
         // $updatedParams['pincode'] = $request->postal_code;
@@ -185,21 +207,37 @@ class CancellationController extends BaseController
 
         // $admin->update($updatedParams);
 
+
+
+
+        $insert_data= $request->only($this->model->getFillable());
+            
+
+        $this->model->where('id',$id)->update($insert_data); 
+
         $message = trans('succes_messages.cancellation_updated_succesfully');
         return redirect('cancellation')->with('success', $message);
     }
 
-    public function delete(Request $user)
+    public function delete(Request $request)
     {
         // $user->delete();
 
+        $data= $this->model::where('id',$request->id)->first();
+
+        if($data){
+           $data->delete();
+        }
         $message = trans('succes_messages.cancellation_deleted_succesfully');
         return redirect('cancellation')->with('success', $message);
     }
 
-    public function status(Request $user)
+    public function status(Request $request)
     {
-        // $user->delete();
+
+        $data=$this->model->find($request->id);
+        $data->is_active= ! $data->is_active;
+        $data->save();
 
         $message = trans('succes_messages.cancellation_status_changed_succesfully');
         return redirect('cancellation')->with('success', $message);

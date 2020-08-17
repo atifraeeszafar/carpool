@@ -106,20 +106,6 @@ class SosController extends BaseController
 
        $results = $queryFilter->builder($query)->customFilter(new CommonMasterFilter)->paginate();
 
-        $results = array(); 
-
-
-/* $url = request()->fullUrl(); 
-
-$results = array();
-
-$get_data = $this->model->get();
-
-if($get_data && sizeof($get_data) > 0){
-    $results =  $get_data;
-} */
-
-
         return view('admin.sos._sos', compact('results'));
     }
 

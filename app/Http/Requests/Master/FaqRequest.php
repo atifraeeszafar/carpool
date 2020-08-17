@@ -27,8 +27,8 @@ class FaqRequest extends FormRequest
     public function rules(Request $request)
     {
         return [
-            'question'=>'required|regex:/[a-zA-Z0-9\s]+/|max:5',
-            'answer'=>'required|regex:/[a-zA-Z0-9\s]+/|max:5'
+            'question'=>'required|regex:/[a-zA-Z0-9\s]+/',
+            'answer'=>'required|regex:/[a-zA-Z0-9\s]+/'
         ];
     }
 }
