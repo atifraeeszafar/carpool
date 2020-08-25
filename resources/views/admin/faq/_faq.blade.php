@@ -13,11 +13,15 @@
 </thead>
 <tbody>
 
+@if(count($results)<1)
+<tr><td colspan="11"><span id="no_data">{{trans('view_pages.no_data_found')}}</span></td></tr>
+@else
+@php  $i= $results->firstItem(); @endphp
 
 @foreach($results as $result)
 
 <tr>
-    <td> 1</td>
+<td> {{ $i++ }} </td>
     <td> {{ $result->question }}</td>
     <td> {{ $result->answer }}</td>
     @if($result->is_active)
@@ -45,6 +49,8 @@
 </tr>
 
 @endforeach
+@endif
+
 
 </tbody>
 </table>

@@ -91,8 +91,7 @@
 $('#search').on('click', function(e){
     e.preventDefault();
         var search_keyword = $('#search_keyword').val();
-        alert(search_keyword);
-        console.log(search_keyword);
+
         fetch('sos/fetch?search='+search_keyword)
         .then(response => response.text())
         .then(html=>{

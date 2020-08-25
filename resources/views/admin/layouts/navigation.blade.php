@@ -118,7 +118,7 @@
   </a>
 </li>
 @endif
-
+<!-- 
 @if(auth()->user()->can('notification_view'))
 
 <li class="{{'notification' == $main_menu ? 'mm-active' : '' }}">
@@ -127,7 +127,7 @@
       <span>Notification</span>
   </a>
 </li>
-@endif
+@endif -->
 
 @if(auth()->user()->can('promocode_view'))
 

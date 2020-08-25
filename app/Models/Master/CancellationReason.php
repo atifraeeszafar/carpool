@@ -2,12 +2,13 @@
 
 namespace App\Models\Master;
 
+
 use App\Base\Uuid\UuidModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Nicolaslopezj\Searchable\SearchableTrait;
 
-class Faq extends Model
+class CancellationReason extends Model
 {
     
     use UuidModel;
@@ -15,8 +16,9 @@ class Faq extends Model
     use SoftDeletes;
 
     //
-    //protected $fillable=["question","answer","service_location","created_by"];
-    protected $fillable=["question","answer","created_by"];
+    //protected $fillable=["name","number","created_by","service_location"];
+    protected $fillable=["reason","payment_status","status","arrived_state","created_by"];
+
     protected $searchable = [
         /**
          * Columns and their priority in search results.
@@ -27,8 +29,7 @@ class Faq extends Model
          */
         'columns' => [
             
-            'question' => 10,
-            'answer' => 10,
+            'reason' => 10,
             
         ],
   
@@ -37,4 +38,6 @@ class Faq extends Model
 {
     return $this->fillable;
 }
+
+
 }

@@ -41,7 +41,7 @@
 
 <div class="col-sm-12">
 
-<form  method="post" class="form-horizontal" action="{{url('cancellation/update/1')}}" enctype="multipart/form-data">
+<form  method="post" class="form-horizontal" action="{{url('cancellation/store')}}" enctype="multipart/form-data">
 {{csrf_field()}}
 
 
@@ -63,15 +63,32 @@
             <div class="form-group">
                 <label for="name">@lang('view_pages.paying_status')</label>
                
-                    <select name="paying_status" id="paying_status" class="form-control">
+                    <select name="payment_status" id="payment_status" class="form-control" required="">
                         <option value="" selected disabled >@lang('view_pages.select')</option>
                         <option value="1" >@lang('view_pages.free')</option>
                         <option value="2">@lang('view_pages.compensate')</option>
                     </select>
 
-                <span class="text-danger">{{ $errors->first('paying_status') }}</span>
+                <span class="text-danger">{{ $errors->first('payment_status') }}</span>
             </div>
         </div>
+</div>
+        <div class="row">
+
+<div class="col-sm-12">
+    <div class="form-group">
+    <label for="name">@lang('view_pages.arrive_status')</label>
+               
+               <select name="arrived_state" id="arrive_status" class="form-control" required="">
+                   <option value="" selected disabled >@lang('view_pages.select')</option>
+                   <option value="1" >@lang('view_pages.before_arrive')</option>
+                   <option value="2">@lang('view_pages.after_arrive')</option>
+               </select>
+
+        <span class="text-danger">{{ $errors->first('arrived_state') }}</span>
+    </div>
+</div>
+</div>
 
       <!--   <div class="col-sm-6">
             <div class="form-group">

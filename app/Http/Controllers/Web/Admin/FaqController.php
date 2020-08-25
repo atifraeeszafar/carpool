@@ -117,15 +117,19 @@ class FaqController extends BaseController
         $results = array();
  */
 
-$url = request()->fullUrl(); 
+$url = request()->fullUrl(); //get full url
 
-$results = array();
-
-$get_data = $this->model->get();
-
-if($get_data && sizeof($get_data) > 0){
-    $results =  $get_data;
+if (access()->hasRole(RoleSlug::SUPER_ADMIN)) {
+     $query = $this->model::query();
+ } else {
+   $this->validateAdmin();
+     $query = $this->admin_detail->where('created_by', $this->user->id);
 }
+
+
+
+$results = $queryFilter->builder($query)->customFilter(new CommonMasterFilter)->paginate();
+
 
         return view('admin.faq._faq', compact('results'));
     }
