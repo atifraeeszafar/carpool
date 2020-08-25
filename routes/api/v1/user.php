@@ -16,7 +16,9 @@ use App\Base\Constants\Auth\Role;
  * These routes use the root namespace 'App\Http\Controllers\Api\V1\User'.
  * These routes use the middleware group 'auth'.
  */
-Route::prefix('user')->namespace('User')->middleware('auth')->group(function () {
+
+//->middleware('auth')
+Route::prefix('user')->namespace('User')->group(function () {
     // Get the logged in user.
     Route::get('/', 'AccountController@me');
     /**
@@ -33,7 +35,18 @@ Route::prefix('user')->namespace('User')->middleware('auth')->group(function () 
         Route::post('add/car', 'CarController@store');
         Route::post('update/car/{car}', 'CarController@update');
         Route::post('delete/car/{car}', 'CarController@delete');
+
+
     });
+
+    Route::prefix('ride')->group(function () {
+        Route::post('create', 'RideController@createRide');
+        Route::post('history', 'RideController@history');
+
+        Route::post('search', 'RideController@search');
+
+    });
+
 });
 
 Route::get('test-socket', function () {

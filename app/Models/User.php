@@ -19,6 +19,7 @@ use Illuminate\Notifications\Notifiable;
 use App\Models\Traits\UserAccessScopeTrait;
 use App\Base\Services\OTP\CanSendOTPContract;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Common\RideModel;
 
 class User extends Authenticatable implements CanSendOTPContract
 {
@@ -188,6 +189,11 @@ class User extends Authenticatable implements CanSendOTPContract
     public function admin()
     {
         return $this->hasOne(AdminDetail::class, 'user_id', 'id');
+    }
+
+    public function rideDetail()
+    {
+        return $this->hasMany(RideModel::class,'rider_id','id');
     }
 
     /**
