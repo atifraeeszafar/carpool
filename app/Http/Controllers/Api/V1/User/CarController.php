@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers\Api\V1\User;
 
+use App\Models\Master\Car;
 use App\Http\Requests\Master\AddCarRequest;
 use App\Http\Requests\Master\UpdateCarRequest;
 use App\Http\Controllers\Api\V1\BaseController;
 
+/**
+ * @group Car Management-Apis
+ *
+ * APIs for car management
+ */
 class CarController extends BaseController
 {
     protected $car;
