@@ -4,7 +4,7 @@ namespace App\Http\Requests\Request;
 
 use App\Http\Requests\BaseRequest;
 
-class OfferRideRequest extends BaseRequest
+class FindRideRequest extends BaseRequest
 {
     /**
      * Get the validation rules that apply to the request.

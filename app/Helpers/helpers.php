@@ -1,5 +1,6 @@
 <?php
 
+use Polyline;
 use Carbon\Carbon;
 use Ramsey\Uuid\Uuid;
 use App\Models\Setting;
@@ -16,6 +17,7 @@ use Grimzy\LaravelMysqlSpatial\Types\Point;
 use App\Base\Constants\Auth\Role as RoleSlug;
 use App\Base\Services\Setting\SettingContract;
 use App\Helpers\Notification\AdminInformation;
+use Grimzy\LaravelMysqlSpatial\Types\LineString;
 use App\Base\Services\Hash\HashGeneratorContract;
 use App\Base\Libraries\QueryFilter\FilterContract;
 use App\Base\Services\OTP\Generator\OTPGeneratorContract;
@@ -63,6 +65,41 @@ if (! function_exists('array_except')) {
     function array_except($array, $keys)
     {
         return Arr::except($array, $keys);
+    }
+}
+if (! function_exists('get_line_string')) {
+    /**
+     * Get all of the given array except for a specified array of keys.
+     *
+     * @param  array  $array
+     * @param  array|string  $keys
+     * @return array
+     */
+    function get_line_string($pickup_lat, $pickup_lng, $drop_lat, $drop_lng)
+    {
+        $url = 'https://maps.googleapis.com/maps/api/directions/json?&origin='.$pickup_lat.','.$pickup_lng.'&destination='.$drop_lat.','.$drop_lng.'&sensor=false&key=AIzaSyBWtJbuXlAX4gJSJVdQL56Z3GZJd8F2U6I';
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        $encoded_result = json_decode($result);
+
+        $points = [];
+
+        $poly_line = \Polyline::decode($encoded_result->routes[0]->overview_polyline->points);
+
+        $poly_points = \Polyline::pair($poly_line);
+
+        foreach ($poly_points as $key => $point) {
+            $points[] = new Point($point[0], $point[1]);
+        }
+
+        return $poly_line_string = new LineString($points);
     }
 }
 
@@ -283,17 +320,14 @@ if (!function_exists('find_zone')) {
     }
 }
 
-if(!function_exists('get_pagination')){
+if (!function_exists('get_pagination')) {
+    function get_pagination()
+    {
+        $per_page = 5;
 
-    function get_pagination(){
-
-             $per_page = 5;
-
-             return $per_page;
-
-        }
-    
+        return $per_page;
     }
+}
 
 if (!function_exists('get_distance_matrix')) {
     function get_distance_matrix($pick_lat, $pick_lng, $drop_lat, $drop_lng, $traffic = fals)

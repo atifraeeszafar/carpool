@@ -2,7 +2,9 @@
 
 namespace App\Models\Request;
 
+use App\Models\Traits\HasActive;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Requests\OfferedRidePlace;
 
 class OfferedRidePlaceStop extends Model
 {

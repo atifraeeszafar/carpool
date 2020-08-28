@@ -2,6 +2,7 @@
 
 namespace App\Models\Request;
 
+use App\Models\Traits\HasActive;
 use Illuminate\Database\Eloquent\Model;
 
 class OfferedRidePlaceFrequentDay extends Model

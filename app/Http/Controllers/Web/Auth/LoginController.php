@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Web\Auth;
 
-use App\Base\Constants\Auth\Role;
-use App\Base\Services\OTP\Handler\OTPHandlerContract;
-use App\Http\Controllers\ApiController;
-use App\Http\Requests\Auth\AdminLoginRequest;
-use App\Http\Requests\Auth\UserLoginRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Laravel\Passport\Http\Controllers\AccessTokenController;
-use Psr\Http\Message\ServerRequestInterface;
-use App\Events\Auth\UserLogin;
 use App\Events\Event;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Events\Auth\UserLogin;
+use App\Base\Constants\Auth\Role;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\ApiController;
+use App\Http\Requests\Auth\UserLoginRequest;
+use Psr\Http\Message\ServerRequestInterface;
+use App\Http\Requests\Auth\AdminLoginRequest;
+use App\Base\Services\OTP\Handler\OTPHandlerContract;
+use Laravel\Passport\Http\Controllers\AccessTokenController;
 
 /**
  * @group Web-Authentication
@@ -321,20 +322,36 @@ class LoginController extends ApiController
     protected function authenticateAndRespond(User $user, $request, $needsToken = false)
     {
         event(new UserLogin($user));
+
+
         if ($needsToken) {
+            $client_tokens = DB::table('oauth_clients')->where('password_client', 1)->first();
+            // dd($client_tokens);
+            // @TODO Store login by,fcm,apn tokens
+
+            if ($request->has('device_token')) {
+                $user->fcm_token = $request->input('device_token')?:null;
+            }
+            $user->login_by = $request->input('login_by');
+            // $user->fcm_token = $request->input('apn_token')?:null;
+            $user->save();
+            $user->fresh();
+
             if ($request->has('password')) {
                 return $this->issueToken([
                 'grant_type' => 'password',
-                'client_id' => env('CLIENT_ID'),
-                'client_secret' => env('CLIENT_SECRET'),
+                'client_id' => $client_tokens->id,
+                'client_secret' => $client_tokens->secret,
                 'username' => $request->input($this->getLoginIdentifier()),
                 'password' => $request->input('password'),
             ]);
             } else {
+                $client_tokens = DB::table('oauth_clients')->where('personal_access_client', 1)->first();
+
                 return $this->issueToken([
                 'grant_type' => 'personal_access',
-                'client_id' => env('PERSONAL_CLIENT_ID'),
-                'client_secret' => env('PERSONAL_CLIENT_SECRET'),
+                'client_id' => $client_tokens->id,
+                'client_secret' => $client_tokens->secret,
                 'user_id' => $user->id,
                 'scope' => [],
             ]);

@@ -15,11 +15,6 @@ use App\Models\Master\RideJunctionModel;
 use Illuminate\Support\Facades\DB;
 use App\Transformers\Ride\RideTransformer;
 
-/**
- * @group Ride-Apis
- *
- * APIs for Rides
- */
 class RideController extends BaseController
 {
     public function __construct()
@@ -137,7 +132,7 @@ class RideController extends BaseController
     }
 
     /**
-    * Find Ride
+    * Search Ride
     *
     */
     public function search(Request $request)

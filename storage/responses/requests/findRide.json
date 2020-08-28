@@ -1,0 +1,37 @@
+{
+    "success": true,
+    "message": "success",
+    "data": [
+    {
+        "id": 22,
+        "offerd_place_id": 2,
+        "pickup_address": "Coimbatore",
+        "drop_address": "Chennai",
+        "pickup_lat": 11.0118701,
+        "pickup_lng": 76.897194,
+        "drop_lat": 13.0480438,
+        "drop_lng": 79.928809,
+        "price": 700,
+        "no_of_seats_occupied": 0,
+        "riderInfo":
+        {
+            "data":
+            {
+                "id": 3,
+                "name": "dilipdk",
+                "last_name": null,
+                "username": null,
+                "email": "dilip@user.com",
+                "mobile": "8667241567",
+                "profile_picture": null,
+                "active": 1,
+                "email_confirmed": 0,
+                "mobile_confirmed": 1,
+                "last_known_ip": "::1",
+                "last_login_at": "2020-08-28 05:38:07",
+                "created_at": "2020-08-28 05:33:53",
+                "updated_at": "2020-08-28 05:38:07"
+            }
+        }
+    }]
+}

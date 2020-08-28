@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Access\Role;
 use App\Models\Admin\Staff;
 use App\Models\Admin\Driver;
+use App\Models\Common\RideModel;
 use App\Models\Traits\HasActive;
 use App\Models\Admin\AdminDetail;
 use App\Models\Admin\UserDetails;
@@ -16,10 +17,10 @@ use App\Models\Traits\DeleteOldFiles;
 use App\Models\Traits\UserAccessTrait;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Requests\OfferedRidePlace;
 use App\Models\Traits\UserAccessScopeTrait;
 use App\Base\Services\OTP\CanSendOTPContract;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Models\Common\RideModel;
 
 class User extends Authenticatable implements CanSendOTPContract
 {
@@ -196,9 +197,9 @@ class User extends Authenticatable implements CanSendOTPContract
         return $this->hasMany(RideModel::class, 'rider_id', 'id');
     }
 
-    public function OfferedRidePlace()
+    public function offeredRidePlace()
     {
-        return $this->hasMany(OfferedRidePlaceStop::class, 'rider_id', 'id');
+        return $this->hasMany(OfferedRidePlace::class, 'rider_id', 'id');
     }
 
     /**
