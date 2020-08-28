@@ -35,18 +35,18 @@ Route::prefix('user')->namespace('User')->group(function () {
         Route::post('add/car', 'CarController@store');
         Route::post('update/car/{car}', 'CarController@update');
         Route::post('delete/car/{car}', 'CarController@delete');
-
-
+        Route::prefix('ride')->group(function () {
+            Route::post('offer', 'OfferRideController@offerRide');
+            Route::post('find', 'FindRideController@findRide');
+        });
     });
 
     Route::prefix('ride')->group(function () {
-        Route::post('create', 'RideController@createRide');
-        Route::post('history', 'RideController@history');
+        // Route::post('create', 'RideController@createRide');
+        // Route::post('history', 'RideController@history');
 
-        Route::post('search', 'RideController@search');
-
+        // Route::post('search', 'RideController@search');
     });
-
 });
 
 Route::get('test-socket', function () {

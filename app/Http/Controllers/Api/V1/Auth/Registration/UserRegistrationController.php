@@ -61,7 +61,10 @@ class UserRegistrationController extends LoginController
 
     /**
      * Register the user and send welcome email.
-     * @bodyParam name string required name of the user
+     * @bodyParam first_name string required first name of the user
+     * @bodyParam last_name string required last name of the user
+     * @bodyParam gender string required gender of the user
+     * @bodyParam city string required city of the user
      * @bodyParam uuid string required uuid comes from the validate otp's response
      * @bodyParam email email required email of the user
      * @bodyParam password password required password provided user
