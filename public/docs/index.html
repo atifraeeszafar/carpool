@@ -838,7 +838,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/email/confirm" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"token":"quia","email":"libero"}'
+    -d '{"token":"quis","email":"temporibus"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/email/confirm"
@@ -851,8 +851,8 @@ let headers = {
 };
 
 let body = {
-    "token": "quia",
-    "email": "libero"
+    "token": "quis",
+    "email": "temporibus"
 }
 
 fetch(url, {
@@ -906,7 +906,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/email/resend-confirmation" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"email":"earum"}'
+    -d '{"email":"perspiciatis"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/email/resend-confirmation"
@@ -919,7 +919,7 @@ let headers = {
 };
 
 let body = {
-    "email": "earum"
+    "email": "perspiciatis"
 }
 
 fetch(url, {
@@ -969,7 +969,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/password/forgot" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"email":"qui"}'
+    -d '{"email":"aliquid"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/password/forgot"
@@ -982,7 +982,7 @@ let headers = {
 };
 
 let body = {
-    "email": "qui"
+    "email": "aliquid"
 }
 
 fetch(url, {
@@ -1030,7 +1030,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/password/validate-token" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"token":"est","email":"voluptatem"}'
+    -d '{"token":"distinctio","email":"rerum"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/password/validate-token"
@@ -1043,8 +1043,8 @@ let headers = {
 };
 
 let body = {
-    "token": "est",
-    "email": "voluptatem"
+    "token": "distinctio",
+    "email": "rerum"
 }
 
 fetch(url, {
@@ -1134,7 +1134,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/payment/card/add" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"payment_nonce":"dolor","last_number":20,"user_role":"aut"}'
+    -d '{"payment_nonce":"consequuntur","last_number":5,"user_role":"saepe"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/payment/card/add"
@@ -1147,9 +1147,9 @@ let headers = {
 };
 
 let body = {
-    "payment_nonce": "dolor",
-    "last_number": 20,
-    "user_role": "aut"
+    "payment_nonce": "consequuntur",
+    "last_number": 5,
+    "user_role": "saepe"
 }
 
 fetch(url, {
@@ -2279,7 +2279,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/user/login/send-otp" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"mobile":"aut"}'
+    -d '{"mobile":"vero"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/user/login/send-otp"
@@ -2292,7 +2292,7 @@ let headers = {
 };
 
 let body = {
-    "mobile": "aut"
+    "mobile": "vero"
 }
 
 fetch(url, {
@@ -2341,7 +2341,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/user/login" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"email":"ipsum","mobile":"enim","password":"voluptas"}'
+    -d '{"email":"sit","mobile":"fuga","password":"ad"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/user/login"
@@ -2354,9 +2354,9 @@ let headers = {
 };
 
 let body = {
-    "email": "ipsum",
-    "mobile": "enim",
-    "password": "voluptas"
+    "email": "sit",
+    "mobile": "fuga",
+    "password": "ad"
 }
 
 fetch(url, {
@@ -2481,6 +2481,103 @@ fetch(url, {
 <!-- END_fb2ae43e2e99ff4e90f22ba03801a735 -->
 <h1>User-Management</h1>
 <p>APIs for User-Management</p>
+<!-- START_7fef01e7235c89049ebe3685de4bff17 -->
+<h2>Register the user and send welcome email.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/car-pool/public/api/v1/user/register" \
+    -H "Authorization: Bearer: {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"aut","uuid":"quos","email":"unde","password":"velit","device_token":"iste","login_by":"et"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/car-pool/public/api/v1/user/register"
+);
+
+let headers = {
+    "Authorization": "Bearer: {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "aut",
+    "uuid": "quos",
+    "email": "unde",
+    "password": "velit",
+    "device_token": "iste",
+    "login_by": "et"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "expires_in": 31622400,
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjcxNWQ4Yjg5ZjI1ZDVhYzRkNDM0NTYzY2VhNjJmM2Y1ZmYwMDU4YjkwZmJiMGM0YzgxOTliYjkwMWY2Y2NlNjhjMjgyMzNhYWYyOTNhMDQzIn0.eyJhdWQiOiIxIiwianRpIjoiNzE1ZDhiODlmMjVkNWFjNGQ0MzQ1NjNjZWE2MmYzZjVmZjAwNThiOTBmYmIwYzRjODE5OWJiOTAxZjZjY2U2OGMyODIzM2FhZjI5M2EwNDMiLCJpYXQiOjE1ODA5MDI0NDAsIm5iZiI6MTU4MDkwMjQ0MCwiZXhwIjoxNjEyNTI0ODQwLCJzdWIiOiIxMiIsInNjb3BlcyI6W119.jMHG7WfU57-lcPhX0gtFcLbaG_WU1VmAcuw8DDJ_6KRMJJ5LzLtAqcqyZbr8-LaSUO10bfupQYUcYLIMZ3fyB1c99IBOUzoksqbirj7CNZYvv8H5-dbuTlsqXd9e8kjRRFG9tBqmnQ1Bkv0Ctf5rYtbzUBKNc1r7eoHdD715QkEcpVYClkX6McltFGjwuRy-EXutj2eDLQWlSpl-ACa4LxZF41Lv6hHbZd5i6vosNyisWwTuoMsiykikfZyHA8S37F_8XSGafNQVFgUWsef1TDeAFrOSQz12WzguBIpgoXl16e1PwZlseEEW6-sn42ulHjT8aF-vfo_P3K3pVu_XWN3UN0_BgJipVR3rtB0Zi84465r8dTODSKSdQJlMXhZ9CIpWE-gPBZpAknPe9_Zltdp0QZ3qiTA0Mk_LvD2chr6bD37fJDGneFJOasZzMe01aP6JyIt1xlyz-DWzwBnQ2PsO35zDVFd8CHE8uK_S8htJT0j0veqj4eXAAFN_mbMVd0u1tBoxyLxxFlqW2u7IUyvSMiJi-heXH-fACqFfZjGt9iyrAS6_KSuKH-cz8H-oYRT8GF3y9LPLhI96E7JZud55g_PB4AvumT6fP6jrKvCz_quaEzurMPOsSl4f37Yhif1N_3kIenrKCEq6E3ZnuGB1TCkw_Zi4yqwwUdo1W7E",
+    "token_type": "Bearer"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/user/register</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>required</td>
+<td>name of the user</td>
+</tr>
+<tr>
+<td><code>uuid</code></td>
+<td>string</td>
+<td>required</td>
+<td>uuid comes from the validate otp's response</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>email</td>
+<td>required</td>
+<td>email of the user</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>password</td>
+<td>required</td>
+<td>password provided user</td>
+</tr>
+<tr>
+<td><code>device_token</code></td>
+<td>string</td>
+<td>required</td>
+<td>device_token of the user</td>
+</tr>
+<tr>
+<td><code>login_by</code></td>
+<td>tinyInt</td>
+<td>required</td>
+<td>from which device the user registered</td>
+</tr>
+</tbody>
+</table>
+<!-- END_7fef01e7235c89049ebe3685de4bff17 -->
 <!-- START_ff99f8f6e7fa37138fa12697cdc0f56d -->
 <h2>Send the mobile number verification OTP during registration.</h2>
 <blockquote>
@@ -2490,7 +2587,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/user/register/send-otp" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"country":"et","mobile":10}'
+    -d '{"country":"consequatur","mobile":8}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/user/register/send-otp"
@@ -2503,8 +2600,8 @@ let headers = {
 };
 
 let body = {
-    "country": "et",
-    "mobile": 10
+    "country": "consequatur",
+    "mobile": 8
 }
 
 fetch(url, {
@@ -2561,7 +2658,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/user/register/validate-otp" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"otp":"maiores","uui":"est"}'
+    -d '{"otp":"nostrum","uui":"magni"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/user/register/validate-otp"
@@ -2574,8 +2671,8 @@ let headers = {
 };
 
 let body = {
-    "otp": "maiores",
-    "uui": "est"
+    "otp": "nostrum",
+    "uui": "magni"
 }
 
 fetch(url, {
@@ -2868,6 +2965,33 @@ fetch(url, {
 <h3>HTTP Request</h3>
 <p><code>POST api/v1/admin/register</code></p>
 <!-- END_639c2363d749d9e386837dae4059acf7 -->
+<!-- START_5d6ec1a9d0fc6ed9b9c9b073970a7c79 -->
+<h2>Offer a Ride</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/car-pool/public/api/v1/user/ride/offer" \
+    -H "Authorization: Bearer: {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/car-pool/public/api/v1/user/ride/offer"
+);
+
+let headers = {
+    "Authorization": "Bearer: {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/user/ride/offer</code></p>
+<!-- END_5d6ec1a9d0fc6ed9b9c9b073970a7c79 -->
       </div>
       <div class="dark-box">
                         <div class="lang-selector">

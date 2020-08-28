@@ -193,7 +193,12 @@ class User extends Authenticatable implements CanSendOTPContract
 
     public function rideDetail()
     {
-        return $this->hasMany(RideModel::class,'rider_id','id');
+        return $this->hasMany(RideModel::class, 'rider_id', 'id');
+    }
+
+    public function OfferedRidePlace()
+    {
+        return $this->hasMany(OfferedRidePlaceStop::class, 'rider_id', 'id');
     }
 
     /**

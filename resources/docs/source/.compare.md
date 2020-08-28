@@ -910,7 +910,7 @@ curl -X POST \
     "http://localhost/car-pool/public/api/v1/email/confirm" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"token":"quia","email":"libero"}'
+    -d '{"token":"quis","email":"temporibus"}'
 
 ```
 
@@ -926,8 +926,8 @@ let headers = {
 };
 
 let body = {
-    "token": "quia",
-    "email": "libero"
+    "token": "quis",
+    "email": "temporibus"
 }
 
 fetch(url, {
@@ -970,7 +970,7 @@ curl -X POST \
     "http://localhost/car-pool/public/api/v1/email/resend-confirmation" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"email":"earum"}'
+    -d '{"email":"perspiciatis"}'
 
 ```
 
@@ -986,7 +986,7 @@ let headers = {
 };
 
 let body = {
-    "email": "earum"
+    "email": "perspiciatis"
 }
 
 fetch(url, {
@@ -1032,7 +1032,7 @@ curl -X POST \
     "http://localhost/car-pool/public/api/v1/password/forgot" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"email":"qui"}'
+    -d '{"email":"aliquid"}'
 
 ```
 
@@ -1048,7 +1048,7 @@ let headers = {
 };
 
 let body = {
-    "email": "qui"
+    "email": "aliquid"
 }
 
 fetch(url, {
@@ -1090,7 +1090,7 @@ curl -X POST \
     "http://localhost/car-pool/public/api/v1/password/validate-token" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"token":"est","email":"voluptatem"}'
+    -d '{"token":"distinctio","email":"rerum"}'
 
 ```
 
@@ -1106,8 +1106,8 @@ let headers = {
 };
 
 let body = {
-    "token": "est",
-    "email": "voluptatem"
+    "token": "distinctio",
+    "email": "rerum"
 }
 
 fetch(url, {
@@ -1200,7 +1200,7 @@ curl -X POST \
     "http://localhost/car-pool/public/api/v1/payment/card/add" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"payment_nonce":"dolor","last_number":20,"user_role":"aut"}'
+    -d '{"payment_nonce":"consequuntur","last_number":5,"user_role":"saepe"}'
 
 ```
 
@@ -1216,9 +1216,9 @@ let headers = {
 };
 
 let body = {
-    "payment_nonce": "dolor",
-    "last_number": 20,
-    "user_role": "aut"
+    "payment_nonce": "consequuntur",
+    "last_number": 5,
+    "user_role": "saepe"
 }
 
 fetch(url, {
@@ -2444,7 +2444,7 @@ curl -X POST \
     "http://localhost/car-pool/public/api/v1/user/login/send-otp" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"mobile":"aut"}'
+    -d '{"mobile":"vero"}'
 
 ```
 
@@ -2460,7 +2460,7 @@ let headers = {
 };
 
 let body = {
-    "mobile": "aut"
+    "mobile": "vero"
 }
 
 fetch(url, {
@@ -2503,7 +2503,7 @@ curl -X POST \
     "http://localhost/car-pool/public/api/v1/user/login" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"email":"ipsum","mobile":"enim","password":"voluptas"}'
+    -d '{"email":"sit","mobile":"fuga","password":"ad"}'
 
 ```
 
@@ -2519,9 +2519,9 @@ let headers = {
 };
 
 let body = {
-    "email": "ipsum",
-    "mobile": "enim",
-    "password": "voluptas"
+    "email": "sit",
+    "mobile": "fuga",
+    "password": "ad"
 }
 
 fetch(url, {
@@ -2655,6 +2655,75 @@ fetch(url, {
 
 
 APIs for User-Management
+<!-- START_7fef01e7235c89049ebe3685de4bff17 -->
+## Register the user and send welcome email.
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/car-pool/public/api/v1/user/register" \
+    -H "Authorization: Bearer: {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"aut","uuid":"quos","email":"unde","password":"velit","device_token":"iste","login_by":"et"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/car-pool/public/api/v1/user/register"
+);
+
+let headers = {
+    "Authorization": "Bearer: {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "aut",
+    "uuid": "quos",
+    "email": "unde",
+    "password": "velit",
+    "device_token": "iste",
+    "login_by": "et"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "expires_in": 31622400,
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjcxNWQ4Yjg5ZjI1ZDVhYzRkNDM0NTYzY2VhNjJmM2Y1ZmYwMDU4YjkwZmJiMGM0YzgxOTliYjkwMWY2Y2NlNjhjMjgyMzNhYWYyOTNhMDQzIn0.eyJhdWQiOiIxIiwianRpIjoiNzE1ZDhiODlmMjVkNWFjNGQ0MzQ1NjNjZWE2MmYzZjVmZjAwNThiOTBmYmIwYzRjODE5OWJiOTAxZjZjY2U2OGMyODIzM2FhZjI5M2EwNDMiLCJpYXQiOjE1ODA5MDI0NDAsIm5iZiI6MTU4MDkwMjQ0MCwiZXhwIjoxNjEyNTI0ODQwLCJzdWIiOiIxMiIsInNjb3BlcyI6W119.jMHG7WfU57-lcPhX0gtFcLbaG_WU1VmAcuw8DDJ_6KRMJJ5LzLtAqcqyZbr8-LaSUO10bfupQYUcYLIMZ3fyB1c99IBOUzoksqbirj7CNZYvv8H5-dbuTlsqXd9e8kjRRFG9tBqmnQ1Bkv0Ctf5rYtbzUBKNc1r7eoHdD715QkEcpVYClkX6McltFGjwuRy-EXutj2eDLQWlSpl-ACa4LxZF41Lv6hHbZd5i6vosNyisWwTuoMsiykikfZyHA8S37F_8XSGafNQVFgUWsef1TDeAFrOSQz12WzguBIpgoXl16e1PwZlseEEW6-sn42ulHjT8aF-vfo_P3K3pVu_XWN3UN0_BgJipVR3rtB0Zi84465r8dTODSKSdQJlMXhZ9CIpWE-gPBZpAknPe9_Zltdp0QZ3qiTA0Mk_LvD2chr6bD37fJDGneFJOasZzMe01aP6JyIt1xlyz-DWzwBnQ2PsO35zDVFd8CHE8uK_S8htJT0j0veqj4eXAAFN_mbMVd0u1tBoxyLxxFlqW2u7IUyvSMiJi-heXH-fACqFfZjGt9iyrAS6_KSuKH-cz8H-oYRT8GF3y9LPLhI96E7JZud55g_PB4AvumT6fP6jrKvCz_quaEzurMPOsSl4f37Yhif1N_3kIenrKCEq6E3ZnuGB1TCkw_Zi4yqwwUdo1W7E",
+    "token_type": "Bearer"
+}
+```
+
+### HTTP Request
+`POST api/v1/user/register`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `name` | string |  required  | name of the user
+        `uuid` | string |  required  | uuid comes from the validate otp's response
+        `email` | email |  required  | email of the user
+        `password` | password |  required  | password provided user
+        `device_token` | string |  required  | device_token of the user
+        `login_by` | tinyInt |  required  | from which device the user registered
+    
+<!-- END_7fef01e7235c89049ebe3685de4bff17 -->
+
 <!-- START_ff99f8f6e7fa37138fa12697cdc0f56d -->
 ## Send the mobile number verification OTP during registration.
 
@@ -2665,7 +2734,7 @@ curl -X POST \
     "http://localhost/car-pool/public/api/v1/user/register/send-otp" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"country":"et","mobile":10}'
+    -d '{"country":"consequatur","mobile":8}'
 
 ```
 
@@ -2681,8 +2750,8 @@ let headers = {
 };
 
 let body = {
-    "country": "et",
-    "mobile": 10
+    "country": "consequatur",
+    "mobile": 8
 }
 
 fetch(url, {
@@ -2728,7 +2797,7 @@ curl -X POST \
     "http://localhost/car-pool/public/api/v1/user/register/validate-otp" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"otp":"maiores","uui":"est"}'
+    -d '{"otp":"nostrum","uui":"magni"}'
 
 ```
 
@@ -2744,8 +2813,8 @@ let headers = {
 };
 
 let body = {
-    "otp": "maiores",
-    "uui": "est"
+    "otp": "nostrum",
+    "uui": "magni"
 }
 
 fetch(url, {
@@ -3119,5 +3188,43 @@ fetch(url, {
 
 
 <!-- END_639c2363d749d9e386837dae4059acf7 -->
+
+<!-- START_5d6ec1a9d0fc6ed9b9c9b073970a7c79 -->
+## Offer a Ride
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/car-pool/public/api/v1/user/ride/offer" \
+    -H "Authorization: Bearer: {token}"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/car-pool/public/api/v1/user/ride/offer"
+);
+
+let headers = {
+    "Authorization": "Bearer: {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/user/ride/offer`
+
+
+<!-- END_5d6ec1a9d0fc6ed9b9c9b073970a7c79 -->
 
 
