@@ -55,10 +55,10 @@
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/car-pool/public/api/v1/common/car/makes" \
+    -G "http://localhost/api/v1/common/car/makes" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/common/car/makes"
+    "http://localhost/api/v1/common/car/makes"
 );
 
 let headers = {
@@ -441,10 +441,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/car-pool/public/api/v1/common/car/models/1" \
+    -G "http://localhost/api/v1/common/car/models/1" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/common/car/models/1"
+    "http://localhost/api/v1/common/car/models/1"
 );
 
 let headers = {
@@ -589,10 +589,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/car-pool/public/api/v1/common/car/colors" \
+    -G "http://localhost/api/v1/common/car/colors" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/common/car/colors"
+    "http://localhost/api/v1/common/car/colors"
 );
 
 let headers = {
@@ -659,16 +659,132 @@ fetch(url, {
 <h3>HTTP Request</h3>
 <p><code>GET api/v1/common/car/colors</code></p>
 <!-- END_58043a4b0dd29ec632a2824b30a30e86 -->
+<!-- START_2e6a13817a15ecd965c8099cdd78ff94 -->
+<h2>Lis Car Makes</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/common/faq/list" \
+    -H "Authorization: Bearer: {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/common/faq/list"
+);
+
+let headers = {
+    "Authorization": "Bearer: {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "success",
+    "data": [
+        {
+            "id": "64c25b81-ce83-4431-815e-a8ff604814dd",
+            "question": "test",
+            "answer": "hi there",
+            "created_by": 1,
+            "extras": null,
+            "is_active": 1,
+            "deleted_at": null,
+            "created_at": "2020-08-17 12:58:15",
+            "updated_at": "2020-08-17 12:58:41"
+        },
+        {
+            "id": "91c62bfb-90be-46f1-837c-5053990937f5",
+            "question": "Server issue",
+            "answer": "contact admin",
+            "created_by": 1,
+            "extras": null,
+            "is_active": 1,
+            "deleted_at": null,
+            "created_at": "2020-08-17 11:03:36",
+            "updated_at": "2020-08-28 14:36:39"
+        },
+        {
+            "id": "974766db-a088-4630-8770-c7cc9bd61106",
+            "question": "Are able to make a request",
+            "answer": "No means make feed back",
+            "created_by": 1,
+            "extras": null,
+            "is_active": 1,
+            "deleted_at": null,
+            "created_at": "2020-08-27 10:24:47",
+            "updated_at": "2020-08-28 14:37:51"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/common/faq/list</code></p>
+<!-- END_2e6a13817a15ecd965c8099cdd78ff94 -->
+<!-- START_f139839c0a36e7fc2178741aa74a61d7 -->
+<h2>Lis Car Makes</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/common/sos/list" \
+    -H "Authorization: Bearer: {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/common/sos/list"
+);
+
+let headers = {
+    "Authorization": "Bearer: {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "success",
+    "data": [
+        {
+            "id": "48f77ce3-9aaa-4aa0-96d8-c2492ff42cab",
+            "name": "ambulance ttt",
+            "number": "2001 255",
+            "created_by": 1,
+            "extras": null,
+            "is_active": 1,
+            "deleted_at": null,
+            "created_at": "2020-08-17 10:53:46",
+            "updated_at": "2020-08-27 10:41:34"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/common/sos/list</code></p>
+<!-- END_f139839c0a36e7fc2178741aa74a61d7 -->
 <!-- START_865128b954ae802970aa0dd67ec398b1 -->
 <h2>List Car</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/car-pool/public/api/v1/user/list/car" \
+    -G "http://localhost/api/v1/user/list/car" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/user/list/car"
+    "http://localhost/api/v1/user/list/car"
 );
 
 let headers = {
@@ -692,10 +808,10 @@ fetch(url, {
     "status_code": 403,
     "debug": {
         "line": 1043,
-        "file": "\/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Application.php",
+        "file": "\/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Application.php",
         "class": "Symfony\\Component\\HttpKernel\\Exception\\HttpException",
         "trace": [
-            "#0 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/helpers.php(46): Illuminate\\Foundation\\Application-&gt;abort(403, '', Array)\n#1 \/var\/www\/html\/car-pool\/app\/Http\/Middleware\/RouteNeedsRole.php(36): abort(403)\n#2 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\RouteNeedsRole-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure), Array)\n#3 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php(41): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#4 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Routing\\Middleware\\SubstituteBindings-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#5 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php(59): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#6 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Routing\\Middleware\\ThrottleRequests-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure), 60, '1')\n#7 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#8 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(683): Illuminate\\Pipeline\\Pipeline-&gt;then(Object(Closure))\n#9 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(658): Illuminate\\Routing\\Router-&gt;runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#10 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(624): Illuminate\\Routing\\Router-&gt;runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#11 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(613): Illuminate\\Routing\\Router-&gt;dispatchToRoute(Object(Illuminate\\Http\\Request))\n#12 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(170): Illuminate\\Routing\\Router-&gt;dispatch(Object(Illuminate\\Http\\Request))\n#13 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(130): Illuminate\\Foundation\\Http\\Kernel-&gt;Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#14 \/var\/www\/html\/car-pool\/vendor\/proengsoft\/laravel-jsvalidation\/src\/RemoteValidationMiddleware.php(53): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#15 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Proengsoft\\JsValidation\\RemoteValidationMiddleware-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#16 \/var\/www\/html\/car-pool\/vendor\/barryvdh\/laravel-debugbar\/src\/Middleware\/InjectDebugbar.php(58): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#17 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#18 \/var\/www\/html\/car-pool\/app\/Http\/Middleware\/PjaxMiddleware.php(21): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#19 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\PjaxMiddleware-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#20 \/var\/www\/html\/car-pool\/app\/Http\/Middleware\/Cors.php(7): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#21 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\Cors-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#22 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#23 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#24 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#25 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#26 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#27 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#28 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php(63): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#29 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#30 \/var\/www\/html\/car-pool\/vendor\/hyn\/multi-tenant\/src\/Middleware\/EagerIdentification.php(29): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#31 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Hyn\\Tenancy\\Middleware\\EagerIdentification-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#32 \/var\/www\/html\/car-pool\/vendor\/hyn\/multi-tenant\/src\/Middleware\/HostnameActions.php(75): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#33 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Hyn\\Tenancy\\Middleware\\HostnameActions-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#34 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#35 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(145): Illuminate\\Pipeline\\Pipeline-&gt;then(Object(Closure))\n#36 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel-&gt;sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#37 \/var\/www\/html\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(307): Illuminate\\Foundation\\Http\\Kernel-&gt;handle(Object(Illuminate\\Http\\Request))\n#38 \/var\/www\/html\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(289): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls-&gt;callLaravelRoute(Object(Illuminate\\Http\\Request))\n#39 \/var\/www\/html\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(47): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls-&gt;makeApiCall(Object(Illuminate\\Http\\Request))\n#40 \/var\/www\/html\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(172): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls-&gt;__invoke(Object(Illuminate\\Routing\\Route), Object(ReflectionClass), Object(ReflectionMethod), Array, Array)\n#41 \/var\/www\/html\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(121): Mpociot\\ApiDoc\\Extracting\\Generator-&gt;iterateThroughStrategies('responses', Array, Array)\n#42 \/var\/www\/html\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(84): Mpociot\\ApiDoc\\Extracting\\Generator-&gt;fetchResponses(Object(ReflectionClass), Object(ReflectionMethod), Object(Illuminate\\Routing\\Route), Array, Array)\n#43 \/var\/www\/html\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php(125): Mpociot\\ApiDoc\\Extracting\\Generator-&gt;processRoute(Object(Illuminate\\Routing\\Route), Array)\n#44 \/var\/www\/html\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php(69): Mpociot\\ApiDoc\\Commands\\GenerateDocumentation-&gt;processRoutes(Object(Mpociot\\ApiDoc\\Extracting\\Generator), Array)\n#45 [internal function]: Mpociot\\ApiDoc\\Commands\\GenerateDocumentation-&gt;handle(Object(Mpociot\\ApiDoc\\Matching\\RouteMatcher))\n#46 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(32): call_user_func_array(Array, Array)\n#47 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Util.php(36): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()\n#48 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))\n#49 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))\n#50 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php(590): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)\n#51 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php(134): Illuminate\\Container\\Container-&gt;call(Array)\n#52 \/var\/www\/html\/car-pool\/vendor\/symfony\/console\/Command\/Command.php(255): Illuminate\\Console\\Command-&gt;execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))\n#53 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php(121): Symfony\\Component\\Console\\Command\\Command-&gt;run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))\n#54 \/var\/www\/html\/car-pool\/vendor\/symfony\/console\/Application.php(1001): Illuminate\\Console\\Command-&gt;run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#55 \/var\/www\/html\/car-pool\/vendor\/symfony\/console\/Application.php(271): Symfony\\Component\\Console\\Application-&gt;doRunCommand(Object(Mpociot\\ApiDoc\\Commands\\GenerateDocumentation), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#56 \/var\/www\/html\/car-pool\/vendor\/symfony\/console\/Application.php(147): Symfony\\Component\\Console\\Application-&gt;doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#57 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php(93): Symfony\\Component\\Console\\Application-&gt;run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#58 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php(131): Illuminate\\Console\\Application-&gt;run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#59 \/var\/www\/html\/car-pool\/artisan(37): Illuminate\\Foundation\\Console\\Kernel-&gt;handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#60 {main}"
+            "#0 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/helpers.php(46): Illuminate\\Foundation\\Application-&gt;abort(403, '', Array)\n#1 \/home\/webdeveloper\/Public\/html\/production\/carpool\/app\/Http\/Middleware\/RouteNeedsRole.php(36): abort(403)\n#2 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\RouteNeedsRole-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure), Array)\n#3 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php(41): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#4 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Routing\\Middleware\\SubstituteBindings-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#5 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php(59): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#6 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Routing\\Middleware\\ThrottleRequests-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure), 60, '1')\n#7 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#8 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(683): Illuminate\\Pipeline\\Pipeline-&gt;then(Object(Closure))\n#9 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(658): Illuminate\\Routing\\Router-&gt;runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#10 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(624): Illuminate\\Routing\\Router-&gt;runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#11 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(613): Illuminate\\Routing\\Router-&gt;dispatchToRoute(Object(Illuminate\\Http\\Request))\n#12 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(170): Illuminate\\Routing\\Router-&gt;dispatch(Object(Illuminate\\Http\\Request))\n#13 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(130): Illuminate\\Foundation\\Http\\Kernel-&gt;Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#14 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/proengsoft\/laravel-jsvalidation\/src\/RemoteValidationMiddleware.php(53): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#15 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Proengsoft\\JsValidation\\RemoteValidationMiddleware-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#16 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/barryvdh\/laravel-debugbar\/src\/Middleware\/InjectDebugbar.php(58): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#17 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#18 \/home\/webdeveloper\/Public\/html\/production\/carpool\/app\/Http\/Middleware\/PjaxMiddleware.php(21): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#19 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\PjaxMiddleware-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#20 \/home\/webdeveloper\/Public\/html\/production\/carpool\/app\/Http\/Middleware\/Cors.php(7): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#21 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\Cors-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#22 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#23 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#24 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#25 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#26 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#27 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#28 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php(63): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#29 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#30 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/hyn\/multi-tenant\/src\/Middleware\/EagerIdentification.php(29): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#31 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Hyn\\Tenancy\\Middleware\\EagerIdentification-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#32 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/hyn\/multi-tenant\/src\/Middleware\/HostnameActions.php(75): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#33 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Hyn\\Tenancy\\Middleware\\HostnameActions-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#34 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#35 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(145): Illuminate\\Pipeline\\Pipeline-&gt;then(Object(Closure))\n#36 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel-&gt;sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#37 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(307): Illuminate\\Foundation\\Http\\Kernel-&gt;handle(Object(Illuminate\\Http\\Request))\n#38 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(289): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls-&gt;callLaravelRoute(Object(Illuminate\\Http\\Request))\n#39 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(47): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls-&gt;makeApiCall(Object(Illuminate\\Http\\Request))\n#40 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(172): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls-&gt;__invoke(Object(Illuminate\\Routing\\Route), Object(ReflectionClass), Object(ReflectionMethod), Array, Array)\n#41 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(121): Mpociot\\ApiDoc\\Extracting\\Generator-&gt;iterateThroughStrategies('responses', Array, Array)\n#42 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(84): Mpociot\\ApiDoc\\Extracting\\Generator-&gt;fetchResponses(Object(ReflectionClass), Object(ReflectionMethod), Object(Illuminate\\Routing\\Route), Array, Array)\n#43 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php(125): Mpociot\\ApiDoc\\Extracting\\Generator-&gt;processRoute(Object(Illuminate\\Routing\\Route), Array)\n#44 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php(69): Mpociot\\ApiDoc\\Commands\\GenerateDocumentation-&gt;processRoutes(Object(Mpociot\\ApiDoc\\Extracting\\Generator), Array)\n#45 [internal function]: Mpociot\\ApiDoc\\Commands\\GenerateDocumentation-&gt;handle(Object(Mpociot\\ApiDoc\\Matching\\RouteMatcher))\n#46 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(32): call_user_func_array(Array, Array)\n#47 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Util.php(36): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()\n#48 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))\n#49 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))\n#50 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php(590): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)\n#51 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php(134): Illuminate\\Container\\Container-&gt;call(Array)\n#52 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/symfony\/console\/Command\/Command.php(255): Illuminate\\Console\\Command-&gt;execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))\n#53 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php(121): Symfony\\Component\\Console\\Command\\Command-&gt;run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))\n#54 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/symfony\/console\/Application.php(1001): Illuminate\\Console\\Command-&gt;run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#55 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/symfony\/console\/Application.php(271): Symfony\\Component\\Console\\Application-&gt;doRunCommand(Object(Mpociot\\ApiDoc\\Commands\\GenerateDocumentation), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#56 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/symfony\/console\/Application.php(147): Symfony\\Component\\Console\\Application-&gt;doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#57 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php(93): Symfony\\Component\\Console\\Application-&gt;run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#58 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php(131): Illuminate\\Console\\Application-&gt;run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#59 \/home\/webdeveloper\/Public\/html\/production\/carpool\/artisan(37): Illuminate\\Foundation\\Console\\Kernel-&gt;handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#60 {main}"
         ]
     }
 }</code></pre>
@@ -708,10 +824,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/user/add/car" \
+    "http://localhost/api/v1/user/add/car" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/user/add/car"
+    "http://localhost/api/v1/user/add/car"
 );
 
 let headers = {
@@ -735,10 +851,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/user/update/car/1" \
+    "http://localhost/api/v1/user/update/car/1" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/user/update/car/1"
+    "http://localhost/api/v1/user/update/car/1"
 );
 
 let headers = {
@@ -762,10 +878,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/user/delete/car/1" \
+    "http://localhost/api/v1/user/delete/car/1" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/user/delete/car/1"
+    "http://localhost/api/v1/user/delete/car/1"
 );
 
 let headers = {
@@ -791,10 +907,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/car-pool/public/api/v1/countries" \
+    -G "http://localhost/api/v1/countries" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/countries"
+    "http://localhost/api/v1/countries"
 );
 
 let headers = {
@@ -835,13 +951,13 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/email/confirm" \
+    "http://localhost/api/v1/email/confirm" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"token":"quia","email":"libero"}'
+    -d '{"token":"architecto","email":"molestias"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/email/confirm"
+    "http://localhost/api/v1/email/confirm"
 );
 
 let headers = {
@@ -851,8 +967,8 @@ let headers = {
 };
 
 let body = {
-    "token": "quia",
-    "email": "libero"
+    "token": "architecto",
+    "email": "molestias"
 }
 
 fetch(url, {
@@ -903,13 +1019,13 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/email/resend-confirmation" \
+    "http://localhost/api/v1/email/resend-confirmation" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"email":"earum"}'
+    -d '{"email":"sit"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/email/resend-confirmation"
+    "http://localhost/api/v1/email/resend-confirmation"
 );
 
 let headers = {
@@ -919,7 +1035,7 @@ let headers = {
 };
 
 let body = {
-    "email": "earum"
+    "email": "sit"
 }
 
 fetch(url, {
@@ -966,13 +1082,13 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/password/forgot" \
+    "http://localhost/api/v1/password/forgot" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"email":"qui"}'
+    -d '{"email":"ea"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/password/forgot"
+    "http://localhost/api/v1/password/forgot"
 );
 
 let headers = {
@@ -982,7 +1098,7 @@ let headers = {
 };
 
 let body = {
-    "email": "qui"
+    "email": "ea"
 }
 
 fetch(url, {
@@ -1027,13 +1143,13 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/password/validate-token" \
+    "http://localhost/api/v1/password/validate-token" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"token":"est","email":"voluptatem"}'
+    -d '{"token":"architecto","email":"tempore"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/password/validate-token"
+    "http://localhost/api/v1/password/validate-token"
 );
 
 let headers = {
@@ -1043,8 +1159,8 @@ let headers = {
 };
 
 let body = {
-    "token": "est",
-    "email": "voluptatem"
+    "token": "architecto",
+    "email": "tempore"
 }
 
 fetch(url, {
@@ -1095,10 +1211,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/password/reset" \
+    "http://localhost/api/v1/password/reset" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/password/reset"
+    "http://localhost/api/v1/password/reset"
 );
 
 let headers = {
@@ -1131,13 +1247,13 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/payment/card/add" \
+    "http://localhost/api/v1/payment/card/add" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"payment_nonce":"dolor","last_number":20,"user_role":"aut"}'
+    -d '{"payment_nonce":"veritatis","last_number":6,"user_role":"rem"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/payment/card/add"
+    "http://localhost/api/v1/payment/card/add"
 );
 
 let headers = {
@@ -1147,9 +1263,9 @@ let headers = {
 };
 
 let body = {
-    "payment_nonce": "dolor",
-    "last_number": 20,
-    "user_role": "aut"
+    "payment_nonce": "veritatis",
+    "last_number": 6,
+    "user_role": "rem"
 }
 
 fetch(url, {
@@ -1222,10 +1338,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/car-pool/public/api/v1/payment/card/list" \
+    -G "http://localhost/api/v1/payment/card/list" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/payment/card/list"
+    "http://localhost/api/v1/payment/card/list"
 );
 
 let headers = {
@@ -1272,10 +1388,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/payment/card/make/default" \
+    "http://localhost/api/v1/payment/card/make/default" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/payment/card/make/default"
+    "http://localhost/api/v1/payment/card/make/default"
 );
 
 let headers = {
@@ -1306,10 +1422,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://localhost/car-pool/public/api/v1/payment/card/delete/1" \
+    "http://localhost/api/v1/payment/card/delete/1" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/payment/card/delete/1"
+    "http://localhost/api/v1/payment/card/delete/1"
 );
 
 let headers = {
@@ -1342,10 +1458,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/user/password" \
+    "http://localhost/api/v1/user/password" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/user/password"
+    "http://localhost/api/v1/user/password"
 );
 
 let headers = {
@@ -1376,10 +1492,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/user/profile" \
+    "http://localhost/api/v1/user/profile" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/user/profile"
+    "http://localhost/api/v1/user/profile"
 );
 
 let headers = {
@@ -1412,10 +1528,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/user/ride/create" \
+    "http://localhost/api/v1/user/ride/create" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/user/ride/create"
+    "http://localhost/api/v1/user/ride/create"
 );
 
 let headers = {
@@ -1439,10 +1555,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/user/ride/history" \
+    "http://localhost/api/v1/user/ride/history" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/user/ride/history"
+    "http://localhost/api/v1/user/ride/history"
 );
 
 let headers = {
@@ -1466,10 +1582,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/user/ride/search" \
+    "http://localhost/api/v1/user/ride/search" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/user/ride/search"
+    "http://localhost/api/v1/user/ride/search"
 );
 
 let headers = {
@@ -1495,10 +1611,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/car-pool/public/api/v1/translation/get" \
+    -G "http://localhost/api/v1/translation/get" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/translation/get"
+    "http://localhost/api/v1/translation/get"
 );
 
 let headers = {
@@ -2276,13 +2392,13 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/user/login/send-otp" \
+    "http://localhost/api/v1/user/login/send-otp" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"mobile":"aut"}'
+    -d '{"mobile":"autem"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/user/login/send-otp"
+    "http://localhost/api/v1/user/login/send-otp"
 );
 
 let headers = {
@@ -2292,7 +2408,7 @@ let headers = {
 };
 
 let body = {
-    "mobile": "aut"
+    "mobile": "autem"
 }
 
 fetch(url, {
@@ -2338,13 +2454,13 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/user/login" \
+    "http://localhost/api/v1/user/login" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"email":"ipsum","mobile":"enim","password":"voluptas"}'
+    -d '{"email":"voluptatem","mobile":"exercitationem","password":"et"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/user/login"
+    "http://localhost/api/v1/user/login"
 );
 
 let headers = {
@@ -2354,9 +2470,9 @@ let headers = {
 };
 
 let body = {
-    "email": "ipsum",
-    "mobile": "enim",
-    "password": "voluptas"
+    "email": "voluptatem",
+    "mobile": "exercitationem",
+    "password": "et"
 }
 
 fetch(url, {
@@ -2415,10 +2531,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/admin/login" \
+    "http://localhost/api/v1/admin/login" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/admin/login"
+    "http://localhost/api/v1/admin/login"
 );
 
 let headers = {
@@ -2451,10 +2567,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/logout" \
+    "http://localhost/api/v1/logout" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/logout"
+    "http://localhost/api/v1/logout"
 );
 
 let headers = {
@@ -2481,19 +2597,52 @@ fetch(url, {
 <!-- END_fb2ae43e2e99ff4e90f22ba03801a735 -->
 <h1>User-Management</h1>
 <p>APIs for User-Management</p>
+<!-- START_d7f5c16f3f30bc08c462dbfe4b62c6b9 -->
+<h2>Get the current logged in user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/user" \
+    -H "Authorization: Bearer: {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user"
+);
+
+let headers = {
+    "Authorization": "Bearer: {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/user</code></p>
+<!-- END_d7f5c16f3f30bc08c462dbfe4b62c6b9 -->
 <!-- START_ff99f8f6e7fa37138fa12697cdc0f56d -->
 <h2>Send the mobile number verification OTP during registration.</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/user/register/send-otp" \
+    "http://localhost/api/v1/user/register/send-otp" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"country":"et","mobile":10}'
+    -d '{"country":"neque","mobile":14}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/user/register/send-otp"
+    "http://localhost/api/v1/user/register/send-otp"
 );
 
 let headers = {
@@ -2503,8 +2652,8 @@ let headers = {
 };
 
 let body = {
-    "country": "et",
-    "mobile": 10
+    "country": "neque",
+    "mobile": 14
 }
 
 fetch(url, {
@@ -2558,13 +2707,13 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/user/register/validate-otp" \
+    "http://localhost/api/v1/user/register/validate-otp" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"otp":"maiores","uui":"est"}'
+    -d '{"otp":"ut","uui":"deleniti"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/user/register/validate-otp"
+    "http://localhost/api/v1/user/register/validate-otp"
 );
 
 let headers = {
@@ -2574,8 +2723,8 @@ let headers = {
 };
 
 let body = {
-    "otp": "maiores",
-    "uui": "est"
+    "otp": "ut",
+    "uui": "deleniti"
 }
 
 fetch(url, {
@@ -2620,39 +2769,6 @@ fetch(url, {
 </tbody>
 </table>
 <!-- END_2df80e5aa5ea9fd621612d35df1b6532 -->
-<!-- START_d7f5c16f3f30bc08c462dbfe4b62c6b9 -->
-<h2>Get the current logged in user.</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/car-pool/public/api/v1/user" \
-    -H "Authorization: Bearer: {token}"</code></pre>
-<pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/user"
-);
-
-let headers = {
-    "Authorization": "Bearer: {token}",
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<blockquote>
-<p>Example response (200):</p>
-</blockquote>
-<pre><code class="language-json">{
-    "success": true
-}</code></pre>
-<h3>HTTP Request</h3>
-<p><code>GET api/v1/user</code></p>
-<!-- END_d7f5c16f3f30bc08c462dbfe4b62c6b9 -->
 <h1>Web-Authentication</h1>
 <p>APIs for Authentication</p>
 <!-- START_806efc7edf80f577102ab9e0651029a5 -->
@@ -2661,10 +2777,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/spa/login" \
+    "http://localhost/api/spa/login" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/spa/login"
+    "http://localhost/api/spa/login"
 );
 
 let headers = {
@@ -2695,10 +2811,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/spa/user/login" \
+    "http://localhost/api/spa/user/login" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/spa/user/login"
+    "http://localhost/api/spa/user/login"
 );
 
 let headers = {
@@ -2729,10 +2845,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/car-pool/public/api/spa/logout" \
+    -G "http://localhost/api/spa/logout" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/spa/logout"
+    "http://localhost/api/spa/logout"
 );
 
 let headers = {
@@ -2770,10 +2886,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/car-pool/public/api/spa/common/countries" \
+    -G "http://localhost/api/spa/common/countries" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/spa/common/countries"
+    "http://localhost/api/spa/common/countries"
 );
 
 let headers = {
@@ -2812,10 +2928,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/car-pool/public/api/spa/common/timezones" \
+    -G "http://localhost/api/spa/common/timezones" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/spa/common/timezones"
+    "http://localhost/api/spa/common/timezones"
 );
 
 let headers = {
@@ -2847,10 +2963,10 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/car-pool/public/api/v1/admin/register" \
+    "http://localhost/api/v1/admin/register" \
     -H "Authorization: Bearer: {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/car-pool/public/api/v1/admin/register"
+    "http://localhost/api/v1/admin/register"
 );
 
 let headers = {

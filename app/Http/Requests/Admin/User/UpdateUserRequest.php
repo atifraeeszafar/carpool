@@ -13,6 +13,7 @@ class UpdateUserRequest extends BaseRequest
      */
     public function rules()
     {
+
         return [
             'name' => 'required|max:50',
             'mobile'=>'required|mobile_number|unique:users,mobile,'.$this->userdetails->id,

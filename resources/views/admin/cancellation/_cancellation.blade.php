@@ -72,6 +72,8 @@
 </table>
 <div class="text-right">
 <span  style="float:right">
+{{$results->links()}}
+
 </span>
 </div>
 </div>
