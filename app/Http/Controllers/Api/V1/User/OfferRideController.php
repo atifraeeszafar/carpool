@@ -52,11 +52,13 @@ class OfferRideController extends BaseController
 
         $rider_offered_place = $rider->offeredRidePlace()->create($created_params);
 
-        foreach (json_decode($request->stops) as $key => $stop) {
-            foreach ($stop as $key => $value) {
-                $offered_place_stop_params[$key] = $value;
+        if ($request->has('stops')) {
+            foreach (json_decode($request->stops) as $key => $stop) {
+                foreach ($stop as $key => $value) {
+                    $offered_place_stop_params[$key] = $value;
+                }
+                $rider_offered_place->offeredRidePlaceStops()->create($offered_place_stop_params);
             }
-            $rider_offered_place->offeredRidePlaceStops()->create($offered_place_stop_params);
         }
         if ($request->has('frequent_days')) {
             $frequent_days = explode(',', $request->frequent_days);
