@@ -12,13 +12,23 @@ use App\Http\Controllers\Api\V1\BaseController;
  */
 class FaqController extends BaseController
 {
-     /**
+     
+    protected $faq;
+
+    public function __construct(Faq $faq_model)
+    {
+        $this->faq = $faq_model;
+       
+    }
+  /**
      * Faq list
-     * @group Common
+     * 
      *
      * @return \Illuminate\Http\JsonResponse
 
-     * @response {
+     * */
+    
+     /* @response 
    {
   "success": true,
   "message": "success",
@@ -58,18 +68,8 @@ class FaqController extends BaseController
     }
   ]
 } 
-}
-     */
-    protected $faq;
 
-    public function __construct(Faq $faq_model)
-    {
-        $this->faq = $faq_model;
-       
-    }
-    /**
-    * Lis Car Makes
-    */
+     */
     public function getFaqList()
     {
 

@@ -12,13 +12,22 @@ use App\Http\Controllers\Api\V1\BaseController;
  */
 class SosController extends BaseController
 {
-     /**
+     
+    protected $sos;
+
+    public function __construct(Sos $sos_model)
+    {
+        $this->sos = $sos_model;
+       
+    }
+   /**
      * Sos list
-     * @group Common
+     * 
      *
      * @return \Illuminate\Http\JsonResponse
 
-     * @response {
+     * */
+  /*   @response {
   
   "success": true,
   "message": "success",
@@ -38,17 +47,8 @@ class SosController extends BaseController
 }
 
      */
-    protected $sos;
-
-    public function __construct(Sos $sos_model)
-    {
-        $this->sos = $sos_model;
-       
-    }
-    /**
-    * Lis Car Makes
-    */
-    public function getSosList()
+    
+     public function getSosList()
     {
 
         return $this->respondSuccess($this->sos->where('is_active',1)->get());
