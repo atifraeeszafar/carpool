@@ -150,6 +150,7 @@ class LoginController extends ApiController
         //     return $this->respondBadRequest('Missing password grant client credentials');
         // }
 
+
         if ($request->has(['email', 'password'])) {
             return $this->setLoginIdentifier('email')
                 ->loginUserWithPassword($request, $role, $needsToken, $conditions);
