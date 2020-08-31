@@ -838,7 +838,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/email/confirm" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"token":"aut","email":"est"}'
+    -d '{"token":"reprehenderit","email":"qui"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/email/confirm"
@@ -851,8 +851,8 @@ let headers = {
 };
 
 let body = {
-    "token": "aut",
-    "email": "est"
+    "token": "reprehenderit",
+    "email": "qui"
 }
 
 fetch(url, {
@@ -906,7 +906,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/email/resend-confirmation" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"email":"veritatis"}'
+    -d '{"email":"dolores"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/email/resend-confirmation"
@@ -919,7 +919,7 @@ let headers = {
 };
 
 let body = {
-    "email": "veritatis"
+    "email": "dolores"
 }
 
 fetch(url, {
@@ -969,7 +969,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/password/forgot" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"email":"et"}'
+    -d '{"email":"quisquam"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/password/forgot"
@@ -982,7 +982,7 @@ let headers = {
 };
 
 let body = {
-    "email": "et"
+    "email": "quisquam"
 }
 
 fetch(url, {
@@ -1030,7 +1030,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/password/validate-token" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"token":"magnam","email":"consequatur"}'
+    -d '{"token":"omnis","email":"possimus"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/password/validate-token"
@@ -1043,8 +1043,8 @@ let headers = {
 };
 
 let body = {
-    "token": "magnam",
-    "email": "consequatur"
+    "token": "omnis",
+    "email": "possimus"
 }
 
 fetch(url, {
@@ -1134,7 +1134,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/payment/card/add" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"payment_nonce":"fugit","last_number":5,"user_role":"repudiandae"}'
+    -d '{"payment_nonce":"harum","last_number":11,"user_role":"ut"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/payment/card/add"
@@ -1147,9 +1147,9 @@ let headers = {
 };
 
 let body = {
-    "payment_nonce": "fugit",
-    "last_number": 5,
-    "user_role": "repudiandae"
+    "payment_nonce": "harum",
+    "last_number": 11,
+    "user_role": "ut"
 }
 
 fetch(url, {
@@ -1336,6 +1336,138 @@ fetch(url, {
 <!-- END_6baea63b0b93a5a65e15ebb9d7a14cff -->
 <h1>Profile-Management</h1>
 <p>APIs for Profile-Management</p>
+<!-- START_da07716f2b3a785a29841a35b561db52 -->
+<h2>List Preferences questions &amp; answers</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/car-pool/public/api/v1/common/list/preferences" \
+    -H "Authorization: Bearer: {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/car-pool/public/api/v1/common/list/preferences"
+);
+
+let headers = {
+    "Authorization": "Bearer: {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "success",
+    "data": [
+        {
+            "id": 2,
+            "question": "chattiness",
+            "active": true,
+            "answers": {
+                "data": [
+                    {
+                        "id": 1,
+                        "preference_id": 2,
+                        "answer": "Im the quiet type"
+                    },
+                    {
+                        "id": 2,
+                        "preference_id": 2,
+                        "answer": "I talk depending on my mood"
+                    },
+                    {
+                        "id": 3,
+                        "preference_id": 2,
+                        "answer": "I love to chat"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "question": "smoking",
+            "active": true,
+            "answers": {
+                "data": [
+                    {
+                        "id": 4,
+                        "preference_id": 3,
+                        "answer": "Cigarette smoke doesnt bother me"
+                    },
+                    {
+                        "id": 5,
+                        "preference_id": 3,
+                        "answer": "No smoking in my car please"
+                    },
+                    {
+                        "id": 6,
+                        "preference_id": 3,
+                        "answer": "Dont know"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "question": "pets",
+            "active": true,
+            "answers": {
+                "data": [
+                    {
+                        "id": 7,
+                        "preference_id": 4,
+                        "answer": "Pets welcome"
+                    },
+                    {
+                        "id": 8,
+                        "preference_id": 4,
+                        "answer": "No pets please"
+                    },
+                    {
+                        "id": 9,
+                        "preference_id": 4,
+                        "answer": "Dont know"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "question": "music",
+            "active": true,
+            "answers": {
+                "data": [
+                    {
+                        "id": 10,
+                        "preference_id": 5,
+                        "answer": "Its all about the playlist"
+                    },
+                    {
+                        "id": 11,
+                        "preference_id": 5,
+                        "answer": "Silence is golden"
+                    },
+                    {
+                        "id": 12,
+                        "preference_id": 5,
+                        "answer": "Dont know"
+                    }
+                ]
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/common/list/preferences</code></p>
+<!-- END_da07716f2b3a785a29841a35b561db52 -->
 <!-- START_3da20b53e7ac009a16bd3015dd822453 -->
 <h2>Update user password.</h2>
 <blockquote>
@@ -1415,7 +1547,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/user/ride/offer" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"pickup_lat":14470,"pickup_lng":22.42634,"drop_lat":316.5884,"drop_lng":69.1280507,"pickup_address":"et","drop_address":"officiis","date":"ut","start_time":"debitis","stops":"eius","frequent_days":"sit"}'
+    -d '{"pickup_lat":528.28885,"pickup_lng":0.685205,"drop_lat":691451.2626,"drop_lng":46062.927367594,"pickup_address":"quasi","drop_address":"voluptas","date":"quia","start_time":"quo","stops":"quis","frequent_days":"vitae"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/user/ride/offer"
@@ -1428,16 +1560,16 @@ let headers = {
 };
 
 let body = {
-    "pickup_lat": 14470,
-    "pickup_lng": 22.42634,
-    "drop_lat": 316.5884,
-    "drop_lng": 69.1280507,
-    "pickup_address": "et",
-    "drop_address": "officiis",
-    "date": "ut",
-    "start_time": "debitis",
-    "stops": "eius",
-    "frequent_days": "sit"
+    "pickup_lat": 528.28885,
+    "pickup_lng": 0.685205,
+    "drop_lat": 691451.2626,
+    "drop_lng": 46062.927367594,
+    "pickup_address": "quasi",
+    "drop_address": "voluptas",
+    "date": "quia",
+    "start_time": "quo",
+    "stops": "quis",
+    "frequent_days": "vitae"
 }
 
 fetch(url, {
@@ -1539,7 +1671,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/user/ride/find" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"pickup_lat":525132978.916262,"pickup_lng":1006292.450523,"drop_lat":91656065.8103,"drop_lng":110053,"pickup_address":"atque","drop_address":"enim","date":"laboriosam","start_time":"magnam"}'
+    -d '{"pickup_lat":24669774.880468,"pickup_lng":12247.1753,"drop_lat":73376.385027,"drop_lng":2873114.8,"pickup_address":"voluptatum","drop_address":"odit","date":"veniam","start_time":"aut"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/user/ride/find"
@@ -1552,14 +1684,14 @@ let headers = {
 };
 
 let body = {
-    "pickup_lat": 525132978.916262,
-    "pickup_lng": 1006292.450523,
-    "drop_lat": 91656065.8103,
-    "drop_lng": 110053,
-    "pickup_address": "atque",
-    "drop_address": "enim",
-    "date": "laboriosam",
-    "start_time": "magnam"
+    "pickup_lat": 24669774.880468,
+    "pickup_lng": 12247.1753,
+    "drop_lat": 73376.385027,
+    "drop_lng": 2873114.8,
+    "pickup_address": "voluptatum",
+    "drop_address": "odit",
+    "date": "veniam",
+    "start_time": "aut"
 }
 
 fetch(url, {
@@ -1586,6 +1718,7 @@ fetch(url, {
             "drop_lat": 13.0480438,
             "drop_lng": 79.928809,
             "price": 700,
+            "no_of_seats_occupied": 0,
             "riderInfo": {
                 "data": {
                     "id": 3,
@@ -1698,756 +1831,19 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
-<p>Example response (200):</p>
+<p>Example response (500):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "success": true,
-    "data": {
-        "en": {
-            "txt_you_need": "whatever you need, at your house",
-            "tx_begin_shop": "begin shopping now",
-            "txt_enter_phone": "Please enter phone number",
-            "txt_skip_now": "Skip for now",
-            "txt_nxt": "Next",
-            "txt_enter_code": "Enter the code sent to the",
-            "txt_change": "change",
-            "txt_codenot_receive": "I did not receive a code",
-            "txt_resend_to": "Resend to",
-            "txt_resend_code": "resend code",
-            "txt_cancel": "Cancel",
-            "txt_asap": "as soon as possible",
-            "txt_restaurants": "restaurants",
-            "txt_personalize": "personalize",
-            "txt_hamburgers": "hamburgers",
-            "txt_oriental_food": "oriental food",
-            "txt_tacos": "tacos",
-            "txt_veg": "vegetarian",
-            "txt_pizzas": "pizzas",
-            "txt_my_home": "my home",
-            "txt_search": "Search",
-            "txt_my_fav": "My favorites",
-            "txt_search_underscore": "search \"__\"",
-            "txt_more_promo": "See more promotions",
-            "txt_most_recomonded": "Most recommended",
-            "txt_less_minutes": "Less than 30 minutes",
-            "txt_restore": "restore",
-            "txt_organize": "Organize",
-            "txt_recomended": "Recommended",
-            "txt_most_popular": "Most popular",
-            "txt_rating": "Rating",
-            "txt_delvery_time": "Delivery time",
-            "txt_price": "Prices",
-            "txt_pincode": "postal \/ zip code",
-            "txt_diet": "diet",
-            "txt_vegan": "vegan",
-            "txt_gluten_free": "gluten free",
-            "txt_delivery_details": "Delivery Details",
-            "txt_hrs_loc": "Hours and location",
-            "txt_menu": "Menu",
-            "txt_salads": "salads",
-            "txt_breakfasts": "breakfasts",
-            "txt_choose_beverage": "choose your beverage",
-            "txt_coca_cola": "coca-cola",
-            "txt_bottled_water": "bottled water",
-            "txt_iced_water": "iced tea",
-            "txt_spl_ins": "Special instructions",
-            "txt_write_notes": "Write a note here (ex. no ketchup, extra cheese)",
-            "txt_add_order": "Add order",
-            "txt_home": "at your house",
-            "txt_deliver_door": "Deliver to door",
-            "txt_subtotal": "Subtotal\n",
-            "txt_delivery": "Delivery Charge",
-            "txt_total_order": "Total order",
-            "txt_cash": "cash",
-            "txt_place_order": "Place order",
-            "txt_order_num": "Order 5678",
-            "txt_estimated_arrival": "Estimated arrival",
-            "txt_order_preparing": "Your order is being prepared",
-            "txt_order_process": "Order in process",
-            "txt_order_code": "Order #6465C",
-            "txt_sub_total": "Subtotal",
-            "txt_help": "Help",
-            "txt_enroute": "En route to",
-            "txt_total_min": "9 minutes",
-            "txt_motor_cycle": "MOTORCYCLE",
-            "txt_contact": "Contact us if you need further information on billing of your purchases",
-            "txt_edt_arrival": "Estimated arrival",
-            "txt_order_onway": "Your order is on its way",
-            "txt_bacon_burger": "Guacamole Bacon Burger",
-            "txt_hello": "Hello!",
-            "txt_stairs_right": "It's on the stairs to the right",
-            "txt_im_here": "I'm here!",
-            "txt_write_msg": "Write your message",
-            "txt_almost_here": "Your order is almost here!",
-            "order_arriving": "Order arriving",
-            "txt_see_receipt": "See receipt",
-            "txt_order_receipt": "ORDER RECEIPT",
-            "txt_close": "Close",
-            "txt_captain_delivery": "How was Juan Manuel's delivery?",
-            "txt_rate_exp": "Rate the overall experience",
-            "txt_skip": "Skip",
-            "txt_add_tip": "Do you want to add a tip for Juan Manuel?",
-            "txt_express_satification": "Express your satisfaction",
-            "txt_custom_amnt": "Enter a custom amount",
-            "txt_food_from": "How was the food from Carl's Jr Morelos?",
-            "txt_rate": "Rate the overall experience",
-            "txt_add_comments": "Leave additional comments",
-            "txt_name": "Carls Jr morelos",
-            "txt_not_avail": "Not available at the time",
-            "txt_previous": "Previous",
-            "txt_prev_orders": "Previous orders",
-            "txt_upcoming": "Upcoming",
-            "txt_thai_restaurant": "Thai restaurant",
-            "txt_view_menu": "View menu",
-            "txt_order_completed": "Order completed",
-            "txt_order_date": "Jan 4, 2019 11:46 a.m.",
-            "txt_chicken_salad": "Small chicken salad",
-            "txt_delivered_by": "Delivered by Jose de Jesus",
-            "txt_total": "Total: ",
-            "txt_re_order": "Reorder",
-            "txt_view_bill": "View bill",
-            "txt_track": "Track",
-            "txt_martha_salas": "Martha Salas",
-            "txt_give": "Give $ 60 pesos",
-            "txt_fav": "Favourites",
-            "txt_payment": "Payment",
-            "txt_share_friends": "Share with your friends",
-            "txt_make_delivery": "Make deliveries with Hive",
-            "txt_settings": "Settings",
-            "txt_about": "About Hive",
-            "txt_edit_acc": "Edit account",
-            "txt_saved_loc": "My SAVED LOCATIONS",
-            "txt_address": "zacatecas 109, San Benito, 83190",
-            "txt_work": "Work",
-            "txt_sign_out": "Sign out",
-            "txt_save": "Save",
-            "txt_meet_in_parking": "Meet in the vehicle",
-            "txt_change_pic": "change photo",
-            "txt_last_name": "last name",
-            "txt_ph_num": "Phone number",
-            "txt_email": "Email",
-            "txt_pwd": "password",
-            "txt_earn_monoey": "Earn money in your spare time",
-            "txt_driver_in": "Drive in Hermosillo",
-            "txt_delivery_want": "You can make your delivery how you want to",
-            "txt_delivery_bike": "Deliveries by bike",
-            "txt_choose_distribute_bike": "Choose this option if you want to distribute by bike",
-            "txt_motorcycle_deliveries": "Motorcycle deliveries",
-            "txt_choose_distribute_motor": "Choose this option if you want to distribute by motorcycle",
-            "txt_car_deliveries": "Deliveries by car",
-            "txt_choose_distribute_car": "Choose this option if you want to distribute by car",
-            "txt_contact_us": "Get in contact with us",
-            "txt_contact_hive": "Contact Hive to request your affiliation, we await your call.",
-            "txt_share_code": "Share this special code with your friends to obtain a discount of $60 pesos on your their first order using HIVE",
-            "txt_hive_martha": "hive-MARTHA-95598gm",
-            "txt_code": "YOUR CODE",
-            "txt_code_redeem": "Enter a code to redeem here",
-            "txt_apply": "Apply",
-            "txt_Give": "Give $ 60 pesos",
-            "txt_we_help": "How can we help you",
-            "txt_last_order": "Last order",
-            "txt_report_prob": "Report Our Problem",
-            "txt_help_order": "Help with an order",
-            "txt_acc_payment": "Account and payments",
-            "txt_hive_guide": "Hive guide",
-            "txt_problem_curr_order": "I have a problem with my current order",
-            "txt_problem_past_order": "I had a problem with a past order",
-            "txt_want_invoice_order": "I want an invoice for this order",
-            "txt_problem_order": "Problem with my order",
-            "txt_can_track_deliver": "How can I track my delivery",
-            "txt_change_products_order": "Change products in my order",
-            "txt_want_cancel_order": "I want to cancel my order",
-            "txt_order_track_toolong": "My order is taking too long",
-            "txt_edit_deliver_loc": "How to edit delivery location",
-            "txt_why_order_cancel": "Why was my order canceled?",
-            "txt_order_never_arrive": "My order never arrived",
-            "txt_req_invoice": "Request invoice",
-            "txt_issue_invoice": "To issue your invoice it is necessary that you contact the property directly where you made your purchase",
-            "txt_bill_send_email": "The bill was sent to the email address you registered with your Hive account, and you can use as proof to request your invoice.",
-            "txt_mail_holder": "MAIL ACCOUNT HOLDER",
-            "txt_enter_reg_mail": "Enter the registered mail Hive",
-            "txt_dobut": "WHAT IS YOUR DOUBT",
-            "txt_att_info": "ATTACH RELEVANT INFORMATION",
-            "txt_payments": "Payments",
-            "txt_add_ano_pay": "add another form of payment",
-            "txt_add_pay": "Add payment",
-            "txt_select_card": "Credit or debit card",
-            "txt_paypal": "paypal",
-            "txt_add_card": "Add card",
-            "txt_card_num": "Card number [country]",
-            "txt_auto_fill_ph": "auto fill with photo",
-            "txt_ex_date": "Expiration date",
-            "txt_cvv": "CCV",
-            "txt_num_card": "number behind the card",
-            "txt_mm_yy": "MM \/ YY",
-            "txt_review_fb": "Review us on the App store",
-            "txt_fb": "Follow us on facebook",
-            "txt_legal": "Legal",
-            "txt_terms": "Terms and Conditions",
-            "txt_privacy_policy": "Privacy Policy",
-            "text_double_tap_exit": "Double tap to exit\n",
-            "txt_cart_added": "Items added to cart",
-            "txt_cart_update": "Items Updated to cart",
-            "txt_updatecart_desc": "The toppings already added.Do you want to update the cart?",
-            "txt_dialog_no_gps": "Without GPS",
-            "txt_dialog_no_gps_messgae": "It seems that your location service has not started.",
-            "txt_dialog_enable_gps": "Enable GPS",
-            "txt_search_address": "Search Delivery Address",
-            "txt_add_adress": "Add new address",
-            "txt_use_currloc": "Use your current location",
-            "txt_house": "House",
-            "txt_job": "Job",
-            "txt_others": "Others",
-            "txt_door_delivery": "Door delivery",
-            "txt_apatment_no": "Number of Apartment \/ Flat",
-            "txt_company_name": "Company name",
-            "txt_delivery_ins": "Add delivery instructions",
-            "txt_flat_empty": "Apartment number or Flat number should not empty\n",
-            "txt_fav_empty": "Favourite Title should not be empty",
-            "txt_address_empty": "Address should not be empty",
-            "txt_add_delete": "Address deleted successfully",
-            "txt_update_cart": "Update Order",
-            "txt_item_added": "Items already in a cart.Do you want to delete the previous cart items?",
-            "txt_delete_Address": "\nAre you sure to delete the address?",
-            "txt_yes": "Yes",
-            "txt_no": "No",
-            "txt_promo": "Promotions",
-            "txt_add_notes": "Add note (extra sauce, no pickles ...)",
-            "txt_shipping": "Shipping",
-            "txt_need": "whatever you need,",
-            "txt_disCount": "Promo Discount Amount",
-            "txt_add_promo": "Add promotion code",
-            "txt_promo_applied": "Promotion applied",
-            "txt_sure_logout": "Are you sure to logout?",
-            "txt_Ok": "Ok",
-            "txt_register": "Register",
-            "txt_Location": "Location",
-            "txt_Option": "Option",
-            "txt_Title": "Title",
-            "txt_Area": "Area",
-            "txt_choose_Deliver_loc": "Choose delivery location",
-            "txt_choose_Deliver_opt": "Choose delivery option",
-            "txt_choose_tit": "Choose title",
-            "txt_enter_new_tit": "enter new title",
-            "txt_enter_postal_zip": "Enter postal \/ zip code",
-            "txt_cur_loc": "Current Location",
-            "txt_del_door": "Deliver at the door",
-            "txt_meet_park": "Meet in the parking",
-            "txt_some_wrg": "Something went wrong",
-            "txt_net_not_connect": "Network not connected",
-            "txt_enter_valid_otp": "Please enter valid OTP",
-            "txt_net_connect": "Connected",
-            "txt_try_again": "An unknown error occured. Try again later",
-            "txt_for": "Forward to",
-            "txt_add_address": "Add Address",
-            "txt_edit_address": "Edit Address",
-            "txt_select_address": "Select Address",
-            "txt_no_address": "No delivery address selected",
-            "txt_no_address_msg": "No delivery address selected. Please select delivery address and try again",
-            "txt_search_country": "Search country",
-            "txt_country_codes": "Country Codes",
-            "text_Done": "Done",
-            "txt_user_name": "User Name",
-            "txt_terms_condition_agree": "I here by agree Terms and Conditions",
-            "txt_cut_terms": "Terms and Conditions",
-            "txt_signUp": "SignUp",
-            "txt_deliver_opt": "Delivery options",
-            "txt_Start_Shop": "Start shopping now",
-            "txt_food_missmatch": "Food item has mismatched",
-            "txt_add_del_address": "Add Your delivery address",
-            "txt_are_u_logout": "Are you sure.You want to logout?",
-            "txt_try_again_wrong": "Something went wrong. Try again later!",
-            "txt_f_name": "First Name",
-            "txt_l_name": "Last Name",
-            "txt_m_num": "Mobile Number",
-            "txt_enter_f_name": "Enter First Name",
-            "txt_enter_l_name": "Enter Last Name",
-            "txt_enter_m_num": "Enter Mobile Number",
-            "txt_enter_Em_num": "Enter Your Email",
-            "txt_update": "Update",
-            "text_ok": "Okey",
-            "txt_order_placed": "Order Placed",
-            "txt_what_you_home": "What you need, at home",
-            "txt_at_home": "at home",
-            "txt_fav_success": "This restaurant added to your favourite list.\n",
-            "txt_Choose": "Choose options",
-            "text_camera": "Camera",
-            "text_galary": "Gallery",
-            "txt_add_cart": "Add Order",
-            "txt_no_cart": "No cart items found",
-            "txt_delete_cart_item": "Are you sure you want to remove the tem from cart",
-            "txt_continue_trip": "Continue Trip",
-            "txt_rate_order": "How do you rate",
-            "txt_profits": "Profits",
-            "txt_profile": "My Profile",
-            "txt_car": "Car",
-            "txt_documents": "Documents",
-            "txt_acct_pay": "Account and Payments",
-            "txt_rep_fail": "Report Failures",
-            "txt_edt_info": "Edit Info",
-            "txt_invite_frd": "Invite a friend",
-            "txt_abt_hive": "About Hive",
-            "txt_lang": "Languages",
-            "txt_where_from": "Where are you from",
-            "txt_onmy_way": "On my way to",
-            "txt_deliver": "Deliver",
-            "txt_complete": "Complete Trip",
-            "txt_surf": "Surf",
-            "txt_online": "Online",
-            "txt_offline": "Offline",
-            "txt_arriving": "Order Arriving",
-            "txt_parking": "* Park in the parking lot on the left side and touch",
-            "txt_order_arriving": "Your order is being arriving",
-            "txt_food": "Food",
-            "txt_basic_points": "Basic points",
-            "txt_email_invalid": "Enter valid email",
-            "txt_see_earnings": "Where can i see my earnings",
-            "txt_whr_recharge": "Where can i recharge",
-            "txt_update_info": "How to update information",
-            "txt_rec_topics": "Recommended Topics",
-            "txt_imp_del": "\nImportant basic points for make deliveries",
-            "txt_all_themes": "All the themes",
-            "txt_send_code": "Send the code and get travel gift. When your referral register your code, you and your referral will receive 50 trips gift.",
-            "txt_share_promo_code": "Share Code",
-            "txt_invite_frnd": "Invite a friend on hive\n",
-            "txt_referal": "With the referral program invite and receive Benefits.",
-            "txt_share_your_code": "Share your code\r",
-            "txt_share_refferal": "\r\nInvite a friend as a referral with your code",
-            "txt_ref_frnd": "Refer a friend",
-            "txt_frnd_reg": "\r\nYour friend registers your code",
-            "txt_frnd_reg_code": "\r\nYour friend must register your code in the app",
-            "txt_enjoy_benifits": "Enjoy your benefits\r",
-            "txt_reg_sucess": "\r\nOnce you are registered, you and your friend receive\r\nthe benefits.",
-            "txt_Code": "YOUR CODE",
-            "txt_terms_condition": "Terms and Conditions",
-            "txt_share": "Share code",
-            "txt_how_to_help": "\r\nHow can we help you?",
-            "txt_wallet": "Wallet ",
-            "txt_ref": "Refferal",
-            "txt_delivery_of": "How was the delivery of ",
-            "txt_meses": "Months",
-            "txt_viajes": "Travels",
-            "txt_complaint_reg": "Complaint Registered",
-            "txt_alert": "Alert",
-            "txt_redeem_valid": "Redeem Code is Empty",
-            "txt_wallet_bal": "Total Wallet Balance",
-            "txt_minus_bal": "Total Minus Balance",
-            "txt_rating_hand_valid": "Please Select the Rating ",
-            "text_wallethistory_empty": "Wallet History Not Found",
-            "txt_login_alert_deliveryman": "Invalid Login",
-            "txt_login_alert_user": "Invalid Login",
-            "txt_compl": "Complaint",
-            "txt_submit": "submit",
-            "txt_close_res": "Restaurant Closed . Please choose another restaurant!",
-            "txt_item_available": "Item Unavailable",
-            "txt_item_Unavailable_selected": "Item Unavailable.Please choose other Food item",
-            "txt_decline_p1": "If take few minutes for your request approval.",
-            "txt_decline_p2": "Please contact admin.",
-            "txt_call_admin": "Call Admin",
-            "text_title_restra": "RESTAURANTS",
-            "txt_menu_cata_unavailable": "Menu Items unavailable",
-            "txt_tax": "Tax",
-            "txt_cancel_title": "Are you sure to cancel the order?",
-            "txt_order_cancel": "Order Cancelled",
-            "txt_add_tips_delier": "Do you want to add a tip for ",
-            "txt_food_from_deliver": "How was the food from ",
-            "txt_choose_lng": "Choose Language",
-            "txt_english": "English",
-            "txt_spanish": "Spanish",
-            "txt_no_rest_found": "No Restaurants found",
-            "txt_no_address_found": "No Address Found",
-            "txt_enter_user": "Enter user name",
-            "txt_enter_email": "Enter email",
-            "txt_wallet_his": "Wallet History",
-            "txt_order_list": "Order list",
-            "txt_search_categories": "Search categories",
-            "txt_already_itemsAdd_inCart": "Items already in cart",
-            "txt_already_itemsAdd": "Your cart contains items from a different restaurant. Would you like to reset your cart before browsing this restaurant?",
-            "txt_accept_terms": "Accept Terms and Conditions to continue",
-            "txt_history": "History",
-            "txt_Add_Languages": "Add Languages",
-            "txt_enter_address": "Enter Address",
-            "txt_order_picked": "Order Picked",
-            "txt_rate_friend": "Rate Your friend",
-            "txt_rate_overall_exp": "Rate the overall experience",
-            "txt_continue": "Continue",
-            "txt_decline": "Decline",
-            "txt_enter_phone_number": "Enter phone number",
-            "txt_package_amount": "Package Amount",
-            "txt_offer_discount": "Offer Discount Amount",
-            "txt_accept": "Accept"
-        },
-        "es": {
-            "txt_you_need": "Lo que necesites, en tu casa",
-            "tx_begin_shop": "Comienza a comprar ya",
-            "txt_enter_phone": "Por favor, introduzca el número de teléfono",
-            "txt_skip_now": "Saltar por el momento",
-            "txt_nxt": "siguiente",
-            "txt_enter_code": "Ingresa el codigo enviado al",
-            "txt_change": "cambiar",
-            "txt_codenot_receive": "No recibí código",
-            "txt_resend_to": "Reenviar al",
-            "txt_resend_code": "reenviar codigo",
-            "txt_cancel": "Cancelar",
-            "txt_asap": "lo antes posible",
-            "txt_restaurants": "restaurantes",
-            "txt_personalize": "personalizar",
-            "txt_hamburgers": "hamburguesas",
-            "txt_oriental_food": "comida oriental",
-            "txt_tacos": "tacos",
-            "txt_veg": "vegetariana",
-            "txt_pizzas": "pizzas",
-            "txt_my_home": "mi casa",
-            "txt_search": "Buscar",
-            "txt_my_fav": "Mis favoritos",
-            "txt_search_underscore": "buscar \"__\"",
-            "txt_more_promo": "ver mas promociones",
-            "txt_most_recomonded": "Los más recomendados",
-            "txt_less_minutes": "Menos de 30 minutos",
-            "txt_restore": "restablecer",
-            "txt_organize": "Organizar",
-            "txt_recomended": "Recomendada",
-            "txt_most_popular": "Mas popular",
-            "txt_rating": "Calificacion",
-            "txt_delvery_time": "Tiempo de entrega",
-            "txt_price": "Precios",
-            "txt_pincode": "postal \/ código postal",
-            "txt_diet": "dieta",
-            "txt_vegan": "vegana",
-            "txt_gluten_free": "sin gluten",
-            "txt_delivery_details": "Detalles para entrega",
-            "txt_hrs_loc": "Horario y ubicación",
-            "txt_menu": "Menu",
-            "txt_salads": "ensaladas",
-            "txt_breakfasts": "desayunos",
-            "txt_choose_beverage": "Elige tu bebida",
-            "txt_coca_cola": "coca-cola",
-            "txt_bottled_water": "agua embotellada",
-            "txt_iced_water": "te helado",
-            "txt_spl_ins": "Instrucciones especiales",
-            "txt_write_notes": "Escribe aqui una nota (ej. Sin catsup, extra queso)",
-            "txt_add_order": "Agregar orden",
-            "txt_home": "en tu casa",
-            "txt_deliver_door": "Entregar en la puerta",
-            "txt_subtotal": "Subtotal",
-            "txt_delivery": "Gastos de envío",
-            "txt_total_order": "Total orden",
-            "txt_cash": "efectivo",
-            "txt_place_order": "Realizar pedido",
-            "txt_order_num": "Pedido 5678",
-            "txt_estimated_arrival": "llegada estimada",
-            "txt_order_preparing": "Tu pedido se está preparando",
-            "txt_order_process": "Pedido en proceso",
-            "txt_order_code": "Pedido #6465C",
-            "txt_sub_total": "Subtotal",
-            "txt_help": "Ayuda",
-            "txt_enroute": "En camino a",
-            "txt_total_min": "9 minutos",
-            "txt_motor_cycle": "MOTONETA",
-            "txt_contact": "Contáctanos si necesitas información adicional sobre la facturación de tus compras",
-            "txt_edt_arrival": "Llegada estimada",
-            "txt_order_onway": "Tu pedido está en camino",
-            "txt_bacon_burger": "Hamburguesa Guacamole Bacon",
-            "txt_hello": "Hola!",
-            "txt_stairs_right": "Es en las escaleras a la derecha",
-            "txt_im_here": "Voy llegando!",
-            "txt_write_msg": "Escribe tu mensaje",
-            "txt_almost_here": "Tu pedido está llegando!",
-            "order_arriving": "Pedido llegando",
-            "txt_see_receipt": "Ver recibo",
-            "txt_order_receipt": "RECIBO DEL PEDIDO",
-            "txt_close": "Cerrar",
-            "txt_captain_delivery": "Como estuvo la entrega de Juan Manuel?",
-            "txt_rate_exp": "Valorar la experiencia en general",
-            "txt_skip": "Omitir",
-            "txt_add_tip": "Quieres agregar un extra para Juan Manuel?",
-            "txt_express_satification": "Expresa tu satisfacción",
-            "txt_custom_amnt": "Ingresa un monto personalizado",
-            "txt_food_from": "Como estuvo la comida de Carl’s Jr Morelos?",
-            "txt_rate": "Califica la experiencia en general",
-            "txt_add_comments": "Dejar comentarios adicionales",
-            "txt_name": "Carls Jr morelos",
-            "txt_not_avail": "No disponibles al momento",
-            "txt_previous": "Anteriores",
-            "txt_prev_orders": "Pedidos anteriores",
-            "txt_upcoming": "Próximos",
-            "txt_thai_restaurant": "Restaurant Thai",
-            "txt_view_menu": "Ver menú",
-            "txt_order_completed": "Pedido completado",
-            "txt_order_date": "4 ene 2019 11:46am",
-            "txt_chicken_salad": "ensalada chica de pollo",
-            "txt_delivered_by": "Entregada por Jose de Jesus",
-            "txt_total": "Total: ",
-            "txt_re_order": "Volver a ordenar",
-            "txt_view_bill": "Ver recibo",
-            "txt_track": "Rastrear",
-            "txt_martha_salas": "Martha Salas",
-            "txt_give": "Regala $60 pesos",
-            "txt_fav": "Favoritos",
-            "txt_payment": "Pago",
-            "txt_share_friends": "Comparte con tus amigos",
-            "txt_make_delivery": "Haz entregas con Hive",
-            "txt_settings": "configuración",
-            "txt_about": "Sobre Hive",
-            "txt_edit_acc": "Editar cuenta",
-            "txt_saved_loc": "mis ubicaciones guardadas",
-            "txt_address": "zacatecas 109, San Benito, 83190",
-            "txt_work": "trabajo",
-            "txt_sign_out": "cerrar sesión",
-            "txt_save": "Guardar",
-            "txt_meet_in_parking": "Reunirse en el vehiculo",
-            "txt_change_pic": "cambiar foto",
-            "txt_last_name": "apellido",
-            "txt_ph_num": "numero de telefono",
-            "txt_email": "correo electronico",
-            "txt_pwd": "contraseña",
-            "txt_earn_monoey": "Gana dinero en tu tiempo libre",
-            "txt_driver_in": "Conduce en Hermosillo",
-            "txt_delivery_want": "Puedes hacer entregas como tu gustes",
-            "txt_delivery_bike": "Entregas en bici",
-            "txt_choose_distribute_bike": "Elige esta opción si deseas repartir en bici",
-            "txt_motorcycle_deliveries": "Entregas en moto",
-            "txt_choose_distribute_motor": "Elige esta opción si deseas repartir en moto",
-            "txt_car_deliveries": "Entregas en auto",
-            "txt_choose_distribute_car": "Elige esta opción si deseas repartir en auto",
-            "txt_contact_us": "Ponte en contacto con nosotros",
-            "txt_contact_hive": "Comunícate con Hive para solicitar tu afiliación, esperamos tu llamada.",
-            "txt_share_code": "Comparte este código especial con tus amigos para que cuando usen HIVE por primera vez obtengan un descuento de $60 pesos en su primer pedido",
-            "txt_hive_martha": "hive-MARTHA-95598gm",
-            "txt_code": "TU CÓDIGO",
-            "txt_code_redeem": "Ingresa aqui un codigo para canjear",
-            "txt_apply": "Applicar",
-            "txt_Give": "Regala $60 pesos",
-            "txt_we_help": "Como podemos ayudarte",
-            "txt_last_order": "Ultimo pedido",
-            "txt_report_prob": "Informe nuestro problema",
-            "txt_help_order": "Ayuda con un pedido",
-            "txt_acc_payment": "Cuenta y pagos",
-            "txt_hive_guide": "Guia de hive",
-            "txt_problem_curr_order": "Tengo un problema con mi pedido actual",
-            "txt_problem_past_order": "Tuve un problema con un pedido",
-            "txt_want_invoice_order": "Quiero facturar este pedido",
-            "txt_problem_order": "Problema con mi pedido",
-            "txt_can_track_deliver": "Como puedo rastrear mi entrega",
-            "txt_change_products_order": "Cambair articulos de mi pedido",
-            "txt_want_cancel_order": "Quiero cancelar mi pedido",
-            "txt_order_track_toolong": "Mi pedido esta demorando mucho",
-            "txt_edit_deliver_loc": "Como editar ubicacion de entrega",
-            "txt_why_order_cancel": "Porque se cancelo mi pedido?",
-            "txt_order_never_arrive": "mi pedido nunca llego",
-            "txt_req_invoice": "facturar",
-            "txt_issue_invoice": "Para la emisión de tu factura es necesario que contactes directamente al establecimiento donde hiciste tu compra",
-            "txt_bill_send_email": "El recibo llegara al correo electrónico que tienes registrado en tu cuenta Hive, y lo puedes usar como comprobante para solicitar tu factura.",
-            "txt_mail_holder": "CORREO DEL TITULAR DE LA CUENTA",
-            "txt_enter_reg_mail": "Ingresa el correo registrado en Hive",
-            "txt_dobut": "CUAL ES TU DUDA",
-            "txt_att_info": "ADJUNTA INFORMACIÓN RELEVANTE",
-            "txt_payments": "Pagos",
-            "txt_add_ano_pay": "agregar otra forma de pago",
-            "txt_add_pay": "agregar pago",
-            "txt_select_card": "tarjeta de crédito o debito",
-            "txt_paypal": "paypal",
-            "txt_add_card": "agregar tarjeta",
-            "txt_card_num": "Numero de tarjeta [país]",
-            "txt_auto_fill_ph": "auto llenar con foto",
-            "txt_ex_date": "fecha de vencimiento",
-            "txt_cvv": "ccv",
-            "txt_num_card": "numero detras de la tarjeta",
-            "txt_mm_yy": "MM\/AA",
-            "txt_review_fb": "calificanos en App store",
-            "txt_fb": "siguenos en facebook",
-            "txt_legal": "Legal",
-            "txt_terms": "Terminos y condiciones",
-            "txt_privacy_policy": "Politica de privacidad",
-            "text_double_tap_exit": "Doble toque para salir",
-            "txt_cart_added": "Artículos añadidos al carrito",
-            "txt_cart_update": "Actualizado artículos a la cesta",
-            "txt_dialog_no_gps": "sin GPS",
-            "txt_dialog_no_gps_messgae": "Parece que su servicio de localización no ha comenzado.",
-            "txt_dialog_enable_gps": "activar el GPS",
-            "txt_search_address": "Búsqueda Dirección de entrega",
-            "txt_add_adress": "agregar nueva dirección",
-            "txt_use_currloc": "Utilice su ubicación actual",
-            "txt_house": "Casa",
-            "txt_job": "Trabajo",
-            "txt_others": "Otros",
-            "txt_door_delivery": "Entrega a puerta",
-            "txt_apatment_no": "Numero de apartmento\/ Piso",
-            "txt_company_name": "Nombre de la empresa",
-            "txt_delivery_ins": "Agregar instrucciones de entrega",
-            "txt_flat_empty": "número de apartamento o número plana no deben vaciar",
-            "txt_fav_empty": "Favorito al título no debe estar vacía",
-            "txt_address_empty": "Dirección no debe estar vacía",
-            "txt_add_delete": "Dirección eliminado correctamente",
-            "txt_update_cart": "Orden de actualización",
-            "txt_item_added": "Los productos que ya están en un cart.Do que desea eliminar los elementos carrito anteriores?",
-            "txt_delete_Address": "Está seguro que desea borrar la dirección?",
-            "txt_yes": "si",
-            "txt_no": "No",
-            "txt_promo": "Promociones",
-            "txt_add_notes": "Aggregar nota(extra salsa,sin pepinillos...)",
-            "txt_shipping": "Envio",
-            "txt_need": "lo que sea que necesites,",
-            "txt_disCount": "Promoción Cantidad de Descuento",
-            "txt_add_promo": "Agregar codigo de promocion",
-            "txt_promo_applied": "Promocion aplicada",
-            "txt_sure_logout": "¿Está seguro de cerrar la sesión?",
-            "txt_Ok": "Okay",
-            "txt_register": "Registrarse",
-            "txt_Location": "Ubicación",
-            "txt_Option": "Opción",
-            "txt_Title": "Título",
-            "txt_Area": "Zona",
-            "txt_choose_Deliver_loc": "Elija la ubicación de entrega",
-            "txt_choose_Deliver_opt": "Elija la opción de envío",
-            "txt_choose_tit": "Elija título",
-            "txt_enter_new_tit": "introducir un nuevo título",
-            "txt_enter_postal_zip": "Introducir código \/ postal postal",
-            "txt_cur_loc": "Ubicación actual",
-            "txt_del_door": "Entregar a la puerta",
-            "txt_meet_park": "Se reúnen en el aparcamiento",
-            "txt_some_wrg": "Algo salió mal",
-            "txt_net_not_connect": "La red no está conectado",
-            "txt_enter_valid_otp": "Por favor, introduzca OTP válida",
-            "txt_net_connect": "Conectado",
-            "txt_try_again": "Un error desconocido ocurrió. Inténtelo más tarde",
-            "txt_for": "con interés",
-            "txt_add_address": "Añadir dirección",
-            "txt_edit_address": "Editar dirección",
-            "txt_select_address": "Seleccionar dirección",
-            "txt_no_address": "Ninguna dirección de entrega seleccionada",
-            "txt_no_address_msg": "No se seleccionó la dirección de entrega. Seleccione la dirección de entrega e intente nuevamente",
-            "txt_search_country": "Buscar país",
-            "txt_country_codes": "Códigos de país",
-            "text_Done": "Hecho",
-            "txt_user_name": "Nombre de usuario",
-            "txt_terms_condition_agree": "Yo aquí de acuerdo con Términos y Condiciones",
-            "txt_cut_terms": "Términos y Condiciones",
-            "txt_signUp": "Regístrate",
-            "txt_deliver_opt": "Opciones de entrega",
-            "txt_Start_Shop": "Comienza a comprar ya",
-            "txt_food_missmatch": "alimento ha cargado no coincide",
-            "txt_add_del_address": "Agregar su dirección de entrega",
-            "txt_are_u_logout": "¿Está sure.You quieres salir?",
-            "txt_try_again_wrong": "Algo salió mal. Inténtelo de nuevo más tarde!",
-            "txt_f_name": "Nombre de pila",
-            "txt_l_name": "Apellido",
-            "txt_m_num": "Número de teléfono móvil",
-            "txt_enter_f_name": "Introduzca el nombre",
-            "txt_enter_l_name": "Introduzca el apellido",
-            "txt_enter_m_num": "Introducir número de móvil",
-            "txt_enter_Em_num": "Introduce tu correo electrónico",
-            "txt_update": "Actualizar",
-            "text_ok": "Bueno",
-            "txt_order_placed": "Pedido realizado",
-            "txt_what_you_home": "Lo que se necesita, como en casa",
-            "txt_at_home": "en casa",
-            "txt_fav_success": "Este restaurante se agregó a tu lista de favoritos.",
-            "txt_Choose": "Elige opciones",
-            "text_camera": "Cámara",
-            "text_galary": "Galería",
-            "txt_add_cart": "Añadir Solicitar",
-            "txt_no_cart": "No hay elementos que se encuentran carrito",
-            "txt_delete_cart_item": "¿Seguro que desea eliminar el tem del carrito",
-            "txt_continue_trip": "continuar viaje",
-            "txt_rate_order": "continuar viaje",
-            "txt_profits": "Ganancias",
-            "txt_profile": "Mi perfil",
-            "txt_car": "Automóvil",
-            "txt_documents": "Documentos",
-            "txt_acct_pay": "Cuenta Y Pagos",
-            "txt_rep_fail": "Reporta fallas",
-            "txt_edt_info": "Editar info",
-            "txt_invite_frd": "Invita un amigo",
-            "txt_abt_hive": "Sobre Hive",
-            "txt_lang": "Lenguajes",
-            "txt_where_from": "De donde eres",
-            "txt_onmy_way": "En camino a",
-            "txt_deliver": "Entregar a",
-            "txt_complete": "Completar viaje",
-            "txt_surf": "Navegar",
-            "txt_online": "En línea",
-            "txt_offline": "Desconectado",
-            "txt_arriving": "pedido ilegando",
-            "txt_parking": "*Estacionar en el estacionamiento de lado izquierdo y tocar",
-            "txt_order_arriving": "\r\nTu pedido está llegando",
-            "txt_food": "Comida",
-            "txt_basic_points": "Puntos basicos",
-            "txt_email_invalid": "Ingrese un email valido",
-            "txt_see_earnings": "Donde puedo ver mis ganancias",
-            "txt_whr_recharge": "Donde puedo recargar",
-            "txt_update_info": "Como actualizar información",
-            "txt_rec_topics": "Temas recomendados",
-            "txt_imp_del": "Puntos básicos importantes para realizar entregas",
-            "txt_all_themes": "Todos los temas",
-            "txt_send_code": "Envía el código y obten viajes de regalo. Cuando tu referido registre tu código, tu y tu referido recibirán 50 viajes de regalo.",
-            "txt_share_promo_code": "Comparte codigo",
-            "txt_invite_frnd": "Invite a un amigo on hive",
-            "txt_referal": "Con el programa de referidos invita y recibe\r\nbeneficios. ",
-            "txt_share_your_code": "Comparte tu codigo",
-            "txt_share_refferal": "Invita a un amigo como referido con tu codigo",
-            "txt_ref_frnd": "Refiere a un amigo",
-            "txt_frnd_reg": "Tu amigo registra tu codigo",
-            "txt_frnd_reg_code": "Tu amigo debe registrar tu codigo en la app",
-            "txt_enjoy_benifits": "Disfruta tus beneficios",
-            "txt_reg_sucess": "Una ves registrado, tu y tu amigo reciben \r\nlos beneficios.",
-            "txt_Code": "TU CÓDIGO",
-            "txt_terms_condition": "Términos y condiciones",
-            "txt_share": "Comparte codigo",
-            "txt_how_to_help": "¿Como podemos ayudarte?",
-            "txt_wallet": "Billetera",
-            "txt_ref": "Referencia",
-            "txt_delivery_of": "Como estuvo la entrega de",
-            "txt_meses": "Meses",
-            "txt_viajes": "Viajes",
-            "txt_complaint_reg": "Queja Registrada",
-            "txt_alert": "Alerta",
-            "txt_redeem_valid": "Canjear código es vacía",
-            "txt_wallet_bal": "Total Saldo Monedero",
-            "txt_minus_bal": "Total menos el saldo",
-            "txt_rating_hand_valid": "Por favor seleccionar la clasificación",
-            "text_wallethistory_empty": "Historia cartera no encontrada",
-            "txt_login_alert_deliveryman": "Ingreso invalido",
-            "txt_login_alert_user": "Ingreso invalido",
-            "txt_compl": "Queja",
-            "txt_submit": "enviar",
-            "txt_close_res": "Restaurante cerrado. Por favor seleccione otro restaurante!",
-            "txt_item_available": "elemento no disponible",
-            "txt_item_Unavailable_selected": "Artículo Unavailable.Please elegir otro alimento",
-            "txt_decline_p1": "Si toma unos minutos para su aprobación petición.",
-            "txt_decline_p2": "Por favor contacto administrativo.",
-            "txt_call_admin": "llamada de administración",
-            "text_title_restra": "RESTAURANTES",
-            "txt_menu_cata_unavailable": "Elementos de menú disponible",
-            "txt_tax": "Impuesto",
-            "txt_cancel_title": "¿Estás seguro de cancelar el pedido?",
-            "txt_order_cancel": "Orden cancelada",
-            "txt_add_tips_delier": "Quieres agregar un extra para ",
-            "txt_food_from_deliver": "Como estuvo la comida de ",
-            "txt_choose_lng": "Elige lengua",
-            "txt_english": "Inglés",
-            "txt_spanish": "Español",
-            "txt_no_rest_found": "No se encontraron restaurantes",
-            "txt_no_address_found": "No se encontró dirección",
-            "txt_enter_user": "Introduzca su nombre de usuario",
-            "txt_enter_email": "Ingrese correo electrónico",
-            "txt_wallet_his": "Historial de billetera",
-            "txt_order_list": "Lista de orden",
-            "txt_search_categories": "Buscar categorías",
-            "txt_accept_terms": "Debe aceptar los términos y condiciones para continuar",
-            "txt_history": "Historia",
-            "txt_Add_Languages": "Añadir Idiomas",
-            "txt_enter_address": "Ingresa la direccion",
-            "txt_order_picked": "Solicitar escogida",
-            "txt_rate_friend": "Califique su amigo",
-            "txt_rate_overall_exp": "Valorar la experiencia en general",
-            "txt_continue": "Seguir",
-            "txt_decline": "Disminución",
-            "txt_enter_phone_number": "Introduzca el número de teléfono",
-            "txt_package_amount": "paquete Cantidad",
-            "txt_offer_discount": "Ofrecer Cantidad de Descuento",
-            "txt_accept": "Aceptar"
-        }
+    "success": false,
+    "message": "cURL error 6: Could not resolve host: sheets.googleapis.com (see https:\/\/curl.haxx.se\/libcurl\/c\/libcurl-errors.html)",
+    "status_code": 500,
+    "debug": {
+        "line": 200,
+        "file": "\/var\/www\/html\/car-pool\/vendor\/guzzlehttp\/guzzle\/src\/Handler\/CurlFactory.php",
+        "class": "GuzzleHttp\\Exception\\ConnectException",
+        "trace": [
+            "#0 \/var\/www\/html\/car-pool\/vendor\/guzzlehttp\/guzzle\/src\/Handler\/CurlFactory.php(155): GuzzleHttp\\Handler\\CurlFactory::createRejection(Object(GuzzleHttp\\Handler\\EasyHandle), Array)\n#1 \/var\/www\/html\/car-pool\/vendor\/guzzlehttp\/guzzle\/src\/Handler\/CurlFactory.php(105): GuzzleHttp\\Handler\\CurlFactory::finishError(Object(GuzzleHttp\\Handler\\CurlHandler), Object(GuzzleHttp\\Handler\\EasyHandle), Object(GuzzleHttp\\Handler\\CurlFactory))\n#2 \/var\/www\/html\/car-pool\/vendor\/guzzlehttp\/guzzle\/src\/Handler\/CurlHandler.php(43): GuzzleHttp\\Handler\\CurlFactory::finish(Object(GuzzleHttp\\Handler\\CurlHandler), Object(GuzzleHttp\\Handler\\EasyHandle), Object(GuzzleHttp\\Handler\\CurlFactory))\n#3 \/var\/www\/html\/car-pool\/vendor\/guzzlehttp\/guzzle\/src\/Handler\/Proxy.php(28): GuzzleHttp\\Handler\\CurlHandler-&gt;__invoke(Object(GuzzleHttp\\Psr7\\Request), Array)\n#4 \/var\/www\/html\/car-pool\/vendor\/guzzlehttp\/guzzle\/src\/Handler\/Proxy.php(51): GuzzleHttp\\Handler\\Proxy::GuzzleHttp\\Handler\\{closure}(Object(GuzzleHttp\\Psr7\\Request), Array)\n#5 \/var\/www\/html\/car-pool\/vendor\/guzzlehttp\/guzzle\/src\/PrepareBodyMiddleware.php(37): GuzzleHttp\\Handler\\Proxy::GuzzleHttp\\Handler\\{closure}(Object(GuzzleHttp\\Psr7\\Request), Array)\n#6 \/var\/www\/html\/car-pool\/vendor\/guzzlehttp\/guzzle\/src\/Middleware.php(29): GuzzleHttp\\PrepareBodyMiddleware-&gt;__invoke(Object(GuzzleHttp\\Psr7\\Request), Array)\n#7 \/var\/www\/html\/car-pool\/vendor\/guzzlehttp\/guzzle\/src\/RedirectMiddleware.php(70): GuzzleHttp\\Middleware::GuzzleHttp\\{closure}(Object(GuzzleHttp\\Psr7\\Request), Array)\n#8 \/var\/www\/html\/car-pool\/vendor\/guzzlehttp\/guzzle\/src\/Middleware.php(59): GuzzleHttp\\RedirectMiddleware-&gt;__invoke(Object(GuzzleHttp\\Psr7\\Request), Array)\n#9 \/var\/www\/html\/car-pool\/vendor\/guzzlehttp\/guzzle\/src\/HandlerStack.php(71): GuzzleHttp\\Middleware::GuzzleHttp\\{closure}(Object(GuzzleHttp\\Psr7\\Request), Array)\n#10 \/var\/www\/html\/car-pool\/vendor\/guzzlehttp\/guzzle\/src\/Client.php(351): GuzzleHttp\\HandlerStack-&gt;__invoke(Object(GuzzleHttp\\Psr7\\Request), Array)\n#11 \/var\/www\/html\/car-pool\/vendor\/guzzlehttp\/guzzle\/src\/Client.php(162): GuzzleHttp\\Client-&gt;transfer(Object(GuzzleHttp\\Psr7\\Request), Array)\n#12 \/var\/www\/html\/car-pool\/vendor\/guzzlehttp\/guzzle\/src\/Client.php(182): GuzzleHttp\\Client-&gt;requestAsync('get', Object(GuzzleHttp\\Psr7\\Uri), Array)\n#13 \/var\/www\/html\/car-pool\/vendor\/guzzlehttp\/guzzle\/src\/Client.php(95): GuzzleHttp\\Client-&gt;request('get', 'https:\/\/sheets....', Array)\n#14 \/var\/www\/html\/car-pool\/app\/Http\/Controllers\/Api\/V1\/Common\/TranslationController.php(21): GuzzleHttp\\Client-&gt;__call('get', Array)\n#15 [internal function]: App\\Http\\Controllers\\Api\\V1\\Common\\TranslationController-&gt;index()\n#16 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Controller.php(54): call_user_func_array(Array, Array)\n#17 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller-&gt;callAction('index', Array)\n#18 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php(219): Illuminate\\Routing\\ControllerDispatcher-&gt;dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\Api\\V1\\Common\\TranslationController), 'index')\n#19 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php(176): Illuminate\\Routing\\Route-&gt;runController()\n#20 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(681): Illuminate\\Routing\\Route-&gt;run()\n#21 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(130): Illuminate\\Routing\\Router-&gt;Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#22 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php(41): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#23 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Routing\\Middleware\\SubstituteBindings-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#24 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php(59): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#25 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Routing\\Middleware\\ThrottleRequests-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure), 60, '1')\n#26 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#27 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(683): Illuminate\\Pipeline\\Pipeline-&gt;then(Object(Closure))\n#28 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(658): Illuminate\\Routing\\Router-&gt;runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#29 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(624): Illuminate\\Routing\\Router-&gt;runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#30 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(613): Illuminate\\Routing\\Router-&gt;dispatchToRoute(Object(Illuminate\\Http\\Request))\n#31 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(170): Illuminate\\Routing\\Router-&gt;dispatch(Object(Illuminate\\Http\\Request))\n#32 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(130): Illuminate\\Foundation\\Http\\Kernel-&gt;Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#33 \/var\/www\/html\/car-pool\/vendor\/proengsoft\/laravel-jsvalidation\/src\/RemoteValidationMiddleware.php(53): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#34 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Proengsoft\\JsValidation\\RemoteValidationMiddleware-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#35 \/var\/www\/html\/car-pool\/vendor\/barryvdh\/laravel-debugbar\/src\/Middleware\/InjectDebugbar.php(58): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#36 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#37 \/var\/www\/html\/car-pool\/app\/Http\/Middleware\/PjaxMiddleware.php(21): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#38 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\PjaxMiddleware-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#39 \/var\/www\/html\/car-pool\/app\/Http\/Middleware\/Cors.php(7): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#40 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\Cors-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#41 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#42 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#43 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#44 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#45 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#46 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#47 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php(63): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#48 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#49 \/var\/www\/html\/car-pool\/vendor\/hyn\/multi-tenant\/src\/Middleware\/EagerIdentification.php(29): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#50 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Hyn\\Tenancy\\Middleware\\EagerIdentification-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#51 \/var\/www\/html\/car-pool\/vendor\/hyn\/multi-tenant\/src\/Middleware\/HostnameActions.php(75): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#52 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Hyn\\Tenancy\\Middleware\\HostnameActions-&gt;handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#53 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#54 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(145): Illuminate\\Pipeline\\Pipeline-&gt;then(Object(Closure))\n#55 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel-&gt;sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#56 \/var\/www\/html\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(307): Illuminate\\Foundation\\Http\\Kernel-&gt;handle(Object(Illuminate\\Http\\Request))\n#57 \/var\/www\/html\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(289): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls-&gt;callLaravelRoute(Object(Illuminate\\Http\\Request))\n#58 \/var\/www\/html\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(47): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls-&gt;makeApiCall(Object(Illuminate\\Http\\Request))\n#59 \/var\/www\/html\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(172): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls-&gt;__invoke(Object(Illuminate\\Routing\\Route), Object(ReflectionClass), Object(ReflectionMethod), Array, Array)\n#60 \/var\/www\/html\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(121): Mpociot\\ApiDoc\\Extracting\\Generator-&gt;iterateThroughStrategies('responses', Array, Array)\n#61 \/var\/www\/html\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(84): Mpociot\\ApiDoc\\Extracting\\Generator-&gt;fetchResponses(Object(ReflectionClass), Object(ReflectionMethod), Object(Illuminate\\Routing\\Route), Array, Array)\n#62 \/var\/www\/html\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php(125): Mpociot\\ApiDoc\\Extracting\\Generator-&gt;processRoute(Object(Illuminate\\Routing\\Route), Array)\n#63 \/var\/www\/html\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php(69): Mpociot\\ApiDoc\\Commands\\GenerateDocumentation-&gt;processRoutes(Object(Mpociot\\ApiDoc\\Extracting\\Generator), Array)\n#64 [internal function]: Mpociot\\ApiDoc\\Commands\\GenerateDocumentation-&gt;handle(Object(Mpociot\\ApiDoc\\Matching\\RouteMatcher))\n#65 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(32): call_user_func_array(Array, Array)\n#66 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Util.php(37): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()\n#67 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))\n#68 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))\n#69 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php(590): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)\n#70 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php(134): Illuminate\\Container\\Container-&gt;call(Array)\n#71 \/var\/www\/html\/car-pool\/vendor\/symfony\/console\/Command\/Command.php(255): Illuminate\\Console\\Command-&gt;execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))\n#72 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php(121): Symfony\\Component\\Console\\Command\\Command-&gt;run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))\n#73 \/var\/www\/html\/car-pool\/vendor\/symfony\/console\/Application.php(1000): Illuminate\\Console\\Command-&gt;run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#74 \/var\/www\/html\/car-pool\/vendor\/symfony\/console\/Application.php(271): Symfony\\Component\\Console\\Application-&gt;doRunCommand(Object(Mpociot\\ApiDoc\\Commands\\GenerateDocumentation), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#75 \/var\/www\/html\/car-pool\/vendor\/symfony\/console\/Application.php(147): Symfony\\Component\\Console\\Application-&gt;doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#76 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php(93): Symfony\\Component\\Console\\Application-&gt;run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#77 \/var\/www\/html\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php(131): Illuminate\\Console\\Application-&gt;run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#78 \/var\/www\/html\/car-pool\/artisan(37): Illuminate\\Foundation\\Console\\Kernel-&gt;handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#79 {main}"
+        ]
     }
 }</code></pre>
 <h3>HTTP Request</h3>
@@ -2463,7 +1859,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/user/login/send-otp" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"mobile":"qui"}'
+    -d '{"mobile":"hic"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/user/login/send-otp"
@@ -2476,7 +1872,7 @@ let headers = {
 };
 
 let body = {
-    "mobile": "qui"
+    "mobile": "hic"
 }
 
 fetch(url, {
@@ -2525,7 +1921,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/user/login" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"email":"molestiae","mobile":"id","password":"impedit"}'
+    -d '{"email":"quisquam","mobile":"omnis","password":"quia"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/user/login"
@@ -2538,9 +1934,9 @@ let headers = {
 };
 
 let body = {
-    "email": "molestiae",
-    "mobile": "id",
-    "password": "impedit"
+    "email": "quisquam",
+    "mobile": "omnis",
+    "password": "quia"
 }
 
 fetch(url, {
@@ -2674,7 +2070,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/user/register" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"first_name":"occaecati","last_name":"ut","gender":"eos","city":"doloremque","uuid":"unde","email":"sint","password":"veritatis","device_token":"delectus","login_by":"sit"}'
+    -d '{"first_name":"non","last_name":"aut","gender":"rerum","city":"deleniti","uuid":"ipsa","email":"sequi","password":"quia","device_token":"quasi","login_by":"sed"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/user/register"
@@ -2687,15 +2083,15 @@ let headers = {
 };
 
 let body = {
-    "first_name": "occaecati",
-    "last_name": "ut",
-    "gender": "eos",
-    "city": "doloremque",
-    "uuid": "unde",
-    "email": "sint",
-    "password": "veritatis",
-    "device_token": "delectus",
-    "login_by": "sit"
+    "first_name": "non",
+    "last_name": "aut",
+    "gender": "rerum",
+    "city": "deleniti",
+    "uuid": "ipsa",
+    "email": "sequi",
+    "password": "quia",
+    "device_token": "quasi",
+    "login_by": "sed"
 }
 
 fetch(url, {
@@ -2792,7 +2188,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/user/register/send-otp" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"country":"aliquam","mobile":11}'
+    -d '{"country":"voluptas","mobile":19}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/user/register/send-otp"
@@ -2805,8 +2201,8 @@ let headers = {
 };
 
 let body = {
-    "country": "aliquam",
-    "mobile": 11
+    "country": "voluptas",
+    "mobile": 19
 }
 
 fetch(url, {
@@ -2863,7 +2259,7 @@ fetch(url, {
     "http://localhost/car-pool/public/api/v1/user/register/validate-otp" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"otp":"ut","uui":"provident"}'
+    -d '{"otp":"debitis","uui":"eius"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/car-pool/public/api/v1/user/register/validate-otp"
@@ -2876,8 +2272,8 @@ let headers = {
 };
 
 let body = {
-    "otp": "ut",
-    "uui": "provident"
+    "otp": "debitis",
+    "uui": "eius"
 }
 
 fetch(url, {

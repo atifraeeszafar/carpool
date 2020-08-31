@@ -38,6 +38,7 @@ Route::prefix('user')->namespace('User')->group(function () {
         Route::prefix('ride')->group(function () {
             Route::post('offer', 'OfferRideController@offerRide');
             Route::post('find', 'FindRideController@findRide');
+            Route::post('request', 'RequestForRideController@createRequest');
         });
     });
 

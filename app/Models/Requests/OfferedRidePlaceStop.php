@@ -36,4 +36,9 @@ class OfferedRidePlaceStop extends Model
     {
         return $this->belongsTo(OfferedRidePlace::class, 'ride_place_id', 'id');
     }
+
+    public function offeredRideCustomerRequest()
+    {
+        return $this->hasMany(OfferRideCustomerRequest::class, 'offered_place_stops_id', 'id');
+    }
 }
