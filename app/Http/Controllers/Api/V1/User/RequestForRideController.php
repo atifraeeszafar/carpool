@@ -8,6 +8,11 @@ use App\Http\Controllers\Api\V1\BaseController;
 use App\Http\Requests\Request\RequestForRideRequest;
 use App\Transformers\Request\OfferedRideCustomerRequestsTransformer;
 
+/**
+ * @group Ride-Apis
+ *
+ * APIs for Rides
+ */
 class RequestForRideController extends BaseController
 {
 

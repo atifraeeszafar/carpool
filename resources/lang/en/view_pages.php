@@ -301,6 +301,12 @@ return [
     'transgender' => 'Transgender',
 
     'details' => 'Details',
+    'dial_code' => 'Dial code',
+    'india' => 'India(+91)',
+    'pakistan' => 'Pakistan(+92)',
+    'phone_number' => 'Phone number',
+    'enter_phone_number' => 'Enter Phone number',
+    'enter_date_of_birth' => 'Enter Date of Birth',
 
 
     

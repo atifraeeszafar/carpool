@@ -112,15 +112,7 @@ class SosController extends BaseController
     public function create()
     {
         $page = trans('pages_names.add_sos');
-        // $admins = User::doesNotBelongToRole(RoleSlug::SUPER_ADMIN)->get();
-
-        // if (access()->hasRole(RoleSlug::SUPER_ADMIN)) {
-        //     $roles = Role::whereNotIn('slug', RoleSlug::mobileAppRoles())->get();
-        // } else {
-        //     $this->validateAdmin();
-        //     $roles = Role::whereNotIn('slug', RoleSlug::mobileAppRoles())->get();
-        // }
-
+     
         $main_menu = 'sos';
         $sub_menu = null;
 
@@ -129,28 +121,6 @@ class SosController extends BaseController
 
     public function store(SosRequest $request)
     {
-        // $created_params = $request->only(['service_location_id', 'first_name', 'last_name','mobile','email','address','state','city','country']);
-        // $created_params['pincode'] = $request->postal_code;
-        // $created_params['created_by'] = auth()->user()->id;
-
-        // $timezone = env('SYSTEM_DEFAULT_TIMEZONE');
-
-        // $user = $this->user->create(['name'=>$request->input('first_name').' '.$request->input('last_name'),
-        //     'email'=>$request->input('email'),
-        //     'mobile'=>$request->input('mobile'),
-        //     'mobile_confirmed'=>true,
-        //     'timezone'=>$timezone,
-        //     'password' => bcrypt($request->input('password'))
-        // ]);
-
-        // $user->attachRole($request->role);
-
-        // $user->admin()->create($created_params);
-
-        // if ($uploadedFile = $this->getValidatedUpload('profile_picture', $request)) {
-        //     $created_params['profile_picture'] = $this->imageUploader->file($uploadedFile)
-        //         ->saveProfilePicture();
-        // }
         $insert_data= $request->only($this->model->getFillable());
         $insert_data['created_by']=auth()->user()->id;
             
@@ -166,16 +136,6 @@ class SosController extends BaseController
     {
         $page = trans('pages_names.edit_sos');
 
-        // if (access()->hasRole(RoleSlug::SUPER_ADMIN)) {
-        //     $roles = Role::get();
-        // } else {
-        //     $this->validateAdmin();
-        //     $roles = Role::whereNotIn('slug', RoleSlug::mobileAppRoles())->get();
-        // }
-        // // $services = ServiceLocation::active()->get();
-        // $countries = Country::active()->get();
-        // $item = $admin->first();
-        
         $main_menu = 'sos';
         $sub_menu = null;
 
@@ -194,24 +154,6 @@ class SosController extends BaseController
 
     public function update(SosRequest $request,$id)
     {
-        // $updatedParams = $request->only(['service_location_id', 'first_name', 'last_name','mobile','email','address','state','city','country']);
-        // $updatedParams['pincode'] = $request->postal_code;
-
-        // if ($uploadedFile = $this->getValidatedUpload('profile_picture', $request)) {
-        //     $updated_user_params['profile_picture'] = $this->imageUploader->file($uploadedFile)
-        //         ->saveProfilePicture();
-        // }
-
-        // $updated_user_params = ['name'=>$request->input('first_name').' '.$request->input('last_name'),
-        //     'email'=>$request->input('email'),
-        //     'mobile'=>$request->input('mobile')
-        // ];
-
-        // $admin->user->update($updated_user_params);
-
-        // $admin->user->attachRole($request->role);
-
-        // $admin->update($updatedParams);
 
         $insert_data= $request->only($this->model->getFillable());
             
@@ -225,8 +167,6 @@ class SosController extends BaseController
 
     public function delete(Request $request)
     {
-        // $user->delete();
-
         $data= $this->model::where('id',$request->id)->first();
 
         if($data){

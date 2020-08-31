@@ -23,7 +23,7 @@ class RequestForRideRequest extends BaseRequest
             'start_time'=>'required|date_format:H:i:s',
             'drop_address'=>'required',
             'no_of_seats'=>'sometimes|required',
-            'ride_place_id'=>'required|exists:offered_ride_places,id'
+            'ride_place_id'=>'required|exists:offered_ride_places,id',
             'offered_place_stops_id'=>'required|exists:offered_place_stops,id'
         ];
     }
