@@ -26,5 +26,12 @@ Route::namespace('Common')->group(function () {
         Route::get('car/models/{make_id}', 'CarMakeAndModelController@getCarModels');
         // Car Colors
         Route::get('car/colors', 'CarMakeAndModelController@getCarColors');
+
+        //faq list
+        Route::get('faq/list', 'FaqController@getFaqList');
+
+        //sos list
+        Route::get('sos/list', 'SosController@getSosList');
+
     });
 });

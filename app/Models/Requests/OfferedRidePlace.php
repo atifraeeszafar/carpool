@@ -35,7 +35,7 @@ class OfferedRidePlace extends Model
      * @var array
      */
     public $includes = [
-        'riderInfo'
+        'riderInfo','offeredRidePlaceStops'
     ];
 
     public function offeredRidePlaceStops()

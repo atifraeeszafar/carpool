@@ -21,6 +21,8 @@ use App\Models\Requests\OfferedRidePlace;
 use App\Models\Traits\UserAccessScopeTrait;
 use App\Base\Services\OTP\CanSendOTPContract;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Nicolaslopezj\Searchable\SearchableTrait;
+
 
 class User extends Authenticatable implements CanSendOTPContract
 {
@@ -30,7 +32,8 @@ class User extends Authenticatable implements CanSendOTPContract
     HasApiTokens,
     Notifiable,
     UserAccessScopeTrait,
-        UserAccessTrait;
+        UserAccessTrait,SearchableTrait;
+
 
     /**
      * The table associated with the model.
@@ -47,6 +50,26 @@ class User extends Authenticatable implements CanSendOTPContract
     protected $fillable = [
         'name', 'username', 'email', 'password', 'mobile', 'country', 'profile_picture', 'email_confirmed', 'mobile_confirmed', 'email_confirmation_token', 'active','device_token','login_by'
     ];
+
+    protected $searchable = [
+        /**
+         * Columns and their priority in search results.
+         * Columns with higher values are more important.
+         * Columns with equal values have equal importance.
+         *
+         * @var array
+         */
+        'columns' => [
+            
+            'name' => 10,
+            'email' => 10,
+            'mobile' => 8,
+            'lastname' => 8,
+            
+        ],
+  
+    ];
+
 
     /**
      * The attributes that should be hidden for arrays.
