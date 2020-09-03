@@ -42,6 +42,9 @@ Route::prefix('user')->namespace('User')->group(function () {
             // List my created rides
             Route::get('offered-rides', 'OfferedRideListController@index');
             Route::get('taged-rides', 'OfferedRideListController@tagedRides');
+            // Accept/Reject request
+            Route::post('response-for-request', 'ResponseForRequestController@responseRequset');
+            Route::post('cancel-by-passenger', 'PassengerCancelRequestController@cancelRequest');
         });
     });
 
