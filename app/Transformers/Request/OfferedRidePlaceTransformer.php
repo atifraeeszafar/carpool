@@ -3,8 +3,9 @@
 namespace App\Transformers\Request;
 
 use App\Transformers\Transformer;
-use App\Transformers\User\UserTransformer;
 use App\Models\Requests\OfferedRidePlace;
+use App\Transformers\User\UserTransformer;
+use App\Transformers\Request\OfferedRidePlaceStopsTransformer;
 
 class OfferedRidePlaceTransformer extends Transformer
 {
@@ -14,7 +15,7 @@ class OfferedRidePlaceTransformer extends Transformer
      * @var array
      */
     protected $availableIncludes = [
-        'riderInfo'
+        'riderInfo','coPassengers'
     ];
 
     /**
@@ -50,6 +51,21 @@ class OfferedRidePlaceTransformer extends Transformer
 
         return $passenger_info
         ? $this->item($passenger_info, new UserTransformer)
+        : $this->null();
+    }
+
+    /**
+    * Include the copassengers of the trip.
+    *
+    * @param User $user
+    * @return \League\Fractal\Resource\Collection|\League\Fractal\Resource\NullResource
+    */
+    public function includeCoPassengers(OfferedRidePlace $ride)
+    {
+        $co_passenger_info = $ride->offeredRideCustomerRequest;
+
+        return $co_passenger_info
+        ? $this->collection($co_passenger_info, new OfferedRideCustomerRequestsTransformer)
         : $this->null();
     }
 }

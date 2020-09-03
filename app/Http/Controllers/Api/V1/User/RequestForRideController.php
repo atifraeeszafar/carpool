@@ -58,7 +58,6 @@ class RequestForRideController extends BaseController
         $rider_info = $requested_ride->offeredRidePlace->riderInfo;
         $rider_info->notify(new PushNotification($title, $body, $push_data));
 
-
         return $this->respondSuccess();
     }
 }
