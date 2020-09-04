@@ -14,7 +14,7 @@ class OfferRideCustomerRequest extends Model
      * The table associated with the model.
      *
      * @var string
-     */requested_ride
+     */
     protected $table = 'offered_ride_customer_requests';
 
     /**

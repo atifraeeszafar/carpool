@@ -40,6 +40,12 @@ Route::prefix('user')->namespace('User')->group(function () {
             Route::post('offer', 'OfferRideController@offerRide');
             Route::post('find', 'FindRideController@findRide');
             Route::post('request', 'RequestForRideController@createRequest');
+            // List my created rides
+            Route::get('offered-rides', 'OfferedRideListController@index');
+            Route::get('taged-rides', 'OfferedRideListController@tagedRides');
+            // Accept/Reject request
+            Route::post('response-for-request', 'ResponseForRequestController@responseRequset');
+            Route::post('cancel-by-passenger', 'PassengerCancelRequestController@cancelRequest');
         });
     });
 

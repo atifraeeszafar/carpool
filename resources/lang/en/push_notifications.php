@@ -9,6 +9,8 @@ return array(
   'rider_declined_body' => 'Your Account declined due to some reason. please contact our admin',
   'trip_accepted_title' => 'Trip Request Accepted',
   'trip_accepted_body' => 'The rider is coming to pickup you',
+  'trip_rejected_title' => 'Trip Request Rejected by Rider',
+  'trip_rejected_body' => 'The rider rejected your request',
   'no_rider_found_title'=>'No rider Found Around You 🙁️',
   'no_rider_found_body'=>'Sorry plese try again after some times,there is no rider available for your ride now',
   'new_request_title'=>'New Trip Requested 😊️',
