@@ -101,6 +101,34 @@ if (! function_exists('get_line_string')) {
 
         return $poly_line_string = new LineString($points);
     }
+
+    function getDistanceMatrix($pickUplat, $pickUplng, $dropLat, $dropLng, $traffic = false, $units ="imperial")
+    {
+
+        $client = new \GuzzleHttp\Client();
+        $url = 'https://maps.googleapis.com/maps/api/distancematrix/json';
+        $args = [
+          'units' => $units,
+          'origins' => "$pickUplat,$pickUplng",
+          'destinations' => "$dropLat,$dropLng",
+          'key' => 'AIzaSyDOGKhBdxYQDjAikXrb0qYC8I5jdCQjToc',
+
+        ];
+
+
+
+        if ($traffic) {
+            $args['departure_time'] = 'now';
+        }
+
+        $query = http_build_query($args);
+
+        $res = $client->request('GET', "$url?$query");
+
+        if ($res->getStatusCode() == 200) {
+            return \GuzzleHttp\json_decode($res->getBody()->getContents());
+        }
+    }
 }
 
 if (!function_exists('uuid')) {

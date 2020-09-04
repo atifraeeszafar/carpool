@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Models\Request;
+namespace App\Models\Requests;
 
 use App\Models\Traits\HasActive;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Requests\OfferedRidePlace;
-
 class OfferedRidePlaceStop extends Model
 {
     use HasActive;
@@ -35,5 +34,10 @@ class OfferedRidePlaceStop extends Model
     public function offeredRidePlace()
     {
         return $this->belongsTo(OfferedRidePlace::class, 'ride_place_id', 'id');
+    }
+
+    public function offeredRideCustomerRequest()
+    {
+        return $this->hasMany(OfferRideCustomerRequest::class, 'offered_place_stops_id', 'id');
     }
 }

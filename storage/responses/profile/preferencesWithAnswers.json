@@ -1,0 +1,101 @@
+{
+    "success": true,
+    "message": "success",
+    "data": [
+    {
+        "id": 2,
+        "question": "chattiness",
+        "active": true,
+        "answers":
+        {
+            "data": [
+            {
+                "id": 1,
+                "preference_id": 2,
+                "answer": "Im the quiet type"
+            },
+            {
+                "id": 2,
+                "preference_id": 2,
+                "answer": "I talk depending on my mood"
+            },
+            {
+                "id": 3,
+                "preference_id": 2,
+                "answer": "I love to chat"
+            }]
+        }
+    },
+    {
+        "id": 3,
+        "question": "smoking",
+        "active": true,
+        "answers":
+        {
+            "data": [
+            {
+                "id": 4,
+                "preference_id": 3,
+                "answer": "Cigarette smoke doesnt bother me"
+            },
+            {
+                "id": 5,
+                "preference_id": 3,
+                "answer": "No smoking in my car please"
+            },
+            {
+                "id": 6,
+                "preference_id": 3,
+                "answer": "Dont know"
+            }]
+        }
+    },
+    {
+        "id": 4,
+        "question": "pets",
+        "active": true,
+        "answers":
+        {
+            "data": [
+            {
+                "id": 7,
+                "preference_id": 4,
+                "answer": "Pets welcome"
+            },
+            {
+                "id": 8,
+                "preference_id": 4,
+                "answer": "No pets please"
+            },
+            {
+                "id": 9,
+                "preference_id": 4,
+                "answer": "Dont know"
+            }]
+        }
+    },
+    {
+        "id": 5,
+        "question": "music",
+        "active": true,
+        "answers":
+        {
+            "data": [
+            {
+                "id": 10,
+                "preference_id": 5,
+                "answer": "Its all about the playlist"
+            },
+            {
+                "id": 11,
+                "preference_id": 5,
+                "answer": "Silence is golden"
+            },
+            {
+                "id": 12,
+                "preference_id": 5,
+                "answer": "Dont know"
+            }]
+        }
+    }]
+}

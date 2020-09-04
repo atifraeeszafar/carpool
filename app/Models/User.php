@@ -22,7 +22,7 @@ use App\Models\Traits\UserAccessScopeTrait;
 use App\Base\Services\OTP\CanSendOTPContract;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Nicolaslopezj\Searchable\SearchableTrait;
-
+use App\Models\Master\Car;
 
 class User extends Authenticatable implements CanSendOTPContract
 {
@@ -224,6 +224,10 @@ class User extends Authenticatable implements CanSendOTPContract
     {
         return $this->hasMany(OfferedRidePlace::class, 'rider_id', 'id');
     }
+    public function offeredRideCustomerRequest()
+    {
+        return $this->hasMany(OfferRideCustomerRequest::class, 'user_id', 'id');
+    }
 
     /**
      * The Driver associated with the user's id.
@@ -266,5 +270,10 @@ class User extends Authenticatable implements CanSendOTPContract
     public function routeNotificationForApn()
     {
         return $this->apn_token;
+    }
+
+    public function car()
+    {
+        return $this->hasOne(Car::class, 'user_id', 'id');
     }
 }

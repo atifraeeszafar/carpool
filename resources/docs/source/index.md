@@ -30,13 +30,13 @@ APIs for car management
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/v1/common/car/makes" \
+    -G "http://localhost/car-pool/public/api/v1/common/car/makes" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/common/car/makes"
+    "http://localhost/car-pool/public/api/v1/common/car/makes"
 );
 
 let headers = {
@@ -428,13 +428,13 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/v1/common/car/models/1" \
+    -G "http://localhost/car-pool/public/api/v1/common/car/models/1" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/common/car/models/1"
+    "http://localhost/car-pool/public/api/v1/common/car/models/1"
 );
 
 let headers = {
@@ -588,13 +588,13 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/v1/common/car/colors" \
+    -G "http://localhost/car-pool/public/api/v1/common/car/colors" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/common/car/colors"
+    "http://localhost/car-pool/public/api/v1/common/car/colors"
 );
 
 let headers = {
@@ -676,13 +676,13 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/v1/common/faq/list" \
+    -G "http://localhost/car-pool/public/api/v1/common/faq/list" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/common/faq/list"
+    "http://localhost/car-pool/public/api/v1/common/faq/list"
 );
 
 let headers = {
@@ -706,41 +706,7 @@ fetch(url, {
 {
     "success": true,
     "message": "success",
-    "data": [
-        {
-            "id": "64c25b81-ce83-4431-815e-a8ff604814dd",
-            "question": "test",
-            "answer": "hi there",
-            "created_by": 1,
-            "extras": null,
-            "is_active": 1,
-            "deleted_at": null,
-            "created_at": "2020-08-17 12:58:15",
-            "updated_at": "2020-08-17 12:58:41"
-        },
-        {
-            "id": "91c62bfb-90be-46f1-837c-5053990937f5",
-            "question": "Server issue",
-            "answer": "contact admin",
-            "created_by": 1,
-            "extras": null,
-            "is_active": 1,
-            "deleted_at": null,
-            "created_at": "2020-08-17 11:03:36",
-            "updated_at": "2020-08-28 14:36:39"
-        },
-        {
-            "id": "974766db-a088-4630-8770-c7cc9bd61106",
-            "question": "Are able to make a request",
-            "answer": "No means make feed back",
-            "created_by": 1,
-            "extras": null,
-            "is_active": 1,
-            "deleted_at": null,
-            "created_at": "2020-08-27 10:24:47",
-            "updated_at": "2020-08-28 14:37:51"
-        }
-    ]
+    "data": []
 }
 ```
 
@@ -757,13 +723,13 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/v1/common/sos/list" \
+    -G "http://localhost/car-pool/public/api/v1/common/sos/list" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/common/sos/list"
+    "http://localhost/car-pool/public/api/v1/common/sos/list"
 );
 
 let headers = {
@@ -787,19 +753,7 @@ fetch(url, {
 {
     "success": true,
     "message": "success",
-    "data": [
-        {
-            "id": "48f77ce3-9aaa-4aa0-96d8-c2492ff42cab",
-            "name": "ambulance ttt",
-            "number": "2001 255",
-            "created_by": 1,
-            "extras": null,
-            "is_active": 1,
-            "deleted_at": null,
-            "created_at": "2020-08-17 10:53:46",
-            "updated_at": "2020-08-27 10:41:34"
-        }
-    ]
+    "data": []
 }
 ```
 
@@ -816,13 +770,13 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/v1/user/list/car" \
+    -G "http://localhost/car-pool/public/api/v1/user/list/car" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/user/list/car"
+    "http://localhost/car-pool/public/api/v1/user/list/car"
 );
 
 let headers = {
@@ -849,10 +803,10 @@ fetch(url, {
     "status_code": 403,
     "debug": {
         "line": 1043,
-        "file": "\/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Application.php",
+        "file": "\/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Application.php",
         "class": "Symfony\\Component\\HttpKernel\\Exception\\HttpException",
         "trace": [
-            "#0 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/helpers.php(46): Illuminate\\Foundation\\Application->abort(403, '', Array)\n#1 \/home\/webdeveloper\/Public\/html\/production\/carpool\/app\/Http\/Middleware\/RouteNeedsRole.php(36): abort(403)\n#2 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\RouteNeedsRole->handle(Object(Illuminate\\Http\\Request), Object(Closure), Array)\n#3 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php(41): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#4 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#5 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php(59): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#6 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 60, '1')\n#7 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#8 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(683): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#9 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(658): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#10 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(624): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#11 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(613): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#12 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(170): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))\n#13 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(130): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#14 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/proengsoft\/laravel-jsvalidation\/src\/RemoteValidationMiddleware.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#15 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Proengsoft\\JsValidation\\RemoteValidationMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#16 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/barryvdh\/laravel-debugbar\/src\/Middleware\/InjectDebugbar.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#17 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#18 \/home\/webdeveloper\/Public\/html\/production\/carpool\/app\/Http\/Middleware\/PjaxMiddleware.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#19 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\PjaxMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#20 \/home\/webdeveloper\/Public\/html\/production\/carpool\/app\/Http\/Middleware\/Cors.php(7): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#21 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\Cors->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#22 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#23 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#24 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#25 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#26 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#27 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#28 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php(63): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#29 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#30 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/hyn\/multi-tenant\/src\/Middleware\/EagerIdentification.php(29): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#31 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Hyn\\Tenancy\\Middleware\\EagerIdentification->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#32 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/hyn\/multi-tenant\/src\/Middleware\/HostnameActions.php(75): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#33 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Hyn\\Tenancy\\Middleware\\HostnameActions->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#34 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#35 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(145): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#36 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#37 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(307): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#38 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(289): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls->callLaravelRoute(Object(Illuminate\\Http\\Request))\n#39 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(47): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls->makeApiCall(Object(Illuminate\\Http\\Request))\n#40 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(172): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls->__invoke(Object(Illuminate\\Routing\\Route), Object(ReflectionClass), Object(ReflectionMethod), Array, Array)\n#41 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(121): Mpociot\\ApiDoc\\Extracting\\Generator->iterateThroughStrategies('responses', Array, Array)\n#42 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(84): Mpociot\\ApiDoc\\Extracting\\Generator->fetchResponses(Object(ReflectionClass), Object(ReflectionMethod), Object(Illuminate\\Routing\\Route), Array, Array)\n#43 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php(125): Mpociot\\ApiDoc\\Extracting\\Generator->processRoute(Object(Illuminate\\Routing\\Route), Array)\n#44 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php(69): Mpociot\\ApiDoc\\Commands\\GenerateDocumentation->processRoutes(Object(Mpociot\\ApiDoc\\Extracting\\Generator), Array)\n#45 [internal function]: Mpociot\\ApiDoc\\Commands\\GenerateDocumentation->handle(Object(Mpociot\\ApiDoc\\Matching\\RouteMatcher))\n#46 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(32): call_user_func_array(Array, Array)\n#47 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Util.php(36): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()\n#48 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))\n#49 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))\n#50 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php(590): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)\n#51 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php(134): Illuminate\\Container\\Container->call(Array)\n#52 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/symfony\/console\/Command\/Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))\n#53 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))\n#54 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/symfony\/console\/Application.php(1001): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#55 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/symfony\/console\/Application.php(271): Symfony\\Component\\Console\\Application->doRunCommand(Object(Mpociot\\ApiDoc\\Commands\\GenerateDocumentation), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#56 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/symfony\/console\/Application.php(147): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#57 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php(93): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#58 \/home\/webdeveloper\/Public\/html\/production\/carpool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php(131): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#59 \/home\/webdeveloper\/Public\/html\/production\/carpool\/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#60 {main}"
+            "#0 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/helpers.php(45): Illuminate\\Foundation\\Application->abort(403, '', Array)\n#1 \/opt\/lampp\/htdocs\/car-pool\/app\/Http\/Middleware\/RouteNeedsRole.php(36): abort(403)\n#2 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\RouteNeedsRole->handle(Object(Illuminate\\Http\\Request), Object(Closure), Array)\n#3 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php(41): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#4 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#5 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php(59): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#6 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 60, '1')\n#7 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#8 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(683): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#9 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(658): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#10 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(624): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#11 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(613): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#12 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(170): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))\n#13 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(130): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#14 \/opt\/lampp\/htdocs\/car-pool\/vendor\/proengsoft\/laravel-jsvalidation\/src\/RemoteValidationMiddleware.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#15 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Proengsoft\\JsValidation\\RemoteValidationMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#16 \/opt\/lampp\/htdocs\/car-pool\/vendor\/barryvdh\/laravel-debugbar\/src\/Middleware\/InjectDebugbar.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#17 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Barryvdh\\Debugbar\\Middleware\\InjectDebugbar->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#18 \/opt\/lampp\/htdocs\/car-pool\/app\/Http\/Middleware\/PjaxMiddleware.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#19 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\PjaxMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#20 \/opt\/lampp\/htdocs\/car-pool\/app\/Http\/Middleware\/Cors.php(7): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#21 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\Cors->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#22 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#23 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#24 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#25 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#26 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#27 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#28 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php(63): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#29 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#30 \/opt\/lampp\/htdocs\/car-pool\/vendor\/hyn\/multi-tenant\/src\/Middleware\/EagerIdentification.php(29): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#31 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Hyn\\Tenancy\\Middleware\\EagerIdentification->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#32 \/opt\/lampp\/htdocs\/car-pool\/vendor\/hyn\/multi-tenant\/src\/Middleware\/HostnameActions.php(75): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#33 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Hyn\\Tenancy\\Middleware\\HostnameActions->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#34 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#35 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(145): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#36 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#37 \/opt\/lampp\/htdocs\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(307): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#38 \/opt\/lampp\/htdocs\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(289): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls->callLaravelRoute(Object(Illuminate\\Http\\Request))\n#39 \/opt\/lampp\/htdocs\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(47): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls->makeApiCall(Object(Illuminate\\Http\\Request))\n#40 \/opt\/lampp\/htdocs\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(172): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls->__invoke(Object(Illuminate\\Routing\\Route), Object(ReflectionClass), Object(ReflectionMethod), Array, Array)\n#41 \/opt\/lampp\/htdocs\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(121): Mpociot\\ApiDoc\\Extracting\\Generator->iterateThroughStrategies('responses', Array, Array)\n#42 \/opt\/lampp\/htdocs\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(84): Mpociot\\ApiDoc\\Extracting\\Generator->fetchResponses(Object(ReflectionClass), Object(ReflectionMethod), Object(Illuminate\\Routing\\Route), Array, Array)\n#43 \/opt\/lampp\/htdocs\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php(125): Mpociot\\ApiDoc\\Extracting\\Generator->processRoute(Object(Illuminate\\Routing\\Route), Array)\n#44 \/opt\/lampp\/htdocs\/car-pool\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php(69): Mpociot\\ApiDoc\\Commands\\GenerateDocumentation->processRoutes(Object(Mpociot\\ApiDoc\\Extracting\\Generator), Array)\n#45 [internal function]: Mpociot\\ApiDoc\\Commands\\GenerateDocumentation->handle(Object(Mpociot\\ApiDoc\\Matching\\RouteMatcher))\n#46 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(32): call_user_func_array(Array, Array)\n#47 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Util.php(37): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()\n#48 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))\n#49 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))\n#50 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php(590): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)\n#51 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php(134): Illuminate\\Container\\Container->call(Array)\n#52 \/opt\/lampp\/htdocs\/car-pool\/vendor\/symfony\/console\/Command\/Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))\n#53 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))\n#54 \/opt\/lampp\/htdocs\/car-pool\/vendor\/symfony\/console\/Application.php(1000): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#55 \/opt\/lampp\/htdocs\/car-pool\/vendor\/symfony\/console\/Application.php(271): Symfony\\Component\\Console\\Application->doRunCommand(Object(Mpociot\\ApiDoc\\Commands\\GenerateDocumentation), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#56 \/opt\/lampp\/htdocs\/car-pool\/vendor\/symfony\/console\/Application.php(147): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#57 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php(93): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#58 \/opt\/lampp\/htdocs\/car-pool\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php(131): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#59 \/opt\/lampp\/htdocs\/car-pool\/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\n#60 {main}"
         ]
     }
 }
@@ -871,13 +825,13 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/user/add/car" \
+    "http://localhost/car-pool/public/api/v1/user/add/car" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/user/add/car"
+    "http://localhost/car-pool/public/api/v1/user/add/car"
 );
 
 let headers = {
@@ -909,13 +863,13 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/user/update/car/1" \
+    "http://localhost/car-pool/public/api/v1/user/update/car/1" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/user/update/car/1"
+    "http://localhost/car-pool/public/api/v1/user/update/car/1"
 );
 
 let headers = {
@@ -947,13 +901,13 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/user/delete/car/1" \
+    "http://localhost/car-pool/public/api/v1/user/delete/car/1" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/user/delete/car/1"
+    "http://localhost/car-pool/public/api/v1/user/delete/car/1"
 );
 
 let headers = {
@@ -989,13 +943,13 @@ Get countries
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/v1/countries" \
+    -G "http://localhost/car-pool/public/api/v1/countries" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/countries"
+    "http://localhost/car-pool/public/api/v1/countries"
 );
 
 let headers = {
@@ -1047,16 +1001,16 @@ APIs for Email-Confirmation
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/email/confirm" \
+    "http://localhost/car-pool/public/api/v1/email/confirm" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"token":"ea","email":"perferendis"}'
+    -d '{"token":"exercitationem","email":"ducimus"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/email/confirm"
+    "http://localhost/car-pool/public/api/v1/email/confirm"
 );
 
 let headers = {
@@ -1066,8 +1020,8 @@ let headers = {
 };
 
 let body = {
-    "token": "ea",
-    "email": "perferendis"
+    "token": "exercitationem",
+    "email": "ducimus"
 }
 
 fetch(url, {
@@ -1107,16 +1061,16 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/email/resend-confirmation" \
+    "http://localhost/car-pool/public/api/v1/email/resend-confirmation" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"email":"odit"}'
+    -d '{"email":"et"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/email/resend-confirmation"
+    "http://localhost/car-pool/public/api/v1/email/resend-confirmation"
 );
 
 let headers = {
@@ -1126,7 +1080,7 @@ let headers = {
 };
 
 let body = {
-    "email": "odit"
+    "email": "et"
 }
 
 fetch(url, {
@@ -1169,16 +1123,16 @@ APIs for Email-Management
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/password/forgot" \
+    "http://localhost/car-pool/public/api/v1/password/forgot" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"email":"fuga"}'
+    -d '{"email":"deleniti"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/password/forgot"
+    "http://localhost/car-pool/public/api/v1/password/forgot"
 );
 
 let headers = {
@@ -1188,7 +1142,7 @@ let headers = {
 };
 
 let body = {
-    "email": "fuga"
+    "email": "deleniti"
 }
 
 fetch(url, {
@@ -1227,16 +1181,16 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/password/validate-token" \
+    "http://localhost/car-pool/public/api/v1/password/validate-token" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"token":"earum","email":"provident"}'
+    -d '{"token":"eum","email":"pariatur"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/password/validate-token"
+    "http://localhost/car-pool/public/api/v1/password/validate-token"
 );
 
 let headers = {
@@ -1246,8 +1200,8 @@ let headers = {
 };
 
 let body = {
-    "token": "earum",
-    "email": "provident"
+    "token": "eum",
+    "email": "pariatur"
 }
 
 fetch(url, {
@@ -1287,13 +1241,13 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/password/reset" \
+    "http://localhost/car-pool/public/api/v1/password/reset" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/password/reset"
+    "http://localhost/car-pool/public/api/v1/password/reset"
 );
 
 let headers = {
@@ -1337,16 +1291,16 @@ Payment-Related Apis
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/payment/card/add" \
+    "http://localhost/car-pool/public/api/v1/payment/card/add" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"payment_nonce":"vel","last_number":16,"user_role":"earum"}'
+    -d '{"payment_nonce":"et","last_number":19,"user_role":"ullam"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/payment/card/add"
+    "http://localhost/car-pool/public/api/v1/payment/card/add"
 );
 
 let headers = {
@@ -1356,9 +1310,9 @@ let headers = {
 };
 
 let body = {
-    "payment_nonce": "vel",
-    "last_number": 16,
-    "user_role": "earum"
+    "payment_nonce": "et",
+    "last_number": 19,
+    "user_role": "ullam"
 }
 
 fetch(url, {
@@ -1415,13 +1369,13 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/v1/payment/card/list" \
+    -G "http://localhost/car-pool/public/api/v1/payment/card/list" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/payment/card/list"
+    "http://localhost/car-pool/public/api/v1/payment/card/list"
 );
 
 let headers = {
@@ -1477,13 +1431,13 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/payment/card/make/default" \
+    "http://localhost/car-pool/public/api/v1/payment/card/make/default" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/payment/card/make/default"
+    "http://localhost/car-pool/public/api/v1/payment/card/make/default"
 );
 
 let headers = {
@@ -1523,13 +1477,13 @@ fetch(url, {
 
 ```bash
 curl -X DELETE \
-    "http://localhost/api/v1/payment/card/delete/1" \
+    "http://localhost/car-pool/public/api/v1/payment/card/delete/1" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/payment/card/delete/1"
+    "http://localhost/car-pool/public/api/v1/payment/card/delete/1"
 );
 
 let headers = {
@@ -1566,6 +1520,150 @@ fetch(url, {
 
 
 APIs for Profile-Management
+<!-- START_da07716f2b3a785a29841a35b561db52 -->
+## List Preferences questions &amp; answers
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/car-pool/public/api/v1/common/list/preferences" \
+    -H "Authorization: Bearer: {token}"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/car-pool/public/api/v1/common/list/preferences"
+);
+
+let headers = {
+    "Authorization": "Bearer: {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "message": "success",
+    "data": [
+        {
+            "id": 2,
+            "question": "chattiness",
+            "active": true,
+            "answers": {
+                "data": [
+                    {
+                        "id": 1,
+                        "preference_id": 2,
+                        "answer": "Im the quiet type"
+                    },
+                    {
+                        "id": 2,
+                        "preference_id": 2,
+                        "answer": "I talk depending on my mood"
+                    },
+                    {
+                        "id": 3,
+                        "preference_id": 2,
+                        "answer": "I love to chat"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "question": "smoking",
+            "active": true,
+            "answers": {
+                "data": [
+                    {
+                        "id": 4,
+                        "preference_id": 3,
+                        "answer": "Cigarette smoke doesnt bother me"
+                    },
+                    {
+                        "id": 5,
+                        "preference_id": 3,
+                        "answer": "No smoking in my car please"
+                    },
+                    {
+                        "id": 6,
+                        "preference_id": 3,
+                        "answer": "Dont know"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "question": "pets",
+            "active": true,
+            "answers": {
+                "data": [
+                    {
+                        "id": 7,
+                        "preference_id": 4,
+                        "answer": "Pets welcome"
+                    },
+                    {
+                        "id": 8,
+                        "preference_id": 4,
+                        "answer": "No pets please"
+                    },
+                    {
+                        "id": 9,
+                        "preference_id": 4,
+                        "answer": "Dont know"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "question": "music",
+            "active": true,
+            "answers": {
+                "data": [
+                    {
+                        "id": 10,
+                        "preference_id": 5,
+                        "answer": "Its all about the playlist"
+                    },
+                    {
+                        "id": 11,
+                        "preference_id": 5,
+                        "answer": "Silence is golden"
+                    },
+                    {
+                        "id": 12,
+                        "preference_id": 5,
+                        "answer": "Dont know"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/common/list/preferences`
+
+
+<!-- END_da07716f2b3a785a29841a35b561db52 -->
+
 <!-- START_3da20b53e7ac009a16bd3015dd822453 -->
 ## Update user password.
 
@@ -1573,13 +1671,13 @@ APIs for Profile-Management
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/user/password" \
+    "http://localhost/car-pool/public/api/v1/user/password" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/user/password"
+    "http://localhost/car-pool/public/api/v1/user/password"
 );
 
 let headers = {
@@ -1619,13 +1717,13 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/user/profile" \
+    "http://localhost/car-pool/public/api/v1/user/profile" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/user/profile"
+    "http://localhost/car-pool/public/api/v1/user/profile"
 );
 
 let headers = {
@@ -1662,6 +1760,43 @@ fetch(url, {
 
 
 APIs for Rides
+<!-- START_aff940593b6e489ddd28ec2a182a81d8 -->
+## api/v1/user/ride/eta
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/car-pool/public/api/v1/user/ride/eta" \
+    -H "Authorization: Bearer: {token}"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/car-pool/public/api/v1/user/ride/eta"
+);
+
+let headers = {
+    "Authorization": "Bearer: {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/user/ride/eta`
+
+
+<!-- END_aff940593b6e489ddd28ec2a182a81d8 -->
+
 <!-- START_5d6ec1a9d0fc6ed9b9c9b073970a7c79 -->
 ## Offer a Ride
 
@@ -1669,16 +1804,16 @@ APIs for Rides
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/user/ride/offer" \
+    "http://localhost/car-pool/public/api/v1/user/ride/offer" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"pickup_lat":69.147517785,"pickup_lng":2.7,"drop_lat":323.725,"drop_lng":146.13431672,"pickup_address":"esse","drop_address":"qui","date":"beatae","start_time":"praesentium","stops":"porro","frequent_days":"aliquam"}'
+    -d '{"pickup_lat":6057.00771650000024237670004367828369140625,"pickup_lng":1.17870000000000008100187187665142118930816650390625,"drop_lat":1858.671838900000011562951840460300445556640625,"drop_lng":167.9388999999999896317603997886180877685546875,"pickup_address":"corrupti","drop_address":"vel","date":"enim","start_time":"vitae","stops":"facilis","frequent_days":"et"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/user/ride/offer"
+    "http://localhost/car-pool/public/api/v1/user/ride/offer"
 );
 
 let headers = {
@@ -1688,16 +1823,16 @@ let headers = {
 };
 
 let body = {
-    "pickup_lat": 69.147517785,
-    "pickup_lng": 2.7,
-    "drop_lat": 323.725,
-    "drop_lng": 146.13431672,
-    "pickup_address": "esse",
-    "drop_address": "qui",
-    "date": "beatae",
-    "start_time": "praesentium",
-    "stops": "porro",
-    "frequent_days": "aliquam"
+    "pickup_lat": 6057.00771650000024237670004367828369140625,
+    "pickup_lng": 1.17870000000000008100187187665142118930816650390625,
+    "drop_lat": 1858.671838900000011562951840460300445556640625,
+    "drop_lng": 167.9388999999999896317603997886180877685546875,
+    "pickup_address": "corrupti",
+    "drop_address": "vel",
+    "date": "enim",
+    "start_time": "vitae",
+    "stops": "facilis",
+    "frequent_days": "et"
 }
 
 fetch(url, {
@@ -1745,16 +1880,16 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/user/ride/find" \
+    "http://localhost/car-pool/public/api/v1/user/ride/find" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"pickup_lat":500307.49,"pickup_lng":2157317,"drop_lat":286103866.536,"drop_lng":79.52,"pickup_address":"aliquam","drop_address":"eos","date":"vitae","start_time":"labore"}'
+    -d '{"pickup_lat":25.801477399999999562396624241955578327178955078125,"pickup_lng":159115.9160576499998569488525390625,"drop_lat":0,"drop_lng":247772.5,"pickup_address":"dolor","drop_address":"debitis","date":"similique","start_time":"nostrum"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/user/ride/find"
+    "http://localhost/car-pool/public/api/v1/user/ride/find"
 );
 
 let headers = {
@@ -1764,14 +1899,14 @@ let headers = {
 };
 
 let body = {
-    "pickup_lat": 500307.49,
-    "pickup_lng": 2157317,
-    "drop_lat": 286103866.536,
-    "drop_lng": 79.52,
-    "pickup_address": "aliquam",
-    "drop_address": "eos",
-    "date": "vitae",
-    "start_time": "labore"
+    "pickup_lat": 25.801477399999999562396624241955578327178955078125,
+    "pickup_lng": 159115.9160576499998569488525390625,
+    "drop_lat": 0,
+    "drop_lng": 247772.5,
+    "pickup_address": "dolor",
+    "drop_address": "debitis",
+    "date": "similique",
+    "start_time": "nostrum"
 }
 
 fetch(url, {
@@ -1842,6 +1977,76 @@ Parameter | Type | Status | Description
     
 <!-- END_c90293b8565f7796a85a80d3880edefc -->
 
+<!-- START_819db0e25253cc5c72160ec5e5c36587 -->
+## Create Request
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/car-pool/public/api/v1/user/ride/request" \
+    -H "Authorization: Bearer: {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"pickup_lat":9625813,"pickup_lng":756.3400040000000217332853935658931732177734375,"drop_lat":4381939.461000000126659870147705078125,"drop_lng":5642416.450000000186264514923095703125,"pickup_address":"tempora","drop_address":"qui","date":"dolor","start_time":"id","no_of_seats":5,"ride_place_id":20,"offered_place_stops_id":15}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/car-pool/public/api/v1/user/ride/request"
+);
+
+let headers = {
+    "Authorization": "Bearer: {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "pickup_lat": 9625813,
+    "pickup_lng": 756.3400040000000217332853935658931732177734375,
+    "drop_lat": 4381939.461000000126659870147705078125,
+    "drop_lng": 5642416.450000000186264514923095703125,
+    "pickup_address": "tempora",
+    "drop_address": "qui",
+    "date": "dolor",
+    "start_time": "id",
+    "no_of_seats": 5,
+    "ride_place_id": 20,
+    "offered_place_stops_id": 15
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/user/ride/request`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `pickup_lat` | float |  required  | pickup_lat of the request
+        `pickup_lng` | float |  required  | pickup_lng of the request
+        `drop_lat` | float |  required  | drop_lat of the request
+        `drop_lng` | float |  required  | drop_lng of the request
+        `pickup_address` | string |  required  | pickup_address of the request
+        `drop_address` | string |  required  | drop_address of the request
+        `date` | date |  required  | date of the request(2020-09-06 00:00:00)
+        `start_time` | time |  required  | start_time of the request(00:00:00)
+        `no_of_seats` | integer |  required  | no of seats requested from user
+        `ride_place_id` | integer |  required  | offered_ride_place's id of the request
+        `offered_place_stops_id` | integer |  required  | offered_ride_place_stop's id of the request
+    
+<!-- END_819db0e25253cc5c72160ec5e5c36587 -->
+
 #Translation
 
 translation api
@@ -1852,13 +2057,13 @@ translation api
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/v1/translation/get" \
+    -G "http://localhost/car-pool/public/api/v1/translation/get" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/translation/get"
+    "http://localhost/car-pool/public/api/v1/translation/get"
 );
 
 let headers = {
@@ -2647,16 +2852,16 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/user/login/send-otp" \
+    "http://localhost/car-pool/public/api/v1/user/login/send-otp" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"mobile":"libero"}'
+    -d '{"mobile":"ut"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/user/login/send-otp"
+    "http://localhost/car-pool/public/api/v1/user/login/send-otp"
 );
 
 let headers = {
@@ -2666,7 +2871,7 @@ let headers = {
 };
 
 let body = {
-    "mobile": "libero"
+    "mobile": "ut"
 }
 
 fetch(url, {
@@ -2706,16 +2911,16 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/user/login" \
+    "http://localhost/car-pool/public/api/v1/user/login" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"email":"aspernatur","mobile":"consequatur","password":"consequuntur"}'
+    -d '{"email":"voluptatem","mobile":"numquam","password":"modi"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/user/login"
+    "http://localhost/car-pool/public/api/v1/user/login"
 );
 
 let headers = {
@@ -2725,9 +2930,9 @@ let headers = {
 };
 
 let body = {
-    "email": "aspernatur",
-    "mobile": "consequatur",
-    "password": "consequuntur"
+    "email": "voluptatem",
+    "mobile": "numquam",
+    "password": "modi"
 }
 
 fetch(url, {
@@ -2770,13 +2975,13 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/admin/login" \
+    "http://localhost/car-pool/public/api/v1/admin/login" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/admin/login"
+    "http://localhost/car-pool/public/api/v1/admin/login"
 );
 
 let headers = {
@@ -2818,13 +3023,13 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/logout" \
+    "http://localhost/car-pool/public/api/v1/logout" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/logout"
+    "http://localhost/car-pool/public/api/v1/logout"
 );
 
 let headers = {
@@ -2861,51 +3066,6 @@ fetch(url, {
 
 
 APIs for User-Management
-<!-- START_d7f5c16f3f30bc08c462dbfe4b62c6b9 -->
-## Get the current logged in user.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/api/v1/user" \
-    -H "Authorization: Bearer: {token}"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/v1/user"
-);
-
-let headers = {
-    "Authorization": "Bearer: {token}",
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "success": true
-}
-```
-
-### HTTP Request
-`GET api/v1/user`
-
-
-<!-- END_d7f5c16f3f30bc08c462dbfe4b62c6b9 -->
-
 <!-- START_7fef01e7235c89049ebe3685de4bff17 -->
 ## Register the user and send welcome email.
 
@@ -2913,16 +3073,16 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/user/register" \
+    "http://localhost/car-pool/public/api/v1/user/register" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"first_name":"pariatur","last_name":"nostrum","gender":"nemo","city":"impedit","uuid":"culpa","email":"exercitationem","password":"odio","device_token":"cum","login_by":"reiciendis"}'
+    -d '{"first_name":"hic","last_name":"assumenda","gender":"quaerat","city":"rerum","uuid":"occaecati","email":"velit","password":"sit","device_token":"explicabo","login_by":"corrupti"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/user/register"
+    "http://localhost/car-pool/public/api/v1/user/register"
 );
 
 let headers = {
@@ -2932,15 +3092,15 @@ let headers = {
 };
 
 let body = {
-    "first_name": "pariatur",
-    "last_name": "nostrum",
-    "gender": "nemo",
-    "city": "impedit",
-    "uuid": "culpa",
-    "email": "exercitationem",
-    "password": "odio",
-    "device_token": "cum",
-    "login_by": "reiciendis"
+    "first_name": "hic",
+    "last_name": "assumenda",
+    "gender": "quaerat",
+    "city": "rerum",
+    "uuid": "occaecati",
+    "email": "velit",
+    "password": "sit",
+    "device_token": "explicabo",
+    "login_by": "corrupti"
 }
 
 fetch(url, {
@@ -2988,16 +3148,16 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/user/register/send-otp" \
+    "http://localhost/car-pool/public/api/v1/user/register/send-otp" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"country":"a","mobile":3}'
+    -d '{"country":"nihil","mobile":11}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/user/register/send-otp"
+    "http://localhost/car-pool/public/api/v1/user/register/send-otp"
 );
 
 let headers = {
@@ -3007,8 +3167,8 @@ let headers = {
 };
 
 let body = {
-    "country": "a",
-    "mobile": 3
+    "country": "nihil",
+    "mobile": 11
 }
 
 fetch(url, {
@@ -3051,16 +3211,16 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/user/register/validate-otp" \
+    "http://localhost/car-pool/public/api/v1/user/register/validate-otp" \
     -H "Authorization: Bearer: {token}" \
     -H "Content-Type: application/json" \
-    -d '{"otp":"sed","uui":"incidunt"}'
+    -d '{"otp":"in","uui":"sit"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/user/register/validate-otp"
+    "http://localhost/car-pool/public/api/v1/user/register/validate-otp"
 );
 
 let headers = {
@@ -3070,8 +3230,8 @@ let headers = {
 };
 
 let body = {
-    "otp": "sed",
-    "uui": "incidunt"
+    "otp": "in",
+    "uui": "sit"
 }
 
 fetch(url, {
@@ -3104,6 +3264,51 @@ Parameter | Type | Status | Description
     
 <!-- END_2df80e5aa5ea9fd621612d35df1b6532 -->
 
+<!-- START_d7f5c16f3f30bc08c462dbfe4b62c6b9 -->
+## Get the current logged in user.
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/car-pool/public/api/v1/user" \
+    -H "Authorization: Bearer: {token}"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/car-pool/public/api/v1/user"
+);
+
+let headers = {
+    "Authorization": "Bearer: {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "success": true
+}
+```
+
+### HTTP Request
+`GET api/v1/user`
+
+
+<!-- END_d7f5c16f3f30bc08c462dbfe4b62c6b9 -->
+
 #Web-Authentication
 
 
@@ -3115,13 +3320,13 @@ APIs for Authentication
 
 ```bash
 curl -X POST \
-    "http://localhost/api/spa/login" \
+    "http://localhost/car-pool/public/api/spa/login" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/spa/login"
+    "http://localhost/car-pool/public/api/spa/login"
 );
 
 let headers = {
@@ -3161,13 +3366,13 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://localhost/api/spa/user/login" \
+    "http://localhost/car-pool/public/api/spa/user/login" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/spa/user/login"
+    "http://localhost/car-pool/public/api/spa/user/login"
 );
 
 let headers = {
@@ -3207,13 +3412,13 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/spa/logout" \
+    -G "http://localhost/car-pool/public/api/spa/logout" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/spa/logout"
+    "http://localhost/car-pool/public/api/spa/logout"
 );
 
 let headers = {
@@ -3267,13 +3472,13 @@ APIs for User-Management
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/spa/common/countries" \
+    -G "http://localhost/car-pool/public/api/spa/common/countries" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/spa/common/countries"
+    "http://localhost/car-pool/public/api/spa/common/countries"
 );
 
 let headers = {
@@ -3321,13 +3526,13 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/spa/common/timezones" \
+    -G "http://localhost/car-pool/public/api/spa/common/timezones" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/spa/common/timezones"
+    "http://localhost/car-pool/public/api/spa/common/timezones"
 );
 
 let headers = {
@@ -3370,13 +3575,13 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://localhost/api/v1/admin/register" \
+    "http://localhost/car-pool/public/api/v1/admin/register" \
     -H "Authorization: Bearer: {token}"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/admin/register"
+    "http://localhost/car-pool/public/api/v1/admin/register"
 );
 
 let headers = {

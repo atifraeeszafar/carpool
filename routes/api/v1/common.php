@@ -27,11 +27,11 @@ Route::namespace('Common')->group(function () {
         // Car Colors
         Route::get('car/colors', 'CarMakeAndModelController@getCarColors');
 
+        Route::get('list/preferences', 'PreferencesController@index');
         //faq list
         Route::get('faq/list', 'FaqController@getFaqList');
 
         //sos list
         Route::get('sos/list', 'SosController@getSosList');
-
     });
 });

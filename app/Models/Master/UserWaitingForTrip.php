@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Models\Requests;
-
+namespace App\Models\Master;
 use App\Models\Traits\HasActive;
 use Illuminate\Database\Eloquent\Model;
 
-class OfferedRidePlaceFrequentDay extends Model
+class UserWaitingForTrip extends Model
 {
     use HasActive;
     /**
@@ -13,14 +12,14 @@ class OfferedRidePlaceFrequentDay extends Model
      *
      * @var string
      */
-    protected $table = 'offered_place_frequent_days';
+    protected $table = 'user_waiting_for_trip';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['active','available_days','to_be_cancelled_at','ride_place_id'];
+    protected $fillable = ['user_id','date','start_time','pickup_address','drop_address','pickup_lat','pickup_lng','drop_lat','drop_lng'];
 
     /**
      * The relationships that can be loaded with query string filtering includes.
@@ -28,6 +27,11 @@ class OfferedRidePlaceFrequentDay extends Model
      * @var array
      */
     public $includes = [
-
+        // 'makeDetail'
     ];
+
+    // public function makeDetail()
+    // {
+    //     return $this->belongsTo(CarMake::class, 'make_id', 'id');
+    // }
 }

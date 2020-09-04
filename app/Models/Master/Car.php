@@ -4,6 +4,7 @@ namespace App\Models\Master;
 
 use App\Models\Traits\HasActive;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Admin\Types;
 
 class Car extends Model
 {
@@ -30,4 +31,9 @@ class Car extends Model
     public $includes = [
 
     ];
+
+    public function type()
+    {
+        return $this->hasOne(Types::class, 'id', 'vehicle_type');
+    }
 }

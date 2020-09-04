@@ -5,8 +5,9 @@ namespace App\Models\Requests;
 use App\Models\User;
 use App\Models\Traits\HasActive;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Request\OfferedRidePlaceStop;
-use App\Models\Request\OfferedRidePlaceFrequentDay;
+use App\Models\Requests\OfferedRidePlaceStop;
+use App\Models\Requests\OfferRideCustomerRequest;
+use App\Models\Requests\OfferedRidePlaceFrequentDay;
 use Grimzy\LaravelMysqlSpatial\Eloquent\SpatialTrait;
 
 class OfferedRidePlace extends Model
@@ -35,7 +36,7 @@ class OfferedRidePlace extends Model
      * @var array
      */
     public $includes = [
-        'riderInfo','offeredRidePlaceStops'
+        'riderInfo','offeredRideCustomerRequest','offeredRidePlaceFrequentDays','offeredRidePlaceStops','offeredRidePlaceStops.offeredRideCustomerRequest'
     ];
 
     public function offeredRidePlaceStops()
@@ -45,6 +46,10 @@ class OfferedRidePlace extends Model
     public function offeredRidePlaceFrequentDays()
     {
         return $this->hasMany(OfferedRidePlaceFrequentDay::class, 'ride_place_id', 'id');
+    }
+    public function offeredRideCustomerRequest()
+    {
+        return $this->hasMany(OfferRideCustomerRequest::class, 'ride_place_id', 'id');
     }
 
     public function riderInfo()
