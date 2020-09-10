@@ -36,6 +36,7 @@ Route::prefix('user')->namespace('User')->group(function () {
         Route::post('update/car/{car}', 'CarController@update');
         Route::post('delete/car/{car}', 'CarController@delete');
         Route::prefix('ride')->group(function () {
+            Route::post('eta', 'OfferRideController@offerEta');
             Route::post('offer', 'OfferRideController@offerRide');
             Route::post('find', 'FindRideController@findRide');
             Route::post('request', 'RequestForRideController@createRequest');
@@ -46,6 +47,11 @@ Route::prefix('user')->namespace('User')->group(function () {
             Route::post('response-for-request', 'ResponseForRequestController@responseRequset');
             Route::post('cancel-by-passenger', 'PassengerCancelRequestController@cancelRequest');
             Route::post('cancel-by-rider', 'RiderCancelRequestController@cancelRequest');
+        
+            Route::get('initiated/{ride}', 'RideStatusController@initiated');
+            Route::get('trip-start/{ride}', 'RideStatusController@tripStart');
+            Route::get('trip-end/{ride}', 'RideStatusController@tripEnd');
+
         });
     });
 

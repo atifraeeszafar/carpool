@@ -5,9 +5,9 @@ namespace App\Models\Requests;
 use App\Models\User;
 use App\Models\Traits\HasActive;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Request\OfferedRidePlaceStop;
+use App\Models\Requests\OfferedRidePlaceStop;
 use App\Models\Requests\OfferRideCustomerRequest;
-use App\Models\Request\OfferedRidePlaceFrequentDay;
+use App\Models\Requests\OfferedRidePlaceFrequentDay;
 use Grimzy\LaravelMysqlSpatial\Eloquent\SpatialTrait;
 
 class OfferedRidePlace extends Model

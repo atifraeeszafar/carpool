@@ -4,7 +4,7 @@ namespace App\Transformers\Request;
 
 use App\Transformers\Transformer;
 use App\Transformers\User\UserTransformer;
-use App\Models\Request\OfferedRidePlaceStop;
+use App\Models\Requests\OfferedRidePlaceStop;
 
 class OfferedRidePlaceStopsTransformer extends Transformer
 {
@@ -24,6 +24,7 @@ class OfferedRidePlaceStopsTransformer extends Transformer
      */
     public function transform(OfferedRidePlaceStop $ride)
     {
+
         $params = [
             'id'=>$ride->id,
             'offerd_place_id' => $ride->ride_place_id,

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Request;
+namespace App\Models\Requests;
 
 use App\Models\Traits\HasActive;
 use Illuminate\Database\Eloquent\Model;

@@ -23,6 +23,7 @@ use App\Models\Traits\UserAccessScopeTrait;
 use App\Base\Services\OTP\CanSendOTPContract;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Master\Car;
 
 class User extends Authenticatable implements CanSendOTPContract
 {
@@ -274,5 +275,10 @@ class User extends Authenticatable implements CanSendOTPContract
     public function routeNotificationForApn()
     {
         return $this->apn_token;
+    }
+
+    public function car()
+    {
+        return $this->hasOne(Car::class, 'user_id', 'id');
     }
 }
