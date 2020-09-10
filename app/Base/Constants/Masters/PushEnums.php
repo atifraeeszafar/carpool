@@ -21,5 +21,6 @@ class PushEnums
     const NO_RIDER_FOUND ='no_driver_found';
     const TRIP_AVAILABLE ='trip_available';
     const INITIATED ='initiated';
-    
+    const TRIP_START ='trip_start';
+    const TRIP_END ='trip_end';    
 }

@@ -53,7 +53,9 @@ class RideStatusController extends BaseController
 
         foreach($offerRideCustomers as $offerRideCustomer)
         {
-            $this->userPush($offerRideCustomer,'initiated',PushEnums::INITIATED);
+            $user = $offerRideCustomer->passengerInfo()->first();
+
+            $this->userPush($user,'initiated',PushEnums::INITIATED);
         }
 
         return $this->respondSuccess(null,'trip_initiated');
@@ -68,17 +70,11 @@ class RideStatusController extends BaseController
     */
     public function tripStart(OfferRideCustomerRequest $ride)
     {
-
-        $offerRideCustomers = $this->offerRideCustomer->user()->get();
-
-        echo "<pre>";
-        print_r($offerRideCustomers);
-
-        die();
-
+ 
         $rider = auth()->user();
 
         $this->offerRideCustomer->where('ride_place_id',$ride->ride_place_id)
+            ->where('user_id',$ride->user_id)
             ->update(['status'=>OfferRideCustomerStatus::TRIP_START]);
 
         $ride = OfferedRidePlace::find($ride->ride_place_id);
@@ -100,15 +96,18 @@ class RideStatusController extends BaseController
         $rider = auth()->user();
 
         $this->offerRideCustomer->where('ride_place_id',$ride->ride_place_id)
-            ->update(['status'=>OfferRideCustomerStatus::TRIP_START]);
+            ->where('user_id',$ride->user_id)
+            ->update(['status'=>OfferRideCustomerStatus::TRIP_END]);
 
         $ride = OfferedRidePlace::find($ride->ride_place_id);
 
-        $this->riderPush($rider,$ride,'trip_start',PushEnums::TRIP_START);
+        $this->riderPush($rider,$ride,'trip_end',PushEnums::TRIP_END);
 
-        $this->userPush($ride,'trip_start',PushEnums::TRIP_START);
+        $user = User::find($ride->user_id);
 
-        return $this->respondSuccess(null,'trip_start');
+        $this->userPush($user,'trip_end',PushEnums::TRIP_END);
+
+        return $this->respondSuccess(null,'trip_end');
 
     }
 

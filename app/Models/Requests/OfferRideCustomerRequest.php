@@ -46,11 +46,5 @@ class OfferRideCustomerRequest extends Model
     {
         return $this->belongsTo(OfferedRidePlaceStop::class, 'offered_place_stops_id', 'id');
     }
-
-    public function user()
-    {
-        return $this->hasMany(User::class,'id','user_id');
-    }
-
     
 }
