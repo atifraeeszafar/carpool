@@ -20,5 +20,6 @@ class PushEnums
     const REQUEST_CANCELLED_BY_RIDER ='request_cancelled_by_rider';
     const NO_RIDER_FOUND ='no_driver_found';
     const TRIP_AVAILABLE ='trip_available';
-
+    const INITIATED ='initiated';
+    
 }

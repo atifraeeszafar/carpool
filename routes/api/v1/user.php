@@ -46,6 +46,11 @@ Route::prefix('user')->namespace('User')->group(function () {
             // Accept/Reject request
             Route::post('response-for-request', 'ResponseForRequestController@responseRequset');
             Route::post('cancel-by-passenger', 'PassengerCancelRequestController@cancelRequest');
+        
+            Route::get('initiated/{ride}', 'RideStatusController@initiated');
+            Route::get('trip-start/{ride}', 'RideStatusController@tripStart');
+            Route::get('trip-end/{ride}', 'RideStatusController@tripEnd');
+
         });
     });
 

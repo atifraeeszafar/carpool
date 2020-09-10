@@ -26,4 +26,10 @@ return array(
   'trip_available_title' => 'Trip Available',
   'trip_available_body' => 'Trip Available',
 
+  'initiated_title' => 'Trip Initiated',
+  'initiated_body' => 'Trip Initiated',
+
+  'trip_start' => 'Trip Start',
+  
+
 );
