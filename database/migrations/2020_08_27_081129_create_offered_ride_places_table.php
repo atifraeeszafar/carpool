@@ -28,6 +28,8 @@ class CreateOfferedRidePlacesTable extends Migration
             $table->boolean('is_frequent_ride')->default(false);
             $table->timestamp('date')->nullable();
             $table->lineString('coordinates')->nullable();
+            $table->boolean('is_cancelled_by_rider')->default(0);
+            $table->timestamp('cancelled_at')->nullable();
 
             $table->foreign('rider_id')
             ->references('id')

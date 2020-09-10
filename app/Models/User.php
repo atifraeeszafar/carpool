@@ -13,6 +13,7 @@ use Laravel\Passport\HasApiTokens;
 use App\Models\LinkedSocialAccount;
 use App\Models\Admin\LocationDetail;
 use App\Base\Services\OTP\CanSendOTP;
+use App\Models\Rider\RiderPreference;
 use App\Models\Traits\DeleteOldFiles;
 use App\Models\Traits\UserAccessTrait;
 use Illuminate\Support\Facades\Storage;
@@ -20,8 +21,8 @@ use Illuminate\Notifications\Notifiable;
 use App\Models\Requests\OfferedRidePlace;
 use App\Models\Traits\UserAccessScopeTrait;
 use App\Base\Services\OTP\CanSendOTPContract;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Nicolaslopezj\Searchable\SearchableTrait;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Master\Car;
 
 class User extends Authenticatable implements CanSendOTPContract
@@ -60,14 +61,14 @@ class User extends Authenticatable implements CanSendOTPContract
          * @var array
          */
         'columns' => [
-            
+
             'name' => 10,
             'email' => 10,
             'mobile' => 8,
             'lastname' => 8,
-            
+
         ],
-  
+
     ];
 
 
@@ -218,6 +219,10 @@ class User extends Authenticatable implements CanSendOTPContract
     public function rideDetail()
     {
         return $this->hasMany(RideModel::class, 'rider_id', 'id');
+    }
+    public function riderPreferences()
+    {
+        return $this->hasMany(RiderPreference::class, 'rider_id', 'id');
     }
 
     public function offeredRidePlace()

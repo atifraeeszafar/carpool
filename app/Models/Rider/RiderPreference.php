@@ -1,26 +1,26 @@
 <?php
 
-namespace App\Models\Requests;
+namespace App\Models\Rider;
 
-use App\Models\Traits\HasActive;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
-class OfferedRidePlaceFrequentDay extends Model
+class RiderPreference extends Model
 {
-    use HasActive;
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'offered_place_frequent_days';
+    protected $table = 'rider_preferences';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['active','available_days','to_be_cancelled_at','ride_place_id'];
+    protected $fillable = ['rider_id','preference_id','answer_id'];
+
 
     /**
      * The relationships that can be loaded with query string filtering includes.
@@ -28,6 +28,11 @@ class OfferedRidePlaceFrequentDay extends Model
      * @var array
      */
     public $includes = [
-
+        'riderInfo'
     ];
+
+    public function riderInfo()
+    {
+        return $this->belongsTo(User::class, 'rider_id', 'id');
+    }
 }
