@@ -52,6 +52,10 @@ Route::prefix('user')->namespace('User')->group(function () {
             Route::get('trip-start/{ride}', 'RideStatusController@tripStart');
             Route::get('trip-end/{ride}', 'RideStatusController@tripEnd');
 
+            Route::post('trip-user-rate-driver/{ride}', 'OfferRideController@userRating');
+            Route::post('trip-driver-rate-user/{ride}', 'OfferRideController@driverRating');
+
+
         });
     });
 

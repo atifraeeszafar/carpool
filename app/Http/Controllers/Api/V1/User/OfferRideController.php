@@ -12,6 +12,11 @@ use App\Http\Requests\Request\OfferEtaRequest;
 use Carbon\Carbon;
 use App\Models\Master\UserWaitingForTrip;
 use App\Jobs\UserWaitingForTrip as UserWaitingForTripJob;
+use App\Models\Requests\OfferRideCustomerRequest;
+use App\Models\Requests\RequestRating;
+use App\Http\Requests\Request\RatingRequest;
+use App\Models\User;
+
 /**
  * @group Ride-Apis
  *
@@ -21,9 +26,11 @@ class OfferRideController extends BaseController
 {
     protected $offer_ride_place;
 
-    public function __construct(OfferedRidePlace $offer_ride_place)
+    public function __construct(RequestRating $rating,OfferedRidePlace $offer_ride_place)
     {
         $this->offer_ride_place = $offer_ride_place;
+        $this->rating = $rating;
+        
     }
 
     /**
@@ -215,5 +222,92 @@ class OfferRideController extends BaseController
 
         return response()->json(['status'=>true,'message'=>'eta_param_structure','data'=>$result]);
     }
+
+
+    /**
+    * User Rate Driver
+    * @bodyParam rating integer required rating of the request
+    * @bodyParam comment integer required comment of the request
+    * @return \Illuminate\Http\JsonResponse
+    * @response 
+    * {
+    *    "status": true,
+    *    "message": "user_rated_successfully",
+    * }  
+    */
+    public function userRating(OfferRideCustomerRequest $ride,RatingRequest $request)
+    {
+        $rider = auth()->user();
+
+        $rider_id = $ride->offeredRidePlace()->first()->rider_id;
+
+        $created_params['offered_ride_place_id'] = $ride->ride_place_id;
+        $created_params['user_id']  = $ride->user_id;
+        $created_params['rider_id'] = $rider_id;
+        $created_params['rating']   = $request->rating;
+        $created_params['comment']  = $request->comment;
+        $created_params['user_rating'] = TRUE;
+
+        if($rider->id != $ride->user_id) {
+            // $this->throwCustomException('User Mismatched');
+        }
+        
+        $user = User::find($rider_id);
+        $user->total_rating  = ( $user->total_rating + $request->rating );
+        $user->no_of_rating  = ( $user->no_of_rating + 1 );
+        $user->rating_average = ( $user->total_rating / $user->no_of_rating );
+        $user->save();
+
+        $this->rating->create($created_params);
+
+        // $this->userPush($user,'trip_end',PushEnums::TRIP_END);
+
+        return $this->respondSuccess(null,'user_rated_successfully');
+
+    }
+
+    /**
+    * Driver Rate User
+    * @bodyParam rating integer required rating of the request
+    * @bodyParam comment integer required comment of the request
+    * @return \Illuminate\Http\JsonResponse
+    * @response 
+    * {
+    *    "status": true,
+    *    "message": "driver_rated_successfully",
+    * }  
+    */
+    public function driverRating(OfferRideCustomerRequest $ride,RatingRequest $request)
+    {
+        $rider = auth()->user();
+
+        $rider_id = $ride->offeredRidePlace()->first()->rider_id;
+
+        $created_params['offered_ride_place_id'] = $ride->ride_place_id;
+        $created_params['user_id']  = $ride->user_id;
+        $created_params['rider_id'] = $rider_id;
+        $created_params['rating']   = $request->rating;
+        $created_params['comment']  = $request->comment;
+        $created_params['user_rating'] = TRUE;
+
+        if($rider->id != $rider_id) {
+            // $this->throwCustomException('User Mismatched');
+        }
+        
+        $user = User::find($ride->user_id);
+        $user->total_rating  = ( $user->total_rating + $request->rating );
+        $user->no_of_rating  = ( $user->no_of_rating + 1 );
+        $user->rating_average = ( $user->total_rating / $user->no_of_rating );
+        $user->save();
+
+        $this->rating->create($created_params);
+
+        // $this->userPush($user,'trip_end',PushEnums::TRIP_END);
+
+        return $this->respondSuccess(null,'driver_rated_successfully');
+
+    }
+
+    
     
 }

@@ -13,6 +13,7 @@ class CreateRequestRatingsTable extends Migration
      */
     public function up()
     {
+        
         Schema::create('request_ratings', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('offered_ride_place_id');
@@ -21,7 +22,7 @@ class CreateRequestRatingsTable extends Migration
             $table->float('rating')->default(0);
             $table->string('comment')->nullable();
             $table->boolean('user_rating')->default(false);
-            $table->boolean('driver_rating')->default(false);
+            $table->boolean('rider_rating')->default(false);
             $table->timestamps();
 
             $table->foreign('offered_ride_place_id')

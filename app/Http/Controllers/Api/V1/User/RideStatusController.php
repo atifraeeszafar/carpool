@@ -89,7 +89,12 @@ class RideStatusController extends BaseController
 
     }
 
-    
+    /**
+    * Start a trip
+    * @return \Illuminate\Http\JsonResponse
+    * @response {"success":true,"message":"trip_end"}
+    *
+    */
     public function tripEnd(OfferRideCustomerRequest $ride)
     {
 
