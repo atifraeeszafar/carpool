@@ -25,7 +25,7 @@ class OfferedRidePlace extends Model
      *
      * @var array
      */
-    protected $fillable = ['active','rider_id','pickup_address','drop_address','pickup_lat','pickup_lng','drop_lat','drop_lng','start_time','no_of_seats','no_of_seats_occupied','date','coordinates'];
+    protected $fillable = ['active','rider_id','pickup_address','drop_address','pickup_lat','pickup_lng','drop_lat','drop_lng','start_time','no_of_seats','no_of_seats_occupied','date','coordinates','is_cancelled_by_rider'];
 
     protected $spatialFields = [
         'coordinates'

@@ -4,10 +4,15 @@ namespace App\Http\Controllers\Api\V1\User;
 
 use App\Http\Controllers\Api\V1\BaseController;
 
+/**
+ * @group Ride-Apis
+ *
+ * APIs for Rides
+ */
 class PassengerCancelRequestController extends BaseController
 {
     /**
-    * Cancel Request
+    * Cancel Request by passengar
     * @bodyParam ride_place_id integer required ride place's id which is created by rider
     * @bodyParam ride_request_customer_id integer required ride place's id
     * @response {"success":true,"message":"request_cancelled"}
@@ -24,6 +29,7 @@ class PassengerCancelRequestController extends BaseController
         $time = $current->toDateTimeString();
 
         $ride_customer_request->is_cancelled_by_user = true;
+        $ride_customer_request->cancelled_at= $time;
 
         $ride_customer_request->save();
 

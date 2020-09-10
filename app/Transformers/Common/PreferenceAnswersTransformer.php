@@ -23,10 +23,17 @@ class PreferenceAnswersTransformer extends Transformer
      */
     public function transform(PreferenceAnswers $answers)
     {
-        return [
+        $params =  [
             'id' => $answers->id,
             'preference_id'=>$answers->preference_id,
             'answer' => $answers->answer,
+            'is_choosen'=>false,
         ];
+
+        if (auth()->user()->riderPreferences()->where('preference_id', $answers->preference_id)->where('answer_id', $answers->id)->exists()) {
+            $params['is_choosen'] = true;
+        }
+
+        return $params;
     }
 }
