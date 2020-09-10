@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Api\V1\User;
 
 use Carbon\Carbon;
 use App\Models\Requests\OfferedRidePlace;
-use App\Models\Request\OfferedRidePlaceStop;
+use App\Models\Requests\OfferedRidePlaceStop;
 use App\Http\Requests\Request\FindRideRequest;
 use App\Http\Controllers\Api\V1\BaseController;
 use App\Transformers\Request\OfferedRidePlaceStopsTransformer;
+use App\Models\Master\UserWaitingForTrip;
 
 /**
  * @group Ride-Apis
@@ -17,10 +18,12 @@ use App\Transformers\Request\OfferedRidePlaceStopsTransformer;
 class FindRideController extends BaseController
 {
     protected $offer_ride_place;
+    protected $userWaitingForTrip;
 
-    public function __construct(OfferedRidePlace $offer_ride_place)
+    public function __construct(OfferedRidePlace $offer_ride_place,UserWaitingForTrip $userWaitingForTrip)
     {
         $this->offer_ride_place = $offer_ride_place;
+        $this->userWaitingForTrip = $userWaitingForTrip;
     }
 
     /**
@@ -57,8 +60,17 @@ class FindRideController extends BaseController
                     $query->whereDate('date', $request->date)->where('active', 1)->whereTime('start_time', '>', $before_start_time_string)->whereTime('start_time', '<', $after_start_time_string);
                 })->get();
 
+        if(count($rider_places) == 0 ) {
+
+            $userWaitingForTrip = $request->all();
+            $userWaitingForTrip['user_id'] = auth()->user()->id;
+
+            $this->userWaitingForTrip->create($userWaitingForTrip);
+        }        
+
         $result = fractal($rider_places, new OfferedRidePlaceStopsTransformer)->parseIncludes(['riderInfo']);
 
-        return $this->respondSuccess($result);
+
+        return $this->respondSuccess($result,'ride_list');
     }
 }

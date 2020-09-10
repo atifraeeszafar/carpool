@@ -23,4 +23,13 @@ return array(
   'trip_cancelled_by_rider_body'=>'The rider cancelled the ride,please create for another ride',
   'trip_completed_title'=>'Rider Ended the trip 😊️',
   'trip_completed_body'=>'Rider finished the ride, Please help us by rate the rider',
+  'trip_available_title' => 'Trip Available',
+  'trip_available_body' => 'Trip Available',
+
+  'initiated_title' => 'Trip Initiated',
+  'initiated_body' => 'Trip Initiated',
+
+  'trip_start' => 'Trip Start',
+  
+
 );

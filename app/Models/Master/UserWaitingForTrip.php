@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Models\Master;
-
 use App\Models\Traits\HasActive;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Admin\Types;
 
-class Car extends Model
+class UserWaitingForTrip extends Model
 {
     use HasActive;
     /**
@@ -14,14 +12,14 @@ class Car extends Model
      *
      * @var string
      */
-    protected $table = 'cars';
+    protected $table = 'user_waiting_for_trip';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['active','number_plate','user_id','car_make','car_model','vehicle_type','car_color','model_year'];
+    protected $fillable = ['user_id','date','start_time','pickup_address','drop_address','pickup_lat','pickup_lng','drop_lat','drop_lng'];
 
     /**
      * The relationships that can be loaded with query string filtering includes.
@@ -29,11 +27,11 @@ class Car extends Model
      * @var array
      */
     public $includes = [
-
+        // 'makeDetail'
     ];
 
-    public function type()
-    {
-        return $this->hasOne(Types::class, 'id', 'vehicle_type');
-    }
+    // public function makeDetail()
+    // {
+    //     return $this->belongsTo(CarMake::class, 'make_id', 'id');
+    // }
 }
