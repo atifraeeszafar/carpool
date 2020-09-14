@@ -35,6 +35,8 @@ Route::prefix('user')->namespace('User')->group(function () {
         Route::post('add/car', 'CarController@store');
         Route::post('update/car/{car}', 'CarController@update');
         Route::post('delete/car/{car}', 'CarController@delete');
+        
+        
         Route::prefix('ride')->group(function () {
             Route::post('eta', 'OfferRideController@offerEta');
             Route::post('offer', 'OfferRideController@offerRide');
@@ -57,6 +59,9 @@ Route::prefix('user')->namespace('User')->group(function () {
 
 
         });
+
+        Route::get('notification/list', 'NotificationController@list');
+
     });
 
     Route::prefix('ride')->group(function () {

@@ -5,6 +5,8 @@ namespace App\Models\Requests;
 use App\Models\Traits\HasActive;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Requests\OfferedRidePlace;
+use App\Models\User;
+
 class OfferedRidePlaceStop extends Model
 {
     use HasActive;
@@ -28,7 +30,7 @@ class OfferedRidePlaceStop extends Model
      * @var array
      */
     public $includes = [
-
+        'riderInfo'
     ];
 
     public function offeredRidePlace()
@@ -39,5 +41,10 @@ class OfferedRidePlaceStop extends Model
     public function offeredRideCustomerRequest()
     {
         return $this->hasMany(OfferRideCustomerRequest::class, 'offered_place_stops_id', 'id');
+    }
+
+    public function riderInfo()
+    {
+        return $this->belongsTo(User::class, 'rider_id', 'id');
     }
 }

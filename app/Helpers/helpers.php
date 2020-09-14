@@ -91,6 +91,7 @@ if (! function_exists('get_line_string')) {
 
         $points = [];
 
+
         $poly_line = \Polyline::decode($encoded_result->routes[0]->overview_polyline->points);
 
         $poly_points = \Polyline::pair($poly_line);

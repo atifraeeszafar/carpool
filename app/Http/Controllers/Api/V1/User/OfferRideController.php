@@ -249,7 +249,7 @@ class OfferRideController extends BaseController
         $created_params['user_rating'] = TRUE;
 
         if($rider->id != $ride->user_id) {
-            // $this->throwCustomException('User Mismatched');
+            $this->throwCustomException('User Mismatched');
         }
         
         $user = User::find($rider_id);
@@ -291,7 +291,7 @@ class OfferRideController extends BaseController
         $created_params['user_rating'] = TRUE;
 
         if($rider->id != $rider_id) {
-            // $this->throwCustomException('User Mismatched');
+            $this->throwCustomException('User Mismatched');
         }
         
         $user = User::find($ride->user_id);

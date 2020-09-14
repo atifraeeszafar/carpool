@@ -9,6 +9,8 @@ use App\Http\Controllers\Api\V1\BaseController;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Transformers\NotificationTransformer;
+use App\Base\Constants\Masters\PushEnums;
+
 /**
  * @group Car Management-Apis
  *
@@ -24,17 +26,15 @@ class NotificationController extends BaseController
     }
 
     /**
-    * List Car
+    * List Notification
     */
     public function list(Request $request)
     {
 
         $user = auth()->user();
 
-        $take = 5;
-        $currentPage = ($request->has('page')?$request->page:0);
-
-        
+        $take = 10;
+        $currentPage = ($request->has('page')?$request->page:0);       
 
         $result = $this->notification->where('user_id', auth()->user()->id)
         ->orderby('created_at','ASC')

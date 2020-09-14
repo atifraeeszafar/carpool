@@ -38,6 +38,7 @@ class UserTransformer extends Transformer
             'mobile_confirmed' => $user->mobile_confirmed,
             'last_known_ip' => $user->last_known_ip,
             'last_login_at' => $user->last_login_at,
+            'gender_based_search' =>  $user->gender_based_search,
             'created_at' => $user->created_at->toDateTimeString(),
             'updated_at' => $user->updated_at->toDateTimeString(),
         ];

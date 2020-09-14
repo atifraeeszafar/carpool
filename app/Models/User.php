@@ -49,7 +49,7 @@ class User extends Authenticatable implements CanSendOTPContract
      * @var array
      */
     protected $fillable = [
-        'rating_average','no_of_rating','total_rating','name', 'username', 'email', 'password', 'mobile', 'country', 'profile_picture', 'email_confirmed', 'mobile_confirmed', 'email_confirmation_token', 'active','device_token','login_by'
+        'gender_based_search','rating_average','no_of_rating','total_rating','name', 'username', 'email', 'password', 'mobile', 'country', 'profile_picture', 'email_confirmed', 'mobile_confirmed', 'email_confirmation_token', 'active','device_token','login_by'
     ];
 
     protected $searchable = [

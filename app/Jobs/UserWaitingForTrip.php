@@ -12,6 +12,7 @@ use App\Models\Master\UserWaitingForTrip as UserWaitingForTripModel;
 use App\Models\User; 
 use App\Base\Constants\Masters\PushEnums;
 use App\Jobs\Notifications\PushNotification;
+use App\Models\Notification;
 
 class UserWaitingForTrip // implements ShouldQueue
 {
@@ -75,6 +76,15 @@ class UserWaitingForTrip // implements ShouldQueue
             $push_data = ['notification_enum'=>PushEnums::TRIP_AVAILABLE,'result'=>(string)$pus_request_detail];
             $title = trans('push_notifications.trip_available_title');
             $body = trans('push_notifications.trip_available_body');
+
+            $create_param = array();
+            $create_param['user_id'] = $user->id;
+            $create_param['notification_enum'] = PushEnums::TRIP_AVAILABLE;
+            $create_param['title'] = $title;
+            $create_param['body'] = $body;
+            $create_param['pus_request_detail'] = \json_encode($push_data);
+
+            Notification::create($create_param);
 
             $user->notify(new PushNotification($title, $body, $push_data));
 
