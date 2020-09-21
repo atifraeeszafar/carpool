@@ -17,7 +17,7 @@ class CountryTransformer extends Transformer {
 			'name' => $country->name,
 			'dial_code' => $country->dial_code,
 			'iso2' => $country->code,
-			'flag' => $country->flag,
+			'flag' => $country->flag_path
 			// 'slug' => $country->flag,
 
 		];

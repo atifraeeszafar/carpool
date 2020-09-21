@@ -45,6 +45,10 @@ class Country extends Model
         'name',
     ];
 
+    public $appends = [
+		'flag_path'
+    ];
+    
     /**
      * Get all the countries from the JSON file.
      *
@@ -55,4 +59,21 @@ class Country extends Model
         $route = dirname(dirname(__FILE__)) . '/Helpers/Countries/CountryCodes.json';
         return json_decode(file_get_contents($route), true);
     }
+    
+    public function getFlagPathAttribute(){
+		if(empty($this->flag)){
+			return null;
+		}
+		return Storage::disk(env('FILESYSTEM_DRIVER'))->url(file_path($this->uploadPath(), $this->flag));
+	}
+
+	/**
+	 * The default file upload path.
+	 *
+	 * @return string|null
+	 */
+	public function uploadPath() {
+		return config('base.country.upload.flag.path');
+	}
+    
 }
