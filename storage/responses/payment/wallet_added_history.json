@@ -1,0 +1,49 @@
+{
+    "data": [
+    {
+        "id": "389ad225-50ad-4f6d-859c-656e0705bb0e",
+        "user_id": 14,
+        "card_id": "4c859b15-2d46-4771-afd8-ab2e096754b3",
+        "transaction_id": "f4sx73s3",
+        "amount": 0,
+        "conversion": "INR-USD:89-1.18",
+        "merchant": "nplustechnologies",
+        "created_at": "9th Jun 06:54 PM",
+        "updated_at": "9th Jun 06:54 PM"
+    },
+    {
+        "id": "a2d2e181-b9ba-499c-ba00-b32202924aa9",
+        "user_id": 14,
+        "card_id": "4c859b15-2d46-4771-afd8-ab2e096754b3",
+        "transaction_id": "dyq8egds",
+        "amount": 0,
+        "conversion": "INR-USD:88-1.17",
+        "merchant": "nplustechnologies",
+        "created_at": "9th Jun 06:52 PM",
+        "updated_at": "9th Jun 06:52 PM"
+    },
+    {
+        "id": "bd621f64-e56b-4b75-a740-c06272a652e6",
+        "user_id": 14,
+        "card_id": "4c859b15-2d46-4771-afd8-ab2e096754b3",
+        "transaction_id": "1gcfjp8k",
+        "amount": 0,
+        "conversion": "INR-USD:88-1.17",
+        "merchant": "nplustechnologies",
+        "created_at": "9th Jun 06:53 PM",
+        "updated_at": "9th Jun 06:53 PM"
+    }],
+    "meta":
+    {
+        "pagination":
+        {
+            "total": 3,
+            "count": 3,
+            "per_page": 15,
+            "current_page": 1,
+            "total_pages": 1,
+            "links":
+            {}
+        }
+    }
+}
