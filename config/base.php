@@ -153,6 +153,24 @@ return [
         'generator' => 'dompdf.wrapper',
     ],
 
+     /**
+    *|--------------------------------------------------------------------------
+    *| Country specific configurations
+    *|--------------------------------------------------------------------------
+    */
+    'country' => [
+        'upload' => [
+            'flag' => [
+                'path' => 'uploads/country/flags/',
+                'image' => [
+                    'min_resolution' => 100,
+                    'store_resolution' => 150,
+                    'max_file_size_kb' => 10000,
+                ],
+            ],
+        ],
+    ],
+
     /**
     |--------------------------------------------------------------------------
     | Web/App configurations
