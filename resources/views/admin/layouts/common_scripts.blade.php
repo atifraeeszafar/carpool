@@ -130,16 +130,6 @@ if (session()->has('success')) {
 
         var baseUrl = 'http://localhost/car-pool/public/api/'
 
-        // {
-        //             pickup_lat:'11.0118701',
-        //             pickup_lng:'76.897194',
-        //             drop_lat:'13.0480438',
-        //             drop_lng:'79.928809',
-        //             pickup_address:'coimbatore',
-        //             drop_address:'chennai',
-        //             date:'2020-09-03 00:00:00',
-        //             start_time:'15:00:00',
-        //         }
 
         function ajax(url,param,method)
         {
@@ -160,7 +150,6 @@ if (session()->has('success')) {
 
 </script>
 
-var url = '/v1/user/ride/find';
 
 
 
