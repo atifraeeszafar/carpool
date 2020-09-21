@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Base\Slug\HasSlug;
 use App\Models\Traits\HasActive;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Country extends Model
 {
@@ -59,7 +60,7 @@ class Country extends Model
         $route = dirname(dirname(__FILE__)) . '/Helpers/Countries/CountryCodes.json';
         return json_decode(file_get_contents($route), true);
     }
-    
+
     public function getFlagPathAttribute(){
 		if(empty($this->flag)){
 			return null;
