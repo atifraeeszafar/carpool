@@ -24,6 +24,6 @@ class CountryController extends ApiController
 
         $countries = filter($countriesQuery, new CountryTransformer)->defaultSort('name')->get();
 
-        return $this->respondOk($countries,'country_list');
+        return $this->respondSuccess($countries,'country_list');
     }
 }
