@@ -14,10 +14,12 @@ class CountryTransformer extends Transformer {
 	public function transform(Country $country) {
 		return [
 			'id' => $country->id,
-			'slug' => $country->slug,
 			'name' => $country->name,
-			'iso2' => $country->iso2,
-			'iso3' => $country->iso3,
+			'dial_code' => $country->dial_code,
+			'iso2' => $country->code,
+			'flag' => $country->flag,
+			// 'slug' => $country->flag,
+
 		];
 	}
 }
