@@ -125,7 +125,7 @@ class LoginController extends BaseLoginController
         */
         \Log::info("Login OTP for {$mobile} is : {$otp}");
 
-        return $this->respondSuccess(['uuid' => $user->getCreatedOTPUuid()]);
+        return $this->respondSuccess(['uuid' => $user->getCreatedOTPUuid()],'otp_send_successfully');
     }
 
     /**

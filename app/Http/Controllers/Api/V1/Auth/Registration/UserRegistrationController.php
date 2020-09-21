@@ -163,7 +163,7 @@ class UserRegistrationController extends LoginController
         }
         DB::commit();
 
-        return $this->respondSuccess(['uuid' => $this->otpHandler->getUuid()]);
+        return $this->respondSuccess(['uuid' => $this->otpHandler->getUuid()],'otp_send_successfully');
     }
 
     /**
