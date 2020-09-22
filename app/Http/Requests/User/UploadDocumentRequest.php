@@ -3,8 +3,9 @@
 namespace App\Http\Requests\User;
 
 use App\Http\Requests\BaseRequest;
+use App\Base\Constants\Document\Document;
 
-class UpdateProfileRequest extends BaseRequest
+class UploadDocumentRequest extends BaseRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -13,6 +14,19 @@ class UpdateProfileRequest extends BaseRequest
      */
     public function rules()
     {
+
+        $validation = array();
+        $validation['document_id'] = 'required';
+
+        echo "<pre>";
+        print_r( Document::NATIONAL_IDENTITY_CARD() );
+
+        die();
+
+        if( $this->has('document_id') == 1  ) {
+
+        }
+
         return [
             'name' => 'sometimes|required|max:50',
             'gender_based_search' => 'sometimes|required',

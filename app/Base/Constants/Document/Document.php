@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Base\Constants\Auth;
+namespace App\Base\Constants\Document;
 
 class Document
 {
@@ -12,5 +12,10 @@ class Document
     const IDENTITY_CARDS_FROM_FOREIGNERS = '6';
     const DRIVING_LICENSE = '7';
     const VEHICLE_IDENTIFICATION_CARD = '8';
+
+    public static function NATIONAL_IDENTITY_CARD()
+    {
+        return [ 'name','gender','identity_card_number','date_of_birth','date_of_expiry'];
+    }
    
 }

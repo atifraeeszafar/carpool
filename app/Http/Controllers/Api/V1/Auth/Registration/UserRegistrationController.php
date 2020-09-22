@@ -83,6 +83,7 @@ class UserRegistrationController extends LoginController
             $mobile = $this->otpHandler->getMobileFromUuid($mobileUuid);
             $user = $this->user->create([
             'name' => $request->input('name'),
+            'last_name' => $request->input('last_name'),       
             'email' => $request->input('email'),
             // 'password' => bcrypt($request->input('password')),
             'mobile' => $mobile,

@@ -8,6 +8,8 @@ use App\Http\Requests\User\ChangePasswordRequest;
 use App\Http\Requests\User\UpdateProfileRequest;
 use App\Transformers\User\UserTransformer;
 use Illuminate\Http\Request;
+use App\Http\Requests\User\UploadDocumentRequest;
+
 /**
  * @group Profile-Management
  *
@@ -59,7 +61,12 @@ class ProfileController extends ApiController
         return $this->respondSuccess($user);
     }
 
-    
+    public function uploadDocument(UploadDocumentRequest $request)
+    {
+
+    }
+        
+
 
     /**
      * get user profile.

@@ -32,6 +32,9 @@ Route::prefix('user')->namespace('User')->group(function () {
         Route::get('profile', 'ProfileController@viewProfile');
 
         Route::post('profile', 'ProfileController@updateProfile');
+        
+        Route::post('document/upload', 'ProfileController@uploadDocument');
+
         // Add & Car
         Route::get('list/car', 'CarController@index');
         Route::post('add/car', 'CarController@store');
