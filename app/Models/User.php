@@ -265,7 +265,7 @@ class User extends Authenticatable implements CanSendOTPContract
 
     public function document()
     {
-        return $this->hasOne(UserDocuments::class, 'user_id', 'id');
+        return $this->hasMany(UserDocuments::class, 'user_id', 'id');
     }
 
 

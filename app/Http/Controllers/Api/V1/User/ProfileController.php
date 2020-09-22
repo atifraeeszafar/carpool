@@ -9,6 +9,8 @@ use App\Http\Requests\User\UpdateProfileRequest;
 use App\Transformers\User\UserTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests\User\UploadDocumentRequest;
+use App\Base\Constants\Document\DocumentStatus;
+use App\Transformers\User\UserDocumentTransformer;
 
 /**
  * @group Profile-Management
@@ -65,27 +67,21 @@ class ProfileController extends ApiController
     {
 
         $createdParam['document_id'] = $request->document_id;
-        // $createdParam['user_id'] = auth()->user()->id ;
         $createdParam['extra_fields'] = \json_encode($request->except(['document_id','image'])) ;
         $createdParam['image'] = $request->document_id;
-        $createdParam['document_status'] = 1;
+        $createdParam['document_status'] = DocumentStatus::UPLOADED;
 
-        auth()->user()->document()->create($createdParam);
-        
-        echo "<pre>";
-        print_r( $createdParam );
+        // $document = auth()->user()->document()->create($createdParam);
+        $document = $request->user()->document()->create($createdParam);
 
-        die();
+        $document = fractal( $request->user(), new UserTransformer)->parseIncludes('document');
 
-        // $createdParam = 
 
-        dd( auth()->user()->document()->insert() );
 
-        dd( auth()->user()->id );
-        echo "<pre>";
-        print_r( $request->all() );
+        // $request_result =  fractal($ride_customer_request, new OfferedRideCustomerRequestsTransformer)->parseIncludes('passengerInfo');
 
-        die();
+        return $this->respondSuccess($document,'profile_uploaded_successfull');
+
     }
         
 

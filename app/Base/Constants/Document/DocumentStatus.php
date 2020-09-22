@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Base\Constants\Auth;
+namespace App\Base\Constants\Document;
 
 class DocumentStatus
 {
-    const UPLOADED = 'user';
-    const APPROVED = 'super-admin';
-    const REJECTED = 'admin';
+    const UPLOADED = '1';
+    const APPROVED = '2';
+    const REJECTED = '3';
 }

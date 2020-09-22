@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Base\Constants\Auth\Role;
 use App\Transformers\Transformer;
 use App\Transformers\Access\RoleTransformer;
+use App\Transformers\User\UserDocumentTransformer;
 
 class UserTransformer extends Transformer
 {
@@ -15,7 +16,7 @@ class UserTransformer extends Transformer
      * @var array
      */
     protected $availableIncludes = [
-        'roles',
+        'roles','document'
     ];
 
     /**
@@ -68,4 +69,20 @@ class UserTransformer extends Transformer
         ? $this->collection($roles, new RoleTransformer)
         : $this->null();
     }
+
+    public function includeDocument(User $user)
+    {
+
+        $document = $user->document();
+
+        
+
+        return $this->collection($document, new UserDocumentTransformer);
+
+        return $document
+        ? $this->collection($document, new UserDocumentTransformer)
+        : $this->null();
+    }
+
+    
 }

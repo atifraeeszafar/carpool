@@ -30,7 +30,7 @@ class UserDocuments extends Authenticatable implements CanSendOTPContract
 {
     use CanSendOTP,
     DeleteOldFiles,
-    UuidModel,
+    // UuidModel,
     HasActive,
     HasApiTokens,
     Notifiable,
@@ -145,7 +145,7 @@ class UserDocuments extends Authenticatable implements CanSendOTPContract
      */
     public function user()
     {
-        return $this->belongsToMany(User::class,'user_id', 'id');
+        return $this->belongsTo(User::class,'user_id', 'id');
     }
 
 }
