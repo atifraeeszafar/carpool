@@ -71,17 +71,16 @@ class ProfileController extends ApiController
         $createdParam['image'] = $request->document_id;
         $createdParam['document_status'] = DocumentStatus::UPLOADED;
 
-        // $document = auth()->user()->document()->create($createdParam);
+        if ($uploadedFile = $this->getValidatedUpload('image', $request)) {
+            $createdParam['image'] = $this->imageUploader->file($uploadedFile)
+                ->saveProfilePicture();
+        }
+
         $document = $request->user()->document()->create($createdParam);
 
         $document = fractal( $request->user(), new UserTransformer)->parseIncludes('document');
 
-
-
-        // $request_result =  fractal($ride_customer_request, new OfferedRideCustomerRequestsTransformer)->parseIncludes('passengerInfo');
-
         return $this->respondSuccess($document,'profile_uploaded_successfull');
-
     }
         
 

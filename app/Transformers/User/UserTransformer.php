@@ -73,9 +73,7 @@ class UserTransformer extends Transformer
     public function includeDocument(User $user)
     {
 
-        $document = $user->document();
-
-        
+        $document = $user->document;
 
         return $this->collection($document, new UserDocumentTransformer);
 

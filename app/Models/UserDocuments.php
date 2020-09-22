@@ -148,4 +148,14 @@ class UserDocuments extends Authenticatable implements CanSendOTPContract
         return $this->belongsTo(User::class,'user_id', 'id');
     }
 
+        /**
+     * The default file upload path.
+     *
+     * @return string|null
+     */
+    public function uploadPath()
+    {
+        return config('Base.user.upload.profile-picture.path');
+    }
+
 }
