@@ -18,9 +18,7 @@ class CreateDriverDocuments extends Migration
             $table->unsignedInteger('driver_id');
             $table->unsignedInteger('document_id');
             $table->string('image');
-            $table->string('identify_number')->nullable();
-            $table->timestamp('expiry_date')->nullable();
-            $table->text('comment')->nullable();
+            $table->longText('extra_fields');
             $table->integer('document_status')->default(2);
             $table->timestamps();
             $table->softDeletes();
@@ -30,10 +28,10 @@ class CreateDriverDocuments extends Migration
                     ->on('users')
                     ->onDelete('cascade');
 
-            $table->foreign('document_id')
-                    ->references('id')
-                    ->on('taxi_driver_needed_documents')
-                    ->onDelete('cascade');
+            // $table->foreign('document_id')
+            //         ->references('id')
+            //         ->on('taxi_driver_needed_documents')
+            //         ->onDelete('cascade');
         });
     }
 

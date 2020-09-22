@@ -76,6 +76,7 @@ class UserRegistrationController extends LoginController
      */
     public function register(UserRegistrationRequest $request)
     {
+        
         $mobileUuid = $request->input('uuid');
         DB::beginTransaction();
         try {
@@ -83,7 +84,7 @@ class UserRegistrationController extends LoginController
             $user = $this->user->create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'password' => bcrypt($request->input('password')),
+            // 'password' => bcrypt($request->input('password')),
             'mobile' => $mobile,
             'mobile_confirmed' => true,
             'device_token'=>$request->input('device_token'),
@@ -94,11 +95,18 @@ class UserRegistrationController extends LoginController
 
             $user->attachRole(Role::USER);
 
-            $this->dispatch(new UserRegistrationNotification($user));
+            // $this->dispatch(new UserRegistrationNotification($user));
 
             event(new UserRegistered($user));
+            
         } catch (\Exception $e) {
             DB::rollBack();
+
+            echo "<pre>";
+            print_r($e->getMessage());
+
+            die();
+
             Log::error($e);
             Log::error('Error while Registering a user account. Input params : ' . json_encode($request->all()));
             return $this->respondBadRequest('Unknown error occurred. Please try again later or contact us if it continues.');

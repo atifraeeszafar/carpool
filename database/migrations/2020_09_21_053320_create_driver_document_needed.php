@@ -14,16 +14,16 @@ class CreateDriverDocumentNeeded extends Migration
     public function up()
     {
     
-        Schema::create('taxi_driver_needed_documents', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('doc_type');
-            $table->boolean('has_identify_number')->default(false);
-            $table->string('identify_number_locale_key')->nullable();
-            $table->boolean('has_expiry_date')->default(false);
-            $table->boolean('active')->default(false);
-            $table->timestamps();
-        });
+        // Schema::create('taxi_driver_needed_documents', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('name');
+        //     $table->string('doc_type');
+        //     $table->boolean('has_identify_number')->default(false);
+        //     $table->string('identify_number_locale_key')->nullable();
+        //     $table->boolean('has_expiry_date')->default(false);
+        //     $table->boolean('active')->default(false);
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -33,6 +33,6 @@ class CreateDriverDocumentNeeded extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taxi_driver_needed_documents');
+        // Schema::dropIfExists('taxi_driver_needed_documents');
     }
 }

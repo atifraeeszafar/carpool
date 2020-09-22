@@ -331,8 +331,10 @@ class LoginController extends ApiController
             // @TODO Store login by,fcm,apn tokens
 
             if ($request->has('device_token')) {
-                $user->fcm_token = $request->input('device_token')?:null;
+                // $user->fcm_token = $request->input('device_token')?:null;
+                $user->device_token = $request->input('device_token')?:null;
             }
+            
             $user->login_by = $request->input('login_by');
             // $user->fcm_token = $request->input('apn_token')?:null;
             $user->save();
