@@ -263,6 +263,12 @@ class User extends Authenticatable implements CanSendOTPContract
         return $this->hasOne(UserDetails::class, 'user_id', 'id');
     }
 
+    public function document()
+    {
+        return $this->hasOne(UserDocuments::class, 'user_id', 'id');
+    }
+
+
     /**
     * Specifies the user's FCM token
     *
@@ -281,4 +287,6 @@ class User extends Authenticatable implements CanSendOTPContract
     {
         return $this->hasOne(Car::class, 'user_id', 'id');
     }
+
+  
 }

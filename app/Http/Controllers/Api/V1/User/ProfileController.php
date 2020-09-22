@@ -64,6 +64,28 @@ class ProfileController extends ApiController
     public function uploadDocument(UploadDocumentRequest $request)
     {
 
+        $createdParam['document_id'] = $request->document_id;
+        // $createdParam['user_id'] = auth()->user()->id ;
+        $createdParam['extra_fields'] = \json_encode($request->except(['document_id','image'])) ;
+        $createdParam['image'] = $request->document_id;
+        $createdParam['document_status'] = 1;
+
+        auth()->user()->document()->create($createdParam);
+        
+        echo "<pre>";
+        print_r( $createdParam );
+
+        die();
+
+        // $createdParam = 
+
+        dd( auth()->user()->document()->insert() );
+
+        dd( auth()->user()->id );
+        echo "<pre>";
+        print_r( $request->all() );
+
+        die();
     }
         
 

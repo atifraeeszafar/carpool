@@ -18,21 +18,13 @@ class UploadDocumentRequest extends BaseRequest
         $validation = array();
         $validation['document_id'] = 'required';
 
-        echo "<pre>";
-        print_r( Document::NATIONAL_IDENTITY_CARD() );
+        if( $this->has('document_id')  ) {
 
-        die();
-
-        if( $this->has('document_id') == 1  ) {
-
+            if($this->document_id == Document::NATIONAL_IDENTITY_CARD) {
+                $validation  = array_merge($validation,Document::nationalIdentityCard());
+            }
         }
 
-        return [
-            'name' => 'sometimes|required|max:50',
-            'gender_based_search' => 'sometimes|required',
-            'email' => 'sometimes|required|email|max:150|unique:users,email,' . $this->user()->id,
-            'mobile' => 'sometimes|required|mobile_number|unique:users,mobile,' . $this->user()->id,
-            'profile_picture' => $this->userProfilePictureRule(),
-        ];
+        return $validation;
     }
 }

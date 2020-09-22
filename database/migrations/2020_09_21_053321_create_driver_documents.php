@@ -13,9 +13,10 @@ class CreateDriverDocuments extends Migration
      */
     public function up()
     {
-        Schema::create('taxi_driver_documents', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->unsignedInteger('driver_id');
+        Schema::create('user_documents', function (Blueprint $table) {
+        //     $table->increments('id');
+            $table->increments('id');
+            $table->unsignedInteger('user_id');
             $table->unsignedInteger('document_id');
             $table->string('image');
             $table->longText('extra_fields');
@@ -23,7 +24,7 @@ class CreateDriverDocuments extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('driver_id')
+            $table->foreign('user_id')
                     ->references('id')
                     ->on('users')
                     ->onDelete('cascade');
@@ -42,6 +43,6 @@ class CreateDriverDocuments extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taxi_driver_documents');
+        Schema::dropIfExists('user_documents');
     }
 }

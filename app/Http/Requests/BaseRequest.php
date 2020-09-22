@@ -65,7 +65,7 @@ abstract class BaseRequest extends FormRequest
     {
         $minResolution = $this->config('user.upload.profile-picture.image.min_resolution', 100);
 
-        $maxFileSizeKb = $this->config('user.upload.profile-picture.image.max_file_size_kb', 1000);
+        $maxFileSizeKb = $this->config('user.upload.profile-picture.image.max_file_size_kb', 10000);
 
         return $this->allowedImages() . "|dimensions:min_width={$minResolution},min_height={$minResolution}" . "|max:{$maxFileSizeKb}";
     }

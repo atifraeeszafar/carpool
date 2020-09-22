@@ -13,9 +13,26 @@ class Document
     const DRIVING_LICENSE = '7';
     const VEHICLE_IDENTIFICATION_CARD = '8';
 
-    public static function NATIONAL_IDENTITY_CARD()
+    public static function nationalIdentityCard()
     {
-        return [ 'name','gender','identity_card_number','date_of_birth','date_of_expiry'];
+        return [ 'name' => 'required',
+                 'gender' => 'required|in:1,2',
+                 'identity_card_number' => 'required',
+                 'date_of_birth' => 'required|date|date_format:Y-m-d',
+                 'date_of_expiry' => 'required|date|date_format:Y-m-d|after:today'
+                ];
+    }
+
+    public static function NATIONAL_IDENTITY_CARD_OF_OVERSEAS_PAKISTAN()
+    {
+        return [ 'name' => 'required',
+                'gender' => 'required|in:1,2',
+                'country_of_stay' => 'required',
+                'identity_card_number' => 'required',
+                'date_of_birth' => 'required|date|date_format:Y-m-d',
+                'date_of_expiry' => 'required|date|date_format:Y-m-d|after:today'
+       ];
+
     }
    
 }
