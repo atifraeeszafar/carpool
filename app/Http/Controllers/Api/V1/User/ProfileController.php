@@ -76,7 +76,19 @@ class ProfileController extends ApiController
                 ->saveProfilePicture();
         }
 
-        $document = $request->user()->document()->create($createdParam);
+        $alreadyDocumentUpload = $request->user()->document()
+        ->where('document_id',$request->document_id)->first();
+
+        if($alreadyDocumentUpload ) {
+
+            $document = $request->user()->document()->where('document_id',$request->document_id)->update($createdParam);
+
+        }else {
+
+            $document = $request->user()->document()->create($createdParam);
+
+        }
+
 
         $document = fractal( $request->user(), new UserTransformer)->parseIncludes('document');
 
