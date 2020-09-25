@@ -43,6 +43,7 @@ class UserTransformer extends Transformer
             'gender_based_search' =>  $user->gender_based_search,
             'created_at' => $user->created_at->toDateTimeString(),
             'updated_at' => $user->updated_at->toDateTimeString(),
+            'document_upload_status' => ($user->document()->count() == 0)?0:1,
             'document_status' => ($user->document()->where('document_status',DocumentStatus::APPROVED)->count() == 0)?0:1,
 
         ];
