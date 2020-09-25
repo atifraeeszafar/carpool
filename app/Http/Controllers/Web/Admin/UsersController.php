@@ -330,9 +330,14 @@ $result->save();
 
     public function status(Request $request)
     {
-        // $user->delete();
 
         $data=$this->user->find($request->id);
+
+        if( $data->active == 0 && $data->document()->where('document_status',DocumentStatus::APPROVED)->count()  == 0) {
+            $message = "Atleast One Document Required to Approve User";
+            return redirect()->back()->with('success', $message);
+        }
+
         $data->active= ! $data->active;
         $data->save();
 

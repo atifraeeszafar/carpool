@@ -7,6 +7,7 @@ use App\Base\Constants\Auth\Role;
 use App\Transformers\Transformer;
 use App\Transformers\Access\RoleTransformer;
 use App\Transformers\User\UserDocumentTransformer;
+use App\Base\Constants\Document\DocumentStatus;
 
 class UserTransformer extends Transformer
 {
@@ -42,6 +43,8 @@ class UserTransformer extends Transformer
             'gender_based_search' =>  $user->gender_based_search,
             'created_at' => $user->created_at->toDateTimeString(),
             'updated_at' => $user->updated_at->toDateTimeString(),
+            'document_status' => ($user->document()->where('document_status',DocumentStatus::APPROVED)->count() == 0)?0:1,
+
         ];
         if (access()->hasRole(Role::DRIVER)) {
             $params['service_location_id'] = $user->driver->service_location_id;

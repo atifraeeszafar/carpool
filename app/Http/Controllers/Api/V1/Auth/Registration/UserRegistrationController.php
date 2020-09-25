@@ -85,7 +85,7 @@ class UserRegistrationController extends LoginController
             'name' => $request->input('name'),
             'last_name' => $request->input('last_name'),       
             'email' => $request->input('email'),
-            'status' => 0,
+            'active' => 0,
             // 'password' => bcrypt($request->input('password')),
             'mobile' => $mobile,
             'mobile_confirmed' => true,
@@ -97,7 +97,7 @@ class UserRegistrationController extends LoginController
 
             $user->attachRole(Role::USER);
 
-            // $this->dispatch(new UserRegistrationNotification($user));
+            $this->dispatch(new UserRegistrationNotification($user));
 
             event(new UserRegistered($user));
             
