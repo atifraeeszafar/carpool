@@ -113,9 +113,18 @@ class ProfileController extends ApiController
     
         $user = $request->user();
 
-        $user = fractal($user->fresh(), new UserTransformer);
+        $user = fractal($user->fresh(), new UserTransformer)->parseIncludes('document');
 
         return $this->respondSuccess($user,'user_profile');
+    }
+    
+    public function requestInProgress(Request $request)
+    {
+        $user = $request->user();
+
+        $user = fractal($user->fresh(), new UserTransformer)->parseIncludes('document');
+
+        return $this->respondSuccess($user,'request_in_progress');
     }
     
     /**

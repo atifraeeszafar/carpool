@@ -203,7 +203,7 @@ class User extends Authenticatable implements CanSendOTPContract
      */
     public function uploadPath()
     {
-        return config('Base.user.upload.profile-picture.path');
+        return config('base.user.upload.profile-picture.path');
     }
 
     /**

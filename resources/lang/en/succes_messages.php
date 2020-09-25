@@ -58,5 +58,5 @@ return [
            'promocode_deleted_succesfully' => 'Promocode deleted succesfully',
            'promocode_updated_succesfully' => 'Promocode updated succesfully',
            'promocode_added_succesfully' => 'Promocode added succesfully',
-
+           'user_approved_successfully' => 'user approved successfully',
 ];

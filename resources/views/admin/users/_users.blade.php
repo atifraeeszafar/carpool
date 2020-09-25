@@ -9,7 +9,8 @@
 <th>@lang('view_pages.email')</th> 
 <th>@lang('view_pages.phone_number')</th> 
 <th>@lang('view_pages.gender')</th>
-<th>@lang('view_pages.date_of_birth')</th> 
+<th>@lang('view_pages.date_of_birth')</th>
+<th>@lang('view_pages.document')</th>
 <th>@lang('view_pages.status')</th>
 <th>@lang('view_pages.action')</th>
 </tr>
@@ -70,7 +71,12 @@ $time = strtotime($result->date_of_birth);
 {{ $format_date_of_birth }}
      </td>
 
-   
+    <td>  
+        <a href="{{ url('user/document',$result->id) }}" class="btn btn-success btn-sm" style="color:white" >
+            @lang('view_pages.document')
+        </a>
+    </td>
+
     @if($result->active)
     <td>  <button class="btn btn-success btn-sm">Active</button> </td>
     @else

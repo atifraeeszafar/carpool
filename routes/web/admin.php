@@ -182,6 +182,12 @@ Route::middleware('auth:web')->group(function () {
             
             Route::get('/delete/{id}', 'UsersController@delete')->middleware('permission:user_delete');
             Route::get('/status/{id}', 'UsersController@status')->middleware('permission:user_status');
+        
+            Route::get('/document/{user}', 'UsersController@getDocument')->middleware('permission:user_status');
+            Route::get('document/list/fetch/{user}', 'UsersController@fetchDocument')->middleware('permission:user_status');
+            Route::get('document/status/approve/{userDocument}', 'UsersController@approveDocument')->middleware('permission:user_status');
+            Route::get('document/status/reject/{userDocument}', 'UsersController@rejectDocument')->middleware('permission:user_status');
+
         });
 
     });

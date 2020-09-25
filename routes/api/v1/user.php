@@ -31,6 +31,8 @@ Route::prefix('user')->namespace('User')->group(function () {
         // Update user profile.
         Route::get('profile', 'ProfileController@viewProfile');
 
+        Route::get('request_in_progress', 'ProfileController@requestInProgress');
+
         Route::post('profile', 'ProfileController@updateProfile');
         
         Route::post('document/upload', 'ProfileController@uploadDocument');

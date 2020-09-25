@@ -27,6 +27,11 @@ use App\Base\Services\ImageUploader\ImageUploaderContract;
 use App\Http\Requests\Admin\AdminDetail\CreateAdminRequest;
 use App\Http\Requests\Admin\AdminDetail\UpdateAdminRequest;
 use App\Http\Requests\Admin\AdminDetail\UpdateProfileRequest;
+use App\Models\UserDocuments;
+use App\Base\Constants\Document\Document;
+use App\Base\Constants\Masters\PushEnums;
+use App\Jobs\Notifications\PushNotification;
+use App\Base\Constants\Document\DocumentStatus;
 
 /**
  * @resource Driver
@@ -82,7 +87,53 @@ class UsersController extends BaseController
 
         return view('admin.users.index', compact('page', 'main_menu', 'sub_menu'));
     }
+    
+    
+    public function approveDocument(UserDocuments $userDocument)
+    {
+        $userDocument->document_status = DocumentStatus::APPROVED;
+        $userDocument->save();
 
+
+        $push_data = ['notification_enum'=>PushEnums::DOCUMENT_APPROVED,'result'=>(string)$userDocument];
+        
+        $title = trans('push_notifications.document_approved_title');
+        
+        $body = trans('push_notifications.document_approved_body');
+
+        $user = User::find($userDocument->user_id);
+
+        $user->notify(new PushNotification($title, $body, $push_data));
+
+        $message = trans('succes_messages.user_approved_successfully');
+
+        return redirect()->back()->with('success', $message);
+
+    }
+
+    public function getDocument(User $user)
+    {
+        $page = trans('pages_names.user').' '.trans('pages_names.document');
+
+        $main_menu = 'users';
+        $sub_menu = null;
+
+        return view('admin.users.document_index', compact('user','page', 'main_menu', 'sub_menu'));
+    }
+
+    public function fetchDocument(User $user,QueryFilterContract $queryFilter)
+    {   
+        
+        // $query = $this->user->belongsToRole('USER')->orderBy('created_at','desc');
+
+        $query =  UserDocuments::where('user_id', $user->id)->orderBy('created_at','desc');
+
+        $results = $queryFilter->builder($query)->customFilter(new CommonMasterFilter)->paginate();
+
+        return view('admin.users._document', compact('results'));
+    }
+
+    
 
     public function fetch(QueryFilterContract $queryFilter)
     {

@@ -30,6 +30,8 @@ return array(
   'initiated_body' => 'Trip Initiated',
 
   'trip_start' => 'Trip Start',
-  
+  'document_approved_title' => 'Document approved',
+  'document_approved_body' => 'Document approved',
+
 
 );

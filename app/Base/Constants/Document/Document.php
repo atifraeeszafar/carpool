@@ -15,7 +15,8 @@ class Document
 
     public static function nationalIdentityCard()
     {
-        return [ 'name' => 'required',
+        return [ 
+                 'name' => 'required',
                  'gender' => 'required|in:1,2',
                  'identity_card_number' => 'required',
                  'date_of_birth' => 'required|date|date_format:Y-m-d',
@@ -26,7 +27,8 @@ class Document
     public static function nationalIdentityCardOfOverseasPakistan()
     {
     
-        return [ 'name' => 'required',
+        return [ 
+                'name' => 'required',
                 'gender' => 'required|in:1,2',
                 'country_of_stay' => 'required',
                 'identity_card_number' => 'required',
@@ -54,7 +56,8 @@ class Document
 
     public static function juvenileCard()
     {
-        return [ 'name' => 'required',
+        return [ 
+                'name' => 'required',
                  'father_name' => 'required',
                  'gender' => 'required|in:1,2',
                  'identity_card_number' => 'required',
@@ -84,7 +87,8 @@ class Document
     public static function identityCardsFromForeigners()
     {
         
-        return [ 'name' => 'required',
+        return [ 
+                'name' => 'required',
                 'gender' => 'required|in:1,2',
                 'identity_card_number' => 'required',
                 'date_of_birth' => 'required|date|date_format:Y-m-d',

@@ -85,6 +85,7 @@ class UserRegistrationController extends LoginController
             'name' => $request->input('name'),
             'last_name' => $request->input('last_name'),       
             'email' => $request->input('email'),
+            'status' => 0,
             // 'password' => bcrypt($request->input('password')),
             'mobile' => $mobile,
             'mobile_confirmed' => true,

@@ -113,6 +113,7 @@ class UserDocuments extends Authenticatable implements CanSendOTPContract
         if (empty($value)) {
             return null;
         }
+
         return Storage::disk(env('FILESYSTEM_DRIVER'))->url(file_path($this->uploadPath(), $value));
     }
 
@@ -155,7 +156,7 @@ class UserDocuments extends Authenticatable implements CanSendOTPContract
      */
     public function uploadPath()
     {
-        return config('Base.user.upload.profile-picture.path');
+        return config('base.user.upload.profile-picture.path');
     }
 
 }

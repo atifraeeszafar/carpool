@@ -80,6 +80,8 @@ return [
     'add_user' => 'Add user',
 
     'users' => 'Users',
+    'user' => 'User',
+    'document' => 'Document',
 
     
 

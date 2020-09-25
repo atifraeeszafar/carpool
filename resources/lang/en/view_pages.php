@@ -308,6 +308,18 @@ return [
     'enter_phone_number' => 'Enter Phone number',
     'enter_date_of_birth' => 'Enter Date of Birth',
 
+    'document' => 'Document',
+    'image' => 'Image',
 
-    
+    'rejected' => 'Rejected',
+    'approved' => 'Approved',
+    'uploaded' => 'Uploaded',
+    'vehicle_identification_card' => 'Vehicle identification card',
+    'driving_license' => 'Driving license',
+    'identity_cards_from_foreigners' => 'Identity Cards From Foreigners',
+    'passport' => 'Passport',
+    'juvenile_card' => 'Juvenile card',
+    'pakistan_origin_card' => 'Pakistan origin card',
+    'national_identity_card_of_overseas_pakistan' => 'National identity card of overseas pakistan',
+    'national_identity_card' => 'National identity card',
 ];

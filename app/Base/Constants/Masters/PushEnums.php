@@ -22,5 +22,9 @@ class PushEnums
     const TRIP_AVAILABLE ='trip_available';
     const INITIATED ='initiated';
     const TRIP_START ='trip_start';
-    const TRIP_END ='trip_end';    
+    const TRIP_END ='trip_end';   
+    
+    const DOCUMENT_APPROVED ='document_approved';    
+    // const TRIP_END ='trip_end';    
+
 }
