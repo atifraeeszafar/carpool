@@ -103,9 +103,31 @@ class UsersController extends BaseController
 
         $user = User::find($userDocument->user_id);
 
-        $user->notify(new PushNotification($title, $body, $push_data));
+        // $user->notify(new PushNotification($title, $body, $push_data));
 
-        $message = trans('succes_messages.user_approved_successfully');
+        $message = trans('succes_messages.user_document_approved_successfully');
+
+        return redirect()->back()->with('success', $message);
+
+    }
+
+    public function rejectDocument(UserDocuments $userDocument)
+    {
+        $userDocument->document_status = DocumentStatus::REJECTED;
+        $userDocument->save();
+
+
+        $push_data = ['notification_enum'=>PushEnums::DOCUMENT_REJECTED,'result'=>(string)$userDocument];
+        
+        $title = trans('push_notifications.document_rejected_title');
+        
+        $body = trans('push_notifications.document_rejected_body');
+
+        $user = User::find($userDocument->user_id);
+
+        // $user->notify(new PushNotification($title, $body, $push_data));
+
+        $message = trans('succes_messages.user_document_rejected_successfully');
 
         return redirect()->back()->with('success', $message);
 

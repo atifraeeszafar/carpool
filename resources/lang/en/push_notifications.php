@@ -33,5 +33,7 @@ return array(
   'document_approved_title' => 'Document approved',
   'document_approved_body' => 'Document approved',
 
+  'document_rejected_title' => 'Document rejected',
+  'document_rejected_body' => 'Document rejected',
 
 );

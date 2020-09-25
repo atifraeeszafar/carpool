@@ -24,7 +24,9 @@ class PushEnums
     const TRIP_START ='trip_start';
     const TRIP_END ='trip_end';   
     
-    const DOCUMENT_APPROVED ='document_approved';    
+    const DOCUMENT_APPROVED ='document_approved';
+    const DOCUMENT_REJECTED ='document_rejected';    
+    
     // const TRIP_END ='trip_end';    
 
 }

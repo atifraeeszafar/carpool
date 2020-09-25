@@ -51,9 +51,9 @@
     
         @if($result->document_status == App\Base\Constants\Document\DocumentStatus::UPLOADED)   
            <button class="btn btn-success btn-sm">@lang('view_pages.uploaded')  </button>
-        @elseif($userDocument->document_status == App\Base\Constants\Document\DocumentStatus::APPROVED) 
+        @elseif($result->document_status == App\Base\Constants\Document\DocumentStatus::APPROVED) 
            <button class="btn btn-success btn-sm">@lang('view_pages.approved')</button>
-        @elseif($userDocument->document_status == App\Base\Constants\Document\DocumentStatus::REJECTED) 
+        @elseif($result->document_status == App\Base\Constants\Document\DocumentStatus::REJECTED) 
            <button class="btn btn-danger btn-sm">@lang('view_pages.rejected')</button>
                       
         @endif  
@@ -61,21 +61,23 @@
 
     </td>
 
-    
+    @if( $result->document_status == App\Base\Constants\Document\DocumentStatus::UPLOADED)
+
     <td> 
         <div class="dropdown">
             <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
             </button>
             <div class="dropdown-menu">
                
-               @if( $result->document_status == App\Base\Constants\Document\DocumentStatus::UPLOADED)
                     <a class="dropdown-item" href="{{url('user/document/status/approve',$result->id)}}">@lang('view_pages.approved')</a>
                     <a class="dropdown-item" href="{{url('user/document/status/reject',$result->id)}}">@lang('view_pages.rejected')</a>
-               @endif
         
             </div>
         </div>
     </td>
+
+    @endif
+
 </tr>
 @endforeach
 @endif

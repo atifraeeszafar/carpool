@@ -44,21 +44,21 @@ class UserDocumentTransformer extends Transformer
         }  
 
         if($userDocument->document_id == Document::NATIONAL_IDENTITY_CARD) {
-            $params['document_name'] = 'NATIONAL_IDENTITY_CARD';            
+            $params['document_name'] = 'NIC (National Identity Card)';            
         }else if($userDocument->document_id == Document::NATIONAL_IDENTITY_CARD_OF_OVERSEAS_PAKISTAN) {
-            $params['document_name'] = 'NATIONAL_IDENTITY_CARD_OF_OVERSEAS_PAKISTAN';            
+            $params['document_name'] = 'NICOP (National Identity Card of Overseas Pakistani)';            
         }else if($userDocument->document_id == Document::PAKISTAN_ORIGIN_CARD) {
-            $params['document_name'] = 'PAKISTAN_ORIGIN_CARD';            
+            $params['document_name'] = 'POC (Pakistan Origin Card)';            
         }else if($userDocument->document_id == Document::JUVENILE_CARD) {
-            $params['document_name'] = 'JUVENILE_CARD';            
+            $params['document_name'] = 'Juvenile Card (for Minor)';            
         }else if($userDocument->document_id == Document::PASSPORT) {
-            $params['document_name'] = 'PASSPORT';            
+            $params['document_name'] = 'Passport';            
         }else if($userDocument->document_id == Document::IDENTITY_CARDS_FROM_FOREIGNERS) {
-            $params['document_name'] = 'IDENTITY_CARDS_FROM_FOREIGNERS';            
+            $params['document_name'] = 'Others (Identity cards from foreigners)';            
         }else if($userDocument->document_id == Document::DRIVING_LICENSE) {
-            $params['document_name'] = 'DRIVING_LICENSE';            
+            $params['document_name'] = 'Driving License';            
         }else if($userDocument->document_id == Document::VEHICLE_IDENTIFICATION_CARD) {
-            $params['document_name'] = 'VEHICLE_IDENTIFICATION_CARD';            
+            $params['document_name'] = 'Vehicle Identification card';            
         }
 
         $documentJson = (array) json_decode($userDocument->extra_fields);

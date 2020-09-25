@@ -59,4 +59,6 @@ return [
            'promocode_updated_succesfully' => 'Promocode updated succesfully',
            'promocode_added_succesfully' => 'Promocode added succesfully',
            'user_approved_successfully' => 'user approved successfully',
+           'user_document_rejected_successfully' => 'Document Rejected',
+           'user_document_approved_successfully' => 'Document Approved',
 ];
