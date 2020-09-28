@@ -9,6 +9,7 @@ use App\Transformers\Access\RoleTransformer;
 use App\Models\UserDocuments;
 use App\Base\Constants\Document\Document;
 use App\Base\Constants\Document\DocumentStatus;
+use App\Transformers\User\UserDocumentImageTransformer;
 
 class UserDocumentTransformer extends Transformer
 {
@@ -18,7 +19,7 @@ class UserDocumentTransformer extends Transformer
      * @var array
      */
     protected $availableIncludes = [
-        // 'roles','document'
+        'roles','image'
     ];
 
     /**
@@ -67,4 +68,13 @@ class UserDocumentTransformer extends Transformer
         return $params;
     }
     
+    public function includeImage(UserDocuments $userDocument)
+    {
+
+        $image = $userDocument->documentImage;
+
+        return $image
+        ? $this->collection($image, new UserDocumentImageTransformer)
+        : $this->null();
+    }
 }

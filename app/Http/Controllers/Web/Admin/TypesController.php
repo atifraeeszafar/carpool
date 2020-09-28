@@ -88,7 +88,9 @@ class TypesController extends BaseController
     
         $results = $queryFilter->builder($query)->customFilter(new CommonMasterFilter)->paginate();
 
- 
+        // echo "<pre>";
+        // print_r( $results );
+        // die();
 
         return view('admin.types._types', compact('results'));
     }
@@ -110,38 +112,22 @@ class TypesController extends BaseController
 
         if ($uploadedFile = $this->getValidatedUpload('icon', $request)) {
 
-    
-
             $filename = $this->imageUploader->file($uploadedFile)
                 ->saveTypesPicture();
 
             $created_params['icon']  = $filename;
             $image = asset('storage/'.config('base.types.upload.images.path').$filename);
             
-            $imageTempName = tempnam(sys_get_temp_dir(),'image-from-remote-url');
-            file_put_contents($imageTempName, file_get_contents($image));
-
-            $ocr = new TesseractOCR($imageTempName);
-            $ocr->psm(4);
-            $ocr->lang('eng');            
-            echo $ocr->run(), PHP_EOL;
-            
-            echo "<pre>";
-            print_r($image);
-            die();
-
         }
         
         $user = $this->type->create($created_params);
-
-
     
         $message = trans('succes_messages.types_added_succesfully');
         return redirect('types')->with('success', $message);
     }
 
 
-    public function getById(Request $admin)
+    public function getById(Types $type)
     {
         $page = trans('pages_names.edit_types');
 
@@ -158,32 +144,29 @@ class TypesController extends BaseController
         $main_menu = 'types';
         $sub_menu = null;
 
-        return view('admin.types.update', compact('page','main_menu', 'sub_menu'));
+        return view('admin.types.update', compact('type','page','main_menu', 'sub_menu'));
     }
 
 
-    public function update(Request $admin, Request $request)
+    public function update(Types $type, Request $request)
     {
-        // $updatedParams = $request->only(['service_location_id', 'first_name', 'last_name','mobile','email','address','state','city','country']);
-        // $updatedParams['pincode'] = $request->postal_code;
 
-        // if ($uploadedFile = $this->getValidatedUpload('profile_picture', $request)) {
-        //     $updated_user_params['profile_picture'] = $this->imageUploader->file($uploadedFile)
-        //         ->saveProfilePicture();
-        // }
+        $created_params = $request->only(['name', 'base_price', 'distance_price','time_price']);
 
-        // $updated_user_params = ['name'=>$request->input('first_name').' '.$request->input('last_name'),
-        //     'email'=>$request->input('email'),
-        //     'mobile'=>$request->input('mobile')
-        // ];
+        if ($uploadedFile = $this->getValidatedUpload('icon', $request)) {
 
-        // $admin->user->update($updated_user_params);
+            $filename = $this->imageUploader->file($uploadedFile)
+                ->saveTypesPicture();
 
-        // $admin->user->attachRole($request->role);
-
-        // $admin->update($updatedParams);
+            $created_params['icon']  = $filename;
+            $image = asset('storage/'.config('base.types.upload.images.path').$filename);
+            
+        }
+        
+        $user = $type->update($created_params);
 
         $message = trans('succes_messages.types_updated_succesfully');
+        
         return redirect('types')->with('success', $message);
     }
 

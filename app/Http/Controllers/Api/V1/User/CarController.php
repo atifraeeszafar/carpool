@@ -35,8 +35,9 @@ class CarController extends BaseController
     */
     public function store(AddCarRequest $request)
     {
-        $this->car->create($request->all());
 
+        $request->merge(["user_id"=> auth()->user()->id ]);
+        $this->car->create($request->all());        
         return $this->respondSuccess();
     }
 

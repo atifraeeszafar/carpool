@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\User\UploadDocumentRequest;
 use App\Base\Constants\Document\DocumentStatus;
 use App\Transformers\User\UserDocumentTransformer;
-
+use App\Models\UserDocumentImage;
 /**
  * @group Profile-Management
  *
@@ -68,13 +68,8 @@ class ProfileController extends ApiController
 
         $createdParam['document_id'] = $request->document_id;
         $createdParam['extra_fields'] = \json_encode($request->except(['document_id','image'])) ;
-        $createdParam['image'] = $request->document_id;
+        // $createdParam['image'] = $request->document_id;
         $createdParam['document_status'] = DocumentStatus::UPLOADED;
-
-        if ($uploadedFile = $this->getValidatedUpload('image', $request)) {
-            $createdParam['image'] = $this->imageUploader->file($uploadedFile)
-                ->saveProfilePicture();
-        }
 
         $alreadyDocumentUpload = $request->user()->document()
         ->where('document_id',$request->document_id)->first();
@@ -83,14 +78,40 @@ class ProfileController extends ApiController
 
             $document = $request->user()->document()->where('document_id',$request->document_id)->update($createdParam);
 
+            $document = $request->user()->document()->where('document_id',$request->document_id)->first();
         }else {
 
             $document = $request->user()->document()->create($createdParam);
 
         }
 
+        $imageParam = array();
 
-        $document = fractal( $request->user(), new UserTransformer)->parseIncludes('document');
+        // if ($uploadedFile = $this->getValidatedUpload('image', $request)) { 
+        // }
+
+        foreach($request->file('image')  as $image)
+        {
+            $temp = array();
+
+            $temp['user_document_id'] = $document->id;
+            $temp['updated_at'] = (string) $document->updated_at;
+            $temp['created_at'] = (string) $document->created_at;
+
+            $temp['image'] = $this->imageUploader->file($image)
+                ->saveProfilePicture();
+
+            $imageParam[] = $temp;              
+        }
+
+        if( count($imageParam) > 0 ) {
+
+            UserDocumentImage::where('user_document_id',$document->id)->delete();
+
+            UserDocumentImage::insert($imageParam);
+        }
+          
+        $document = fractal( $request->user(), new UserTransformer)->parseIncludes('document.image');
 
         return $this->respondSuccess($document,'profile_uploaded_successfull');
     }
@@ -122,7 +143,7 @@ class ProfileController extends ApiController
     {
         $user = $request->user();
 
-        $user = fractal($user->fresh(), new UserTransformer)->parseIncludes('document');
+        $user = fractal($user->fresh(), new UserTransformer)->parseIncludes('ride','document');
 
         return $this->respondSuccess($user,'request_in_progress');
     }

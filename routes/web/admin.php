@@ -79,8 +79,8 @@ Route::middleware('auth:web')->group(function () {
             Route::get('/fetch', 'TypesController@fetch')->middleware('permission:types_view');
             Route::get('/create', 'TypesController@create')->middleware('permission:types_create');
             Route::post('/store', 'TypesController@store')->middleware('permission:types_create');
-            Route::get('/edit/{id}', 'TypesController@getById')->middleware('permission:types_modify');
-            Route::post('/update/{role}', 'TypesController@update')->middleware('permission:types_modify');
+            Route::get('/edit/{type}', 'TypesController@getById')->middleware('permission:types_modify');
+            Route::post('/update/{type}', 'TypesController@update')->middleware('permission:types_modify');
             Route::get('/delete/{id}', 'TypesController@delete')->middleware('permission:types_delete');
         });
         

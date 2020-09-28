@@ -26,7 +26,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Master\Car;
 use App\Base\Uuid\UuidModel;
 
-class UserDocuments extends Authenticatable implements CanSendOTPContract
+class UserDocumentImage extends Authenticatable implements CanSendOTPContract
 {
     use CanSendOTP,
     DeleteOldFiles,
@@ -43,7 +43,7 @@ class UserDocuments extends Authenticatable implements CanSendOTPContract
      *
      * @var string
      */
-    protected $table = 'user_documents';
+    protected $table = 'user_document_image';
 
     /**
      * The attributes that are mass assignable.
@@ -51,7 +51,7 @@ class UserDocuments extends Authenticatable implements CanSendOTPContract
      * @var array
      */
     protected $fillable = [
-        'user_id','document_id','extra_fields','document_status'
+        'user_document_id','image'
     ];
 
     protected $searchable = [
@@ -91,7 +91,6 @@ class UserDocuments extends Authenticatable implements CanSendOTPContract
      * @var array
      */
     public $includes = [
-        'documentImage'
     ];
 
     /**
@@ -150,10 +149,11 @@ class UserDocuments extends Authenticatable implements CanSendOTPContract
         return $this->belongsTo(User::class,'user_id', 'id');
     }
 
-    public function documentImage()
+    public function userDocument()
     {
-        return $this->hasMany(UserDocumentImage::class, 'user_document_id', 'id');
+        return $this->belongsTo(UserDocuments::class,'user_document_id', 'id');
     }
+
         /**
      * The default file upload path.
      *

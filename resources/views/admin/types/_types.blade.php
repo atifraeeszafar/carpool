@@ -42,8 +42,8 @@
     <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
     </button>
         <div class="dropdown-menu">
-            <a class="dropdown-item" href="{{url('admins/edit',$result->id)}}">@lang('view_pages.edit')</a>
-            <a class="dropdown-item sweet-delete" href="{{url('admins/delete',$result->id)}}">@lang('view_pages.delete')</a>
+            <a class="dropdown-item" href="{{url('types/edit',$result->id)}}">@lang('view_pages.edit')</a>
+            <a class="dropdown-item sweet-delete" href="{{url('types/delete',$result->id)}}">@lang('view_pages.delete')</a>
         </div>
     </div>
 
@@ -51,27 +51,6 @@
 </tr>
 @endforeach
 @endif
-
-@foreach( $results as $result)
-<tr>
-    <td> 1</td>
-    <td> Suv</td>
-    <td>  <img src="https://stimg.cardekho.com/images/carexteriorimages/630x420/Kia/Seltos/6226/1580962193955/front-left-side-47.jpg" alt="Suv" width="50" height="60">   </td>
-    <td>  <button class="btn btn-success btn-sm">Active</button> </td>
-    <td> 
-        <div class="dropdown">
-            <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="{{url('types/edit',2)}}">@lang('view_pages.edit')</a>
-                <a class="dropdown-item sweet-delete" href="{{url('types/delete',2)}}">@lang('view_pages.delete')</a>
-            </div>
-        </div>
-    </td>
-</tr>
-@endforeach
-
-
 
 </tbody>
 </table>

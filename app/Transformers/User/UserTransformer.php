@@ -17,7 +17,7 @@ class UserTransformer extends Transformer
      * @var array
      */
     protected $availableIncludes = [
-        'roles','document'
+        'roles','document','ride'
     ];
 
     /**
@@ -79,12 +79,20 @@ class UserTransformer extends Transformer
 
         $document = $user->document;
 
-        return $this->collection($document, new UserDocumentTransformer);
-
         return $document
         ? $this->collection($document, new UserDocumentTransformer)
         : $this->null();
     }
+
+    public function includeRide(User $user)
+    {
+
+        $document = $user->rideDetail;
+        dd($document);
+
+
+    }
+    
 
     
 }

@@ -41,7 +41,7 @@
 
 <div class="col-sm-12">
 
-<form  method="post" class="form-horizontal" action="{{url('types/store')}}" enctype="multipart/form-data">
+<form  method="post" class="form-horizontal" action="{{url('types/update',$type->id)}}" enctype="multipart/form-data">
 {{csrf_field()}}
 
 
@@ -50,7 +50,7 @@
     <div class="col-sm-12">
         <div class="form-group">
             <label for="name">@lang('view_pages.name')</label>
-            <input class="form-control" type="text" id="name" name="name" value="{{old('name','suv')}}" required="" placeholder="@lang('view_pages.enter_name')">
+            <input class="form-control" type="text" id="name" name="name" value="{{old('name',$type->name)}}" required="" placeholder="@lang('view_pages.enter_name')">
             <span class="text-danger">{{ $errors->first('name') }}</span>
         </div>
     </div>
@@ -58,7 +58,7 @@
     <div class="col-sm-4">
         <div class="form-group">
             <label for="base_price">@lang('view_pages.base_price')</label>
-            <input class="form-control" type="text" id="base_price" name="base_price" value="{{old('base_price')}}" required="" placeholder="@lang('view_pages.enter_base_price')">
+            <input class="form-control" type="text" id="base_price" name="base_price" value="{{old('base_price',$type->base_price)}}" required="" placeholder="@lang('view_pages.enter_base_price')">
             <span class="text-danger">{{ $errors->first('base_price') }}</span>
         </div>
     </div>
@@ -66,7 +66,7 @@
     <div class="col-sm-4">
         <div class="form-group">
             <label for="distance_price">@lang('view_pages.distance_price')</label>
-            <input class="form-control" type="text" id="distance_price" name="distance_price" value="{{old('distance_price')}}" required="" placeholder="@lang('view_pages.enter_distance_price')">
+            <input class="form-control" type="text" id="distance_price" name="distance_price" value="{{old('distance_price',$type->distance_price)}}" required="" placeholder="@lang('view_pages.enter_distance_price')">
             <span class="text-danger">{{ $errors->first('distance_price') }}</span>
         </div>
     </div>
@@ -74,7 +74,7 @@
     <div class="col-sm-4">
         <div class="form-group">
         <label for="time_price">@lang('view_pages.time_price')</label>
-            <input class="form-control" type="text" id="time_price" name="time_price" value="{{old('time_price')}}" required="" placeholder="@lang('view_pages.enter_time_price')">
+            <input class="form-control" type="text" id="time_price" name="time_price" value="{{old('time_price',$type->time_price)}}" required="" placeholder="@lang('view_pages.enter_time_price')">
             <span class="text-danger">{{ $errors->first('time_price') }}</span>
         </div>
     </div>
@@ -82,18 +82,17 @@
 </div>
 
 
-
-
 <div class="form-group">
     <div class="col-6">
-        <label for="profile_picture">@lang('view_pages.icon')</label><br>
-        <img id="blah" src="https://stimg.cardekho.com/images/carexteriorimages/630x420/Maruti/Dzire-2020/7664/1584705998420/front-left-side-47.jpg?tr-371" alt="" width="100" height="120" ><br><br><br>
-        <input type="file" id="icon" onchange="readURL(this)" name="icon" style="display:none">
+        <label for="profile_picture">@lang('view_pages.profile')</label><br>
+        <img id="blah" src="{{ Storage::disk(env('FILESYSTEM_DRIVER'))->url(file_path(config('base.types.upload.images.path'),  $type->icon))}}" alt=""><br>
+        <input type="file" id="profile_picture" onchange="readURL(this)" name="icon" style="display:none">
         <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
         <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
         <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
+    </div>
 </div>
-</div>
+
 
 <div class="form-group">
     <div class="col-sm-12">

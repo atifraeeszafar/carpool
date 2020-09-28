@@ -105,7 +105,7 @@ class User extends Authenticatable implements CanSendOTPContract
      * @var array
      */
     public $includes = [
-        'roles', 'otp', 'merchants', 'restaurantManagers',
+        'rideDetail','roles', 'otp', 'merchants', 'restaurantManagers',
     ];
 
     /**
