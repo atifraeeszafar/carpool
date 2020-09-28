@@ -134,7 +134,7 @@ class ProfileController extends ApiController
     
         $user = $request->user();
 
-        $user = fractal($user->fresh(), new UserTransformer)->parseIncludes('document');
+        $user = fractal($user->fresh(), new UserTransformer)->parseIncludes('document.image');
 
         return $this->respondSuccess($user,'user_profile');
     }
@@ -143,7 +143,7 @@ class ProfileController extends ApiController
     {
         $user = $request->user();
 
-        $user = fractal($user->fresh(), new UserTransformer)->parseIncludes('ride','document');
+        $user = fractal($user->fresh(), new UserTransformer)->parseIncludes('document.image');
 
         return $this->respondSuccess($user,'request_in_progress');
     }
