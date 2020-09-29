@@ -45,27 +45,44 @@
 {{csrf_field()}}
 
 <div class="row">
-        <div class="col-sm-6">
-               <div class="form-group">
-    <label for="car_make">@lang('view_pages.car_make')
-        <span class="text-danger">*</span>
-    </label>
-    <select name="make_id" id="car_make" class="form-control"  required>
-        <option value="" selected disabled>@lang('view_pages.car_make')</option>
-        @foreach($car_makes as $key=>$car_make)
-        <option value="{{$car_make->id}}" {{ old('make_id') == $car_make->id ? 'selected' : '' }}>{{$car_make->name}}</option>
-        @endforeach
-    </select>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="car_make">@lang('view_pages.car_make')
+                <span class="text-danger">*</span>
+            </label>
+            <select name="make_id" id="car_make" class="form-control"  required>
+                <option value="" selected disabled>@lang('view_pages.car_make')</option>
+                @foreach($car_makes as $key=>$car_make)
+                <option value="{{$car_make->id}}" {{ old('make_id') == $car_make->id ? 'selected' : '' }}>{{$car_make->name}}</option>
+                @endforeach
+            </select>
+        </div>
     </div>
-    </div>
-     <div class="col-sm-6">
-            <div class="form-group">
+
+    <div class="col-sm-6">
+        <div class="form-group">
             <label for="name">@lang('view_pages.car_model')</label>
             <input class="form-control" type="text" id="name" name="name" value="{{old('name')}}" required="" placeholder="@lang('view_pages.enter_car_model')">
             <span class="text-danger">{{ $errors->first('name') }}</span>
-
         </div>
     </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label for="car_make">@lang('view_pages.')
+                <span class="text-danger">*</span>
+            </label>
+            <select name="make_id" id="car_make" class="form-control"  required>
+                <option value="" selected disabled>@lang('view_pages.car_make')</option>
+                @foreach($car_makes as $key=>$car_make)
+                <option value="{{$car_make->id}}" {{ old('make_id') == $car_make->id ? 'selected' : '' }}>{{$car_make->name}}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+
 </div>
 
 <div class="form-group">
