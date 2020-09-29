@@ -4,6 +4,7 @@ namespace App\Models\Common;
 
 use App\Models\Traits\HasActive;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Admin\Types;
 
 class CarModel extends Model
 {
@@ -20,7 +21,7 @@ class CarModel extends Model
      *
      * @var array
      */
-    protected $fillable = ['make_id','name','active'];
+    protected $fillable = ['make_id','name','active','vehicle_type'];
 
     /**
      * The relationships that can be loaded with query string filtering includes.
@@ -28,11 +29,21 @@ class CarModel extends Model
      * @var array
      */
     public $includes = [
-        'makeDetail'
+        'makeDetail','type'
     ];
 
     public function makeDetail()
     {
+        
         return $this->belongsTo(CarMake::class, 'make_id', 'id');
     }
+
+    public function type()
+    {
+        return $this->belongsTo(Types::class, 'vehicle_type','id');
+    }
+
+  
+
+    
 }

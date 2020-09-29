@@ -18,7 +18,7 @@ class UserRegistrationRequest extends BaseRequest
             'name' => 'required|max:50',
             'last_name' => 'required|max:50',
             'date_of_birth' => 'required|date|date_format:Y-m-d',
-            'gender' => 'required|in:1,2',
+            'gender' => 'required|in:1,2,3',
             'city' => 'required|max:25',
             'email' => 'required|email|max:150|unique:users,email',
             // 'password' => 'required|min:6|confirmed',

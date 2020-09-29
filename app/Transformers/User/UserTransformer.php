@@ -45,6 +45,9 @@ class UserTransformer extends Transformer
             'updated_at' => $user->updated_at->toDateTimeString(),
             'document_upload_status' => ($user->document()->count() == 0)?0:1,
             'document_status' => ($user->document()->where('document_status',DocumentStatus::APPROVED)->count() == 0)?0:1,
+            'date_of_birth' => $user->date_of_birth,
+            'city' => $user->city,
+            'gender' => $user->gender,
 
         ];
         if (access()->hasRole(Role::DRIVER)) {

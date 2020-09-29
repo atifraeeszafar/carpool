@@ -41,30 +41,46 @@
 
 <div class="col-sm-12">
 
-<form  method="post" class="form-horizontal" action="{{url('carmakes/update',request()->car_make)}}">
+<form  method="post" class="form-horizontal" action="{{url('carmodels/update',$car_model->id)}}">
 {{csrf_field()}}
 
 <div class="row">
-     <div class="col-sm-6">
-               <div class="form-group">
-    <label for="car_make">@lang('view_pages.car_make')
-        <span class="text-danger">*</span>
-    </label>
-    <select name="make_id" id="car_make" class="form-control"  required>
-        <option value="" selected disabled>@lang('view_pages.car_make')</option>
-        @foreach($car_makes as $key=>$car_make)
-        <option value="{{$car_make->id}}" {{ old('make_id',$car_model->make_id) == $car_make->id ? 'selected' : '' }}>{{$car_make->name}}</option>
-        @endforeach
-    </select>
-    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="car_make">@lang('view_pages.car_make')
+                <span class="text-danger">*</span>
+            </label>
+            <select name="make_id" id="car_make" class="form-control"  required>
+                <option value="" selected disabled>@lang('view_pages.car_make')</option>
+                @foreach($car_makes as $key=>$car_make)
+                <option value="{{$car_make->id}}" {{ old('make_id',$car_model->make_id) == $car_make->id ? 'selected' : '' }}>{{$car_make->name}}</option>
+                @endforeach
+            </select>
+        </div>
     </div>
 
-        <div class="col-sm-6">
-            <div class="form-group">
+    <div class="col-sm-6">
+        <div class="form-group">
             <label for="name">@lang('view_pages.car_make')</label>
             <input class="form-control" type="text" id="name" name="name" value="{{old('name',$car_make->name)}}" required="" placeholder="@lang('view_pages.enter_car_make')">
             <span class="text-danger">{{ $errors->first('name') }}</span>
+        </div>
+    </div>
 
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label for="car_make">@lang('view_pages.type')
+                <span class="text-danger">*</span>
+            </label>
+            <select name="vehicle_type" id="vehicle_type" class="form-control"  required>
+                <option value="" selected disabled>@lang('view_pages.type')</option>
+                @foreach($types as $key=>$type)
+                <option value="{{$type->id}}" {{ old('vehicle_type',$car_model->vehicle_type) == $type->id ? 'selected' : '' }}> {{$type->name}}</option>
+                @endforeach
+            </select>
         </div>
     </div>
 </div>

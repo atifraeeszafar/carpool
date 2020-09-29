@@ -222,9 +222,9 @@ Route::middleware('auth:web')->group(function () {
             Route::get('/', 'CarModelController@index')->middleware('permission:carmodels_view');
             Route::get('create', 'CarModelController@create')->middleware('permission:carmodels_create');
             Route::post('store', 'CarModelController@store')->middleware('permission:carmodels_create');
-            Route::get('edit/{car_make}', 'CarModelController@getById')->middleware('permission:carmodels_modify');
-            Route::post('update/{car_make}', 'CarModelController@update')->middleware('permission:carmodels_modify');
-            Route::get('delete/{car_make}', 'CarModelController@delete')->middleware('permission:carmodels_delete');
+            Route::get('edit/{car_model}', 'CarModelController@getById')->middleware('permission:carmodels_modify');
+            Route::post('update/{car_model}', 'CarModelController@update')->middleware('permission:carmodels_modify');
+            Route::get('delete/{car_model}', 'CarModelController@delete')->middleware('permission:carmodels_delete');
 
         });
 

@@ -6,6 +6,7 @@ use App\Models\Master\Car;
 use App\Http\Requests\Master\AddCarRequest;
 use App\Http\Requests\Master\UpdateCarRequest;
 use App\Http\Controllers\Api\V1\BaseController;
+use App\Models\Common\CarModel;
 
 /**
  * @group Car Management-Apis
@@ -36,7 +37,11 @@ class CarController extends BaseController
     public function store(AddCarRequest $request)
     {
 
+        $carModel = CarModel::find($request->car_model);
+
         $request->merge(["user_id"=> auth()->user()->id ]);
+        $request->merge(["vehicle_type"=> $carModel->vehicle_type ]);
+
         $this->car->create($request->all());        
         return $this->respondSuccess();
     }

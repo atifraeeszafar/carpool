@@ -51,4 +51,5 @@ class Types extends Model {
 	public function uploadPath() {
 		return config('base.types.upload.images.path');
 	}
+
 }

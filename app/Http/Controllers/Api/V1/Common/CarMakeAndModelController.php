@@ -6,7 +6,7 @@ use App\Models\Common\CarMake;
 use App\Models\Common\CarColor;
 use App\Models\Common\CarModel;
 use App\Http\Controllers\Api\V1\BaseController;
-
+use App\Transformers\CarModelTransformer;
 /**
  * @group Car Management-Apis
  *
@@ -34,7 +34,9 @@ class CarMakeAndModelController extends BaseController
     */
     public function getCarModels($make_id)
     {
-        return $this->respondSuccess($this->car_model->where('make_id', $make_id)->get(),'car_model_list');
+        $carModel = $this->car_model->where('make_id', $make_id)->get();
+
+        return $this->respondSuccess($carModel,'car_model_list');
     }
 
     /**

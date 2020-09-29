@@ -66,6 +66,7 @@
 <th>@lang('view_pages.s_no')</th>
 <th>@lang('view_pages.car_make')</th>
 <th>@lang('view_pages.car_model')</th>
+<th>@lang('view_pages.type')</th>
 <th>@lang('view_pages.action')</th>
 
 </tr>
@@ -76,10 +77,13 @@
 @else
 @php  $i= $results->firstItem(); @endphp
 @foreach($results as $key => $result)
+
 <tr>
 <td>{{ $i++ }} </td>
 <td>{{$result->makeDetail->name}}</td>
 <td>{{$result->name}}</td>
+<td>{{ $result->type()->first()->name }}</td>
+
 <td>
 <a class="btn btn-primary btn-sm" href="{{url('carmodels/edit',$result->id)}}">
 <i class="far fa-edit" id = "edit_session" data-toggle="tooltip" data-placement="top" title="Edit"></i>

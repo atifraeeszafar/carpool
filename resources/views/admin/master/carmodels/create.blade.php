@@ -71,13 +71,13 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="form-group">
-            <label for="car_make">@lang('view_pages.')
+            <label for="car_make">@lang('view_pages.type')
                 <span class="text-danger">*</span>
             </label>
-            <select name="make_id" id="car_make" class="form-control"  required>
-                <option value="" selected disabled>@lang('view_pages.car_make')</option>
-                @foreach($car_makes as $key=>$car_make)
-                <option value="{{$car_make->id}}" {{ old('make_id') == $car_make->id ? 'selected' : '' }}>{{$car_make->name}}</option>
+            <select name="vehicle_type" id="vehicle_type" class="form-control"  required>
+                <option value="" selected disabled>@lang('view_pages.type')</option>
+                @foreach($types as $key=>$type)
+                <option value="{{$type->id}}" {{ old('vehicle_type') == $type->id ? 'selected' : '' }}> {{$type->name}}</option>
                 @endforeach
             </select>
         </div>

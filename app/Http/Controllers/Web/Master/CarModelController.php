@@ -8,20 +8,24 @@ use App\Models\Common\CarModel;
 use App\Http\Controllers\Web\BaseController;
 use App\Base\Filters\Master\CommonMasterFilter;
 use App\Base\Libraries\QueryFilter\QueryFilterContract;
+use App\Models\Admin\Types;
 
 class CarModelController extends BaseController
 {
     protected $car_model;
 
-    public function __construct(CarModel $car_model)
+    protected $type;
+
+    public function __construct(CarModel $car_model,Types $type)
     {
         $this->car_model = $car_model;
+        $this->type = $type;
     }
 
     public function index(QueryFilterContract $queryFilter)
     {
         $query = $this->car_model->query();
-
+        
         $results = $queryFilter->builder($query)->customFilter(new CommonMasterFilter)->paginate();
 
         $page = trans('pages_names.carmodels');
@@ -43,10 +47,12 @@ class CarModelController extends BaseController
 
         $car_makes = CarMake::get();
 
+        $types = $this->type->get();
+
         $main_menu = 'carmodels';
         $sub_menu = null;
 
-        return view('admin.master.carmodels.create', compact('page', 'main_menu', 'sub_menu', 'car_makes'));
+        return view('admin.master.carmodels.create', compact('page', 'main_menu', 'sub_menu', 'car_makes','types'));
     }
 
     /**
@@ -67,13 +73,16 @@ class CarModelController extends BaseController
     */
     public function getById(CarModel $car_model)
     {
+
         $page = trans('pages_names.edit_car_model');
+
+        $types = $this->type->get();
 
         $main_menu = 'admins';
         $sub_menu = null;
         $car_makes = CarMake::get();
 
-        return view('admin.master.carmodels.update', compact('page', 'main_menu', 'sub_menu', 'car_makes', 'car_model'));
+        return view('admin.master.carmodels.update', compact('page', 'main_menu', 'sub_menu', 'car_makes', 'car_model','types'));
     }
 
     /**
