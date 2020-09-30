@@ -44,6 +44,10 @@ class CarMakeAndModelController extends BaseController
     */
     public function getCarColors()
     {
-        return $this->respondSuccess(CarColor::all());
+        $color = CarColor::all();
+
+        $color[] = array("id"=>null,"color_code"=> null,"color_name"=> "Other","active"=> 1,"created_at"=> "2020-09-25 05:28:50","updated_at"=> "2020-09-25 05:28:50");
+   
+        return $this->respondSuccess($color);
     }
 }

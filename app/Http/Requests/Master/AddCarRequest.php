@@ -19,7 +19,7 @@ class AddCarRequest extends BaseRequest
             'car_make'=>'required|exists:car_makes,id',
             'car_model'=>'required|exists:car_models,id',
             // 'vehicle_type'=>'required',// TODO
-            'car_color'=>'required|exists:car_colors,id',
+            'car_color'=>'required',//|exists:car_colors,id',
             'model_year'=>'required|numeric'
         ];
     }

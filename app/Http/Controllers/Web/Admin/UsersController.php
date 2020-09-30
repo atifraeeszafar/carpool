@@ -152,11 +152,6 @@ class UsersController extends BaseController
 
         $results = $queryFilter->builder($query)->customFilter(new CommonMasterFilter)->paginate();
 
-        echo "<pre>";
-        print_r( $results[0]->documentImage()->get() );
-
-        die();
-
         return view('admin.users._document', compact('results'));
     }
 
