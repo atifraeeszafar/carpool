@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateCarColorAsString extends Migration
+class UpdateCarColorAsString2 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class UpdateCarColorAsString extends Migration
      */
     public function up()
     {
-
         Schema::table('cars', function($table) {
         
             $table->dropForeign('cars_car_color_foreign');
             $table->dropColumn('car_color');
 
-        });    
-        
+            $table->string('car_color')->nullable();
 
+        });  
     }
 
     /**
