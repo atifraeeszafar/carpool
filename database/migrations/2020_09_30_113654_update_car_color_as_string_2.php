@@ -15,9 +15,6 @@ class UpdateCarColorAsString2 extends Migration
     {
         Schema::table('cars', function($table) {
         
-            $table->dropForeign('cars_car_color_foreign');
-            $table->dropColumn('car_color');
-
             $table->string('car_color')->nullable();
 
         });  
