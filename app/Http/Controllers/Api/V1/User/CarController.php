@@ -43,7 +43,7 @@ class CarController extends BaseController
         $request->merge(["vehicle_type"=> $carModel->vehicle_type ]);
 
         $this->car->create($request->all());        
-        return $this->respondSuccess();
+        return $this->respondSuccess(null,'car_added_successfully');
     }
 
     /**
