@@ -48,6 +48,7 @@ class UserTransformer extends Transformer
             'date_of_birth' => $user->date_of_birth,
             'city' => $user->city,
             'gender' => $user->gender,
+            'can_create_trip' => ($user->car()->count() == 0)?0:1,
 
         ];
         if (access()->hasRole(Role::DRIVER)) {

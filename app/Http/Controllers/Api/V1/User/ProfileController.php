@@ -49,7 +49,7 @@ class ProfileController extends ApiController
      */
     public function updateProfile(UpdateProfileRequest $request)
     {
-        $data = $request->only(['name', 'email', 'last_name','mobile','gender_based_search']);
+        $data = $request->only(['name', 'email', 'last_name','mobile','gender_based_search','gender','city','date_of_birth']);
 
         if ($uploadedFile = $this->getValidatedUpload('profile_picture', $request)) {
             $data['profile_picture'] = $this->imageUploader->file($uploadedFile)

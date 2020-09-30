@@ -16,6 +16,9 @@ class UpdateProfileRequest extends BaseRequest
         return [
             'name' => 'sometimes|required|max:50',
             'gender_based_search' => 'sometimes|required',
+            'date_of_birth' => 'required|date|date_format:Y-m-d',
+            'gender' => 'required|in:1,2,3',
+            'city' => 'required|max:25',
             'email' => 'sometimes|required|email|max:150|unique:users,email,' . $this->user()->id,
             'mobile' => 'sometimes|required|mobile_number|unique:users,mobile,' . $this->user()->id,
             'profile_picture' => $this->userProfilePictureRule(),
