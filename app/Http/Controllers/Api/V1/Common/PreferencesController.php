@@ -64,7 +64,7 @@ class PreferencesController extends BaseController
 
         $result = fractal($preferences, new PreferencesTransformer);//->parseIncludes(['answers']);
 
-        return $this->respondSuccess('preference_update',$result);
+        return $this->respondSuccess($result,'preference_update');
 
     }   
 
