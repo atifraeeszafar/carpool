@@ -19,7 +19,7 @@ class RiderPreference extends Model
      *
      * @var array
      */
-    protected $fillable = ['rider_id','preference_id','answer_id'];
+    protected $fillable = ['rider_id','preference_id','answer'];
 
 
     /**

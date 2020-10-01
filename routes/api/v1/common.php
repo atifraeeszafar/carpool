@@ -1,4 +1,5 @@
 <?php
+use App\Base\Constants\Auth\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,11 @@ Route::namespace('Common')->group(function () {
         // Car Colors
         Route::get('car/colors', 'CarMakeAndModelController@getCarColors');
 
+        Route::post('preferences/update', 'PreferencesController@preferenceUpdate')->middleware('auth');
+
         Route::get('list/preferences', 'PreferencesController@index');
+        
+        
         //faq list
         Route::get('faq/list', 'FaqController@getFaqList');
 

@@ -24,11 +24,24 @@ class PreferencesTransformer extends Transformer
      */
     public function transform(Preference $preference)
     {
-        return [
+        $params =[
             'id' => $preference->id,
             'question' => $preference->question,
-            'active' => (bool) $preference->active
+            'active' => (bool) $preference->active,
+            'is_choosen'=>false,
         ];
+
+        if (auth()->user()) {
+
+            // dd(auth()->user()->riderPreferences);
+
+            if (auth()->user()->riderPreferences()->where('preference_id',  $preference->id)->exists()) {
+                $params['is_choosen'] = true;
+            }
+        } 
+        
+        return $params;
+
     }
 
     /**

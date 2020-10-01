@@ -6,6 +6,7 @@
 <th>@lang('view_pages.s_no')</th>
 <th>@lang('view_pages.document')</th>
 <th>@lang('view_pages.image')</th>
+<th>@lang('view_pages.image')</th>
 <th>@lang('view_pages.document') @lang('view_pages.status')</th>
 <th>@lang('view_pages.action')</th>
 </tr>
@@ -44,9 +45,26 @@
         @endif
 
     </td>
+
+    @php
+        $images = $result->documentImage()->get();
+        $imageCount = count($images);
+    @endphp
+
+    @foreach($images as $image)
     <td>
-        <img src="{{ $result->image  }}" height="100px" width="100%" alt="" />
+        <img src="{{ $image->image  }}" height="100px" width="100%" alt="" />
     </td>
+    @endforeach
+
+    @if($imageCount == 1) 
+    <td>
+        -
+    </td>
+    @endif
+
+
+
     <td> 
     
         @if($result->document_status == App\Base\Constants\Document\DocumentStatus::UPLOADED)   

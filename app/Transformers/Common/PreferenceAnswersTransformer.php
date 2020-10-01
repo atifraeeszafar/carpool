@@ -30,9 +30,14 @@ class PreferenceAnswersTransformer extends Transformer
             'is_choosen'=>false,
         ];
 
-        if (auth()->user()->riderPreferences()->where('preference_id', $answers->preference_id)->where('answer_id', $answers->id)->exists()) {
-            $params['is_choosen'] = true;
-        }
+        if (auth()->user()) {
+
+            // dd(auth()->user()->riderPreferences);
+
+            if (auth()->user()->riderPreferences()->where('preference_id', $answers->preference_id)->where('answer', $answers->id)->exists()) {
+                $params['is_choosen'] = true;
+            }
+        }    
 
         return $params;
     }
