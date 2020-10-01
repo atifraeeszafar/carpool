@@ -60,7 +60,7 @@ class ProfileController extends ApiController
         $user->update($data);
         $user = fractal($user->fresh(), new UserTransformer);
 
-        return $this->respondSuccess($user);
+        return $this->respondSuccess($user,'profile_updated');
     }
 
     public function uploadDocument(UploadDocumentRequest $request)
