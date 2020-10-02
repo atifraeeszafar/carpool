@@ -31,6 +31,8 @@
 <h4 class="header-title">{{trans('pages_names.carmodels')}}</h4>
 <p class="card-title-desc">Car Models for driver's car can be configured using this menu.</p>
   
+<form  method="GET" class="form-horizontal" action="{{url('carmodels/')}}">
+
     <div class="box-header with-border">
         <div class="row text-right">
 
@@ -48,6 +50,7 @@
                         </button>
                     </div>
                 </div>
+                </form>    
 
                 <div class="col-9 text-right">
                     <a href="{{url('carmodels/create')}}" class="btn btn-primary btn-sm">

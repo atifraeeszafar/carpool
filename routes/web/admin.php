@@ -81,7 +81,7 @@ Route::middleware('auth:web')->group(function () {
             Route::post('/store', 'TypesController@store')->middleware('permission:types_create');
             Route::get('/edit/{type}', 'TypesController@getById')->middleware('permission:types_modify');
             Route::post('/update/{type}', 'TypesController@update')->middleware('permission:types_modify');
-            Route::get('/delete/{id}', 'TypesController@delete')->middleware('permission:types_delete');
+            Route::get('/delete/{type}', 'TypesController@delete')->middleware('permission:types_delete');
         });
         
         Route::prefix('tesseract')->group(function(){

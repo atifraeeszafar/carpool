@@ -5,10 +5,11 @@ namespace App\Models\Common;
 use App\Models\Traits\HasActive;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Admin\Types;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class CarModel extends Model
 {
-    use HasActive;
+    use HasActive,SearchableTrait;
     /**
      * The table associated with the model.
      *
@@ -30,6 +31,14 @@ class CarModel extends Model
      */
     public $includes = [
         'makeDetail','type'
+    ];
+
+    protected $searchable = [
+		
+		'columns' => [
+			'name'=>10,
+		]
+	
     ];
 
     public function makeDetail()

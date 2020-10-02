@@ -89,6 +89,7 @@
     });
 
     $('#search').on('click', function(e){
+        
         e.preventDefault();
             var search_keyword = $('#search_keyword').val();
             console.log(search_keyword);

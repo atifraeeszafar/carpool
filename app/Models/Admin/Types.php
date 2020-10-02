@@ -7,10 +7,11 @@ use App\Models\Traits\HasActive;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Admin\ServiceLocation;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Types extends Model {
 
-	use HasActive;
+	use HasActive,SearchableTrait;
 	/**
 	 * The table associated with the model.
 	 *
@@ -51,5 +52,13 @@ class Types extends Model {
 	public function uploadPath() {
 		return config('base.types.upload.images.path');
 	}
+
+	protected $searchable = [
+		
+		'columns' => [
+			'vehicle_types.name'=>10,
+		]
+	
+	];
 
 }

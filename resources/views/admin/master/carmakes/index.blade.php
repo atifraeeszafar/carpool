@@ -32,27 +32,30 @@
 <p class="card-title-desc">Carmakes for driver's car can be configured using this menu.</p>
     <div class="box-header with-border">
 
+    <form  method="GET" class="form-horizontal" action="{{url('carmakes/')}}">
+
         <div class="row text-right">
-
-            <div class="col-2">
-                <div class="form-group">
-                    <input type="text" id="search_keyword" name="search" class="form-control" placeholder="Enter keyword">
+            
+                <div class="col-2">
+                    <div class="form-group">
+                        <input type="text" id="search_keyword" name="search" class="form-control" placeholder="Enter keyword">
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-1">
-                <div class="form-group">
+                <div class="col-1">
+                    <div class="form-group">
 
-                    <button class="btn btn-success " id="search" type="submit">
-                        @lang('view_pages.search')
-                    </button>
+                        <button class="btn btn-success " id="search" type="submit">
+                            @lang('view_pages.search')
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </form>    
 
-            <div class="col-9 text-right">
-                <a href="{{url('carmakes/create')}}" class="btn btn-primary btn-sm">
-                    <i class="mdi mdi-plus-circle mr-2"></i>@lang('view_pages.add_car_makes')</a>
-            </div>
+                <div class="col-9 text-right">
+                    <a href="{{url('carmakes/create')}}" class="btn btn-primary btn-sm">
+                        <i class="mdi mdi-plus-circle mr-2"></i>@lang('view_pages.add_car_makes')</a>
+                </div>
 
         </div>
 

@@ -75,8 +75,9 @@ class TypesController extends BaseController
     }
 
 
-    public function fetch(QueryFilterContract $queryFilter)
+    public function fetch(QueryFilterContract $queryFilter, Request $request)
     {
+
         $url = request()->fullUrl(); 
 
         if (access()->hasRole(RoleSlug::SUPER_ADMIN)) {
@@ -85,12 +86,14 @@ class TypesController extends BaseController
             $this->validateAdmin();
             $query = $this->type->where('created_by', $this->user->id);
         }
+
+        // if($request->has('search')) {
+
+        //     $query =  $query->where('name', 'like', '%' . $request->search . '%');
+        // }
+
     
         $results = $queryFilter->builder($query)->customFilter(new CommonMasterFilter)->paginate();
-
-        // echo "<pre>";
-        // print_r( $results );
-        // die();
 
         return view('admin.types._types', compact('results'));
     }
@@ -170,9 +173,9 @@ class TypesController extends BaseController
         return redirect('types')->with('success', $message);
     }
 
-    public function delete(Request $user)
+    public function delete(Types $type)
     {
-        // $user->delete();
+        $type->delete();
 
         $message = trans('succes_messages.types_deleted_succesfully');
         return redirect('types')->with('success', $message);

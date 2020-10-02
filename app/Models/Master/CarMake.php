@@ -4,10 +4,11 @@ namespace App\Models\Common;
 
 use App\Models\Traits\HasActive;
 use Illuminate\Database\Eloquent\Model;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class CarMake extends Model
 {
-    use HasActive;
+    use HasActive,SearchableTrait;
     /**
      * The table associated with the model.
      *
@@ -22,6 +23,14 @@ class CarMake extends Model
      */
     protected $fillable = ['name','active'];
 
+    protected $searchable = [
+		
+		'columns' => [
+			'name'=>10,
+		]
+	
+    ];
+    
     /**
      * The relationships that can be loaded with query string filtering includes.
      *
