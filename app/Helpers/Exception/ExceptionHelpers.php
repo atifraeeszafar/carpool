@@ -40,7 +40,7 @@ trait ExceptionHelpers
      */
     protected function throwAccountDisabledException($field = null)
     {
-        $this->throwCustomException('The account has been disabled.', $field);
+        // $this->throwCustomException('The account has been disabled.', $field);
     }
 
     /**
