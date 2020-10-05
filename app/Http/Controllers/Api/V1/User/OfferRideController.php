@@ -223,7 +223,9 @@ class OfferRideController extends BaseController
             }
         }
 
-        return response()->json(['status'=>true,'message'=>'eta_param_structure','data'=>$result]);
+        return $this->respondSuccess(['status'=>true,'message'=>'eta_param_structure','data'=>$result],'user_rated_successfully');
+
+        // return response()->json();
     }
 
 
