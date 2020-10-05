@@ -195,8 +195,8 @@ class OfferRideController extends BaseController
                         $estimateTime = $googleMatrix->rows[0]->elements[0]->duration->value;
                         $estimateTimeInMinutes = $estimateTime * 60;
                         $estimateTimeAmount = $estimateTimeInMinutes * $typePrice->time_price;
-
-                        $stopsObject->estimateTotal = $estimateTimeAmount + $estimateDistanceAmount + $typePrice->base_price ;
+                        $stopsObject->currency = '$'; 
+                        $stopsObject->estimateTotal = $estimateTimeAmount + $estimateDistanceAmount + $typePrice->base_price; 
 
                         $etaArray = array();
                         $etaArray['estimateDistance'] = $estimateDistanceInKm;
@@ -208,7 +208,7 @@ class OfferRideController extends BaseController
                     }
                     
                 }else {
-
+                    $stopsObject->currency = '$'; 
                     $stopsObject->estimateTotal = 0;
                     $stopsObject->baseAmount = 0;
                     $stopsObject->estimateDistance = 0;
