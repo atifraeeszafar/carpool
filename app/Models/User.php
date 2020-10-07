@@ -105,7 +105,7 @@ class User extends Authenticatable implements CanSendOTPContract
      * @var array
      */
     public $includes = [
-        'rideDetail','roles', 'otp', 'merchants', 'restaurantManagers',
+        'country','rideDetail','roles', 'otp', 'merchants', 'restaurantManagers',
     ];
 
     /**
@@ -161,6 +161,11 @@ class User extends Authenticatable implements CanSendOTPContract
     public function roles()
     {
         return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id');
+    }
+
+    public function country()
+    {        
+        return $this->belongsTo(Country::class,'country', 'id');
     }
 
     /**

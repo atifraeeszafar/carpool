@@ -21,7 +21,7 @@ class MobileOtp extends Model {
 	 * @var array
 	 */
 	protected $fillable = [
-		'mobile', 'otp', 'verified',
+		'mobile', 'otp', 'verified','country_id'
 	];
 
 	/**

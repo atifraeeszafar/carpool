@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Exception;
 use Illuminate\Contracts\Hashing\Hasher;
 use Illuminate\Database\ConnectionInterface;
+use App\Models\Country;
 
 class DatabaseOTPHandler implements OTPHandlerContract
 {
@@ -197,6 +198,18 @@ class DatabaseOTPHandler implements OTPHandlerContract
 
         if ($mobileOtp) {
             return $mobileOtp->mobile;
+        }
+
+        return null;
+    }
+
+    public function getCountryFromUuid($uuid)
+    {
+        $mobileOtp = $this->getModel()->find($uuid);
+
+        if ($mobileOtp) {
+
+            return $mobileOtp->country_id;
         }
 
         return null;

@@ -22,6 +22,7 @@
         <script src="{{asset('assets/libs/air-datepicker/js/datepicker.min.js')}}"></script>
         <script src="{{asset('assets/libs/air-datepicker/js/i18n/datepicker.en.js')}}"></script>
 
+
 <script>
 
 $('.logout').click(function(e){
@@ -76,16 +77,8 @@ if (session()->has('success')) {
 <script>
     var alertMessage = "<?php echo $alertMessage ?>";
 
-    //alert(alertMessage);
-    $.toast({
-        heading: '',
-        text: alertMessage,
-        position: 'top-right',
-        loaderBg: '#ff6849',
-        icon: 'success',
-        hideAfter: 5000,
-        stack: 1
-    });
+    toastr.success("Have fun storming the castle!", "Miracle Max Says")
+
 
 </script>
 <?php

@@ -58,6 +58,10 @@ interface OTPHandlerContract
      * @return string|null
      */
     public function getMobileFromUuid($uuid);
+    
+    public function getCountryFromUuid($uuid);
+
+    
 
     /**
      * Get the current mobile number.

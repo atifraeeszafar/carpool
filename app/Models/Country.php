@@ -34,7 +34,10 @@ class Country extends Model
         'name',
         'dial_code',
         'code',
-        'active'
+        'active',
+        'currency_name',
+        'currency_code',
+        'currency_symbol'
     ];
 
     /**

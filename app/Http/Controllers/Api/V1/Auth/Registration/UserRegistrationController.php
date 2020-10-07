@@ -21,6 +21,7 @@ use App\Http\Requests\Auth\Registration\UserRegistrationRequest;
 use App\Http\Requests\Auth\Registration\SendRegistrationOTPRequest;
 use App\Http\Requests\Auth\Registration\ValidateRegistrationOTPRequest;
 use App\Jobs\Notifications\Auth\Registration\UserRegistrationNotification;
+use App\Models\MobileOtp;
 
 /**
  * @group User-Management
@@ -45,18 +46,23 @@ class UserRegistrationController extends LoginController
 
     protected $smsContract;
 
+    protected $mobileOtp;
+
+
     /**
      * UserRegistrationController constructor.
      *
      * @param \App\Models\User $user
      * @param \App\Base\Services\OTP\Handler\OTPHandlerContract $otpHandler
      */
-    public function __construct(User $user, OTPHandlerContract $otpHandler, Country $country, SMSContract $smsContract)
+    public function __construct(MobileOtp $mobileOtp,User $user, OTPHandlerContract $otpHandler, Country $country, SMSContract $smsContract)
     {
         $this->user = $user;
         $this->otpHandler = $otpHandler;
         $this->country = $country;
         $this->smsContract = $smsContract;
+        $this->mobileOtp = $mobileOtp;
+
     }
 
     /**
@@ -81,6 +87,9 @@ class UserRegistrationController extends LoginController
         DB::beginTransaction();
         try {
             $mobile = $this->otpHandler->getMobileFromUuid($mobileUuid);
+
+            $country = $this->otpHandler->getCountryFromUuid($mobileUuid);
+            
             $user = $this->user->create([
             'name' => $request->input('name'),
             'last_name' => $request->input('last_name'),       
@@ -90,8 +99,7 @@ class UserRegistrationController extends LoginController
             'gender' => $request->input('gender'),
             'date_of_birth' => $request->input('date_of_birth'),
             'city' => $request->input('city'),
-
-            
+            'country' => $country,    
             'mobile' => $mobile,
             'mobile_confirmed' => true,
             'device_token'=>$request->input('device_token'),
@@ -153,9 +161,16 @@ class UserRegistrationController extends LoginController
             }
             $mobileForOtp = $request->input('country') . $mobile;
 
+
             if (!$this->otpHandler->setMobile($mobile)->create()) {
+                
                 $this->throwSendOTPErrorException($field);
             }
+
+            $country = $this->country->where('dial_code', $request->input('country'))->first();
+
+            $this->mobileOtp->where('mobile',$mobile)->update(['country_id'=>$country->id]);
+
 
             $otp = $this->otpHandler->getOtp();
             // Generate sms from template

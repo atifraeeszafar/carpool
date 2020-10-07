@@ -53,12 +53,29 @@ class OfferRideController extends BaseController
     {
         $rider = auth()->user();
 
+        foreach(json_decode($request->stops) as $key => $stop) 
+        {
+            if( $stop->main_junction == true  ) {
+        
+                $request->merge(['pickup_lat' => $stop->pickup_lat]);
+                $request->merge(['pickup_lng' => $stop->pickup_lng]);
+                $request->merge(['pickup_address' => $stop->pickup_address]);
+                $request->merge(['drop_lat' => $stop->drop_lat]);
+                $request->merge(['drop_lng' => $stop->drop_lng]);
+                $request->merge(['drop_address' => $stop->drop_address]);
+
+            }
+        }
+
+
         $created_params = $request->except(['stops']);
 
         //get line string from helper
         $poly_line_string = get_line_string($request->pickup_lat, $request->pickup_lng, $request->drop_lat, $request->drop_lng);
 
         $created_params['coordinates'] = $poly_line_string;
+
+        // dD($created_params);
 
         $rider_offered_place = $rider->offeredRidePlace()->create($created_params);
 
@@ -70,17 +87,15 @@ class OfferRideController extends BaseController
                 $offered_place_stop_params['date'] = $request->date;
                 $offered_place_stop_params['start_time'] = $request->start_time;
 
-    
-                // foreach ($stop as $key => $value) {
-                //     $offered_place_stop_params[$key] = $value;
-                // }
-                
                 $rider_offered_place->offeredRidePlaceStops()->create($offered_place_stop_params);
 
+    
+
                 $this->dispatch(new UserWaitingForTripJob($offered_place_stop_params));
-                
+
             }
         }
+
 
         if ($request->has('frequent_days')) {
             $frequent_days = explode(',', $request->frequent_days);
@@ -193,9 +208,11 @@ class OfferRideController extends BaseController
                         $estimateDistanceAmount = $estimateDistanceInKm * $typePrice->distance_price;
 
                         $estimateTime = $googleMatrix->rows[0]->elements[0]->duration->value;
-                        $estimateTimeInMinutes = $estimateTime * 60;
+                        $estimateTimeInMinutes = $estimateTime / 60;
+
                         $estimateTimeAmount = $estimateTimeInMinutes * $typePrice->time_price;
-                        $stopsObject->currency = '$'; 
+                        $stopsObject->currency = auth()->user()->country()->first()->currency_symbol; 
+
                         $stopsObject->estimateTotal = $estimateTimeAmount + $estimateDistanceAmount + $typePrice->base_price; 
 
                         $etaArray = array();
@@ -208,7 +225,9 @@ class OfferRideController extends BaseController
                     }
                     
                 }else {
-                    $stopsObject->currency = '$'; 
+                    $stopsObject->currency = auth()->user()->country()->first()->currency_symbol; 
+                    // $rider = auth()->user()->country()->first()->name;
+
                     $stopsObject->estimateTotal = 0;
                     $stopsObject->baseAmount = 0;
                     $stopsObject->estimateDistance = 0;
