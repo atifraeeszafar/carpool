@@ -17,10 +17,10 @@ class UpdateUserWithCountryForeign extends Migration
 
             $table->unsignedInteger('country')->default(164);
 
-            // $table->foreign('country')
-            // ->references('id')
-            // ->on('countries')
-            // ->onDelete('cascade');
+            $table->foreign('country')
+            ->references('id')
+            ->on('countries')
+            ->onDelete('cascade');
         });
     }
 
