@@ -118,7 +118,7 @@
     <div class="col-sm-6">
          <div class="form-group">
          <label for="password">@lang('view_pages.password')</label>
-         <input class="form-control" type="password" id="password" name="password" value="" required="" placeholder="@lang('view_pages.enter_password')">
+         <input class="form-control" type="password" id="password" name="password" value=""  placeholder="@lang('view_pages.enter_password')">
          <span class="text-danger">{{ $errors->first('password') }}</span>
 
      </div>
@@ -127,7 +127,7 @@
  <div class="col-sm-6">
          <div class="form-group">
          <label for="password_confrim">@lang('view_pages.confirm_password')</label>
-         <input class="form-control" type="password" id="password_confirmation" name="password_confirmation" value="" required="" placeholder="@lang('view_pages.enter_password_confirmation')">
+         <input class="form-control" type="password" id="password_confirmation" name="password_confirmation" value=""  placeholder="@lang('view_pages.enter_password_confirmation')">
          <span class="text-danger">{{ $errors->first('password') }}</span>
 
      </div>

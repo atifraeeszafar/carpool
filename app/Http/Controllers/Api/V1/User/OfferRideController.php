@@ -155,8 +155,19 @@ class OfferRideController extends BaseController
         $stops[0]->pickup_lng = $request->pickup_lng;
         $stops[0]->pickup_address = $request->pickup_address;
 
+        $stopsList = array();
+
         if($request->has('stops')) {
             $stopsJunction = json_decode($request->stops);
+
+            foreach($stopsJunction as $k => $v) {
+
+                if( in_array($v->pickup_address,$stopsList)) {
+                    unset($stopsJunction[$k]);
+                }else {
+                    $stopsList[] = $v->pickup_address;
+                }
+            }
 
             $stops = array_merge($stops,$stopsJunction); 
         }

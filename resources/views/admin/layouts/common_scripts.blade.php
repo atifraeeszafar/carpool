@@ -14,16 +14,74 @@
         <script src="{{asset('assets/libs/selectize/js/standalone/selectize.min.js')}}"></script>
 
         <script src="{{asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
-
-        
-
         
         <!-- datepicker -->
         <script src="{{asset('assets/libs/air-datepicker/js/datepicker.min.js')}}"></script>
         <script src="{{asset('assets/libs/air-datepicker/js/i18n/datepicker.en.js')}}"></script>
 
+        <!-- Sweet Alerts js -->
+        <script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
+
+        <!-- Sweet alert init js-->
+        <script src="{{asset('assets/js/pages/sweet-alerts.init.js')}}"></script>
 
 <script>
+
+
+function statusSweetAlert(url)
+{
+    Swal.fire({
+        title: "Are you sure?",
+        text: "Want to change this status",
+        icon: "warning",
+        showCancelButton: !0,
+        confirmButtonText: "Yes",
+        cancelButtonText: "No",
+        confirmButtonClass: "btn btn-success mt-2",
+        cancelButtonClass: "btn btn-danger ml-2 mt-2",
+        buttonsStyling: !1
+    }).then(function(t) {
+
+        t.value ? 
+            window.location = url
+
+        : t.dismiss === Swal.DismissReason.cancel && Swal.fire({
+            title: "Cancelled",
+            text: "Your Status does not modified :)",
+            icon: "error"
+        })
+    })
+}
+
+
+
+function deleteSweetAlert(url)
+{
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: !0,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        confirmButtonClass: "btn btn-success mt-2",
+        cancelButtonClass: "btn btn-danger ml-2 mt-2",
+        buttonsStyling: !1
+    }).then(function(t) {
+
+        t.value ? 
+            window.location = url
+
+        : t.dismiss === Swal.DismissReason.cancel && Swal.fire({
+            title: "Cancelled",
+            text: "Your data is safe :)",
+            icon: "error"
+        })
+    })
+}
+
+            
+
 
 $('.logout').click(function(e){
     button=$(this);

@@ -17,7 +17,7 @@ class Document
     {
         return [ 
                  'name' => 'required',
-                 'gender' => 'required|in:1,2',
+                 'gender' => 'required|in:1,2,3',
                  'identity_card_number' => 'required',
                  'date_of_birth' => 'required|date|date_format:Y-m-d',
                  'date_of_expiry' => 'required|date|date_format:Y-m-d|after:today'
@@ -29,7 +29,7 @@ class Document
     
         return [ 
                 'name' => 'required',
-                'gender' => 'required|in:1,2',
+                'gender' => 'required|in:1,2,3',
                 'country_of_stay' => 'required',
                 'identity_card_number' => 'required',
                 'date_of_birth' => 'required|date|date_format:Y-m-d',
@@ -46,7 +46,7 @@ class Document
                 'date_of_issue' => 'required|date|date_format:Y-m-d',
                 'date_of_expiry' => 'required|date|date_format:Y-m-d|after:today',
                 'name' => 'required',
-                'gender' => 'required|in:1,2',
+                'gender' => 'required|in:1,2,3',
                 'date_of_birth' => 'required|date|date_format:Y-m-d',
                 'passport_number' => 'required',
                 'issuing_state' => 'required',
@@ -59,7 +59,7 @@ class Document
         return [ 
                 'name' => 'required',
                  'father_name' => 'required',
-                 'gender' => 'required|in:1,2',
+                 'gender' => 'required|in:1,2,3',
                  'identity_card_number' => 'required',
                  'date_of_birth' => 'required|date|date_format:Y-m-d',
                  'date_of_expiry' => 'required|date|date_format:Y-m-d|after:today'
@@ -74,7 +74,7 @@ class Document
                 'passport_number' => 'required',
                 'first_name' => 'required',
                 'last_name' => 'required',
-                'gender' => 'required|in:1,2',
+                'gender' => 'required|in:1,2,3',
                 'citizen_number' => 'required',
                 'date_of_birth' => 'required|date|date_format:Y-m-d',
                 'place_of_birth' => 'required',
@@ -89,7 +89,7 @@ class Document
         
         return [ 
                 'name' => 'required',
-                'gender' => 'required|in:1,2',
+                'gender' => 'required|in:1,2,3',
                 'identity_card_number' => 'required',
                 'date_of_birth' => 'required|date|date_format:Y-m-d',
                 'date_of_expiry' => 'required|date|date_format:Y-m-d|after:today'
@@ -105,7 +105,7 @@ class Document
                 'wo' => 'sometimes|required',
                 'do' => 'sometimes|required',
                 'license_number' => 'required',
-                'gender' => 'required|in:1,2',
+                'gender' => 'required|in:1,2,3',
                 'identity_card_number' => 'required',
                 'date_of_birth' => 'required|date|date_format:Y-m-d',
                 'date_of_expiry' => 'required|date|date_format:Y-m-d|after:today'

@@ -6,6 +6,8 @@
 <th>@lang('view_pages.s_no')</th>
 <th>@lang('view_pages.name')</th>
 <th>@lang('view_pages.mobile')</th>
+<th>@lang('view_pages.email')</th>
+
 <th>@lang('view_pages.role')</th>
 <th>@lang('view_pages.status')</th>
 <th>@lang('view_pages.action')</th>
@@ -22,6 +24,8 @@
 <td>{{ $i++ }} </td>
  <td> {{ $result->first_name .' '.$result->last_name }}</td>
     <td>{{$result->mobile}}</td>
+    <td>{{$result->email}}</td>
+
     <td>
 
         @foreach($result->user->roles as $key=>$role)
@@ -38,10 +42,19 @@
 
     <div class="dropdown">
     <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
+                
+
     </button>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="{{url('admins/edit',$result->id)}}">@lang('view_pages.edit')</a>
-            <a class="dropdown-item sweet-delete" href="{{url('admins/delete',$result->id)}}">@lang('view_pages.delete')</a>
+            
+            @if($result->user->active == 1)
+                <a class="dropdown-item" onClick="statusSweetAlert('{{ url('admins/toggle_status',$result->user->id)}}')" >@lang('view_pages.inactive')</a>
+            @else
+                <a class="dropdown-item" onClick="statusSweetAlert('{{ url('admins/toggle_status',$result->user->id)}}')">@lang('view_pages.active')</a>
+            @endif
+
+            <a class="dropdown-item sweet-delete" onClick="deleteSweetAlert('{{ url('admins/delete',$result->user->id)}}')" >@lang('view_pages.delete')</a>
         </div>
     </div>
 

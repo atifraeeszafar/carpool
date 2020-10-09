@@ -7,9 +7,10 @@ use App\Models\Traits\HasActive;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Admin\ServiceLocation;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class AdminDetail extends Model {
-	use HasActive, UuidModel;
+	use HasActive, UuidModel,SearchableTrait;
 	/**
 	 * The table associated with the model.
 	 *
@@ -35,6 +36,18 @@ class AdminDetail extends Model {
 		
 	];
 
+	protected $searchable = [
+ 
+        'columns' => [
+
+            'first_name' => 10,
+            'last_name' => 11,
+            'email' => 12,
+            'mobile' => 13,
+
+        ],
+
+    ];
 
 	public function user(){
 		return $this->belongsTo(User::class,'user_id','id');
@@ -43,6 +56,7 @@ class AdminDetail extends Model {
 	public function serviceLocationDetail(){
 		return $this->belongsTo(ServiceLocation::class,'service_location_id','id');
 	}
+
 
 
 }
