@@ -53,19 +53,23 @@ class OfferRideController extends BaseController
     {
         $rider = auth()->user();
 
-        foreach(json_decode($request->stops) as $key => $stop) 
-        {
-            if( $stop->main_junction == true  ) {
-        
-                $request->merge(['pickup_lat' => $stop->pickup_lat]);
-                $request->merge(['pickup_lng' => $stop->pickup_lng]);
-                $request->merge(['pickup_address' => $stop->pickup_address]);
-                $request->merge(['drop_lat' => $stop->drop_lat]);
-                $request->merge(['drop_lng' => $stop->drop_lng]);
-                $request->merge(['drop_address' => $stop->drop_address]);
+        if(!$request->has('pickup_lat') ||  !$request->has('pickup_lng') ) {
 
+            foreach(json_decode($request->stops) as $key => $stop) 
+            {
+                if( $stop->main_junction == true  ) {
+            
+                    $request->merge(['pickup_lat' => $stop->pickup_lat]);
+                    $request->merge(['pickup_lng' => $stop->pickup_lng]);
+                    $request->merge(['pickup_address' => $stop->pickup_address]);
+                    $request->merge(['drop_lat' => $stop->drop_lat]);
+                    $request->merge(['drop_lng' => $stop->drop_lng]);
+                    $request->merge(['drop_address' => $stop->drop_address]);
+    
+                }
             }
         }
+     
 
 
         $created_params = $request->except(['stops']);

@@ -59,16 +59,24 @@ class FindRideController extends BaseController
         $rider_places = OfferedRidePlaceStop::
                   leftjoin('offered_ride_places','offered_ride_places.id','offered_place_stops.ride_place_id')
                 ->leftjoin('users','users.id','offered_ride_places.rider_id')
-                ->select('offered_place_stops.*')
+                ->select('offered_place_stops.*','offered_ride_places.start_time')
                 ->selectRaw("{$haversine} AS distance")
                 ->whereRaw("{$haversine} < ?", [$radius])->selectRaw("{$drop_haversine} AS drop_distance")
                 ->whereRaw("{$drop_haversine} < ?", [$radius])->whereHas('offeredRidePlace', function ($query) use ($request,$before_start_time_string,$after_start_time_string) {
-                    $query->whereDate('date', $request->date)->where('offered_place_stops.active', 1)->whereTime('offered_ride_places.start_time', '>', $before_start_time_string)->whereTime('offered_ride_places.start_time', '<', $after_start_time_string);
+                    $query
+                    ->whereDate('date',explode(' ',$request->date)[0])
+                    ->where('offered_place_stops.active', 1)
+                    ->whereTime('offered_ride_places.start_time', '>', $before_start_time_string)
+                    ->whereTime('offered_ride_places.start_time', '<', $after_start_time_string)
+                    ;
                 });
                 // ->with('offeredRidePlace.riderInfo')
         $rider_places->where('users.gender_based_search',$rider->gender_based_search);
      
         $rider_places = $rider_places->get();
+    
+
+
 
                 // $rider_places[0]->offeredRidePlace->riderInfo->gender_based_search
 
