@@ -52,7 +52,8 @@ class UserTransformer extends Transformer
             'city' => $user->city,
             'gender' => $user->gender,
             'can_create_trip' => ($user->car()->count() == 0)?0:1,
-   
+            'type_icon' => $type = $user->car->type->icon_image,
+
 
         ];
         if (access()->hasRole(Role::DRIVER)) {
