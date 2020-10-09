@@ -85,22 +85,78 @@ class OfferRideController extends BaseController
 
         if ($request->has('stops')) {
 
-            foreach (json_decode($request->stops) as $key => $stop) {
+            $request->stops = json_decode($request->stops);
+
+            foreach ($request->stops as $key => $stop) {
 
                 $offered_place_stop_params = (array)$stop;
                 $offered_place_stop_params['date'] = $request->date;
                 $offered_place_stop_params['start_time'] = $request->start_time;
                 $offered_place_stop_params['price'] = $stop->estimateTotal;
 
+                // 
 
+                $additionalTiming = 5;
+
+                // echo "<pre>";
+                // print_r( 'pickup_lat '.$request->stops[0]->pickup_lat );
+
+                // echo "<pre>";
+                // print_r( 'pickup_lat '.$stop->pickup_lat );
+
+                // echo "<pre>";
+                // print_r( 'pickup_lng '.$request->stops[0]->pickup_lng );
+
+                // echo "<pre>";
+                // print_r( 'pickup_lng '.$stop->pickup_lng );
+
+                if( $request->stops[0]->pickup_lat != $stop->pickup_lat &&  $request->stops[0]->pickup_lng != $stop->pickup_lng ) {
+                    
+                    $googleMatrix = getDistanceMatrix($request->stops[0]->pickup_lat,$request->stops[0]->pickup_lng,$stop->pickup_lat,$stop->pickup_lng);
+
+                    $additionalTiming = $googleMatrix->rows[0]->elements[0]->duration->value / 60;                
                 
-                $rider_offered_place->offeredRidePlaceStops()->create($offered_place_stop_params);
+                }
 
-    
+                $startDate = Carbon::parse($request->date)->addMinutes($additionalTiming)->toDateTimeString(); // 
+
+                $estimateTimeMinute = $stop->etaDetails->estimateTimeMinute / 60;
+
+                $endDate =  Carbon::parse($startDate)->addMinutes($estimateTimeMinute)->toDateTimeString();
+           
+                // echo "<pre>";
+                // print_r( 'stop->pickup_address '.$stop->pickup_address );
+                
+                // echo "<pre>";
+                // print_r( 'stop->drop_address '.$stop->drop_address );
+                
+
+                // echo "<pre>";
+                // print_r( 'date '.$request->date );
+
+                // echo "<pre>";
+                // print_r( 'date '.$request->date );
+
+
+                // echo "<pre>";
+                // print_r( 'estimateTimeSecond '.$stop->etaDetails->estimateTimeSecond );
+
+                // echo "<pre>";
+                // print_r( 'startDate '.$startDate );
+
+                // echo "<pre>";
+                // print_r( 'endDate'.$endDate );
+
+                $offered_place_stop_params['start_at'] = $startDate;
+
+                $offered_place_stop_params['end_at'] = $endDate;
+                 
+                $rider_offered_place->offeredRidePlaceStops()->create($offered_place_stop_params);
 
                 $this->dispatch(new UserWaitingForTripJob($offered_place_stop_params));
 
             }
+
         }
 
 
@@ -224,7 +280,6 @@ class OfferRideController extends BaseController
                         $estimateDistance = $googleMatrix->rows[0]->elements[0]->distance->value;
                         $estimateDistanceInKm = $estimateDistance / 1000;
                         $estimateDistanceAmount = $estimateDistanceInKm * $typePrice->distance_price;
-
                         $estimateTime = $googleMatrix->rows[0]->elements[0]->duration->value;
                         $estimateTimeInMinutes = $estimateTime / 60;
 
@@ -238,7 +293,9 @@ class OfferRideController extends BaseController
                         $etaArray['estimateDistanceAmount'] = $estimateDistanceAmount;
                         $etaArray['estimateTime'] = $googleMatrix->rows[0]->elements[0]->duration->text;
                         $etaArray['estimateTimeAmount'] = $estimateTimeAmount;
-                        
+                        $etaArray['estimateTimeSecond'] = $googleMatrix->rows[0]->elements[0]->duration->value;
+;
+
                         $stopsObject->etaDetails = $etaArray;
                     }
                     

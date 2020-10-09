@@ -36,6 +36,8 @@ class OfferedRidePlaceStopsTransformer extends Transformer
             'drop_lng'=>$ride->drop_lng,
             'currency' => auth()->user()->country()->first()->currency_symbol,
             'price'=>$ride->price,
+            'start_at'=>$ride->start_at,
+            'end_at'=>$ride->end_at,
             'no_of_seats_occupied'=>$ride->offeredRidePlace->no_of_seats_occupied
         ];
 

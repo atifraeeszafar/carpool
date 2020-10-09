@@ -84,9 +84,9 @@ class FindRideController extends BaseController
             $userWaitingForTrip['user_id'] = auth()->user()->id;
 
             $this->userWaitingForTrip->create($userWaitingForTrip);
-        }        
-
-        $result = fractal($rider_places, new OfferedRidePlaceStopsTransformer)->parseIncludes(['riderInfo']);
+        }      
+        
+        $result = fractal($rider_places, new OfferedRidePlaceStopsTransformer)->parseIncludes(['riderInfo.document']);
 
 
         return $this->respondSuccess($result,'ride_list');

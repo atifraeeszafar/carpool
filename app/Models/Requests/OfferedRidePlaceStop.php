@@ -22,7 +22,7 @@ class OfferedRidePlaceStop extends Model
      *
      * @var array
      */
-    protected $fillable = ['active','ride_place_id','pickup_address','drop_address','pickup_lat','pickup_lng','drop_lat','drop_lng','coordinates','price'];
+    protected $fillable = ['start_at','end_at','active','ride_place_id','pickup_address','drop_address','pickup_lat','pickup_lng','drop_lat','drop_lng','coordinates','price'];
 
     /**
      * The relationships that can be loaded with query string filtering includes.
