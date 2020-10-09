@@ -90,7 +90,10 @@ class OfferRideController extends BaseController
                 $offered_place_stop_params = (array)$stop;
                 $offered_place_stop_params['date'] = $request->date;
                 $offered_place_stop_params['start_time'] = $request->start_time;
+                $offered_place_stop_params['price'] = $stop->estimateTotal;
 
+
+                
                 $rider_offered_place->offeredRidePlaceStops()->create($offered_place_stop_params);
 
     

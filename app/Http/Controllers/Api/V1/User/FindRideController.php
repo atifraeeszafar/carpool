@@ -69,14 +69,12 @@ class FindRideController extends BaseController
                     ->whereTime('offered_ride_places.start_time', '>', $before_start_time_string)
                     ->whereTime('offered_ride_places.start_time', '<', $after_start_time_string)
                     ;
-                });
-                // ->with('offeredRidePlace.riderInfo')
+                })->with('offeredRidePlace');
+                // 
         $rider_places->where('users.gender_based_search',$rider->gender_based_search);
      
         $rider_places = $rider_places->get();
     
-
-
 
                 // $rider_places[0]->offeredRidePlace->riderInfo->gender_based_search
 
