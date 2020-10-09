@@ -8,6 +8,8 @@ use App\Transformers\Transformer;
 use App\Transformers\Access\RoleTransformer;
 use App\Transformers\User\UserDocumentTransformer;
 use App\Base\Constants\Document\DocumentStatus;
+use App\Transformers\TypeTransformer;
+
 
 class UserTransformer extends Transformer
 {
@@ -17,7 +19,7 @@ class UserTransformer extends Transformer
      * @var array
      */
     protected $availableIncludes = [
-        'roles','document','ride','carmodel'
+        'roles','document','ride','carmodel','types'
     ];
 
     /**
@@ -50,8 +52,7 @@ class UserTransformer extends Transformer
             'city' => $user->city,
             'gender' => $user->gender,
             'can_create_trip' => ($user->car()->count() == 0)?0:1,
-            'type_name' => $user->car->type->name,
-            'type_icon' => $user->car->type->icon,
+   
 
         ];
         if (access()->hasRole(Role::DRIVER)) {
@@ -89,6 +90,17 @@ class UserTransformer extends Transformer
         return $document
         ? $this->collection($document, new UserDocumentTransformer)
         : $this->null();
+    }
+
+    public function includeTypes(User $user)
+    {
+
+        $type = $user->car->type;
+
+        return $type
+		? $this->item($type, new TypeTransformer)
+        : $this->null();
+    
     }
 
     public function includeRide(User $user)

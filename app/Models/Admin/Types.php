@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Admin\ServiceLocation;
 use Nicolaslopezj\Searchable\SearchableTrait;
+use Illuminate\Support\Facades\Storage;
 
 class Types extends Model {
 
@@ -42,10 +43,10 @@ class Types extends Model {
 	];
 
 	public function getIconImageAttribute(){
-		if(empty($this->image)){
+		if(empty($this->icon)){
 			return null;
 		}
-		return Storage::disk(env('FILESYSTEM_DRIVER'))->url(file_path($this->uploadPath(), $this->image));
+		return Storage::disk(env('FILESYSTEM_DRIVER'))->url(file_path($this->uploadPath(), $this->icon));
 	}
 
 	
