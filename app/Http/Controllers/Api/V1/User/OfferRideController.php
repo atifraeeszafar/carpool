@@ -139,7 +139,7 @@ class OfferRideController extends BaseController
 
 
                 // echo "<pre>";
-                // print_r( 'estimateTimeSecond '.$stop->etaDetails->estimateTimeSecond );
+                // print_r( 'estimateTimeMinute '.$stop->etaDetails->estimateTimeMinute );
 
                 // echo "<pre>";
                 // print_r( 'startDate '.$startDate );
@@ -293,7 +293,7 @@ class OfferRideController extends BaseController
                         $etaArray['estimateDistanceAmount'] = $estimateDistanceAmount;
                         $etaArray['estimateTime'] = $googleMatrix->rows[0]->elements[0]->duration->text;
                         $etaArray['estimateTimeAmount'] = $estimateTimeAmount;
-                        $etaArray['estimateTimeSecond'] = $googleMatrix->rows[0]->elements[0]->duration->value;
+                        $etaArray['estimateTimeMinute'] = $googleMatrix->rows[0]->elements[0]->duration->value;
 ;
 
                         $stopsObject->etaDetails = $etaArray;

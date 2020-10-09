@@ -17,7 +17,7 @@ class UserTransformer extends Transformer
      * @var array
      */
     protected $availableIncludes = [
-        'roles','document','ride'
+        'roles','document','ride','carmodel'
     ];
 
     /**
@@ -27,6 +27,7 @@ class UserTransformer extends Transformer
      */
     public function transform(User $user)
     {
+
         $params = [
             'id' => $user->id,
             'name' => $user->name,
@@ -49,6 +50,8 @@ class UserTransformer extends Transformer
             'city' => $user->city,
             'gender' => $user->gender,
             'can_create_trip' => ($user->car()->count() == 0)?0:1,
+            'type_name' => $user->car->type->name,
+            'type_icon' => $user->car->type->icon,
 
         ];
         if (access()->hasRole(Role::DRIVER)) {
