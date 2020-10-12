@@ -324,10 +324,12 @@ class LoginController extends ApiController
     {
         event(new UserLogin($user));
 
-
         if ($needsToken) {
             $client_tokens = DB::table('oauth_clients')->where('password_client', 1)->first();
-            // dd($client_tokens);
+
+            // echo "<pre>";
+            // print_r( $client_tokens);
+            // dd($request->all());
             // @TODO Store login by,fcm,apn tokens
 
             if ($request->has('device_token')) {
@@ -341,6 +343,10 @@ class LoginController extends ApiController
             $user->fresh();
 
             if ($request->has('password')) {
+
+
+
+
                 return $this->issueToken([
                 'grant_type' => 'password',
                 'client_id' => $client_tokens->id,
@@ -349,6 +355,7 @@ class LoginController extends ApiController
                 'password' => $request->input('password'),
             ]);
             } else {
+
                 $client_tokens = DB::table('oauth_clients')->where('personal_access_client', 1)->first();
 
                 return $this->issueToken([
@@ -373,6 +380,8 @@ class LoginController extends ApiController
      */
     protected function issueToken(array $data)
     {
+
+
         return app(AccessTokenController::class)
             ->issueToken(app(ServerRequestInterface::class)->withParsedBody($data));
     }

@@ -52,10 +52,10 @@ class UserTransformer extends Transformer
             'city' => $user->city,
             'gender' => $user->gender,
             'can_create_trip' => ($user->car()->count() == 0)?0:1,
-            'type_icon' => $type = $user->car->type->icon_image,
-
+            'type_icon' =>  ($user->car)?$user->car->type->icon_image:null,
 
         ];
+        
         if (access()->hasRole(Role::DRIVER)) {
             $params['service_location_id'] = $user->driver->service_location_id;
             $params['vehicle_type'] = $user->driver->vehicle_type;
@@ -95,6 +95,10 @@ class UserTransformer extends Transformer
 
     public function includeTypes(User $user)
     {
+
+        if(!$user->car) {
+           return $this->null();
+        }
 
         $type = $user->car->type;
 

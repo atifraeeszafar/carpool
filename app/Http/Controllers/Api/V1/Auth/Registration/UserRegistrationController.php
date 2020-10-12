@@ -117,16 +117,16 @@ class UserRegistrationController extends LoginController
         } catch (\Exception $e) {
             DB::rollBack();
 
-            echo "<pre>";
-            print_r($e->getMessage());
-
-            die();
-
             Log::error($e);
             Log::error('Error while Registering a user account. Input params : ' . json_encode($request->all()));
             return $this->respondBadRequest('Unknown error occurred. Please try again later or contact us if it continues.');
-        }
+        }   
+
+        // dD($user);
+
         DB::commit();
+
+
         return $this->authenticateAndRespond($user, $request, $needsToken=true);
 
         // return $this->respondSuccess();

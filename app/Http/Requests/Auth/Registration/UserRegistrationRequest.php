@@ -14,10 +14,13 @@ class UserRegistrationRequest extends BaseRequest
     public function rules()
     {
 
+        // dD(\Carbon\Carbon::parse($this->date_of_birth)->format('Y-m-d'));
+        // dD($this->date_of_birth);
+
         return [
             'name' => 'required|max:50',
             'last_name' => 'required|max:50',
-            'date_of_birth' => 'required|date|date_format:Y-m-d',
+            'date_of_birth' => 'required|date_format:Y-m-d',
             'gender' => 'required|in:1,2,3',
             'city' => 'required|max:25',
             'email' => 'required|email|max:150|unique:users,email',
